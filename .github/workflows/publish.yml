@@ -17,6 +17,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install TinyTeX
+        run: |
+          Rscript -e 'install.packages("tinytex", repos="https://cloud.r-project.org")'
+          Rscript -e 'tinytex::install_tinytex()'
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
