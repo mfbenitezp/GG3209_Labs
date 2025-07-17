@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GG3209 - Spatial Analysis with GIS - Data Sources</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./Lab_3.html" rel="prev">
+<link href="./images/StA.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">GG3209 - Spatial Analysis with GIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./intro.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DataSources.html" rel="" target="">
+ <span class="menu-text">Data Sources</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+    <a href="./GG3209—Spatial-Analysis-with-GIS.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DataSources.html">Data Sources</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this site</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gg3209_install_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Environment Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 1: Intro to Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 2: Python Basics - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 3: Python Basics - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DataSources.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data Sources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#scottish-spatial-data-infrastructure-ssdi" id="toc-scottish-spatial-data-infrastructure-ssdi" class="nav-link active" data-scroll-target="#scottish-spatial-data-infrastructure-ssdi">1. Scottish Spatial Data Infrastructure (SSDI)</a></li>
+  <li><a href="#scotlands-environment-web" id="toc-scotlands-environment-web" class="nav-link" data-scroll-target="#scotlands-environment-web">2. Scotland’s Environment Web</a></li>
+  <li><a href="#spatial-hub-improvement-service" id="toc-spatial-hub-improvement-service" class="nav-link" data-scroll-target="#spatial-hub-improvement-service">3. Spatial Hub (Improvement Service)</a></li>
+  <li><a href="#uk-government-data-portal-data.gov.uk" id="toc-uk-government-data-portal-data.gov.uk" class="nav-link" data-scroll-target="#uk-government-data-portal-data.gov.uk">4. UK Government Data Portal (data.gov.uk)</a></li>
+  <li><a href="#ordnance-survey-opendata" id="toc-ordnance-survey-opendata" class="nav-link" data-scroll-target="#ordnance-survey-opendata">5. Ordnance Survey OpenData</a></li>
+  <li><a href="#national-records-of-scotland-nrs-geography" id="toc-national-records-of-scotland-nrs-geography" class="nav-link" data-scroll-target="#national-records-of-scotland-nrs-geography">6. National Records of Scotland (NRS) Geography</a></li>
+  <li><a href="#office-for-national-statistics-ons-geography" id="toc-office-for-national-statistics-ons-geography" class="nav-link" data-scroll-target="#office-for-national-statistics-ons-geography">7. Office for National Statistics (ONS) Geography</a></li>
+  <li><a href="#defra-data-services-platform" id="toc-defra-data-services-platform" class="nav-link" data-scroll-target="#defra-data-services-platform">8. DEFRA Data Services Platform</a></li>
+  <li><a href="#openstreetmap-geofabrik-uk-extracts" id="toc-openstreetmap-geofabrik-uk-extracts" class="nav-link" data-scroll-target="#openstreetmap-geofabrik-uk-extracts">9. OpenStreetMap (Geofabrik UK Extracts)</a></li>
+  <li><a href="#edinburgh-geoportal" id="toc-edinburgh-geoportal" class="nav-link" data-scroll-target="#edinburgh-geoportal">10. Edinburgh GeoPortal</a></li>
+  <li><a href="#glasgow-geoportal" id="toc-glasgow-geoportal" class="nav-link" data-scroll-target="#glasgow-geoportal">11. Glasgow GeoPortal</a></li>
+  <li><a href="#arcgis-living-atlas-uk-content" id="toc-arcgis-living-atlas-uk-content" class="nav-link" data-scroll-target="#arcgis-living-atlas-uk-content">12. ArcGIS Living Atlas (UK content)</a></li>
+  <li><a href="#arcgis-living-atlas-uk-content-1" id="toc-arcgis-living-atlas-uk-content-1" class="nav-link" data-scroll-target="#arcgis-living-atlas-uk-content-1">13. ArcGIS Living Atlas (UK content)</a></li>
+  <li><a href="#urban-big-data-centre" id="toc-urban-big-data-centre" class="nav-link" data-scroll-target="#urban-big-data-centre">14. Urban Big Data Centre</a></li>
+  <li><a href="#tips-for-students" id="toc-tips-for-students" class="nav-link" data-scroll-target="#tips-for-students">Tips for students</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Sources</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This is a list of web portals where you can access open and authoritative <strong>geospatial data</strong> for the UK and Scotland. These sources can be used to download shapefiles, connect to live web services, and enrich your <strong>ArcGIS Online</strong> projects with meaningful local datasets.</p>
+<hr>
+<section id="scottish-spatial-data-infrastructure-ssdi" class="level2">
+<h2 class="anchored" data-anchor-id="scottish-spatial-data-infrastructure-ssdi">1. <a href="https://www.spatialdata.gov.scot/">Scottish Spatial Data Infrastructure (SSDI)</a></h2>
+<p>The official portal for discovering and accessing spatial datasets from Scottish public bodies.</p>
+<p><strong>Data Available:</strong> - Administrative boundaries - Environmental and natural heritage data - Planning and infrastructure - Marine and coastal datasets - Data formats: Shapefiles, GeoJSON, WMS, WFS</p>
+<hr>
+</section>
+<section id="scotlands-environment-web" class="level2">
+<h2 class="anchored" data-anchor-id="scotlands-environment-web">2. <a href="https://www.environment.gov.scot/">Scotland’s Environment Web</a></h2>
+<p>A partnership platform providing environmental datasets and interactive maps.</p>
+<p><strong>Data Available:</strong> - Land cover and land use - Air and water quality - Biodiversity and habitats - Climate and emissions - Tools: Map viewers, WMS services, downloadable shapefiles</p>
+<hr>
+</section>
+<section id="spatial-hub-improvement-service" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-hub-improvement-service">3. <a href="https://www.spatialhub.scot/">Spatial Hub (Improvement Service)</a></h2>
+<p>Aggregates and publishes spatial data provided by all 32 Scottish local authorities.</p>
+<p><strong>Data Available:</strong> - Planning applications - Housing land audits - School catchments - Local development plans - Data formats: Shapefiles, WMS, GeoJSON (registration may be required)</p>
+<hr>
+</section>
+<section id="uk-government-data-portal-data.gov.uk" class="level2">
+<h2 class="anchored" data-anchor-id="uk-government-data-portal-data.gov.uk">4. <a href="https://data.gov.uk/">UK Government Data Portal (data.gov.uk)</a></h2>
+<p>The central open data portal for the UK government.</p>
+<p><strong>Data Available:</strong> - Transport networks - Health and social care - Demographics and census - Crime and safety - Environment and energy - Formats: CSV, GeoJSON, Shapefiles, APIs, WMS/WFS services</p>
+<hr>
+</section>
+<section id="ordnance-survey-opendata" class="level2">
+<h2 class="anchored" data-anchor-id="ordnance-survey-opendata">5. <a href="https://osdatahub.os.uk/">Ordnance Survey OpenData</a></h2>
+<p>The UK’s national mapping agency providing a range of open and premium geographic datasets.</p>
+<p><strong>Data Available:</strong> - OpenMap Local (general-purpose vector mapping) - OS Open Roads, OS Open Rivers - Boundary-Line (administrative boundaries) - Access via: Downloads, APIs, and ArcGIS-ready formats</p>
+<hr>
+</section>
+<section id="national-records-of-scotland-nrs-geography" class="level2">
+<h2 class="anchored" data-anchor-id="national-records-of-scotland-nrs-geography">6. <a href="https://webarchive.nrscotland.gov.uk/20241128122737/https://www.nrscotland.gov.uk/statistics-and-data/geography/our-products">National Records of Scotland (NRS) Geography</a></h2>
+<p>Provides the official statistical geographies for Scotland.</p>
+<p><strong>Data Available:</strong> - Data zones and Intermediate Zones - Census output areas - Health boards, local authorities - Formats: Shapefiles, GeoJSON</p>
+<hr>
+</section>
+<section id="office-for-national-statistics-ons-geography" class="level2">
+<h2 class="anchored" data-anchor-id="office-for-national-statistics-ons-geography">7. <a href="https://geoportal.statistics.gov.uk/">Office for National Statistics (ONS) Geography</a></h2>
+<p>Geospatial portal from the ONS offering boundary data and census geography.</p>
+<p><strong>Data Available:</strong> - Statistical geographies (LSOA, MSOA) - Census 2011 and 2021 boundaries - Parliamentary constituencies - Downloadable in ESRI Shapefile and GeoPackage formats</p>
+<hr>
+</section>
+<section id="defra-data-services-platform" class="level2">
+<h2 class="anchored" data-anchor-id="defra-data-services-platform">8. <a href="https://environment.data.gov.uk/">DEFRA Data Services Platform</a></h2>
+<p>UK Government’s portal for environment-related data and services.</p>
+<p><strong>Data Available:</strong> - Flood risk zones - Agricultural land classification - River networks and water quality - Waste and recycling facilities - Access via: Shapefiles, APIs, WMS/WFS</p>
+<hr>
+</section>
+<section id="openstreetmap-geofabrik-uk-extracts" class="level2">
+<h2 class="anchored" data-anchor-id="openstreetmap-geofabrik-uk-extracts">9. <a href="https://download.geofabrik.de/europe/great-britain.html">OpenStreetMap (Geofabrik UK Extracts)</a></h2>
+<p>Extracts from OpenStreetMap for Great Britain, including Scotland.</p>
+<p><strong>Data Available:</strong> - Buildings, highways, land use, points of interest - Routable and editable map data - Formats: .osm.pbf, shapefiles (via tools like osmconvert or QGIS plugins)</p>
+<hr>
+</section>
+<section id="edinburgh-geoportal" class="level2">
+<h2 class="anchored" data-anchor-id="edinburgh-geoportal">10. <a href="https://data.edinburghcouncilmaps.info/">Edinburgh GeoPortal</a></h2>
+<p>A geospatial data repository from Edinburgh with open datasets.</p>
+<p><strong>Data Available:</strong> - Local and global environmental data - Terrain and elevation - Land cover and vegetation indexes - Datasets relevant for climate change, ecology, and earth observation</p>
+<hr>
+</section>
+<section id="glasgow-geoportal" class="level2">
+<h2 class="anchored" data-anchor-id="glasgow-geoportal">11. <a href="https://data.glasgow.gov.uk/">Glasgow GeoPortal</a></h2>
+<p>A geospatial data repository from Glasgow with open datasets.</p>
+<p><strong>Data Available:</strong> - Local and global environmental data - Terrain and elevation - Land cover and vegetation indexes - Datasets relevant for climate change, ecology, and earth observation</p>
+<hr>
+</section>
+<section id="arcgis-living-atlas-uk-content" class="level2">
+<h2 class="anchored" data-anchor-id="arcgis-living-atlas-uk-content">12. <a href="https://livingatlas.arcgis.com/en/home/">ArcGIS Living Atlas (UK content)</a></h2>
+<p>ESRI’s curated collection of geographic information, including UK-specific content.</p>
+<p><strong>Data Available:</strong> - Demographics, base maps, boundaries - Real-time environmental data - Accessible directly from ArcGIS Online for instant use</p>
+<hr>
+</section>
+<section id="arcgis-living-atlas-uk-content-1" class="level2">
+<h2 class="anchored" data-anchor-id="arcgis-living-atlas-uk-content-1">13. <a href="https://livingatlas.arcgis.com/en/browse/#d=2&amp;rgnCode=GB">ArcGIS Living Atlas (UK content)</a></h2>
+<p>ESRI’s curated collection of geographic information, including UK-specific content.</p>
+<p><strong>Data Available:</strong> - Demographics, base maps, boundaries - Real-time environmental data - Accessible directly from ArcGIS Online for instant use</p>
+<hr>
+</section>
+<section id="urban-big-data-centre" class="level2">
+<h2 class="anchored" data-anchor-id="urban-big-data-centre">14. <a href="https://data.ubdc.ac.uk/datasets">Urban Big Data Centre</a></h2>
+<p>Urban Big Data Centre is a dynamic national research hub and data service, championing the use of smart data to inform policymaking and enhance the quality of urban life.</p>
+<p><strong>Data Available:</strong> - Transport and Mobility, Housing and property, Labor Market, Environment.</p>
+</section>
+<section id="tips-for-students" class="level2">
+<h2 class="anchored" data-anchor-id="tips-for-students">Tips for students</h2>
+<ul>
+<li>Many of these platforms offer <strong>shapefiles</strong>, <strong>WMS</strong> or <strong>ArcGIS REST endpoints</strong>, which can be added directly to your <strong>ArcGIS Online</strong> web map.</li>
+<li>Make sure to always <strong>cite the data source</strong> in your apps or reports.</li>
+<li>For reproducibility, <strong>record the download date</strong> and dataset version.</li>
+<li>Use <strong>filtering and geoprocessing tools</strong> in ArcGIS Online to tailor data to your study area.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Lab_3.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab No 3: Python Basics - Part 2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

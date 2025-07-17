@@ -1,0 +1,46 @@
+project:
+  type: book
+
+book:
+  title: "GG3209 - Spatial Analysis with GIS"
+  subtitle: "Technical Practices using Python"
+  author: "Fernando Benitez-Paez"
+  date: "7/3/2025"
+  favicon: "images/StA.png"
+  downloads: [pdf]
+  sidebar:
+    style: "floating"
+  navbar:
+    background: light
+    search: true
+    right:
+      - text: "Home"
+        href: index.qmd
+      - intro.qmd
+      - DataSources.qmd
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - gg3209_install_guide.qmd
+    - Lab_1.qmd
+    - Lab_2.qmd
+    - Lab_3.qmd
+    - DataSources.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    respect-user-color-scheme: true
+    theme:
+      light: cosmo
+      dark:
+        - theme-dark.scss
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+execute:
+  freeze: auto

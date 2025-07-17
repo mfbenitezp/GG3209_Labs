@@ -1,0 +1,521 @@
+# Lab No 2: Python Basics - Part 1 {.unnumbered}
+
+## Introduction
+
+Now you have acquired some basic skills of creating new notebooks, run your python environment, the next step and certainty the long process is to learn the python basics of this programming language. This will give you an idea of the 'grammar' that python includes.
+
+Please go to each cell and address the challenges/questions when is required.
+
+## Content:
+
+1.  How to deal with **variables**.
+2.  Explain the difference between **Python data types**.
+3.  Perform mathematical and logical operations.
+4.  Work with **lists**, **tuples**, **sets**, and **dictionaries**.
+5.  Apply appropriate **methods** to different data types.
+
+If you need more information or examples, here it is a great resource [w3school.com](https://www.w3schools.com/python/).
+
+## Variables
+
+You can think of a **Variable** as anything that related to information or data. A Variable can be a file path on your local machine, could be also a path to a shapefile, could be just a number or letter. Once you create a variable you are assigning a certain space of memory on your computer to storage that information. So you could use it or call it to reference the associated data or object for use in processes and analyses. Note that there are some rules for variable names:
+
+There are certain considerations:
+
+-   cannot start with a number or special character (or, can only start with a letter or an underscore) (for example, x1 is valid while 1x is not.).
+-   can only contain letters, numbers, or underscores. No other special characters are allowed (for example, x, x1, \_x, and x1\_ are all valid. x\$ is not valid.).
+-   are case-sensitive (for example, x1 and X1 are two separate variables).
+
+Since Python is an object-based language, you will primarily interact with your data using variables. The *print()* function is used to print the data referenced by the variable.
+
+``` python
+x = 1
+y = "Python"
+x1 = 2
+y1 = "Spatial Data"
+_x = 3
+_y = "Web GIS"
+print(x)
+print(y)
+print(x1)
+print(y1)
+print(_x)
+print(_y)
+```
+
+You can also assign data to multiple variables as a single line of code as demonstrated below. In Python variable names are dynamic, so you can overwrite them. This can, however, be problematic if you overwrite a variable name accidentally. So, use unique names if you do not want to overwrite prior variable.
+
+``` python
+x, x1, _x = 1, 2, 3
+print(x)
+print(x1)
+print(_x)
+```
+
+**Assignment Operators** are used to assign values or data to variables. The most commonly used operator is *=*. However, there are some other options that allow variables to be manipulated mathematically with the resulting value saved back to the original data object that the variable references. These additional assignment operators can be useful, but you will use the *=* operator most of the time.
+
+For example, *+=* will add a value to the current value and assign the result back to the original variable. In the first example below, *x* references the value 2. The *+=* assignment operator is then used to add 3 to *x* and save the result back to *x*. Work through the provided examples and make sure you understand the use of each operator.
+
+``` python
+x = 2
+print(x)
+x += 3
+print(x)
+
+x = 2
+print(x)
+x -= 3
+print(x)
+
+x = 2
+print(x)
+x *= 3
+print(x)
+
+x = 2
+print(x)
+x /= 3
+print(x)
+
+x = 2
+print(x)
+x **= 3
+print(x)
+```
+
+#### Important Note:
+
+In the cell bellow, you will run small experiment that explains some important behavior of Python. You have defined a variable *a* that holds a **list** of three values. We will discuss **lists** later in this section. Now, you create a new variable *b* and assign it to be equal to *a*. Layer you edit the variable *a* by appending a new value to the list (You will see how this is done later, so don't worry if you don't understand how this works yet). When you print *a* and *b*, you can see that both variables contain the same set of numbers in the list even though you added 8 to *a* after setting *b* equal to *a*. Or, the change that you made to *a* was also applied to *b*.
+
+In Python, certain types of objects, such as lists, are **mutable**. This means that it is possible to change the data stored in memory and referenced to the variable. When a mutable object is altered, all variables that point to it will reflect this change. What this means practically is that setting *b* equal to *a* results in *a* and *b* pointing to the same object or data in memory. So, changes to *a* or *b* will be reflected in both variables since the data being referenced by both have been updated.
+
+If you have experience in **R**, and I guess you do, you will see how Python is different, as in R, setting a variable equal to another variable would make a copy that was not linked and could be altered without changing the original variable.
+
+To test whether two variables reference the same object in memory, you can use the *is* keyword. if *True* is returned, then they reference the same object. You can also print the object ID, which represents the memory address for the object, using the *id()* function. Using both methods below, you can see that *a* and *b* reference the same object.
+
+``` python
+a = [5, 6, 7]
+b = a
+a.append(8)
+print(a)
+print(b)
+
+print(a is b)
+print(id(a))
+print(id(b))
+```
+
+What if you wanted to make a copy of a variable referencing mutable data that does not reference the same object?
+
+For example, you may want to be able to make changes to *a* that do not impact *b*. This can be accomplished using the *copy()* or *deepcopy()* functions from the **copy** module.
+
+Check how now we import a new package, module or library to get new functionalities.
+
+In the experiment below, You have defined *b* as a deep copy of *a*. Now, changes made to *a* do not impact *b*. This is because they do not reference the same object in memory since *deepcopy()* makes a copy of the object or data to a new location in memory. This is confirmed using *is* and *id()*.
+
+``` python
+import copy
+a = [5, 6, 7]
+b = copy.deepcopy(a)
+a.append(8)
+print(a)
+print(b)
+
+print(a is b)
+print(id(a))
+print(id(b))
+```
+
+## Comments (Important for clear and scalable coding)
+
+Now please pay attention as this is the key of many developers and analysts, you need to learn how to commenting your code. **Comments** are used to make your code more readable and are not interpreted by the computer. Instead, they are skipped and meant for humans. Different languages use different syntax to denote comments. Python uses the hashtag or pound sign. You can add comments as new lines or following code on the same line.
+
+**Unfortunately**, Python does not have specific syntax for multi-line comments. However, this can be accomplished by adding hashtags before each separate line or using a multi-line string that is not assigned to a variable. Examples are shown below.
+
+It is generally a good idea to comment your code for later use and for use by others. In fact you need to comment your code for all assignments and exercises you run in this part of the course.
+
+``` python
+#Single-line comment
+x = 1
+y = 2 #Another single-line comment
+#A
+#multi-line
+#comment
+z = 3
+"""
+Another multi-line comment
+"""
+w = 4
+```
+
+## Data Types
+
+A variety of **data types** are available in Python to store and work with a variety of input. Below are explanations of the data types which you will use most often. There are additional types that we will not discuss.
+
+When creating a variable, it is not generally necessary to explicitly define the data type. However, this can be accomplished using **constructor functions** if so desired. Constructor functions can also be used to change the data type of a variable, a process known as **casting**.
+
+Available constructor methods include *str()*, *int()*, *float()*, *complex()*, *list()*, *tuple()*, *dict()*, *set()*, and *bool()*.
+
+To determine the data type, you can use the *type()* function. See the examples below where I convert an integer to a float and then a float to a string.
+
+-   **Numeric**
+    -   **Int** = whole numbers
+    -   **Float** = numbers with decimal values
+    -   **Complex** = can include imaginary numbers
+-   **Text**
+    -   **String** = characters or numbers treated as characters
+-   **Boolean**
+    -   **Boolean** = logical *True* or *False*
+-   **Sequence**
+    -   **List** = list of features that can be re-ordered, allows for duplicates, and is indexed
+    -   **Tuple** = list of features that cannot be re-ordered, allows for duplicates, and is indexed
+-   **Mapping**
+    -   **Dictionary** = list of features that can be re-ordered, does not allow duplicates, is indexed, and contains **key** and **value** pairs
+-   **Set**
+    -   **Set** = list of features that are unordered, not indexed, and does not allow for duplicates
+
+``` python
+#Create a variable and check the data type
+x = 1
+print(type(x))
+#Change the data type
+x = float(x)
+print(type(x))
+x= str(x)
+print(type(x))
+```
+
+### Numbers
+
+Regardless of the the type (integer, float, or complex), numbers are defined without using quotes. If a number is placed in quotes it will be treated as a string as demonstrated below. This is important, since the behavior of the data is altered. In the example, *x* represents 1 as a number while *y* represents "1" as a string (note the quotes). Adding *x* to itself will yield 2 (1 + 1). Adding *y* to itself will yield "11", or the two strings are combined or **concatenated**.
+
+``` python
+#Create variables
+x = 1
+y = "1"
+print(x + x)
+print(y + y)
+```
+
+**Numbers** support mathematical operations, as demonstrated below. If you are not familiar with these concepts, **modulus** will return the remainder after division while **floor division** will round down to the nearest whole number after division.
+
+If a whole number has no decimal values included or no period (1 vs. 1. or 1.0), this implies that the output is in the integer data type as opposed to float type.
+
+``` python
+x = 4
+y = 3
+print(x + y) #Addition
+print(x - y) #Subtraction
+print(x * y) #Multiplication
+print(x / y) #Division
+print(x % y) #Modulus
+print(x ** y) #Exponentiation
+print(x // y) #Floor Division
+```
+
+### Strings
+
+**Strings** are defined using single or double quotes. If quotes are included as part of the text or string, then you can use the other type to define the data as text. Again, numbers placed in quotes will be treated as strings.
+
+``` python
+x = "Python"
+y = "is great" #Must use double quotes since a single quote is use in the string
+z = "2" #Number treated as a string
+print (x,y,z)
+```
+
+Portions of a string can be sliced out using **indexes**.
+
+**Very important note**: In Python the indexing starts at 0 as opposed to 1., like in **R** So, the first character is at index 0 as opposed to index 1. Negative indexes can be used to index relative to the end of the string. In this case, the last character has an index of -1.
+
+Indexes combined with square brackets can be used to slice strings. Note that the last index specified in the selection or range will not be included and that spaces are counted in the indexing.
+
+``` python
+x = "GG3209 Spatial Analysis with GIS"
+print(x[0:6])
+print(x[7:14])
+print(x[15:23])
+print(x[-3:])
+```
+
+Strings can be combined or **concatenated** using the addition sign. If you want to include a number in the string output, you can **cast** it to a string using *str()*. In the example below, note the use of blank spaces so that the strings are not ran together.
+
+The *len()* function can be used to return the length of the string, which will count blank spaces along with characters.
+
+``` python
+x = "Spatial"
+xx="GG"
+y = 3209
+z = "Analysis"
+w = "With Python"
+strng1 = xx + str(y) + " "+ x + " " + z + " " + w
+print(strng1)
+print(len(strng1))
+```
+
+### Method
+
+A **method** is a function that belongs to or is associated with an object. Or, it allows you to work with or manipulate the object and its associated properties in some way. Data types have default methods that can be applied to them.
+
+Methods applicable to strings are demonstrated below. Specifically, methods are being used to change the case and split the string at each space to save each component to a list.
+
+``` python
+x = "GG3209 Spatial Analysis with GIS"
+print(x.upper())
+print(x.lower())
+lst1 = x.split(" ")
+print(lst1)
+```
+
+When generating strings, issues arise when you use characters that have special uses or meaning in Python. These issues can be alleviated by including an **escape character** or backslash as demonstrated below.
+
+``` python
+s1 = "Issue with \"quotes\" in the string."
+s2 = "C:\\data\\project_1" #Issue with file paths. 
+s3 = "Add a new line \nto text string"
+print(s1)
+print(s2)
+print(s3)
+```
+
+### Booleans
+
+**Booleans** can only be *True* or *False* and are often returned when an expression is logically evaluated.
+
+A variety of **comparison operators** are available. Note the use of double equals; a single equals cannot be used since it is already used for variable assignment, or is an assignment operator, and would thus be ambiguous.
+
+-   **Comparison Operators**
+    -   **Equal**: ==
+    -   **Not Equal**: !=
+    -   **Greater Than**: \>
+    -   **Greater Than or Equal To**: \>=
+    -   **Less Than**: \<
+    -   **Less Than or Equal To**: \<=
+
+Logical statements or multiple expressions can be combined using **Logical Operators**.
+
+-   **Logical Operators**:
+    -   A AND B: **and**
+    -   A OR B: **or**
+    -   A NOT B: **not**
+
+``` python
+x = 3
+y = 7
+z = 2
+print(x == 7)
+print(x > y)
+print(x < y)
+
+print(x < y and x > z)
+print(x < y and x < z)
+print(x < y or x < z)
+```
+
+You can also assign Booleans to a variable. Note that you do not use quotes, as that would cause the text to be treated as a string instead of a Boolean.
+
+``` python
+x = "True"
+y = True
+print(type(x))
+print(type(y))
+```
+
+### Lists
+
+Now one of the very relevant type of objects in Python. **Lists** allow you to store multiple numbers, strings, or Booleans in a single variable. Square brackets are used to denote lists.
+
+Items in a **list** are ordered, indexed, and allow for duplicate members. Indexing starts at 0. If counting from the end, you start at -1 and subtract as you move left. A colon can be used to denote a range of indexes, and an empty argument before the colon indicates to select all elements up to the element following the colon while an empty argument after the colon indicates to select the element at the index specified before the colon and all features up to the end of the list. The element at the last index is not included in the selection.
+
+Python lists can contain elements of different data types.
+
+``` python
+lst1 = [6, 7, 8, 9, 11, 2, 0]
+lst2 = ["A", "B", "C", "D", "E"]
+lst3 = [True, False, True, True, True, False]
+print(lst1[0])
+print(lst1[0:3])
+print(lst2[-4:-1])
+print(lst2[:3])
+print(lst2[3:])
+lst4 = [1, 2, "A", "B", True]
+print(type(lst4[0]))
+print(type(lst4[2]))
+print(type(lst4[4]))
+```
+
+When the *len()* function is applied to a list, it will return the number of items or elements in the list as opposed to the number of characters. When applied to a string item in a list, this function will return the length of the string.
+
+``` python
+lst1 = ["A", "B", "C", "D", "E"]
+print(len(lst1))
+print(len(lst1[0]))
+```
+
+The code below shows some example methods for strings.
+
+``` python
+lst1 = ["A", "B", "C", "D", "E"]
+lst1.append("F") #Add item to list
+print(lst1)
+lst1.remove("F") #Remove item from a list
+print(lst1) 
+lst1.insert(2, "ADD") #Add item to list at defined position 
+print(lst1)
+lst1.pop(2) #Remove item at specified index or the last item if no index is provided
+print(lst1)
+```
+
+As explained above, in order to copy a list and not just reference the original data object, you must use the *copy()* or *deepcopy()* method. Simply setting a new variable equal to the original list will cause it to reference the original data object, so changes made to the old list will update to the new list. This is demonstrated in the example below.
+
+``` python
+lst1 = ["A", "B", "C", "D", "E"]
+lst2 = lst1
+lst3 = lst1.copy()
+print(lst2)
+print(lst3)
+lst1.append("F")
+print(lst2)
+print(lst3)
+```
+
+Lists can be concatenated together, or a list can be appended to another list, using the methods demonstrated below.
+
+``` python
+lst1 = ["A", "B", "C"]
+lst2 = ["D", "E", "F"]
+lst3 = lst1 + lst2
+print(lst1)
+print(lst2)
+print(lst3)
+lst1.extend(lst2)
+print(lst1)
+```
+
+Lastly, lists can contain other lists, tuples, or dictionaries, which will be discussed below. In the example, *lst2* contains four elements, the last of which is a list with three elements.
+
+``` python
+lst1 = ["A", "B", "C"]
+lst2 = ["D", "E", "F", lst1]
+print(lst2)
+```
+
+### Tuples
+
+**Tuples** are similar to lists in that they are ordered and allow duplicate elements. However, they cannot be altered by adding items, removing items, or changing the order of items. To differentiate them from lists, parenthesis are used as opposed to square brackets. Think of tuples as lists that are protected from alteration, so you could use them when you want to make sure you don't accidentally make changes.
+
+If you need to change a tuple, it can be converted to a list, manipulated, then converted back to a tuple.
+
+``` python
+t1 = (1, 3, 4, 7)
+print(type(t1))
+```
+
+### Dictionaries (not the one for spelling)
+
+**Dictionaries** are unordered, changeable, indexed, and do not allow for duplicate elements. In contrast to lists, tuples, each **value** is also assigned a **key**.
+
+And here is the key --\> Values can be selected using the **associated key**.
+
+You can also use the key to define a value to change.
+
+Similar to lists, you must use the *copy()* or *deepcopy()* method to obtain a copy of the dictionary that will not reference the original data or memory object.
+
+``` python
+cls = {"code": "GG3209", "Name":"Spatial Analysis with Python" }
+print(cls)
+print(cls["Name"])
+cls["Code"] = 461
+print(cls)
+```
+
+Multiple dictionaries can be combined into a **nested dictionary**, as demonstrated below.
+
+The keys can then be used to extract a sub-dictionary or an individual element from a sub-dictionary.
+
+``` python
+cls1 = {"prefix" : "GG", "Number" : 3209, "Name": "Spatial Analysis with Python"}
+cls2 = {"prefix" : "GG", "Number" : 3210, "Name": "Advanced Analysis with Python"}
+cls3 = {"prefix" : "GG", "Number" : 3211, "Name": "Introduction to Remote Sensing"}
+cls4 = {"prefix" : "GG", "Number" : 3212, "Name": "Web GIS"}
+clsT = {
+    "class1" : cls1,
+    "class2" : cls2,
+    "class3" : cls3,
+    "class4" : cls4
+}
+print(clsT)
+print(clsT["class1"])
+print(clsT["class1"]["Name"])
+```
+
+## Additional Types
+
+### Arrays
+
+**Arrays** are similar to lists; however, they must be declared.
+
+They are sometimes used in place of lists as they can be very compact and easy to apply mathematical operations. However in this course, we will primarily work with **NumPy** arrays, which will be discussed in more detail in a later module.
+
+If you wanna know how an array looks like, here is an example
+
+``` python
+my_array = [1, 2, 3, 4, 5]
+print(my_array[0])   # Output: 1
+print(my_array[2])   # Output: 3
+```
+
+You can also modify elements in the array by assigning a new value to a specific index:
+
+``` python
+my_array[1] = 7
+print(my_array)      # Output: [1, 7, 3, 4, 5]
+```
+
+### Classes
+
+Now some a more complex type of object in Python: **Classes** are used to define specific types of objects in Python and are often described as templates.
+
+Once a class is defined, it can be copied and manipulated to create a **subclass**, which will inherit properties and methods from the parent class but can be altered for specific uses. You get more details in the next Notebook (Part 2). You will also see example uses of classes in futher examples.
+
+One use of classes is to define specialized data models and their associated methods and properties. For example, classes have been defined to work with geospatial data types.
+
+``` python
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+    
+    def bark(self):
+        print("Woof!")
+
+my_dog = Dog("Buddy", "Golden Retriever")
+print(my_dog.name)    # Output: Buddy
+print(my_dog.breed)   # Output: Golden Retriever
+my_dog.bark()         # Output: Woof!
+```
+
+In the example above, we've defined a class called **Dog** that has a constructor method "**init** that takes two **parameters**, *name* and *breed*.
+
+Inside the constructor, we assign the passed-in values to *instance* (re-create the object) variables with the same names using the *self* keyword.
+
+We've also defined a method called bark that simply prints out "Woof!" when called. To call this method on *an instance* of the Dog class, we first create an instance of the class by calling the constructor and passing in the required parameters, and then we call the bark method on that instance.
+
+### Final remarks
+
+Before moving on, I wanted to note which data types are **mutable** and which are **immutable**.
+
+Again, data or objects that are mutable can be altered after they are defined (such as adding a new element to a list).
+
+Mutable types include **lists**, **sets**, and **dictionaries**.
+
+Immutable types include **booleans**, **integers**, **float**, **complex**, **strings**, and **tuples**.
+
+### Next Step
+
+Once you finish this, now clone **Python_Basics_Part2**, In that notebook, we will discuss more components of Python including functions, control flow, loops, modules, and reading data from disk.
+
+## References
+
+1.  [PythonGIS](https://pythongis.org)
+2.  [Python Data Spatial](https://ckan.americaview.org/data/usgs_workforce_development/python_ds)

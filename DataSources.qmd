@@ -1,0 +1,122 @@
+# Data Sources {.unnumbered}
+
+This is a list of web portals where you can access open and authoritative **geospatial data** for the UK and Scotland. These sources can be used to download shapefiles, connect to live web services, and enrich your **ArcGIS Online** projects with meaningful local datasets.
+
+------------------------------------------------------------------------
+
+## 1. [Scottish Spatial Data Infrastructure (SSDI)](https://www.spatialdata.gov.scot/)
+
+The official portal for discovering and accessing spatial datasets from Scottish public bodies.
+
+**Data Available:** - Administrative boundaries - Environmental and natural heritage data - Planning and infrastructure - Marine and coastal datasets - Data formats: Shapefiles, GeoJSON, WMS, WFS
+
+------------------------------------------------------------------------
+
+## 2. [Scotland’s Environment Web](https://www.environment.gov.scot/)
+
+A partnership platform providing environmental datasets and interactive maps.
+
+**Data Available:** - Land cover and land use - Air and water quality - Biodiversity and habitats - Climate and emissions - Tools: Map viewers, WMS services, downloadable shapefiles
+
+------------------------------------------------------------------------
+
+## 3. [Spatial Hub (Improvement Service)](https://www.spatialhub.scot/)
+
+Aggregates and publishes spatial data provided by all 32 Scottish local authorities.
+
+**Data Available:** - Planning applications - Housing land audits - School catchments - Local development plans - Data formats: Shapefiles, WMS, GeoJSON (registration may be required)
+
+------------------------------------------------------------------------
+
+## 4. [UK Government Data Portal (data.gov.uk)](https://data.gov.uk/)
+
+The central open data portal for the UK government.
+
+**Data Available:** - Transport networks - Health and social care - Demographics and census - Crime and safety - Environment and energy - Formats: CSV, GeoJSON, Shapefiles, APIs, WMS/WFS services
+
+------------------------------------------------------------------------
+
+## 5. [Ordnance Survey OpenData](https://osdatahub.os.uk/)
+
+The UK’s national mapping agency providing a range of open and premium geographic datasets.
+
+**Data Available:** - OpenMap Local (general-purpose vector mapping) - OS Open Roads, OS Open Rivers - Boundary-Line (administrative boundaries) - Access via: Downloads, APIs, and ArcGIS-ready formats
+
+------------------------------------------------------------------------
+
+## 6. [National Records of Scotland (NRS) Geography](https://webarchive.nrscotland.gov.uk/20241128122737/https://www.nrscotland.gov.uk/statistics-and-data/geography/our-products)
+
+Provides the official statistical geographies for Scotland.
+
+**Data Available:** - Data zones and Intermediate Zones - Census output areas - Health boards, local authorities - Formats: Shapefiles, GeoJSON
+
+------------------------------------------------------------------------
+
+## 7. [Office for National Statistics (ONS) Geography](https://geoportal.statistics.gov.uk/)
+
+Geospatial portal from the ONS offering boundary data and census geography.
+
+**Data Available:** - Statistical geographies (LSOA, MSOA) - Census 2011 and 2021 boundaries - Parliamentary constituencies - Downloadable in ESRI Shapefile and GeoPackage formats
+
+------------------------------------------------------------------------
+
+## 8. [DEFRA Data Services Platform](https://environment.data.gov.uk/)
+
+UK Government’s portal for environment-related data and services.
+
+**Data Available:** - Flood risk zones - Agricultural land classification - River networks and water quality - Waste and recycling facilities - Access via: Shapefiles, APIs, WMS/WFS
+
+------------------------------------------------------------------------
+
+## 9. [OpenStreetMap (Geofabrik UK Extracts)](https://download.geofabrik.de/europe/great-britain.html)
+
+Extracts from OpenStreetMap for Great Britain, including Scotland.
+
+**Data Available:** - Buildings, highways, land use, points of interest - Routable and editable map data - Formats: .osm.pbf, shapefiles (via tools like osmconvert or QGIS plugins)
+
+------------------------------------------------------------------------
+
+## 10. [Edinburgh GeoPortal](https://data.edinburghcouncilmaps.info/)
+
+A geospatial data repository from Edinburgh with open datasets.
+
+**Data Available:** - Local and global environmental data - Terrain and elevation - Land cover and vegetation indexes - Datasets relevant for climate change, ecology, and earth observation
+
+------------------------------------------------------------------------
+
+## 11. [Glasgow GeoPortal](https://data.glasgow.gov.uk/)
+
+A geospatial data repository from Glasgow with open datasets.
+
+**Data Available:** - Local and global environmental data - Terrain and elevation - Land cover and vegetation indexes - Datasets relevant for climate change, ecology, and earth observation
+
+------------------------------------------------------------------------
+
+## 12. [ArcGIS Living Atlas (UK content)](https://livingatlas.arcgis.com/en/home/)
+
+ESRI’s curated collection of geographic information, including UK-specific content.
+
+**Data Available:** - Demographics, base maps, boundaries - Real-time environmental data - Accessible directly from ArcGIS Online for instant use
+
+------------------------------------------------------------------------
+
+## 13. [ArcGIS Living Atlas (UK content)](https://livingatlas.arcgis.com/en/browse/#d=2&rgnCode=GB)
+
+ESRI’s curated collection of geographic information, including UK-specific content.
+
+**Data Available:** - Demographics, base maps, boundaries - Real-time environmental data - Accessible directly from ArcGIS Online for instant use
+
+------------------------------------------------------------------------
+
+## 14. [Urban Big Data Centre](https://data.ubdc.ac.uk/datasets)
+
+Urban Big Data Centre is a dynamic national research hub and data service, championing the use of smart data to inform policymaking and enhance the quality of urban life.
+
+**Data Available:** - Transport and Mobility, Housing and property, Labor Market, Environment.
+
+## Tips for students
+
+-   Many of these platforms offer **shapefiles**, **WMS** or **ArcGIS REST endpoints**, which can be added directly to your **ArcGIS Online** web map.
+-   Make sure to always **cite the data source** in your apps or reports.
+-   For reproducibility, **record the download date** and dataset version.
+-   Use **filtering and geoprocessing tools** in ArcGIS Online to tailor data to your study area.

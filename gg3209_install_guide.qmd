@@ -1,0 +1,826 @@
+# Python Environment Installation {.unnumbered}
+
+This guide provides step-by-step instructions for setting up the Python environment for second part of the **module GG3209** on Windows and macOS. The environment includes all necessary libraries for data handling, clustering, visualization, large datasets, and hotspot analysis.
+
+**Estimated time to install:** [**20 to 30 minutes**.]{.underline}
+
+Make sure you you have an stable internet connection. If you are using eduroam at the university, you might experience delay or issues when the internet connection isn't stable, if that is the case make sure you have a stable connection at home to complete this process properly. In case the problem persist please a case and request and appointment with our IT office at [gsditsupport\@st-andrews.ac.uk](gsditsupport@st-andrews.ac.uk)
+
+## Table of Contents
+
+1.  [Prerequisites](#prerequisites)
+2.  [Installing Anaconda/Miniconda](#installing-anacondaminiconda)
+3.  [Creating the Environment](#creating-the-environment)
+4.  [Verifying Installation](#verifying-installation)
+5.  [Running Jupyter Lab](#running-jupyter-lab)
+6.  [Common Issues and Solutions](#common-issues-and-solutions)
+7.  [Environment Management](#environment-management)
+8.  [Additional Resources](#additional-resources)
+
+------------------------------------------------------------------------
+
+## Prerequisites {#prerequisites}
+
+Before starting, ensure you have:
+
+-   [ ] A stable internet connection (large downloads required)
+
+-   [ ] At least 5GB of free disk space
+
+-   [ ] Administrator privileges on your computer
+
+-   [ ] Basic familiarity with command line interface (we will have a show demo about this during the lectures)
+
+    > If you don't know how to validate this, please make an appointment with out IT service who can support you with this [gsditsupport\@st-andrews.ac.uk](gsditsupport@st-andrews.ac.uk)
+
+------------------------------------------------------------------------
+
+## Installing Miniconda (Required for All Students)
+
+**Why Miniconda?** Miniconda provides a clean, minimal Python installation with only essential packages. This ensures all students start with identical environments and reduces potential conflicts. It's lightweight, fast, and gives us complete control over installed packages.
+
+### Windows Installation
+
+1.  **Download Miniconda**:
+    -   Visit <https://docs.conda.io/en/latest/miniconda.html>
+    -   Download **"Miniconda3 Windows 64-bit"** (approximately 50MB)
+    -   **Important**: Download the Python 3.10 version specifically
+2.  **Install Miniconda**:
+    -   Double-click the downloaded `.exe` file
+    -   Click "Next" through the installation wizard
+    -   **CRITICAL**: When asked about PATH, select **"Add Miniconda3 to my PATH environment variable"**
+    -   Accept all other default settings
+    -   Complete installation (takes 2-3 minutes)
+3.  **Verify Installation**:
+    -   Open **Command Prompt** (Press `Win + R`, type `cmd`, press Enter)
+    -   Type `conda --version` and press Enter
+    -   You should see: `conda 23.x.x` (or similar version number)
+    -   Type `python --version` and press Enter
+    -   You should see: `Python 3.10.x`
+
+### macOS Installation
+
+1.  **Download Miniconda**:
+    -   Visit <https://docs.conda.io/en/latest/miniconda.html>
+    -   **For Apple Silicon Macs (M1/M2)**: Download "Miniconda3 macOS Apple M1 64-bit pkg"
+    -   **For Intel Macs**: Download "Miniconda3 macOS Intel x86 64-bit pkg"
+    -   **Important**: Download the Python 3.10 version specifically
+2.  **Install Miniconda**:
+    -   Double-click the downloaded `.pkg` file
+    -   Follow the installation wizard
+    -   Accept all default settings
+    -   Complete installation
+3.  **Verify Installation**:
+    -   Open **Terminal** (Press `Cmd + Space`, type "Terminal", press Enter)
+    -   Type `conda --version` and press Enter
+    -   You should see: `conda 23.x.x` (or similar version number)
+    -   Type `python --version` and press Enter
+    -   You should see: `Python 3.10.x`
+
+### Post-Installation Setup (All Students)
+
+After successful installation, run these commands to ensure consistency:
+
+``` bash
+# Update conda to latest version
+conda update -n base -c defaults conda
+
+# Configure conda for optimal performance
+conda config --set auto_activate_base false
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+# Verify configuration
+conda info
+```
+
+**Expected Output**: You should see conda-forge listed as a channel with highest priority.
+
+------------------------------------------------------------------------
+
+## Creating the Environment {#creating-the-environment}
+
+### Step 1: Download the Environment File
+
+Save the environment configuration as `environment.yml` in a folder of your choice (e.g., `Documents/gg3209/`).
+
+### Step 2: Open Command Line Interface
+
+**All students must use the correct command line interface to ensure consistency.**
+
+#### Windows Students
+
+-   Press `Win + R`, type `cmd`, press Enter
+-   **Alternative**: Search for "Command Prompt" in Start Menu
+-   **Important**: Use Command Prompt, NOT PowerShell or other terminals
+
+#### macOS Students
+
+-   Press `Cmd + Space`, type "Terminal", press Enter
+-   **Alternative**: Go to Applications \> Utilities \> Terminal
+-   **Important**: Use Terminal, NOT other command line apps
+
+### Step 3: Navigate to Your Project Directory
+
+**All students should create the same folder structure:**
+
+``` bash
+# Windows students
+mkdir C:\gg3209 #sds stands for spatial dtata science 
+cd C:\gg3209
+
+# macOS students
+mkdir ~/gg3209
+cd ~/gg3209
+```
+
+### Step 4: Download and Verify Environment File
+
+**Before creating the environment, ensure you have the correct file:**
+
+1.  Save the `environment.yml` file in your project directory. This file is located in Moodle, go there and download it and place it in the project directory you created earlier.
+2.  Verify the file exists:
+
+``` bash
+# All students run this command
+dir environment.yml    # Windows
+ls environment.yml     # macOS
+```
+
+You should see the file listed. If not, ensure you saved it correctly.
+
+### Step 5: Create the Environment (Critical Step)
+
+**This is where consistency matters most. All students run the exact same commands:**
+
+``` bash
+# Create environment from file
+conda env create -f environment.yml
+
+# This will take 15-30 minutes
+# You will see many packages being downloaded and installed
+# Wait for "done" message before proceeding
+```
+
+**Expected Output:**
+
+```         
+Collecting package metadata (repodata.json): done
+Solving environment: done
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate spatial-data-science
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+
+### Step 6: Activate the Environment
+
+**All students must activate the environment before using it – THIS IS VERY IMPORTANT:**
+
+``` bash
+# Activate the environment
+conda activate gg3209
+```
+
+**Success Indicator**: Your command prompt should now show `(gg3209)` at the beginning:
+
+``` bash
+# Windows example
+(gg3209) C:\gg3209>
+
+# macOS example
+(gg3209) username@computer:~/gg3209$
+```
+
+### Step 7: Final Verification
+
+**All students run the same verification script:**
+
+Once you have created your python environment, now it is important you test that everything is properly installed. Using the same `terminal` or `command prompt` window run the following command.
+
+``` bash
+# Make sure your environment is activated
+conda activate gg3209
+
+# Run the test
+python test_installation.py
+
+------
+# Windows example
+(gg3209) C:\gg3209\> python verification_script.py
+
+# macOS example
+(gg3209) username@computer:~/gg3209/$ python verification_script.py
+```
+
+**Expected Output for All Students:**
+
+```         
+Python version: 3.10.x
+Python location: [path to conda environment]
+✓ All required libraries imported successfully!
+✓ Environment setup is complete and consistent!
+✓ GeoPandas version: 1.1.1
+✓ Pandas version: 2.3.1
+✓ NumPy version: 1.26.4
+```
+
+If successful, you should see version numbers and check-marks.
+
+------------------------------------------------------------------------
+
+## Running Jupyter Lab {#running-jupyter-lab}
+
+### Starting Jupyter Lab
+
+``` bash
+# Make sure environment is activated (optional if you know you have activated it)
+conda activate gg3209
+
+# Make sure you are in your project directory e.g. GG3209
+
+cd GG3209
+
+# Launch Jupyter Lab
+jupyter lab
+```
+
+This will:
+
+\- Start the Jupyter server
+
+\- Open your default web browser
+
+\- Display the Jupyter Lab interface
+
+### Creating Your First Notebook
+
+1.  Click "Python 3 (ipykernel)" under "Notebook"
+2.  Test with a simple spatial analysis:
+
+``` python
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import geodatasets
+
+# Create a simple test
+world = gpd.read_file(geodatasets.get_path("naturalearth.land"))
+world.plot(figsize=(10, 6))
+plt.title('World Map Test')
+plt.show()
+```
+
+### Stopping Jupyter Lab
+
+-   In your browser: File \> Shut Down
+-   In command line: Press `Ctrl + C` (Windows) or `Cmd + C` (Mac)
+
+------------------------------------------------------------------------
+
+## GG3209-Specific Setup Instructions
+
+### First Day of Class Checklist
+
+**All students must complete before first lab:**
+
+-   [ ] **Install Miniconda** (Python 3.10)
+
+-   [ ] **Create spatial-data-science environment**
+
+-   [ ] **Activate environment successfully**
+
+-   [ ] **Run verification script** (must pass)
+
+-   [ ] **Start Jupyter Lab** (must open in browser)
+
+-   [ ] **Create test notebook** with basic spatial analysis
+
+### Weekly Environment Check
+
+**Run this command weekly to ensure consistency:**
+
+``` bash
+python -c "
+import geopandas as gpd
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import folium
+from esda.getisord import G_Local
+from sklearn.cluster import DBSCAN
+print('✓ Environment is working correctly')
+print(f'✓ GeoPandas version: {gpd.__version__}')
+print(f'✓ Pandas version: {pd.__version__}')
+"
+```
+
+### Submission Requirements
+
+**For all assignments, include this environment information:**
+
+``` python
+# Add this cell at the top of every notebook
+import sys
+import geopandas as gpd
+import pandas as pd
+
+print(f"Python version: {sys.version}")
+print(f"GeoPandas version: {gpd.__version__}")
+print(f"Pandas version: {pd.__version__}")
+print(f"Environment: gg3209")
+```
+
+This ensures all students are working with identical software versions and helps instructors debug issues consistently.
+
+------------------------------------------------------------------------
+
+## Next Steps
+
+Once your environment is set up:
+
+1.  **Complete the verification tests**
+2.  **Try the sample notebook**
+3.  **Explore the example datasets**
+4.  **Begin your spatial analysis project**
+
+Your spatial data science environment for the course GG3209 is now ready for the first Labs, this part as complicated as it seems now will allow you to create and practice all your python skills.
+
+------------------------------------------------------------------------
+
+## Troubleshooting Guide {#common-issues-and-solutions}
+
+With Python and in particular with many new ways to use your computer, create folder and scripts things can get messy and very confusing, this is very normal and it is part of the process. The first thing is do not get frustrated or trying all sort of things without understanding what is the root of the issue. S you need to think systematically and then find out the solution. Here I have listed a few potential and common issues you might find. So first take all of this before escalating your issue to the lecturer or the IT support team.
+
+### Before Seeking Help
+
+**All students should complete this checklist:**
+
+-   [ ] Miniconda is installed and `conda --version` works
+-   [ ] Environment was created without errors
+-   [ ] Environment shows `(gg3209)` when activated
+-   [ ] Verification script runs successfully
+-   [ ] Jupyter Lab starts without errors
+
+### Class Support Protocol
+
+1.  **First**: Check this troubleshooting guide
+2.  **Second**: Ask a classmate (compare outputs)
+3.  **Third**: Post your issue in the MS Teams channel of this course:
+    -   Your operating system (Windows/macOS)
+    -   Exact error message
+    -   Commands you ran
+    -   Output from verification script
+
+### Standardized Error Reporting
+
+**When reporting problems, always include:**
+
+``` bash
+# Run these commands and include output
+conda info
+conda list geopandas
+python --version
+jupyter --version
+```
+
+------------------------------------------------------------------------
+
+### Issue 1: "conda: command not found"
+
+**This is the most common issue for beginners.**
+
+**Windows Solution**:
+
+``` bash
+# Option 1: Use the correct command prompt
+# Search for "Anaconda Prompt" in Start Menu if available
+# Or reinstall Miniconda ensuring PATH is added
+
+# Option 2: Manually add to PATH
+set PATH=%PATH%;C:\Users\%USERNAME%\miniconda3\Scripts
+set PATH=%PATH%;C:\Users\%USERNAME%\miniconda3
+```
+
+**macOS Solution**:
+
+``` bash
+# Add to PATH temporarily
+export PATH="$HOME/miniconda3/bin:$PATH"
+
+# Add to PATH permanently
+echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
+# For zsh users (macOS Catalina and later)
+echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Issue 2: Environment Creation Fails
+
+**Common causes and solutions:**
+
+``` bash
+# Solution 1: Clean conda cache
+conda clean --all
+
+# Solution 2: Update conda first
+conda update conda
+
+# Solution 3: Try creating environment with explicit solver
+conda env create -f environment.yml --solver=classic
+
+# Solution 4: Check internet connection and try again
+# Large downloads may timeout on slow connections
+```
+
+### Issue 3: Different Python Versions
+
+**All students must have Python 3.10 for consistency.**
+
+``` bash
+# Check your Python version
+python --version
+
+# If incorrect, remove environment and recreate
+conda env remove --name gg3209
+conda env create -f environment.yml
+```
+
+### Issue 4: Package Conflicts During Installation
+
+**This indicates environment file issues:**
+
+``` bash
+# Solution: Use mamba for faster, more reliable solving
+conda install mamba -n base -c conda-forge
+mamba env create -f environment.yml
+```
+
+### Issue 5: Jupyter Lab Won't Start
+
+**Consistency check:**
+
+``` bash
+# Ensure environment is activated
+conda activate gg3209
+
+# Verify Jupyter installation
+jupyter --version
+
+# If missing, reinstall
+conda install jupyter jupyterlab -c conda-forge
+
+# Start Jupyter Lab
+jupyter lab
+```
+
+### Issue 6: Import Errors Despite Successful Installation
+
+**Environment activation problem:**
+
+``` bash
+# Always activate environment first
+conda activate gg3209
+
+# Check which Python you're using
+which python     # macOS/Linux
+where python     # Windows
+
+# Should show path to conda environment, not system Python
+```
+
+### Issue 7: PDF Generation Not Working
+
+**LaTeX installation issues:**
+
+``` bash
+# Verify LaTeX installation
+pdflatex --version
+
+# If missing, install manually:
+# Windows: Download MiKTeX from https://miktex.org/
+# macOS: Install MacTeX from https://tug.org/mactex/
+
+# Test PDF conversion
+jupyter nbconvert --to pdf test_notebook.ipynb
+```
+
+### Emergency Reinstallation
+
+**If all else fails, complete clean installation:**
+
+``` bash
+# Remove environment
+conda env remove --name gg3209
+
+# Clean all caches
+conda clean --all
+
+# Recreate environment
+conda env create -f environment.yml
+```
+
+------------------------------------------------------------------------
+
+# Additional Resources {#additional-resources}
+
+Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, export your outcomes to PDF, and get extra learning resources.
+
+### Environment Management - Useful Commands {#environment-management}
+
+``` bash
+# List all environments
+conda env list
+
+# Activate environment
+conda activate gg3209
+
+# Deactivate environment
+conda deactivate
+
+# Update all packages in environment
+conda update --all
+
+# Install additional package
+conda install package-name
+
+# Remove environment
+conda env remove --name gg3209
+```
+
+### Updating the Environment
+
+``` bash
+# Update environment from file
+conda env update -f environment.yml --prune
+```
+
+### Exporting Your Environment
+
+``` bash
+# Export current environment
+conda env export > my-environment.yml
+```
+
+------------------------------------------------------------------------
+
+## PDF Generation
+
+You are required to submit your work as report to MMS in a PDF format, and most of the outcomes created in this modules are Jupyter Notebooks, so you will need to export them as PDF. This environment includes comprehensive PDF generation capabilities for creating professional scientific documents from Jupyter notebooks. This includes:
+
+-   **LaTeX-based PDF generation** for high-quality academic formatting
+-   **Web-based PDF conversion** for quick exports
+-   **Scientific document formatting** with proper citations and references
+-   **Professional layout templates** for reports and dissertations
+
+### Testing PDF Generation
+
+After setting up your environment, test the PDF generation capabilities:
+
+1.  Open a terminal or command prompt windows and lunch python.
+2.  locate a folder where you can create a python script.
+3.  Create the
+
+``` python
+import nbformat
+from nbconvert import PDFExporter
+import os
+
+print("Testing PDF generation capabilities...")
+
+# Test LaTeX availability
+try:
+    import subprocess
+    result = subprocess.run(['pdflatex', '--version'], 
+                          capture_output=True, text=True)
+    if result.returncode == 0:
+        print("✓ LaTeX/PDFLaTeX is available")
+    else:
+        print("✗ LaTeX not found")
+except:
+    print("✗ LaTeX not available")
+
+# Test nbconvert PDF export
+try:
+    exporter = PDFExporter()
+    print("✓ nbconvert PDF exporter is available")
+except Exception as e:
+    print(f"✗ nbconvert PDF exporter error: {e}")
+
+# Test WeasyPrint (alternative PDF generator)
+try:
+    import weasyprint
+    print("✓ WeasyPrint is available")
+except Exception as e:
+    print(f"✗ WeasyPrint error: {e}")
+
+# Test ReportLab (programmatic PDF creation)
+try:
+    from reportlab.pdfgen import canvas
+    print("✓ ReportLab is available")
+except Exception as e:
+    print(f"✗ ReportLab error: {e}")
+
+print("PDF generation test complete!")
+```
+
+### Converting Notebooks to PDF
+
+#### Method 1: Command Line (Recommended)
+
+``` bash
+# Activate environment
+conda activate gg3209
+
+# Convert notebook to PDF via LaTeX
+jupyter nbconvert --to pdf your_notebook.ipynb
+
+# Convert with custom template, optional
+jupyter nbconvert --to pdf --template classic your_notebook.ipynb
+
+# Convert with bibliography support, optional.
+jupyter nbconvert --to pdf --template article your_notebook.ipynb
+```
+
+#### Method 2: Jupyter Lab Interface
+
+1.  Open your notebook in Jupyter Lab
+2.  Go to **File \> Export Notebook As \> PDF**
+3.  Choose export options
+4.  Save the generated PDF
+
+#### Method 3: Programmatic Conversion (optional)
+
+``` python
+import nbformat
+from nbconvert import PDFExporter
+
+# Read notebook
+with open('your_notebook.ipynb', 'r') as f:
+    nb = nbformat.read(f, as_version=4)
+
+# Convert to PDF
+pdf_exporter = PDFExporter()
+pdf_exporter.template_name = 'classic'
+(body, resources) = pdf_exporter.from_notebook_node(nb)
+
+# Save PDF
+with open('output.pdf', 'wb') as f:
+    f.write(body)
+```
+
+### Professional PDF Features
+
+### Creating Professional Reports
+
+#### Template Structure
+
+To create a template notebook with:
+
+``` python
+# Report template structure
+"""
+# Title: Professional Spatial Data Science Report
+## Author: Your Name
+## Date: Current Date
+## Abstract
+Brief description of the analysis...
+
+## 1. Introduction
+Research question and objectives...
+
+## 2. Methodology
+### 2.1 Data Sources
+### 2.2 Analytical Methods
+### 2.3 Software and Tools
+
+## 3. Results
+### 3.1 Descriptive Statistics
+### 3.2 Spatial Analysis
+### 3.3 Hotspot Analysis
+
+## 4. Discussion
+Interpretation of results...
+
+## 5. Conclusions
+Summary and recommendations...
+
+## References
+Academic citations...
+
+## Appendices
+Additional materials...
+"""
+```
+
+#### Professional Visualization for PDF
+
+``` python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configure matplotlib for high-quality PDF output
+plt.rcParams['figure.dpi'] = 300
+plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['font.size'] = 12
+plt.rcParams['axes.titlesize'] = 14
+plt.rcParams['axes.labelsize'] = 12
+plt.rcParams['xtick.labelsize'] = 10
+plt.rcParams['ytick.labelsize'] = 10
+plt.rcParams['legend.fontsize'] = 11
+plt.rcParams['figure.titlesize'] = 16
+
+# Use professional color palette
+sns.set_palette("husl")
+
+# Create publication-ready figures
+fig, ax = plt.subplots(figsize=(8, 6))
+# Your plotting code here
+plt.tight_layout()
+plt.savefig('figure.png', dpi=300, bbox_inches='tight')
+plt.show()
+```
+
+### Troubleshooting PDF Generation
+
+#### Common Issues and Solutions
+
+**Issue**: LaTeX not found
+
+``` bash
+# Solution: Install LaTeX distribution
+# Windows: Download MiKTeX or TeX Live
+# macOS: Install MacTeX
+conda install texlive-core texlive-latex-extra
+```
+
+**Issue**: PDF conversion fails
+
+``` bash
+# Solution: Use alternative method
+jupyter nbconvert --to html your_notebook.ipynb
+# Then use browser to print to PDF
+```
+
+**Issue**: Figures not appearing in PDF
+
+``` python
+# Solution: Ensure figures are saved inline
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams['savefig.format'] = 'png'
+plt.rcParams['savefig.bbox'] = 'tight'
+```
+
+**Issue**: Long code cells breaking across pages
+
+``` python
+# Solution: Use page breaks and cell splitting
+from IPython.display import display, HTML
+display(HTML('<div style="page-break-before: always;"></div>'))
+```
+
+### Best Practices for PDF Generation
+
+1.  **Use consistent formatting** throughout your notebook
+2.  **Include descriptive markdown** for each analysis step
+3.  **Add figure captions** and table descriptions. One of the most common issue when you create a PDF.
+4.  **Use appropriate figure sizes** for print media
+5.  **Test PDF generation** regularly during development
+6.  **Include proper citations** and references
+7.  **Use professional fonts** and color schemes
+8.  **Optimize images** for print quality (optional)
+
+------------------------------------------------------------------------
+
+## And more resources
+
+### Learning Materials
+
+-   **Geopandas Documentation**: <https://geopandas.org/>
+-   **PySAL Documentation**: <https://pysal.org/>
+-   **Spatial Data Science Book**: <https://geographicdata.science/book/>
+
+### Data Sources
+
+-   **Natural Earth**: <https://www.naturalearthdata.com/>
+-   **OpenStreetMap**: <https://www.openstreetmap.org/>
+-   **Census Data**: <https://www.census.gov/>
+
+### Community Support
+
+-   **Stack Overflow**: Use tags `geopandas`, `spatial-analysis`, `python`
+-   **GitHub Issues**: For specific library problems
+-   **Reddit**: r/gis and r/Python communities
+
+------------------------------------------------------------------------
+
+*Last updated: July 2025,* *For questions or issues, please refer to the troubleshooting guide*

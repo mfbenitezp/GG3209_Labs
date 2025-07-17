@@ -1,0 +1,49 @@
+name: gg3209
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - notebook
+  - ipywidgets
+
+  # Data handling
+  - pandas
+  - numpy
+  - geopandas
+  - shapely
+  - fiona
+
+  # Spatial analysis & clustering
+  - scikit-learn
+  - libpysal
+  - esda
+  - pointpats
+  - scipy
+
+  # Visualization
+  - matplotlib
+  - seaborn
+  - folium
+  - contextily
+  - geoplot
+  - plotly
+
+  # Large datasets
+  - dask
+  - vaex
+
+  # Export to PDF from notebooks
+  - nbconvert
+  - pyppeteer
+  - weasyprint
+  - reportlab
+  - tectonic  # lightweight LaTeX engine
+
+  # Optional utilities
+  - tqdm
+  - pip
+  - pip:
+      - jupyterlab-code-formatter
+      - geodatasets

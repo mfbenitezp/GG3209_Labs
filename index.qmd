@@ -1,0 +1,13 @@
+# About this site {.unnumbered}
+
+This book has been developed as part of the module **GG3209 – Spatial Analysis with GIS** at the School of Geography and Sustainable Development, University of St Andrews. This module is spitted in two parts, the first 4 weeks includes QGIS and Multi-criteria evaluation, the second part related to the use of Python for the use and analysis of spatial data.
+
+This part will establish a comprehensive introduction to **Python** (an easy-to-learn and powerful programming language) and its use for manipulating spatial data and deploying spatial analysis models. [Python has been cataloged as one of the most popular programming technologies and is widely used as a scripting language in the GIScience world]{.underline}. If you have signed to this module you will learn how to use Python in multiple environments, more specifically using a popular tool called Jupyter Notebooks, then learn how to manipulate vector and raster data and finish by integrating spatial modelling using coding environments and clustering methods as helpful methodologies for dissertations.
+
+This module include Lecture+Lab sessions. Lectures will be delivered first, followed by lab practices included in this site. Students will be expected to work on these during the lab sessions but may also have to continue their own for the rest of the week, since the scheduled time may not be sufficient to finish everything.
+
+All students enrolled in GG3209 have access to the University's ArcGIS Online **Organisational Account** using their University credentials. We will use this platform in some of the Labs. If you havent experimenting and working with this platform before, to get started, please log in at: 👉 [https://uostandrews.maps.arcgis.com](https://uostandrews.maps.arcgis.com/)
+
+::: {.content-visible when-format="html"}
+![Sign In to ArcGIS Online St Andrews](images/SigIn_AGOL_StAndrews.mp4)
+:::

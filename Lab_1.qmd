@@ -1,0 +1,38 @@
+# Lab No 1: Intro to Python {.unnumbered}
+
+## Overview
+
+Welcome to the second part of the module of [GG3209 Spatial Analysis with GIS]{.underline}. This part will take advantage of the initial part, which provided you with a solid understanding of spatial data formats (vector-raster) and use them to perform multiple types of analysis like the so-called Multi-Criteria Evaluation (MCE) using the widely popular Open-Source GIS tool, QGIS.
+
+Now, in this part, you will be guided to handle and use another powerful tool in the geospatial field, Python. It is a free and open-sourced scripting language that was commonly used to automate tasks in the GIS world. Nowadays, it is one of the most popular programming languages[\[1\]](#_ftn1), especially in GIScience. It is widely used in the private and public sectors and academia for cutting-edge research, where scripts are created and shared using this language to share new methods, knowledge, data, and analysis through multiple scientific fields.
+
+In fact, most companies or institutes where you might want to apply will be happily interested in your development skills using Python and will validate your current contribution or work in platforms like GitHub, where you can share and disseminate your coding project. Think about its impact as we cluster R for spatial statistical analysis, and Python is mainly used for escalable and robust spatial analysis. Every day, more packages[\[2\]](#_ftn2) and code repositories are shared and maintained for easy use and installation, allowing developers or analysts from all backgrounds and expertise to use and integrate them into their own code.
+
+This part of the module and this lab workbook are meant to be an introduction to Python. As with any new language, you need to learn the basic rules (grammar) to write your own script, and then, with practice and more practice, you will soon become a Python developer.
+
+[\[1\]](#_ftnref1) <https://www.stackscale.com/blog/most-popular-programming-languages/>
+
+[\[2\]](#_ftnref2) <https://pypi.org/>
+
+> Do not be afraid of failure or errors, even during the installation process; it has happened to all of us, regardless of the level of expertise or number of projects created. In programming, failure is part of the process; what is essential is to find the foundation of any issue and understand how code, logic, and syntax work in harmony to get the results you are expecting.
+
+**Estimated time of completion:** 45 Minutes
+
+## Learning Outcomes
+
+-   Run Python scripts using **ArcGIS Pro** and **ArcGIS Online**
+-   Conducted xgeoprocessing tasks (e.g., buffering, proximity analysis)
+-   Created and saved notebooks and web maps
+-   Practiced using both ArcPy and ArcGIS Python API
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+<iframe src="pdfs/Lab_1.pdf" width="100%" height="600px">
+
+</iframe>
+
+------------------------------------------------------------------------
+
+© SGSD \| University of St Andrews \| GG3209 Spatial Analysis - Introduction to Python
