@@ -1,0 +1,421 @@
+## Troubleshooting Guide {#common-issues-and-solutions .unnumbered}
+
+::: {style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;"}
+With Python and in particular with many new ways to use your computer, create folder and scripts things can get messy and very confusing, this is very normal and it is part of the process. The first thing is do not get frustrated or trying all sort of things without understanding what is the root of the issue. So you need to think systematically and then find out the solution. Here I have listed a few potential and common issues you might find. So first take all of this before escalating your issue to the lecturer or the IT support team.
+:::
+
+### Before Seeking Help
+
+**You should complete this checklist:**
+
+-   [ ] Miniconda is installed and `conda --version` works
+-   [ ] Environment was created without errors
+-   [ ] Environment shows `(gg3209)` when activated
+-   [ ] Verification script runs successfully
+-   [ ] Jupyter Lab starts without errors
+
+### Class Support
+
+1.  **First**: Check this troubleshooting guide
+2.  **Second**: Ask a classmate (compare outputs)
+3.  **Third**: Post your issue in the MS Teams channel of this course:
+    -   Your operating system (Windows/macOS)
+    -   Exact error message
+    -   Commands you ran
+    -   Output from verification script
+
+### Standardized Error Reporting
+
+**When reporting problems, always include:**
+
+``` bash
+# Run these commands and include output
+conda info
+conda list geopandas
+python --version
+jupyter --version
+```
+
+------------------------------------------------------------------------
+
+### Issue 1: "conda: command not found"
+
+**This is the most common issue for beginners.**
+
+**Windows Solution**:
+
+``` bash
+# Option 1: Use the correct command prompt
+# Search for "Anaconda Prompt" in Start Menu if available
+# Or reinstall Miniconda ensuring PATH is added
+
+# Option 2: Manually add to PATH
+set PATH=%PATH%;C:\Users\%USERNAME%\miniconda3\Scripts
+set PATH=%PATH%;C:\Users\%USERNAME%\miniconda3
+```
+
+**macOS Solution**:
+
+``` bash
+# Add to PATH temporarily
+export PATH="$HOME/miniconda3/bin:$PATH"
+
+# Add to PATH permanently
+echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
+# For zsh users (macOS Catalina and later)
+echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Issue 2: Environment Creation Fails
+
+**Common causes and solutions:**
+
+``` bash
+# Solution 1: Clean conda cache
+conda clean --all
+
+# Solution 2: Update conda first
+conda update conda
+
+# Solution 3: Try creating environment with explicit solver
+conda env create -f environment.yml --solver=classic
+
+# Solution 4: Check internet connection and try again
+# Large downloads may timeout on slow connections
+```
+
+### Issue 3: Different Python Versions
+
+**All students must have Python 3.10 for consistency.**
+
+``` bash
+# Check your Python version
+python --version
+
+# If incorrect, remove environment and recreate
+conda env remove --name gg3209
+conda env create -f environment.yml
+```
+
+### Issue 4: Package Conflicts During Installation
+
+**This indicates environment file issues:**
+
+``` bash
+# Solution: Use mamba for faster, more reliable solving
+conda install mamba -n base -c conda-forge
+mamba env create -f environment.yml
+```
+
+### Issue 5: Jupyter Lab Won't Start
+
+**Consistency check:**
+
+``` bash
+# Ensure environment is activated
+conda activate gg3209
+
+# Verify Jupyter installation
+jupyter --version
+
+# If missing, reinstall
+conda install jupyter jupyterlab -c conda-forge
+
+# Start Jupyter Lab
+jupyter lab
+```
+
+### Issue 6: Import Errors Despite Successful Installation
+
+**Environment activation problem:**
+
+``` bash
+# Always activate environment first
+conda activate gg3209
+
+# Check which Python you're using
+which python     # macOS/Linux
+where python     # Windows
+
+# Should show path to conda environment, not system Python
+```
+
+### Issue 7: PDF Generation Not Working
+
+**LaTeX installation issues:**
+
+``` bash
+# Verify LaTeX installation
+pdflatex --version
+
+# If missing, install manually:
+# Windows: Download MiKTeX from https://miktex.org/
+# macOS: Install MacTeX from https://tug.org/mactex/
+
+# Test PDF conversion
+jupyter nbconvert --to pdf test_notebook.ipynb
+```
+
+### Emergency Reinstallation
+
+**If all else fails, sometimes it is better and quicker run a complete clean installation:**
+
+``` bash
+# Remove environment
+conda env remove --name gg3209
+
+# Clean all caches
+conda clean --all
+
+# Recreate environment
+conda env create -f environment.yml
+```
+
+------------------------------------------------------------------------
+
+# Additional Resources {#additional-resources}
+
+Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, export your outcomes to PDF, and get extra learning resources.
+
+### Environment Management - Useful Commands {#environment-management}
+
+``` bash
+# List all environments
+conda env list
+
+# Activate environment
+conda activate gg3209
+
+# Deactivate environment
+conda deactivate
+
+# Update all packages in environment
+conda update --all
+
+# Install additional package
+conda install package-name
+
+# Remove environment
+conda env remove --name gg3209
+```
+
+### Updating the Environment
+
+``` bash
+# Update environment from file
+conda env update -f environment.yml --prune
+```
+
+### Exporting Your Environment
+
+``` bash
+# Export current environment
+conda env export > my-environment.yml
+```
+
+------------------------------------------------------------------------
+
+## PDF Generation
+
+You are required to submit your work as report to MMS in a PDF format, and most of the outcomes created in this modules are Jupyter Notebooks, so you will need to export them as PDF. This environment includes comprehensive PDF generation capabilities for creating professional scientific documents from Jupyter notebooks. This includes:
+
+-   **LaTeX-based PDF generation** for high-quality academic formatting
+-   **Web-based PDF conversion** for quick exports
+-   **Scientific document formatting** with proper citations and references
+-   **Professional layout templates** for reports and dissertations
+
+### Testing PDF Generation
+
+After setting up your environment, test the PDF generation capabilities:
+
+1.  Open a terminal or command prompt windows.
+2.  Run `python TestingPDFCapabilities.py.`
+
+### Converting Notebooks to PDF
+
+#### Method 1: Command Line (Recommended)
+
+``` bash
+# Activate environment
+conda activate gg3209
+
+# Convert notebook to PDF via LaTeX
+jupyter nbconvert --to pdf your_notebook.ipynb
+
+#If the last one failed, try
+jupyter nbconvert --to webpdf --allow-chromium-download your_notebook.ipynb
+
+#If both fail, check the options provided in the troubleshooting section for PDFs
+
+# Convert with custom template, optional
+jupyter nbconvert --to pdf --template classic your_notebook.ipynb
+
+# Convert with bibliography support, optional.
+jupyter nbconvert --to pdf --template article your_notebook.ipynb
+```
+
+#### Method 2: Jupyter Lab Interface (also recommended)
+
+1.  Open your notebook in Jupyter Lab
+2.  Go to **File \> Export Notebook As \> WebPDF**
+3.  Choose export options
+4.  Save the generated PDF
+
+#### Method 3: Programmatic Conversion (for advanced users)
+
+``` python
+import nbformat
+from nbconvert import PDFExporter
+
+# Read notebook
+with open('your_notebook.ipynb', 'r') as f:
+    nb = nbformat.read(f, as_version=4)
+
+# Convert to PDF
+pdf_exporter = PDFExporter()
+pdf_exporter.template_name = 'classic'
+(body, resources) = pdf_exporter.from_notebook_node(nb)
+
+# Save PDF
+with open('output.pdf', 'wb') as f:
+    f.write(body)
+```
+
+### Professional PDF Features
+
+### Creating Professional Reports
+
+#### Template Structure
+
+To create a template notebook with:
+
+``` python
+# Report template structure
+"""
+# Title: Professional Spatial Data Science Report
+## Author: Your Name
+## Date: Current Date
+## Abstract
+Brief description of the analysis...
+
+## 1. Introduction
+Research question and objectives...
+
+## 2. Methodology
+### 2.1 Data Sources
+### 2.2 Analytical Methods
+### 2.3 Software and Tools
+
+## 3. Results
+### 3.1 Descriptive Statistics
+### 3.2 Spatial Analysis
+### 3.3 Hotspot Analysis
+
+## 4. Discussion
+Interpretation of results...
+
+## 5. Conclusions
+Summary and recommendations...
+
+## References
+Academic citations...
+
+## Appendices
+Additional materials...
+"""
+```
+
+#### Professional Visualization for PDF
+
+``` python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configure matplotlib for high-quality PDF output
+plt.rcParams['figure.dpi'] = 300
+plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['font.size'] = 12
+plt.rcParams['axes.titlesize'] = 14
+plt.rcParams['axes.labelsize'] = 12
+plt.rcParams['xtick.labelsize'] = 10
+plt.rcParams['ytick.labelsize'] = 10
+plt.rcParams['legend.fontsize'] = 11
+plt.rcParams['figure.titlesize'] = 16
+
+# Use professional color palette
+sns.set_palette("husl")
+
+# Create publication-ready figures
+fig, ax = plt.subplots(figsize=(8, 6))
+# Your plotting code here
+plt.tight_layout()
+plt.savefig('figure.png', dpi=300, bbox_inches='tight')
+plt.show()
+```
+
+### Troubleshooting to PDF Generation
+
+#### Common Issues and Solutions
+
+**Issue**: LaTeX not found
+
+``` bash
+# Solution: Install LaTeX distribution
+# Windows: Download MiKTeX or TeX Live
+# macOS: Install MacTeX
+conda install texlive-core texlive-latex-extra
+```
+
+**Issue:** 500 : Internal Server Error
+
+Issue when you try to use Export as PDF and you get errors relates to `nbconvert failed:`
+
+``` bash
+{bash}
+pip install 'nbconvert[webpdf]'
+
+jupyter nbconvert --to webpdf --allow-chromium-download YouJupyterNotebook.ipynb
+#This will create a PDF in the same folder of your Jupyter Notebook., Or use the optiopn included in Jupyter Lab. Save And Export Notebook as > Webpdf
+```
+
+**Issue**: PDF conversion fails
+
+``` bash
+# Solution: Use alternative method
+jupyter nbconvert --to html your_notebook.ipynb
+# Then use browser to print to PDF
+```
+
+**Issue**: Figures not appearing in PDF
+
+``` python
+# Solution: Ensure figures are saved inline
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams['savefig.format'] = 'png'
+plt.rcParams['savefig.bbox'] = 'tight'
+```
+
+**Issue**: Long code cells breaking across pages
+
+``` python
+# Solution: Use page breaks and cell splitting
+from IPython.display import display, HTML
+display(HTML('<div style="page-break-before: always;"></div>'))
+```
+
+### Best Practices for PDF Generation
+
+1.  **Use consistent formatting** throughout your notebook
+2.  **Include descriptive markdown** for each analysis step
+3.  **Add figure captions** and table descriptions. One of the most common issue when you create a PDF.
+4.  **Test PDF generation** regularly during development
+5.  **Include proper citations** and references
+6.  **Optimize images** for print quality (optional)
+
+------------------------------------------------------------------------
+
+*This guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025*

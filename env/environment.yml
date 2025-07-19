@@ -36,14 +36,18 @@ dependencies:
 
   # Export to PDF from notebooks
   - nbconvert
+  - pandoc
   - pyppeteer
   - weasyprint
   - reportlab
   - tectonic  # lightweight LaTeX engine
+  - texlive-core      # full LaTeX support for nbconvert PDF export
 
   # Optional utilities
   - tqdm
   - pip
+
   - pip:
       - jupyterlab-code-formatter
       - geodatasets
+      - 'nbconvert[webpdf]'

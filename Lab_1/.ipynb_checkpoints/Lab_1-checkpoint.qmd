@@ -1,0 +1,840 @@
+# Lab No 1: Introduction to Python using ArcGIS Online {.unnumbered}
+
+Perhaps one of the fastest and easiest way to start with python as spatial data scientists for you is to create a notebook in ArcGIS Pro and use it to run some Python code. In here you don't need to install any python environment as everything comes as part of the installation of ArcGIS Pro. We will work this way, so you are familiar with python and then we will move to more advance instructions later.
+
+### Setting up the ArcGIS Pro Project
+
+1.  In Moodle download the file **PY4SA_Week5.ppkx** in PY4SA Lab Week 5 to a location in your lab computer.
+
+    > The file contains an ArcGIS Pro package that includes, maps, a database combined.
+    >
+    > **In this lesson the data is shown at specific folder. You can use a different folder but be sure to adjust the paths in the instructions that follow.**
+
+2.  Find the **PY4SA_Week5.ppkx** file (likely in the Downloads folder), and double click to open it using ArcGIS Pro.
+
+3.  ArcGIS Pro will probably ask you to sign In, click in the blue button **University of St Andrews** to authenticate using your university credentials.
+
+    > ![](images/clipboard-3111549137.png)
+
+4.  Add your university email and password. And then let ArcGIS Pro starts and unpacking the **PY4SA_Week5** project
+
+5.  The project loads a map called **PY4SA_Starting_with_Python** showing the **Edinburgh Wards** and **trees** from Open Street Map, you can see more and more details when you zoom in to the map, take a sort time to familiarise yourself with the data and the map. You will add other **feature classes** (the ArcGIS version of a Shapefile) to this map.
+
+### Accessing the Catalog Pane
+
+6.  If the **Catalog** pane is not already visible, click the **View** tab and click **Catalog Pane**.
+
+7.  Dock the **Catalog** pane to the right of the map.
+
+8.  Expand **Databases** folder and then **py4sa.gdb** geodatabase.
+
+    > ![](images/clipboard-181253901.png)
+    >
+    > The **geodatabase** contains several **feature classes**, including spatial data from Open Street Map (OSM) and the Edinburgh Open Data Geo Portal.
+
+### Creating a Python Notebook
+
+9.  On the ribbon, click the **Analysis** tab, and in the **Geoprocessing** group, click the drop-down arrow for the **Python** button and click **Python Notebook**.
+
+    > ![](images/clipboard-1718290818.png)
+    >
+    > Clicking the **Python** button also opens a new notebook, but the drop-down menu allows you to see that you have a choice between **Python Notebook** and **Python Window**. The **Python Window** is another way to run Python code in ArcGIS Pro.
+    >
+    > It may take a moment for the new notebook to appear, and you may see the message **Initializing Kernel** on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software running in the background that will run the Python code you enter in the notebook. **Do not panic!**
+    >
+    > Once the notebook opens, it appears as a new tab in the main window of ArcGIS Pro.
+    >
+    > The new notebook is stored as an **.ipnyb** file in your project home folder. The new notebook also appears under the **Notebooks** folder in the **Catalog** pane.
+
+### Running Your First Python Code
+
+10. Click inside the empty cell in the notebook.
+
+    > ![](images/clipboard-599765065.png)
+    >
+    > The outline turns green.
+
+11. Type the following line of code:
+
+    ``` python
+    print("Hello Notebook!")
+    ```
+
+    > ![](images/clipboard-2350592089.png)
+    >
+    > This code calls the print function on a single input parameter within the parentheses. This parameter is a string, because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.
+
+12. On the toolbar above the cell, click the **Run** button.
+
+    > ![](images/clipboard-3807898361.png)
+    >
+    > The code in the cell is run and the result is printed below the cell. The print function runs on the string value "Hello Notebook!" and prints it. The quotation marks are not printed, because they are not part of the string—they only identify it as a string. The number 1 appears in the brackets to the left of the cell. A new empty cell is added below.
+    >
+    > ![](images/clipboard-2846304674.png)
+    >
+    > You can also run the currently selected cell by pressing **Ctrl+Enter.**
+    >
+    > You can add multiple lines of code within a single cell by pressing the Enter key after each line. This may be counterintuitive if you are used to running code in the Python window or in the interactive window of a Python editor, where pressing the Enter key results in running the line of code.
+
+### Working with Variables
+
+13. In the cell below your **Hello Notebook!** code, type the following lines of code:
+
+    ``` python
+    a = 5
+    b = 7
+    c = 9
+    print(a * b * c)
+    ```
+
+    > This code creates three variables, **a**, **b**, and **c**, and assigns their values to be equal to the numbers **5**, **7**, and **9**. The last line prints the result of multiplying the variables.
+    >
+    > ![](images/clipboard-2341244234.png)
+
+14. Press Ctrl+Enter.
+
+    ![](images/clipboard-1855615499.png)
+
+    > After the cell runs, the value **315** appears below it. The number **2** appears in brackets to the left of the cell to indicate that this is the second cell run.
+
+15. At the top of the notebook, click the **Insert** menu, and click **Insert Cell Below**.
+
+    > ![](images/clipboard-2144547110.png)
+    >
+    > A new cell is added below the currently selected cell.
+
+16. In the new cell, type the following line of code:
+
+    ``` python
+    a * b * c
+    ```
+
+    > *What do you think this will do when you run the cell?*
+
+17. Run the cell and look at the result.
+
+    > Did the result match your expectation?
+    >
+    > The values of the variables **a**, **b**, and **c** are stored in memory after you set them, so you can use them in another cell.
+    >
+    > ![](images/clipboard-3232821279.png)
+    >
+    > The result of multiplying the values stored in **a**, **b**, and **c** is printed when you run the cell.
+    >
+    > The print statement is not required because in a notebook, the Python window, and in the Python interpreter, Python evaluates simple expression statements and prints their value.
+
+### Understanding Variable Scope and Errors
+
+18. If you ran the cell by pressing **Ctrl+Enter**, insert a new cell below it.
+
+    > If you ran the cell by pressing the run button, there should already be a new cell below it.
+
+19. In the new cell, type the following line of code:
+
+    ``` python
+    a * t
+    ```
+
+    > What do you think this will do when you run the cell?
+
+20. Run the cell and look at the result.
+
+    > Did the result match your expectation?
+    >
+    > Variable a has been set to the numeric value of 5, but the new variable t hasn't been set yet. This causes an error. In Python, you can't use variables until you assign their values.
+    >
+    > ![](images/clipboard-4003440896.png)
+
+21. Edit the code in the cell as follows:
+
+    ``` python
+    a * "t"
+    ```
+
+    > What do you think this will do when you run the cell?
+
+22. Run the cell and look at the result.
+
+    > Did the result match your expectation?
+    >
+    > ![](images/clipboard-3575819682.png)
+    >
+    > By putting **t** in quotation marks, you have identified it for Python as a string. Python evaluates the expression as the string t five times, resulting in the new string value **'ttttt'**.
+
+23. Add a new cell and enter the following code:
+
+    ``` python
+    t = 10
+    a * t
+    ```
+
+    > What do you think this will do when you run the cell?
+
+24. Run the cell.
+
+    > Did the result match your expectation?
+    >
+    > ![](images/clipboard-853451151.png)
+    >
+    > Because the first line in the cell defined the variable **t** as being equal to the number **10**, Python was able to multiply it by the value stored in the variable **a**.
+
+**Sum-up**: You've opened a new notebook in ArcGIS Pro and added and run some basic Python code. Next, you will use notebook functions to manage the code in the cells.
+
+## Manage code in cells
+
+The code in Notebooks is run in cells. The order in which cells have been run is indicated by the numbers beside the cells after they are run. Notebooks have tools to manage cells. Now you'll explore these aspects of working with Python in a notebook.
+
+### Working with Lists
+
+1.  In the next empty cell (add a new one if you need to), type the following line of code and run the cell.
+
+    ``` python
+    mylist = [1, 2, 3, 4, 5]
+    ```
+
+    > What happened?
+    >
+    > This code defined a new variable and set its value, but did not print anything.
+    >
+    > ![](images/clipboard-4086509903.png)
+    >
+    > The variable **mylist** is a list, as indicated by the square brackets. Lists are an important data type in Python that consist of a sequence of elements. In this case, those elements are numbers, but lists can also contain other types of data. Elements in a list are separated by commas.
+
+2.  In the next empty cell, type the following code and run the cell.
+
+    ``` python
+    mylist[-1]
+    ```
+
+    > What happened?
+    >
+    > ![](images/clipboard-2548513616.png)
+    >
+    > Elements in a list are indexed, starting with index number zero. You can obtain specific elements in a list by using their index number. Index number -1 means the first elements starting from the end of the list—in other words, the last element. This returns the number **5**.
+    >
+    > As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you run a previously run cell again. The numbers help you keep track of the order in which the cells were run.
+
+### Understanding Cell Execution Order
+
+3.  Change the code in the cell defining the **mylist** variable to the following by adding more elements, but don't run the cell.
+
+    ``` python
+    mylist = [1, 2, 3, 4, 5, 6, 7, 8]
+    ```
+
+    ![](images/clipboard-3937730648.png)
+
+4.  Click the cell below this one, with the code `mylist[-1]` and click the **Run** button.
+
+    > Does what happened match what you expected?
+    >
+    > ![](images/clipboard-3352050590.png)
+    >
+    > The result is the number **5**. Why isn't it the number **8**?
+    >
+    > Code in a notebook is entered cell by cell and any previously used variables are stored in memory.
+    >
+    > Until you run the cell with the code that redefines the **mylist** variable, the value of **mylist** is still the value stored in memory, **\[1, 2, 3, 4, 5\]**, and the value at position -1 in that list is still **5**.
+
+5.  Click the cell with `mylist = [1, 2, 3, 4, 5, 6, 7, 8]` and run it.
+
+6.  Click the cell with `mylist[-1]` and run it.
+
+    > Now the value in the last position of the list is **8**.
+    >
+    > ![](images/clipboard-861679733.png)
+    >
+    > An alternative to running individual cells is to select multiple cells and run them together, or to run all the cells in a notebook by clicking the **Cell** menu and clicking **Run All**.
+    >
+    > It is a good practice to organize lines of code that belong together in the same cell. For example, it would make sense for the two previous cells to be combined into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.
+
+### Merging Cells
+
+7.  Click the cell that defines the **mylist** variable.
+
+    > That cell has `mylist = [1, 2, 3, 4, 5, 6, 7, 8]` in it.
+
+8.  Click the **Edit** menu and click **Merge Cell Below**.
+
+    > ![](images/clipboard-3447560154.png)
+    >
+    > The result is a single cell with the combined lines of code. The results below the cells have been removed. An empty line is added between the lines of code from the two merged cells, but you can edit the cell to remove it if you want.
+
+9.  Run the merged cell.
+
+    > ![](images/clipboard-1957833969.png)
+    >
+    > The **Edit** menu provides many other useful ways to manipulate the cells in your notebook. You can copy and paste cells, delete them, split and merge them, and move a selected cell up or down relative to the other cells.
+    >
+    > Additional tools are available under the **View**, **Insert**, and **Cell** menu options.
+    >
+    > Some of the most widely used tools are also available as buttons on the notebook toolbar.![](images/clipboard-793783451.png)
+    >
+    > These include the following:
+
+    -   **Insert cell below**
+    -   **Cut selected cells**
+    -   **Copy selected cells**
+    -   **Paste cells below**
+    -   **Move selected cells up**
+    -   **Move selected cells down**
+
+    > More tools can be found on the **Command Palette**.
+
+### Using the Command Palette
+
+10. Click the **Command Palette** button.
+
+    > ![](images/clipboard-1381581135.png)
+    >
+    > A list of commands appears.
+    >
+    > You can run a command by clicking it. The command is applied to the selected cells in the notebook, or to all cells, depending on the command.
+
+11. In the **Command Palette**, click **clear all cells output**.
+
+    > ![](images/clipboard-799976136.png)
+    >
+    > All code remains the same, but all outputs have been removed. The input and output prompts are blank, since none of the cells have been run. When you run a cell, the prompts start again at 1.
+    >
+    > The **Command Palette** also show shortcuts for many of the tasks.
+
+### Keyboard Shortcuts
+
+12. Click the **Command Palette** button and scroll down to **insert cell below**.
+
+    > ![](images/clipboard-3625426950.png)
+    >
+    > The keyboard shortcut for this command is listed to the right of it. The shortcut is the letter B when the notebook cell is in command mode.
+
+13. Hide the **Command Palette** by clicking outside of the palette but inside the notebook.
+
+14. Click the space to the left of the second cell, so it turns blue.
+
+    > ![](images/clipboard-272548639.png)
+    >
+    > Be sure not to click inside the code section, which will turn the cell green.
+    >
+    > The cell border is blue to indicate that it is in command mode.
+
+15. Press the B key on your keyboard.
+
+    > ![](images/clipboard-1786130242.png)
+    >
+    > A new cell is inserted below the selected cell. If the cell had been green, you would add the letter b to the code in the cell.
+    >
+    > These shortcuts are not case sensitive, so b and B are the same.
+    >
+    > There is no need to memorize these commands, but experienced coders memorize and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.
+    >
+    > If you are looking for the command for a specific task, you can search for it by using the search bar at the top of the **Command Palette**.
+
+16. Open the **Command Palette** and type run in the **Search** box.
+
+    > ![](images/clipboard-1804697134.png)
+    >
+    > This filters the list to the tools with run in their name. Some commands have a shortcut. For example, the shortcut for **run selected cells** is Ctrl +Enter.
+
+17. Hide the **Command Palette** by clicking outside of the palette but inside the notebook.
+
+18. Close the notebook.
+
+    ![](images/clipboard-842952166.png)
+
+You've seen how to enter and edit Python code in notebook cells, and how to interact with the notebook to run and manage the code. Next, you'll use a notebook to run geoprocessing tools in ArcGIS Pro.
+
+## Run geoprocessing tools in a notebook
+
+Now that you've had some practice entering code in a notebook, it is time to use some geoprocessing tools. You will start with a new notebook.
+
+### Creating a New Notebook for Geoprocessing
+
+1.  Click the **Analysis** tab, and in the **Geoprocessing** group, click **Python**.
+
+    > ![](images/clipboard-2996771898.png)
+    >
+    > The new notebook opens.
+
+2.  In the **Catalog** panel, expand the **Notebooks** section.
+
+3.  Right-click the new notebook, **New Notebook (1).ipynb**, and click **Rename**.
+
+    ![](images/clipboard-3046128174.png)
+
+4.  Type `geoprocessing_demo` and press Enter.
+
+    > The new notebook is renamed. In the **Catalog** pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says **geoprocessing_demo**.
+    >
+    > For the next steps, it is useful to see the map and the notebook side by side.
+
+5.  Drag the **geoprocessing_demo** notebook tab to the docking target that appears below.
+
+    > ![](images/clipboard-1127096855.png)
+    >
+    > The notebook is docked below the map. Now you'll be able to see the results of your code as you use Python in the notebook to work with feature classes on the map.
+
+### Importing ArcPy and Running Geoprocessing Tools
+
+6.  In the empty cell, type the following line of code and run the cell:
+
+    ``` python
+    import arcpy
+    ```
+
+    > This line of code imports the ArcPy package. ArcPy is a Python package that makes much of the functionality of ArcGIS Pro available from within Python, including geoprocessing.
+    >
+    > Since you are using this notebook in ArcGIS Pro, code that uses geoprocessing tools will not produce an error if you have not imported ArcPy. However, it is good practice to always include `import arcpy` at the top of your geoprocessing code so it will also work when run outside of ArcGIS Pro.
+
+7.  In the same cell, add a new line and type the following code:
+
+    ``` python
+    arcpy.GetCount_management("EDI_gis_osm_natural")
+    ```
+
+    > This code uses ArcPy to run the **Get Count** tool to determine the number of features in the **EDI_gis_osm_natural** feature class.
+
+8.  Run the cell.
+
+    > ![](images/clipboard-3879939768.png)
+    >
+    > GetCount is a function of ArcPy that runs the **Get Count** geoprocessing tool located in the **Data Management Tools** toolbox.
+    >
+    > The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialog box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialog box. Any tool that you run in a notebook also appears in the **History** panel.
+
+9.  Click the **Analysis** tab and click **History**.
+
+    > The tool appears in the geoprocessing history.
+    >
+    > ![](images/clipboard-592220983.png)
+
+10. Close the **History** panel
+
+### Understanding File Paths and Workspace
+
+11. Edit the `arcpy.GetCount` code line to the following:
+
+    ``` python
+    arcpy.GetCount_management("EDI_gis_osm_building")
+    ```
+
+12. Run the cell. Are you getting any error?
+
+    > In case this code fails with an error message. At the end of the message, the following information appears:
+    >
+    > ExecuteError: Failed to execute. Parameters are not valid.
+    >
+    > ERROR 000732: Input Rows: Dataset EDI_gis_osm_building does not exist or is not supported
+    >
+    > Failed to execute (GetCount)
+    >
+    > Why do you think the code failed, when the code to get the count of natural features worked?
+    >
+    > The **EDI_gis_osm_natural** feature class is a layer on the active map. In a notebook, you can refer to a dataset by the name of the layer in the active map, like you can when you run a geoprocessing tool interactively using its graphical user interface.
+    >
+    > The **EDI_gis_osm_building** feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or default geodatabase by specifying the full path to it.
+    >
+    > Next, you'll look up the path to the **EDI_gis_osm_buildings (this layer does exist)** feature class. The path where the data is located is a key aspect in python so now let's explore how you can know where the data is stored and then use the correct path in your scripts.
+
+13. In the **Catalog** pane, expand the **Databases** section and expand **PY4SA.gdb**.
+
+14. Right-click **EDI_gis_osm_buildings** and click **Properties**.
+
+    ![](images/clipboard-3109966038.png)
+
+15. Click the column next to **Database** and select the full path to the geodatabase.
+
+    ![](images/clipboard-2913333225.png)
+
+16. Right-click the selected path and click **Copy**, and then close the **Properties** dialog box.
+
+    > The path in this example is as follows:
+    >
+    > `C:\Users\benit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb`
+    >
+    > **The path on your computer will be different**, depending on where and how you unzipped the .zip file with the data. You may not have put the data in a folder on your drive C, or inside a folder named Lessons, for example. You should use the path on your computer in the next step.
+
+17. Click in the notebook cell and update the path that you copied. But make sure you add a backslash \\ between the path you copy and the name of the feature class.
+
+    ``` python
+    arcpy.GetCount_management("C:\Users\benit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb\EDI_gis_osm_buildings")
+    ```
+
+18. Click immediately after the open parenthesis and before the first quotation mark, and type the letter **r**.
+
+    ``` python
+    arcpy.GetCount_management(r"C:\Users\benit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb\EDI_gis_osm_buildings")
+    ```
+
+    > You need to add the letter **r** to tell Python that this path is a raw string. Windows computers use the backslash character as a path separator. In Python, the backslash character is an escape character that, when next to some other characters in a string, encodes tab, new line, or other special characters. This means that where \N occurs beside \NotebookStart in the path, Python reads the string as having a new line character. Placing the r before the string tells Python to ignore the escape characters.
+
+19. Run the cell.
+
+    > The **Get Count** tool runs and returns a message that there are 158029 features in the feature class.
+    >
+    > ![](images/clipboard-3056575311.png)
+    >
+    > You can also use a forward slash (/) character as a path separator in Python code, or you can double the backslash characters.
+    >
+    > The following are all valid ways of writing this path in Python:
+    >
+    > ``` python
+    > r"C:\Lessons\NotebookStart\Toronto.gdb\ambulances"
+    > "C:/Lessons/NotebookStart/Toronto.gdb/ambulances"
+    > "C:\\Lessons\\NotebookStart\\Toronto.gdb\\ambulances"
+    > ```
+    >
+    > If you use a forward slash (/) or double backslash (\\) as your path separator, you do not add the r before the path string.
+    >
+    > For someone who is used to Windows paths delimited by backslashes, this can look a little strange at first, but it is important to remember.
+    >
+    > One way to avoid having to specify full paths for tools **is to set the workspace**.
+
+### Setting the Workspace
+
+20. Edit the code to add a new line between the two lines beginning with `import arcpy` and `arcpy.GetCount`. Add the following line:
+
+    ``` python
+    arcpy.env.workspace = 
+    ```
+
+    > This line is setting a property of the environment class, arcpy.env, to be equal to some value. Next, you'll cut the path to PY4SA.gdb and paste it after this code to set the path.
+
+21. Add the path to the PY4SA geodatabase. For example:
+
+    ``` python
+    arcpy.env.workspace = r"C:\Lessons\NotebookStart\PY4SA.gdb"
+    ```
+
+22. Run the cell.
+
+23. To validate the workspace has been properly defined add a new cell and run the following line:
+
+    ``` python
+    arcpy.env.workspace
+    ```
+
+    > You should get the path you defined as your workspace in this python environment.
+
+## Run an analysis using a notebook
+
+Next, you will do some GIS analysis work using the notebook. Suppose you are interested in finding out what areas within the Edinburgh_Wards are farthest from clinics in Edinburgh. You can use geoprocessing tools in a notebook to identify these areas.
+
+### Using Tab Completion and Tool Signatures
+
+1.  Add a new cell below the current one.
+
+2.  Place the cursor inside the cell and start typing the following:
+
+    ``` python
+    arcpy.
+    ```
+
+3.  Press the Tab key.
+
+    > ![](images/clipboard-3721703046.png)
+    >
+    > A list of all of the available ArcPy options appears.
+    >
+    > You can scroll down and click an item to select it from this list, or you can continue typing.
+
+4.  Type an uppercase B.
+
+    ![](images/clipboard-1350587622.png)
+
+5.  Click **Buffer_Analysis**.
+
+    > The cell now says `arcpy.Buffer_analysis`.
+    >
+    > This process of beginning to type some code and then pressing the Tab key to see and choose from matching options is called tab completion, and it can help you find and more quickly access the commands you need.
+
+6.  With your cursor still at the end of the line of code, press Shift+Tab.
+
+    > ![](images/clipboard-1437521012.png)
+    >
+    > A window with the syntax hints for the Buffer_analysis tool appears. You can click the arrow button to expand it to read the whole topic.
+
+7.  Click the close button to close the **Signature** window.
+
+8.  Type an open parenthesis.
+
+    > ![](images/clipboard-174508318.png)
+    >
+    > A close parenthesis is also added, and the cursor is placed between them. This is where you can add parameters for the Buffer_analysis tool.
+
+9.  Type a quotation mark.
+
+    > ![](images/clipboard-3017385417.png)
+    >
+    > A second quotation mark is added. Python needs strings to be enclosed in quotation marks, so it adds a matching quotation mark, with the cursor between them.
+    >
+    > The three parameters that the Buffer_analysis tool requires are the input feature class, the output feature class, and the buffer distance. There are other optional parameters, but these are the only ones that are required.
+    >
+    > You'll buffer the **EDI_gis_osm_clinics** feature class, name the output feature class **clinic_buffer**, and make the tool buffer the fire stations by a distance of 1000 meters.
+
+10. Complete the line of code as follows:
+
+    > ``` python
+    > arcpy.Buffer_analysis("EDI_gis_osm_clinics","clinic_buffer ","1000 METERS")
+    > ```
+    >
+    > The three parameters of the tool are strings. The tool is able to locate the **EDI_gis_osm_clinics** feature class using only its name because it is a layer on the map. The tool is able to write an output feature class using only the name "clinic_buffer" because the workspace is set. The tool has logic built in to detect the buffer distance value and the units of measure in the string "1000 METERS".
+
+11. Run the tool.
+
+    ![](images/clipboard-3401626934.png)
+
+    The output features are added to the map.
+
+    The results show which areas fall within 1000 meters, or 1 kilometre, of a clinic and which areas do not. **Having both the notebook and the map open at the same time makes it easy to see the results of different choices.**
+
+12. You probably need to hide the ***EDI_gis_osm_natural*** layer and add the **EDI_gis_osm_clinics** to the map, so you can see the buffer areas created around each clinic in Edinburgh.
+
+13. Now, change the buffer distance to 1750 meters and run the cell again.
+
+    ``` python
+    arcpy.Buffer_analysis("EDI_gis_osm_clinics","clinic_buffer","1750 METERS")
+    ```
+
+    ![](images/clipboard-1227347095.png)
+
+> **Note:** If you get an error message, "**ExecuteError: Failed to execute. Parameters are not valid**", that mentions that **clinic_buffer** already exists, then your ArcGIS Pro environment settings, [geoprocessing options](https://pro.arcgis.com/en/pro-app/3.0/help/analysis/geoprocessing/basics/geoprocessing-options.htm) are not set to allow existing feature classes to be overwritten. To fix this issue, insert a new line in the cell before the arcpy.Buffer_analysis line. On the new line, add the following code:
+>
+> ``` python
+> arcpy.env.overwriteOutput = True
+> ```
+>
+> This will allow the **Buffer** tool to overwrite the previous output. The cell should now contain:
+>
+> ``` python
+> arcpy.env.overwriteOutput = True
+> arcpy.Buffer_analysis("EDI_gis_osm_clinics","clinic_buffer","1750 METERS")
+> ```
+>
+> Run the cell.
+
+The areas outside of these buffers are further away from the clinics, which may increase the time it takes for an ambulance to respond to a call. To find the areas that are affected, rather than the parts that are not, you will use the erase tool to remove the areas within the buffers from the Edinburgh Wards feature class.
+
+## Using the Pairwise Erase Tool
+
+14. Add another cell and enter the following code:
+
+    ``` python
+    arcpy.PairwiseErase_analysis("Edinburgh_Wards", "clinic_buffer", "no_service")
+    ```
+
+    This calls the PairwiseErase_analysis tool on the **Edinburgh_Wards** feature class, erasing the areas within the **clinic_buffer** feature class from it, and writing the results to a new feature class named "no_service".
+
+15. Run the cell.
+
+16. In the **Contents** pane, uncheck the **all layers, except clinics and no_service.**
+
+17. Right-click the **no_service** layer and click **Zoom To Layer**.
+
+    ![](images/clipboard-2726520874.png)
+
+    The **no_service** layer shows places that are farther from clinics in Edinburgh.
+
+## Merging Cells for Workflow Efficiency
+
+18. Click the **arcpy.PairwiseErase_analysis** cell, and in the **Notebook** pane, click the **Edit** menu and click **Merge Cell Above**.
+
+    ![](images/clipboard-3321589216.png)
+
+    The cells are merged.
+
+    ![](images/clipboard-438738969.png)
+
+    A benefit of Notebooks, and Python code in general, is that you can quickly run a sequence of tools. In this case, the sequence only consists of two tools, but it illustrates the concept.
+
+19. Change the distance value from 1750 to 2500 and run the cell.
+
+    ![](images/clipboard-1888786366.png)
+
+20. Turn off the new **clinic_buffer** layer to see the new **no_service** layer.
+
+    You may need to zoom to the layer to see the remaining smaller areas.
+
+    > The resulting areas are potentially the most compromised in terms of clinic service. You were able to obtain this updated result by running the multiple lines of code as a single cell in the notebook. If you had used the tools from their graphical user interfaces, you would have needed to run both the **Buffer** tool and the **Pairwise Erase** tool again to obtain the updated result.
+    >
+    > The time savings with only two tools is minor, but many workflow's consist of longer sequences of tools. In addition, the ability to run a tool, or multiple tools, within a loop makes Python useful when you need to run the same process on multiple inputs.
+
+21. Save your ArcGIS Pro project and close.
+
+## Create and save a Notebook in ArcGIS Online
+
+1.  Go to our ArcGIS Online Organizational account <https://uostandrews.maps.arcgis.com/> log in using your St Andrews email.
+2.  Click Notebook to open a new ArcGIS Notebook.![](data:image/png;base64,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)
+3.  Click the New Notebook button and you will see a drop-down list with three options: **Standard**, Advanced, and Advanced with GPU support.
+4.  Click **Standard**.
+5.  It is a best practice to name and save the notebook when you create it.
+6.  Click the **Save** button in the upper right of the notebook and then click **Save As.**
+
+![](images/clipboard-1214827322.png)
+
+![]()When prompted, give the notebook a title, such as My First Notebook followed by an underscore and your first and last initials; some tags, and a summary. Then click Save Notebook. This information will show up on the item page for your notebook in ArcGIS Online.
+
+When you are working in notebooks in ArcGIS Online it is a good idea to save your work regularly.
+
+## Work with a notebook
+
+Each new notebook starts with several markdown cells already populated and one code cell that calls the ArcGIS API for Python and connects you to ArcGIS Online. After that, you can add code and markdown cells to create your workflow.
+
+*1.* Double-click the **Welcome to your notebook** cell to make it editable.
+
+![](images/clipboard-1061139975.png)
+
+![]()This is a markdown cell. Markdown is a lightweight, plain text formatting syntax that is widely used across the internet. After double-clicking the cell, the text appears in \*\*blue\*\* with two number signs (\*\*##\*\*) in front of it.
+
+Markdown tag welcoming you to your new notebook.
+
+2\. While in the markdown cell, click **Run**.
+
+This runs the cell and turn it into a header. You can also run cells by pressing *Shift+Enter* on your keyboard. *Shift+Enter* is the keyboard shortcut for running cells in a notebook.
+
+![](images/clipboard-1489554479.png)
+
+3\. Click Open the command palette at the top of the notebook. This lists of all keyboard shortcuts.
+
+![](images/clipboard-102943232.png)
+
+4\. Double-click the Welcome to your notebook cell. Insert two more number (\*\*##\*\*) signs in the cell before Welcome to your notebook. There are now four number signs. The additional number signs change the size of the header. Run the cell. The header becomes smaller.
+
+5\. Double-click the **Welcome to your notebook** cell again. Remove the two number signs from the header and press **Enter**. On the second line, type **This is my first notebook** and other **other text that you may want to add**. Then, click **Run**.
+
+The header returns to its initial size and there is now text below that cell.
+
+In any new notebook, the second cell will say **Run this cell to connect to your GIS and get started**. This is also a markdown cell. This cell directs you to run the code cell that follows it that connects you to **ArcGIS Online**.
+
+![](images/clipboard-43665753.png)
+
+Run this cell at the beginning of every notebook that connects a user to ArcGIS Online.
+
+6\. Double-click in the code cell and run it.
+
+While the cell runs, an asterisk is inside the brackets in the input area so it appears as In \[\*\]. After the cell finishes running, the number 1 replaces the asterisk in the brackets so it appears as In \[1\]. The number in the brackets increases by one each time a code cell is run. You must run this cell. If you do not run this cell, the other code cells will not run.
+
+## Create a web map.
+
+Now that you are familiar with markdown and have run the existing code, you'll write and run some of your own.
+
+1\. On the ribbon click the plus (+) sign.
+
+![](images/clipboard-265400495.png)
+
+This creates a new cell beneath the code cell that you just ran. The new cell will appear below the currently selected cell.
+
+2\. Set that cell to be a markdown cell.
+
+![](images/clipboard-2560364198.png)
+
+3\. In the new markdown cell, type **\### My First Map.**
+
+4\. In the same cell, on the second line, add some text below the header that describes the code that you will write. When you are done entering text, **run the cell.**
+
+5\. Next, you will create a map in the notebook. Start by creating a new code cell.
+
+6\. In the new code cell, create a variable named **my_first_map** that represents the map and use the ArcGIS API for Python to set the variable to a web map that is centered over a specific location.
+
+7\. Set the variable equal to a web map centered on St Andrews, UK:
+
+`my_first_map = gis.map("St Andrews, UK")`
+
+8\.  Run the cell.
+
+Now that you have named your variable, you will call it to create the map. Do this by creating a new code cell and then within that code cell, typing **my_first_map** and running that cell.
+
+![](images/clipboard-3169024548.png)
+
+After that cell runs, your first map will appear in your notebook. You can change the location of the center of the map by going back to the previous cell, changing "St Andrews, UK" to a different location, and running the cell again, or you can pan and zoom around the current map.
+
+![](images/clipboard-985360588.png)
+
+## Explore Content
+
+In ArcGIS Notebooks, you can search for content and view item metadata. Next, you will search for a layer over Los Angeles and add it to the notebook.
+
+1\. On the ribbon click the plus (+) sign. To add a new cell underneath the **my_first_map** cell
+
+![](images/clipboard-265400495.png)
+
+2\. Click the **Add** button.
+
+![](images/clipboard-2123749352.png)
+
+The **Add** button opens the **Add Content** panel, which allows you to add an ArcGIS Online item as code directly to the notebook. If you have saved content in ArcGIS Online or ArcGIS Notebooks, that content is available from the **Add Content** panel to use in your notebook.
+
+![](images/clipboard-3910474832.png)
+
+3\. Click **ArcGIS Online** and type **UK** to search for all content related to the UK and available in ArcGIS Online. Add the UK SSP: Life Expectancy Layer to the notebook by clicking the **add button (a plus sign).**
+
+![](images/clipboard-1811674732.png)
+
+A new code cell containing a code snippet, is added to the notebook beneath your map. This cell calls the layer as the variable item and loads its metadata. The code cell looks like the following:
+
+![](images/clipboard-1923747112.png)
+
+4\. Run this code cell. The item metadata is added as an object to the notebook below the cell, but it is not yet added to the map.
+
+Next, you will learn some short cuts to write code and display relevant documentation.
+
+5\. Create a code cell below the item and call your map variable. Type **my\_** and press Tab.
+
+Pressing Tab while typing a variable name activates the notebook's autocomplete functionality. The line completes and displays **my_first_map.**
+
+6\. After **my_first_map**, type **.ad** so it appears as my_first_map.ad and press Tab.
+
+The code is completed to be **my_first_map.add_layer**
+
+7\. **Press Shift+Tab.**
+
+![]()Pressing Shift+Tab opens the docstring. The docstring is a small piece of documentation for developers that describes what the method does.
+
+After investigating the docstring, close it.
+
+You can access the function's help documentation by typing a question mark at the end of the function. For example, **my_first_map.add_layer?** will open the **add_layer** help documentation from the bottom of the notebook. Try this.
+
+After reading the help documentation, close it.
+
+8\. In the same cell where you investigated the function signature of my_first_map, call the add_layer method and use it to add the Life expectancy item to the map. **Run the cell**. The cell code should appear as **my_first_map.add_layer(item).**
+
+![](images/clipboard-782279764.png)
+
+9\. After the cell completes, scroll to the map in your notebook and verify that the new item with the new layer from Met Office has been added.
+
+![]()You have created your first map and added a layer to it using ArcGIS Notebooks. The map includes zoom buttons, a compass, and the option to change from a map view to a globe view.
+
+Pan and zoom the map and use these buttons.
+
+This is a live web map with the same functionality as the maps you use in ArcGIS Online.
+
+With a few lines of code, you can **save the map** you created to ArcGIS Online. Web maps are defined by specific properties, such as the **title, description (snippet), and tags**. You can define the properties by creating a *dictionary* that contains them in Python code. Then, you can save the map as a web map.
+
+10\. In a new code cell, define the web map properties using the following dictionary. You can modify or change the title, snippet, or tags. Run the cell.
+
+`webmap_properties = {'title':'My First Map', 'snippet': 'My first map from my first notebook', 'tags':['ArcGIS Notebooks', 'UK']}`
+
+11\. Create another cell where you will save the webmap. Add the following line: **my_first_map.save(webmap_properties)**. Run the cell.
+
+Running this cell creates an active link that will take you to the webmap item in ArcGIS Online. Click the active link and verify that the webmap was created in ArcGIS Online.
+
+![](images/clipboard-2583419911.png)
+
+12\. Click the **Save** button in the upper right of the notebook.
+
+![]()It is a **good idea** **to save your work regularly** when you work in notebooks hosted online. If there is no Python activity in the notebook for 20 minutes, the Python kernel will shut down, the notebook will stop working, and all variables in memory will be lost. Once you have restarted the kernel you will need to run all of the cells again, starting from the beginning, to restore the values.
+
+13\. Go to your **Content**, and check that now you have two new items in your portal. The **notebook**, that you can open and edit it with new code. And the new **WebMap** that you created using Python and the ArcGIS API for Python.
+
+![](images/clipboard-3716589003.png)
+
+![](images/clipboard-3499115435.png)
+
+14\. Click **My First Map** to open the details, and then click **Open in Map Viewer**. Then ArcGIS Online will launch a viewer to let you explore, edit and share the WebMap you have created.
+
+![](images/clipboard-47824098.png)
+
+## **Challenge for next class**
+
+Now that you have learned how to create a map, search for content, add layers, and save a webmap, use **Python and ArcGIS Notebooks** to create another web map that contains multiple layers that you are interested in. Save the webmap to ArcGIS Online.
+
+**Be ready to showcase this webmap during the next class** showing what the map is about and the difficulties you had

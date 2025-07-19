@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GG3209 - Spatial Analysis with GIS - Lab No 1: Introduction to Python using ArcGIS Online</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Lab_2.html" rel="next">
+<link href="../Lab_1.html" rel="prev">
+<link href="../images/StA.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GG3209 - Spatial Analysis with GIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../intro.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../DataSources.html" rel="" target="">
+ <span class="menu-text">Data Sources</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+    <a href="../GG3209—Spatial-Analysis-with-GIS.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Lab_1/Lab_1.html">Lab No 1: Introduction to Python using ArcGIS Online</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this site</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../gg3209_install_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Step 1. Python Environment Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../git_github_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Step 2. Introduction to GIT</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 1: Intro to Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab_1/Lab_1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab No 1: Introduction to Python using ArcGIS Online</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 2: Python Basics - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab No 3: Python Basics - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DataSources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Sources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setting-up-the-arcgis-pro-project" id="toc-setting-up-the-arcgis-pro-project" class="nav-link active" data-scroll-target="#setting-up-the-arcgis-pro-project">Setting up the ArcGIS Pro Project</a></li>
+  <li><a href="#accessing-the-catalog-pane" id="toc-accessing-the-catalog-pane" class="nav-link" data-scroll-target="#accessing-the-catalog-pane">Accessing the Catalog Pane</a></li>
+  <li><a href="#creating-a-python-notebook" id="toc-creating-a-python-notebook" class="nav-link" data-scroll-target="#creating-a-python-notebook">Creating a Python Notebook</a></li>
+  <li><a href="#running-your-first-python-code" id="toc-running-your-first-python-code" class="nav-link" data-scroll-target="#running-your-first-python-code">Running Your First Python Code</a></li>
+  <li><a href="#working-with-variables" id="toc-working-with-variables" class="nav-link" data-scroll-target="#working-with-variables">Working with Variables</a></li>
+  <li><a href="#understanding-variable-scope-and-errors" id="toc-understanding-variable-scope-and-errors" class="nav-link" data-scroll-target="#understanding-variable-scope-and-errors">Understanding Variable Scope and Errors</a></li>
+  <li><a href="#manage-code-in-cells" id="toc-manage-code-in-cells" class="nav-link" data-scroll-target="#manage-code-in-cells">Manage code in cells</a>
+  <ul class="collapse">
+  <li><a href="#working-with-lists" id="toc-working-with-lists" class="nav-link" data-scroll-target="#working-with-lists">Working with Lists</a></li>
+  <li><a href="#understanding-cell-execution-order" id="toc-understanding-cell-execution-order" class="nav-link" data-scroll-target="#understanding-cell-execution-order">Understanding Cell Execution Order</a></li>
+  <li><a href="#merging-cells" id="toc-merging-cells" class="nav-link" data-scroll-target="#merging-cells">Merging Cells</a></li>
+  <li><a href="#using-the-command-palette" id="toc-using-the-command-palette" class="nav-link" data-scroll-target="#using-the-command-palette">Using the Command Palette</a></li>
+  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+  </ul></li>
+  <li><a href="#run-geoprocessing-tools-in-a-notebook" id="toc-run-geoprocessing-tools-in-a-notebook" class="nav-link" data-scroll-target="#run-geoprocessing-tools-in-a-notebook">Run geoprocessing tools in a notebook</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-new-notebook-for-geoprocessing" id="toc-creating-a-new-notebook-for-geoprocessing" class="nav-link" data-scroll-target="#creating-a-new-notebook-for-geoprocessing">Creating a New Notebook for Geoprocessing</a></li>
+  <li><a href="#importing-arcpy-and-running-geoprocessing-tools" id="toc-importing-arcpy-and-running-geoprocessing-tools" class="nav-link" data-scroll-target="#importing-arcpy-and-running-geoprocessing-tools">Importing ArcPy and Running Geoprocessing Tools</a></li>
+  <li><a href="#understanding-file-paths-and-workspace" id="toc-understanding-file-paths-and-workspace" class="nav-link" data-scroll-target="#understanding-file-paths-and-workspace">Understanding File Paths and Workspace</a></li>
+  <li><a href="#setting-the-workspace" id="toc-setting-the-workspace" class="nav-link" data-scroll-target="#setting-the-workspace">Setting the Workspace</a></li>
+  </ul></li>
+  <li><a href="#run-an-analysis-using-a-notebook" id="toc-run-an-analysis-using-a-notebook" class="nav-link" data-scroll-target="#run-an-analysis-using-a-notebook">Run an analysis using a notebook</a>
+  <ul class="collapse">
+  <li><a href="#using-tab-completion-and-tool-signatures" id="toc-using-tab-completion-and-tool-signatures" class="nav-link" data-scroll-target="#using-tab-completion-and-tool-signatures">Using Tab Completion and Tool Signatures</a></li>
+  </ul></li>
+  <li><a href="#using-the-pairwise-erase-tool" id="toc-using-the-pairwise-erase-tool" class="nav-link" data-scroll-target="#using-the-pairwise-erase-tool">Using the Pairwise Erase Tool</a></li>
+  <li><a href="#merging-cells-for-workflow-efficiency" id="toc-merging-cells-for-workflow-efficiency" class="nav-link" data-scroll-target="#merging-cells-for-workflow-efficiency">Merging Cells for Workflow Efficiency</a></li>
+  <li><a href="#create-and-save-a-notebook-in-arcgis-online" id="toc-create-and-save-a-notebook-in-arcgis-online" class="nav-link" data-scroll-target="#create-and-save-a-notebook-in-arcgis-online">Create and save a Notebook in ArcGIS Online</a></li>
+  <li><a href="#work-with-a-notebook" id="toc-work-with-a-notebook" class="nav-link" data-scroll-target="#work-with-a-notebook">Work with a notebook</a></li>
+  <li><a href="#create-a-web-map." id="toc-create-a-web-map." class="nav-link" data-scroll-target="#create-a-web-map.">Create a web map.</a></li>
+  <li><a href="#explore-content" id="toc-explore-content" class="nav-link" data-scroll-target="#explore-content">Explore Content</a></li>
+  <li><a href="#challenge-for-next-class" id="toc-challenge-for-next-class" class="nav-link" data-scroll-target="#challenge-for-next-class"><strong>Challenge for next class</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab No 1: Introduction to Python using ArcGIS Online</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Perhaps one of the fastest and easiest way to start with python as spatial data scientists for you is to create a notebook in ArcGIS Pro and use it to run some Python code. In here you don’t need to install any python environment as everything comes as part of the installation of ArcGIS Pro. We will work this way, so you are familiar with python and then we will move to more advance instructions later.</p>
+<section id="setting-up-the-arcgis-pro-project" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-the-arcgis-pro-project">Setting up the ArcGIS Pro Project</h3>
+<ol type="1">
+<li><p>In Moodle download the file <strong>PY4SA_Week5.ppkx</strong> in PY4SA Lab Week 5 to a location on your lab computer.</p>
+<blockquote class="blockquote">
+<p>The file contains an ArcGIS Pro package that includes, maps, a database combined.</p>
+<p><strong>In this lesson the data is shown at specific folder. You can use a different folder, but be sure to adjust the paths in the instructions that follow.</strong></p>
+</blockquote></li>
+<li><p>Find the <strong>PY4SA_Week5.ppkx</strong> file (likely in the Downloads folder), and double click to open it using ArcGIS Pro.</p></li>
+<li><p>ArcGIS Pro will probably ask you to sign In, click in the blue button <strong>University of St Andrews</strong> to authenticate using your university credentials.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3111549137.png" class="img-fluid"></p>
+</blockquote></li>
+<li><p>Add your university email and password. And then let ArcGIS Pro start and unpack the <strong>PY4SA_Week5</strong> project</p></li>
+<li><p>The project loads a map called <strong>PY4SA_Starting_with_Python</strong> showing the <strong>Edinburgh Wards</strong> and <strong>trees</strong> from Open Street Map, you can see more and more details when you zoom in to the map, take a sort time to familiarise yourself with the data and the map. You will add other <strong>feature classes</strong> (the ArcGIS version of a Shapefile) to this map.</p></li>
+</ol>
+</section>
+<section id="accessing-the-catalog-pane" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-catalog-pane">Accessing the Catalog Pane</h3>
+<ol start="6" type="1">
+<li><p>If the <strong>Catalog</strong> pane is not already visible, click the <strong>View</strong> tab and click <strong>Catalog Pane</strong>.</p></li>
+<li><p>Dock the <strong>Catalog</strong> pane to the right of the map.</p></li>
+<li><p>Expand <strong>Databases</strong> folder and then <strong>py4sa.gdb</strong> geodatabase.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-181253901.png" class="img-fluid"></p>
+<p>The <strong>geodatabase</strong> contains several <strong>feature classes</strong>, including spatial data from Open Street Map (OSM) and the Edinburgh Open Data Geo Portal.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="creating-a-python-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-python-notebook">Creating a Python Notebook</h3>
+<ol start="9" type="1">
+<li><p>On the ribbon, click the <strong>Analysis</strong> tab, and in the <strong>Geoprocessing</strong> group, click the drop-down arrow for the <strong>Python</strong> button and click <strong>Python Notebook</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1718290818.png" class="img-fluid"></p>
+<p>Clicking the <strong>Python</strong> button also opens a new notebook, but the drop-down menu allows you to see that you have a choice between <strong>Python Notebook</strong> and <strong>Python Window</strong>. The <strong>Python Window</strong> is another way to run Python code in ArcGIS Pro.</p>
+<p>It may take a moment for the new notebook to appear, and you may see the message <strong>Initializing Kernel</strong> on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software running in the background that will run the Python code you enter in the notebook. <strong>Do not panic!</strong></p>
+<p>Once the notebook opens, it appears as a new tab in the main window of ArcGIS Pro.</p>
+<p>The new notebook is stored as an <strong>.ipnyb</strong> file in your project home folder. The new notebook also appears under the <strong>Notebooks</strong> folder in the <strong>Catalog</strong> pane.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="running-your-first-python-code" class="level3">
+<h3 class="anchored" data-anchor-id="running-your-first-python-code">Running Your First Python Code</h3>
+<ol start="10" type="1">
+<li><p>Click inside the empty cell in the notebook.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-599765065.png" class="img-fluid"></p>
+<p>The outline turns green.</p>
+</blockquote></li>
+<li><p>Type the following line of code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello Notebook!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-2350592089.png" class="img-fluid"></p>
+<p>This code calls the print function on a single input parameter within the parentheses. This parameter is a string, because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.</p>
+</blockquote></li>
+<li><p>On the toolbar above the cell, click the <strong>Run</strong> button.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3807898361.png" class="img-fluid"></p>
+<p>The code in the cell is run and the result is printed below the cell. The print function runs on the string value “Hello Notebook!” and prints it. The quotation marks are not printed, because they are not part of the string—they only identify it as a string. The number 1 appears in the brackets to the left of the cell. A new empty cell is added below.</p>
+<p><img src="images/clipboard-2846304674.png" class="img-fluid"></p>
+<p>You can also run the currently selected cell by pressing <strong>Ctrl+Enter.</strong></p>
+<p>You can add multiple lines of code within a single cell by pressing the Enter key after each line. This may be counterintuitive if you are used to running code in the Python window or in the interactive window of a Python editor, where pressing the Enter key results in running the line of code.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="working-with-variables" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-variables">Working with Variables</h3>
+<ol start="13" type="1">
+<li><p>In the cell below your <strong>Hello Notebook!</strong> code, type the following lines of code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">*</span> b <span class="op">*</span> c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>This code creates three variables, <strong>a</strong>, <strong>b</strong>, and <strong>c</strong>, and assigns their values to be equal to the numbers <strong>5</strong>, <strong>7</strong>, and <strong>9</strong>. The last line prints the result of multiplying the variables.</p>
+<p><img src="images/clipboard-2341244234.png" class="img-fluid"></p>
+</blockquote></li>
+<li><p>Press Ctrl+Enter.</p>
+<p><img src="images/clipboard-1855615499.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>After the cell runs, the value <strong>315</strong> appears below it. The number <strong>2</strong> appears in brackets to the left of the cell to indicate that this is the second cell run.</p>
+</blockquote></li>
+<li><p>At the top of the notebook, click the <strong>Insert</strong> menu, and click <strong>Insert Cell Below</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-2144547110.png" class="img-fluid"></p>
+<p>A new cell is added below the currently selected cell.</p>
+</blockquote></li>
+<li><p>In the new cell, type the following line of code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">*</span> b <span class="op">*</span> c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p><em>What do you think this will do when you run the cell?</em></p>
+</blockquote></li>
+<li><p>Run the cell and look at the result.</p>
+<blockquote class="blockquote">
+<p>Did the result match your expectation?</p>
+<p>The values of the variables <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are stored in memory after you set them, so you can use them in another cell.</p>
+<p><img src="images/clipboard-3232821279.png" class="img-fluid"></p>
+<p>The result of multiplying the values stored in <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> is printed when you run the cell.</p>
+<p>The print statement is not required because in a notebook, the Python window, and in the Python interpreter, Python evaluates simple expression statements and prints their value.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="understanding-variable-scope-and-errors" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-variable-scope-and-errors">Understanding Variable Scope and Errors</h3>
+<ol start="18" type="1">
+<li><p>If you ran the cell by pressing <strong>Ctrl+Enter</strong>, insert a new cell below it.</p>
+<blockquote class="blockquote">
+<p>If you ran the cell by pressing the run button, there should already be a new cell below it.</p>
+</blockquote></li>
+<li><p>In the new cell, type the following line of code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">*</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>What do you think this will do when you run the cell?</p>
+</blockquote></li>
+<li><p>Run the cell and look at the result.</p>
+<blockquote class="blockquote">
+<p>Did the result match your expectation?</p>
+<p>Variable a has been set to the numeric value of 5, but the new variable t hasn’t been set yet. This causes an error. In Python, you can’t use variables until you assign their values.</p>
+<p><img src="images/clipboard-4003440896.png" class="img-fluid"></p>
+</blockquote></li>
+<li><p>Edit the code in the cell as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">*</span> <span class="st">"t"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>What do you think this will do when you run the cell?</p>
+</blockquote></li>
+<li><p>Run the cell and look at the result.</p>
+<blockquote class="blockquote">
+<p>Did the result match your expectation?</p>
+<p><img src="images/clipboard-3575819682.png" class="img-fluid"></p>
+<p>By putting <strong>t</strong> in quotation marks, you have identified it for Python as a string. Python evaluates the expression as the string t five times, resulting in the new string value <strong>‘ttttt’</strong>.</p>
+</blockquote></li>
+<li><p>Add a new cell and enter the following code:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">*</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>What do you think this will do when you run the cell?</p>
+</blockquote></li>
+<li><p>Run the cell.</p>
+<blockquote class="blockquote">
+<p>Did the result match your expectation?</p>
+<p><img src="images/clipboard-853451151.png" class="img-fluid"></p>
+<p>Because the first line in the cell defined the variable <strong>t</strong> as being equal to the number <strong>10</strong>, Python was able to multiply it by the value stored in the variable <strong>a</strong>.</p>
+</blockquote></li>
+</ol>
+<p><strong>Sum-up</strong>: You’ve opened a new notebook in ArcGIS Pro and added and run some basic Python code. Next, you will use notebook functions to manage the code in the cells.</p>
+</section>
+<section id="manage-code-in-cells" class="level2">
+<h2 class="anchored" data-anchor-id="manage-code-in-cells">Manage code in cells</h2>
+<p>The code in Notebooks is run in cells. The order in which cells have been run is indicated by the numbers beside the cells after they are run. Notebooks have tools to manage cells. Now you’ll explore these aspects of working with Python in a notebook.</p>
+<section id="working-with-lists" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-lists">Working with Lists</h3>
+<ol type="1">
+<li><p>In the next empty cell (add a new one if you need to), type the following line of code and run the cell.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>What happened?</p>
+<p>This code defined a new variable and set its value, but did not print anything.</p>
+<p><img src="images/clipboard-4086509903.png" class="img-fluid"></p>
+<p>The variable <strong>mylist</strong> is a list, as indicated by the square brackets. Lists are an important data type in Python that consist of a sequence of elements. In this case, those elements are numbers, but lists can also contain other types of data. Elements in a list are separated by commas.</p>
+</blockquote></li>
+<li><p>In the next empty cell, type the following code and run the cell.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mylist[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>What happened?</p>
+<p><img src="images/clipboard-2548513616.png" class="img-fluid"></p>
+<p>Elements in a list are indexed, starting with index number zero. You can obtain specific elements in a list by using their index number. Index number -1 means the first elements starting from the end of the list—in other words, the last element. This returns the number <strong>5</strong>.</p>
+<p>As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you run a previously run cell again. The numbers help you keep track of the order in which the cells were run.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="understanding-cell-execution-order" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-cell-execution-order">Understanding Cell Execution Order</h3>
+<ol start="3" type="1">
+<li><p>Change the code in the cell defining the <strong>mylist</strong> variable to the following by adding more elements, but don’t run the cell.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/clipboard-3937730648.png" class="img-fluid"></p></li>
+<li><p>Click the cell below this one, with the code <code>mylist[-1]</code> and click the <strong>Run</strong> button.</p>
+<blockquote class="blockquote">
+<p>Does what happened match what you expected?</p>
+<p><img src="images/clipboard-3352050590.png" class="img-fluid"></p>
+<p>The result is the number <strong>5</strong>. Why isn’t it the number <strong>8</strong>?</p>
+<p>Code in a notebook is entered cell by cell and any previously used variables are stored in memory.</p>
+<p>Until you run the cell with the code that redefines the <strong>mylist</strong> variable, the value of <strong>mylist</strong> is still the value stored in memory, <strong>[1, 2, 3, 4, 5]</strong>, and the value at position -1 in that list is still <strong>5</strong>.</p>
+</blockquote></li>
+<li><p>Click the cell with <code>mylist = [1, 2, 3, 4, 5, 6, 7, 8]</code> and run it.</p></li>
+<li><p>Click the cell with <code>mylist[-1]</code> and run it.</p>
+<blockquote class="blockquote">
+<p>Now the value in the last position of the list is <strong>8</strong>.</p>
+<p><img src="images/clipboard-861679733.png" class="img-fluid"></p>
+<p>An alternative to running individual cells is to select multiple cells and run them together, or to run all the cells in a notebook by clicking the <strong>Cell</strong> menu and clicking <strong>Run All</strong>.</p>
+<p>It is a good practice to organize lines of code that belong together in the same cell. For example, it would make sense for the two previous cells to be combined into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="merging-cells" class="level3">
+<h3 class="anchored" data-anchor-id="merging-cells">Merging Cells</h3>
+<ol start="7" type="1">
+<li><p>Click the cell that defines the <strong>mylist</strong> variable.</p>
+<blockquote class="blockquote">
+<p>That cell has <code>mylist = [1, 2, 3, 4, 5, 6, 7, 8]</code> in it.</p>
+</blockquote></li>
+<li><p>Click the <strong>Edit</strong> menu and click <strong>Merge Cell Below</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3447560154.png" class="img-fluid"></p>
+<p>The result is a single cell with the combined lines of code. The results below the cells have been removed. An empty line is added between the lines of code from the two merged cells, but you can edit the cell to remove it if you want.</p>
+</blockquote></li>
+<li><p>Run the merged cell.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1957833969.png" class="img-fluid"></p>
+<p>The <strong>Edit</strong> menu provides many other useful ways to manipulate the cells in your notebook. You can copy and paste cells, delete them, split and merge them, and move a selected cell up or down relative to the other cells.</p>
+<p>Additional tools are available under the <strong>View</strong>, <strong>Insert</strong>, and <strong>Cell</strong> menu options.</p>
+<p>Some of the most widely used tools are also available as buttons on the notebook toolbar.<img src="images/clipboard-793783451.png" class="img-fluid"></p>
+<p>These include the following:</p>
+</blockquote>
+<ul>
+<li><strong>Insert cell below</strong></li>
+<li><strong>Cut selected cells</strong></li>
+<li><strong>Copy selected cells</strong></li>
+<li><strong>Paste cells below</strong></li>
+<li><strong>Move selected cells up</strong></li>
+<li><strong>Move selected cells down</strong></li>
+</ul>
+<blockquote class="blockquote">
+<p>More tools can be found on the <strong>Command Palette</strong>.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="using-the-command-palette" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-command-palette">Using the Command Palette</h3>
+<ol start="10" type="1">
+<li><p>Click the <strong>Command Palette</strong> button.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1381581135.png" class="img-fluid"></p>
+<p>A list of commands appears.</p>
+<p>You can run a command by clicking it. The command is applied to the selected cells in the notebook, or to all cells, depending on the command.</p>
+</blockquote></li>
+<li><p>In the <strong>Command Palette</strong>, click <strong>clear all cells output</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-799976136.png" class="img-fluid"></p>
+<p>All code remains the same, but all outputs have been removed. The input and output prompts are blank, since none of the cells have been run. When you run a cell, the prompts start again at 1.</p>
+<p>The <strong>Command Palette</strong> also show shortcuts for many of the tasks.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="keyboard-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+<ol start="12" type="1">
+<li><p>Click the <strong>Command Palette</strong> button and scroll down to <strong>insert cell below</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3625426950.png" class="img-fluid"></p>
+<p>The keyboard shortcut for this command is listed to the right of it. The shortcut is the letter B when the notebook cell is in command mode.</p>
+</blockquote></li>
+<li><p>Hide the <strong>Command Palette</strong> by clicking outside of the palette but inside the notebook.</p></li>
+<li><p>Click the space to the left of the second cell, so it turns blue.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-272548639.png" class="img-fluid"></p>
+<p>Be sure not to click inside the code section, which will turn the cell green.</p>
+<p>The cell border is blue to indicate that it is in command mode.</p>
+</blockquote></li>
+<li><p>Press the B key on your keyboard.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1786130242.png" class="img-fluid"></p>
+<p>A new cell is inserted below the selected cell. If the cell had been green, you would add the letter b to the code in the cell.</p>
+<p>These shortcuts are not case sensitive, so b and B are the same.</p>
+<p>There is no need to memorize these commands, but experienced coders memorize and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.</p>
+<p>If you are looking for the command for a specific task, you can search for it by using the search bar at the top of the <strong>Command Palette</strong>.</p>
+</blockquote></li>
+<li><p>Open the <strong>Command Palette</strong> and type run in the <strong>Search</strong> box.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1804697134.png" class="img-fluid"></p>
+<p>This filters the list to the tools with run in their name. Some commands have a shortcut. For example, the shortcut for <strong>run selected cells</strong> is Ctrl +Enter.</p>
+</blockquote></li>
+<li><p>Hide the <strong>Command Palette</strong> by clicking outside of the palette but inside the notebook.</p></li>
+<li><p>Close the notebook.</p>
+<p><img src="images/clipboard-842952166.png" class="img-fluid"></p></li>
+</ol>
+<p>You’ve seen how to enter and edit Python code in notebook cells, and how to interact with the notebook to run and manage the code. Next, you’ll use a notebook to run geoprocessing tools in ArcGIS Pro.</p>
+</section>
+</section>
+<section id="run-geoprocessing-tools-in-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="run-geoprocessing-tools-in-a-notebook">Run geoprocessing tools in a notebook</h2>
+<p>Now that you’ve had some practice entering code in a notebook, it is time to use some geoprocessing tools. You will start with a new notebook.</p>
+<section id="creating-a-new-notebook-for-geoprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-new-notebook-for-geoprocessing">Creating a New Notebook for Geoprocessing</h3>
+<ol type="1">
+<li><p>Click the <strong>Analysis</strong> tab, and in the <strong>Geoprocessing</strong> group, click <strong>Python</strong>.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-2996771898.png" class="img-fluid"></p>
+<p>The new notebook opens.</p>
+</blockquote></li>
+<li><p>In the <strong>Catalog</strong> panel, expand the <strong>Notebooks</strong> section.</p></li>
+<li><p>Right-click the new notebook, <strong>New Notebook (1).ipynb</strong>, and click <strong>Rename</strong>.</p>
+<p><img src="images/clipboard-3046128174.png" class="img-fluid"></p></li>
+<li><p>Type <code>geoprocessing_demo</code> and press Enter.</p>
+<blockquote class="blockquote">
+<p>The new notebook is renamed. In the <strong>Catalog</strong> pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says <strong>geoprocessing_demo</strong>.</p>
+<p>For the next steps, it is useful to see the map and the notebook side by side.</p>
+</blockquote></li>
+<li><p>Drag the <strong>geoprocessing_demo</strong> notebook tab to the docking target that appears below.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1127096855.png" class="img-fluid"></p>
+<p>The notebook is docked below the map. Now you’ll be able to see the results of your code as you use Python in the notebook to work with feature classes on the map.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="importing-arcpy-and-running-geoprocessing-tools" class="level3">
+<h3 class="anchored" data-anchor-id="importing-arcpy-and-running-geoprocessing-tools">Importing ArcPy and Running Geoprocessing Tools</h3>
+<ol start="6" type="1">
+<li><p>In the empty cell, type the following line of code and run the cell:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>This line of code imports the ArcPy package. ArcPy is a Python package that makes much of the functionality of ArcGIS Pro available from within Python, including geoprocessing.</p>
+<p>Since you are using this notebook in ArcGIS Pro, code that uses geoprocessing tools will not produce an error if you have not imported ArcPy. However, it is good practice to always include <code>import arcpy</code> at the top of your geoprocessing code so it will also work when run outside of ArcGIS Pro.</p>
+</blockquote></li>
+<li><p>In the same cell, add a new line and type the following code:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>arcpy.GetCount_management(<span class="st">"EDI_gis_osm_natural"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>This code uses ArcPy to run the <strong>Get Count</strong> tool to determine the number of features in the <strong>EDI_gis_osm_natural</strong> feature class.</p>
+</blockquote></li>
+<li><p>Run the cell.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3879939768.png" class="img-fluid"></p>
+<p>GetCount is a function of ArcPy that runs the <strong>Get Count</strong> geoprocessing tool located in the <strong>Data Management Tools</strong> toolbox.</p>
+<p>The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialog box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialog box. Any tool that you run in a notebook also appears in the <strong>History</strong> panel.</p>
+</blockquote></li>
+<li><p>Click the <strong>Analysis</strong> tab and click <strong>History</strong>.</p>
+<blockquote class="blockquote">
+<p>The tool appears in the geoprocessing history.</p>
+<p><img src="images/clipboard-592220983.png" class="img-fluid"></p>
+</blockquote></li>
+<li><p>Close the <strong>History</strong> panel</p></li>
+</ol>
+</section>
+<section id="understanding-file-paths-and-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-file-paths-and-workspace">Understanding File Paths and Workspace</h3>
+<ol start="11" type="1">
+<li><p>Edit the <code>arcpy.GetCount</code> code line to the following:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>arcpy.GetCount_management(<span class="st">"EDI_gis_osm_building"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Run the cell. Are you getting any error?</p>
+<blockquote class="blockquote">
+<p>In case this code fails with an error message. At the end of the message, the following information appears:</p>
+<p>ExecuteError: Failed to execute. Parameters are not valid.</p>
+<p>ERROR 000732: Input Rows: Dataset EDI_gis_osm_building does not exist or is not supported</p>
+<p>Failed to execute (GetCount)</p>
+<p>Why do you think the code failed, when the code to get the count of natural features worked?</p>
+<p>The <strong>EDI_gis_osm_natural</strong> feature class is a layer on the active map. In a notebook, you can refer to a dataset by the name of the layer in the active map, like you can when you run a geoprocessing tool interactively using its graphical user interface.</p>
+<p>The <strong>EDI_gis_osm_building</strong> feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or default geodatabase by specifying the full path to it.</p>
+<p>Next, you’ll look up the path to the <strong>EDI_gis_osm_buildings (this layer does exist)</strong> feature class. The path where the data is located is a key aspect in python so now let’s explore how you can know where the data is stored and then use the correct path in your scripts.</p>
+</blockquote></li>
+<li><p>In the <strong>Catalog</strong> pane, expand the <strong>Databases</strong> section and expand <strong>PY4SA.gdb</strong>.</p></li>
+<li><p>Right-click <strong>EDI_gis_osm_buildings</strong> and click <strong>Properties</strong>.</p>
+<p><img src="images/clipboard-3109966038.png" class="img-fluid"></p></li>
+<li><p>Click the column next to <strong>Database</strong> and select the full path to the geodatabase.</p>
+<p><img src="images/clipboard-2913333225.png" class="img-fluid"></p></li>
+<li><p>Right-click the selected path and click <strong>Copy</strong>, and then close the <strong>Properties</strong> dialog box.</p>
+<blockquote class="blockquote">
+<p>The path in this example is as follows:</p>
+<p><code>C:\Users\benit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb</code></p>
+<p><strong>The path on your computer will be different</strong>, depending on where and how you unzipped the .zip file with the data. You may not have put the data in a folder on your drive C, or inside a folder named Lessons, for example. You should use the path on your computer in the next step.</p>
+</blockquote></li>
+<li><p>Click in the notebook cell and update the path that you copied. But make sure you add a backslash \ between the path you copy and the name of the feature class.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>arcpy.GetCount_management(<span class="st">"C:\Users</span><span class="ch">\b</span><span class="st">enit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb\EDI_gis_osm_buildings"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Click immediately after the open parenthesis and before the first quotation mark, and type the letter <strong>r</strong>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>arcpy.GetCount_management(<span class="vs">r"C:\Users\benit\Documents\ArcGIS\Projects\PY4SA\PY4SA.gdb\EDI_gis_osm_buildings"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>You need to add the letter <strong>r</strong> to tell Python that this path is a raw string. Windows computers use the backslash character as a path separator. In Python, the backslash character is an escape character that, when next to some other characters in a string, encodes tab, new line, or other special characters. This means that where occurs beside in the path, Python reads the string as having a new line character. Placing the r before the string tells Python to ignore the escape characters.</p>
+</blockquote></li>
+<li><p>Run the cell.</p>
+<blockquote class="blockquote">
+<p>The <strong>Get Count</strong> tool runs and returns a message that there are 158029 features in the feature class.</p>
+<p><img src="images/clipboard-3056575311.png" class="img-fluid"></p>
+<p>You can also use a forward slash (/) character as a path separator in Python code, or you can double the backslash characters.</p>
+<p>The following are all valid ways of writing this path in Python:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">r"C:\Lessons\NotebookStart\Toronto.gdb</span><span class="ch">\a</span><span class="co">mbulances"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">"C:/Lessons/NotebookStart/Toronto.gdb/ambulances"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">"C:</span><span class="ch">\\</span><span class="co">Lessons</span><span class="ch">\\</span><span class="co">NotebookStart</span><span class="ch">\\</span><span class="co">Toronto.gdb</span><span class="ch">\\</span><span class="co">ambulances"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you use a forward slash (/) or double backslash (\) as your path separator, you do not add the r before the path string.</p>
+<p>For someone who is used to Windows paths delimited by backslashes, this can look a little strange at first, but it is important to remember.</p>
+<p>One way to avoid having to specify full paths for tools <strong>is to set the workspace</strong>.</p>
+</blockquote></li>
+</ol>
+</section>
+<section id="setting-the-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-workspace">Setting the Workspace</h3>
+<ol start="20" type="1">
+<li><p>Edit the code to add a new line between the two lines beginning with <code>import arcpy</code> and <code>arcpy.GetCount</code>. Add the following line:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>This line is setting a property of the environment class, arcpy.env, to be equal to some value. Next, you’ll cut the path to PY4SA.gdb and paste it after this code to set the path.</p>
+</blockquote></li>
+<li><p>Add the path to the PY4SA geodatabase. For example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"C:\Lessons\NotebookStart\PY4SA.gdb"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Run the cell.</p></li>
+<li><p>To validate the workspace has been properly defined add a new cell and run the following line:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>You should get the path you defined as your workspace in this python environment.</p>
+</blockquote></li>
+</ol>
+</section>
+</section>
+<section id="run-an-analysis-using-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="run-an-analysis-using-a-notebook">Run an analysis using a notebook</h2>
+<p>Next, you will do some GIS analysis work using the notebook. Suppose you are interested in finding out what areas within the Edinburgh_Wards are farthest from clinics in Edinburgh. You can use geoprocessing tools in a notebook to identify these areas.</p>
+<section id="using-tab-completion-and-tool-signatures" class="level3">
+<h3 class="anchored" data-anchor-id="using-tab-completion-and-tool-signatures">Using Tab Completion and Tool Signatures</h3>
+<ol type="1">
+<li><p>Add a new cell below the current one.</p></li>
+<li><p>Place the cursor inside the cell and start typing the following:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>arcpy.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Press the Tab key.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3721703046.png" class="img-fluid"></p>
+<p>A list of all of the available ArcPy options appears.</p>
+<p>You can scroll down and click an item to select it from this list, or you can continue typing.</p>
+</blockquote></li>
+<li><p>Type an uppercase B.</p>
+<p><img src="images/clipboard-1350587622.png" class="img-fluid"></p></li>
+<li><p>Click <strong>Buffer_Analysis</strong>.</p>
+<blockquote class="blockquote">
+<p>The cell now says <code>arcpy.Buffer_analysis</code>.</p>
+<p>This process of beginning to type some code and then pressing the Tab key to see and choose from matching options is called tab completion, and it can help you find and more quickly access the commands you need.</p>
+</blockquote></li>
+<li><p>With your cursor still at the end of the line of code, press Shift+Tab.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-1437521012.png" class="img-fluid"></p>
+<p>A window with the syntax hints for the Buffer_analysis tool appears. You can click the arrow button to expand it to read the whole topic.</p>
+</blockquote></li>
+<li><p>Click the close button to close the <strong>Signature</strong> window.</p></li>
+<li><p>Type an open parenthesis.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-174508318.png" class="img-fluid"></p>
+<p>A close parenthesis is also added, and the cursor is placed between them. This is where you can add parameters for the Buffer_analysis tool.</p>
+</blockquote></li>
+<li><p>Type a quotation mark.</p>
+<blockquote class="blockquote">
+<p><img src="images/clipboard-3017385417.png" class="img-fluid"></p>
+<p>A second quotation mark is added. Python needs strings to be enclosed in quotation marks, so it adds a matching quotation mark, with the cursor between them.</p>
+<p>The three parameters that the Buffer_analysis tool requires are the input feature class, the output feature class, and the buffer distance. There are other optional parameters, but these are the only ones that are required.</p>
+<p>You’ll buffer the&nbsp;<strong>EDI_gis_osm_clinics</strong> feature class, name the output feature class&nbsp;<strong>clinic_buffer</strong>, and make the tool buffer the fire stations by a distance of 1000 meters.</p>
+</blockquote></li>
+<li><p>Complete the line of code as follows:</p>
+<blockquote class="blockquote">
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>arcpy.Buffer_analysis(<span class="st">"EDI_gis_osm_clinics"</span>,<span class="st">"clinic_buffer "</span>,<span class="st">"1000 METERS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The three parameters of the tool are strings. The tool is able to locate the&nbsp;<strong>EDI_gis_osm_clinics</strong> feature class using only its name because it is a layer on the map. The tool is able to write an output feature class using only the name&nbsp;“clinic_buffer”&nbsp;because the workspace is set. The tool has logic built in to detect the buffer distance value and the units of measure in the string&nbsp;“1000 METERS”.</p>
+</blockquote></li>
+<li><p>Run the tool.</p>
+<p><img src="images/clipboard-3401626934.png" class="img-fluid"></p>
+<p>The output features are added to the map.</p>
+<p>The results show which areas fall within 1000 meters, or 1 kilometre, of a clinic and which areas do not. <strong>Having both the notebook and the map open at the same time makes it easy to see the results of different choices.</strong></p></li>
+<li><p>You probably need to hide the <strong><em>EDI_gis_osm_natural</em></strong> layer and add the <strong>EDI_gis_osm_clinics</strong> to the map, so you can see the buffer areas created around each clinic in Edinburgh.</p></li>
+<li><p>Now, change the buffer distance to 1750 meters and run the cell again.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>arcpy.Buffer_analysis(<span class="st">"EDI_gis_osm_clinics"</span>,<span class="st">"clinic_buffer"</span>,<span class="st">"1750 METERS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/clipboard-1227347095.png" class="img-fluid"></p></li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> If you get an error message, “<strong>ExecuteError: Failed to execute. Parameters are not valid</strong>”, that mentions that <strong>clinic_buffer</strong> already exists, then your ArcGIS Pro environment settings, <a href="https://pro.arcgis.com/en/pro-app/3.0/help/analysis/geoprocessing/basics/geoprocessing-options.htm">geoprocessing options</a> are not set to allow existing feature classes to be overwritten. To fix this issue, insert a new line in the cell before the arcpy.Buffer_analysis line. On the new line, add the following code:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>arcpy.env.overwriteOutput <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will allow the <strong>Buffer</strong> tool to overwrite the previous output. The cell should now contain:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>arcpy.env.overwriteOutput <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>arcpy.Buffer_analysis(<span class="st">"EDI_gis_osm_clinics"</span>,<span class="st">"clinic_buffer"</span>,<span class="st">"1750 METERS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run the cell.</p>
+</blockquote>
+<p>The areas outside of these buffers are further away from the clinics, which may increase the time it takes for an ambulance to respond to a call. To find the areas that are affected, rather than the parts that are not, you will use the erase tool to remove the areas within the buffers from the Edinburgh Wards feature class.</p>
+</section>
+</section>
+<section id="using-the-pairwise-erase-tool" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-pairwise-erase-tool">Using the Pairwise Erase Tool</h2>
+<ol start="14" type="1">
+<li><p>Add another cell and enter the following code:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>arcpy.PairwiseErase_analysis(<span class="st">"Edinburgh_Wards"</span>, <span class="st">"clinic_buffer"</span>, <span class="st">"no_service"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This calls the PairwiseErase_analysis tool on the <strong>Edinburgh_Wards</strong> feature class, erasing the areas within the <strong>clinic_buffer</strong> feature class from it, and writing the results to a new feature class named “no_service”.</p></li>
+<li><p>Run the cell.</p></li>
+<li><p>In the <strong>Contents</strong> pane, uncheck the <strong>all layers, except clinics and no_service.</strong></p></li>
+<li><p>Right-click the <strong>no_service</strong> layer and click <strong>Zoom To Layer</strong>.</p>
+<p><img src="images/clipboard-2726520874.png" class="img-fluid"></p>
+<p>The <strong>no_service</strong> layer shows places that are farther from clinics in Edinburgh.</p></li>
+</ol>
+</section>
+<section id="merging-cells-for-workflow-efficiency" class="level2">
+<h2 class="anchored" data-anchor-id="merging-cells-for-workflow-efficiency">Merging Cells for Workflow Efficiency</h2>
+<ol start="18" type="1">
+<li><p>Click the <strong>arcpy.PairwiseErase_analysis</strong> cell, and in the <strong>Notebook</strong> pane, click the <strong>Edit</strong> menu and click <strong>Merge Cell Above</strong>.</p>
+<p><img src="images/clipboard-3321589216.png" class="img-fluid"></p>
+<p>The cells are merged.</p>
+<p><img src="images/clipboard-438738969.png" class="img-fluid"></p>
+<p>A benefit of Notebooks, and Python code in general, is that you can quickly run a sequence of tools. In this case, the sequence only consists of two tools, but it illustrates the concept.</p></li>
+<li><p>Change the distance value from 1750 to 2500 and run the cell.</p>
+<p><img src="images/clipboard-1888786366.png" class="img-fluid"></p></li>
+<li><p>Turn off the new <strong>clinic_buffer</strong> layer to see the new <strong>no_service</strong> layer.</p>
+<p>You may need to zoom to the layer to see the remaining smaller areas.</p>
+<blockquote class="blockquote">
+<p>The resulting areas are potentially the most compromised in terms of clinic service. You were able to obtain this updated result by running the multiple lines of code as a single cell in the notebook. If you had used the tools from their graphical user interfaces, you would have needed to run both the <strong>Buffer</strong> tool and the <strong>Pairwise Erase</strong> tool again to obtain the updated result.</p>
+<p>The time savings with only two tools is minor, but many workflow’s consist of longer sequences of tools. In addition, the ability to run a tool, or multiple tools, within a loop makes Python useful when you need to run the same process on multiple inputs.</p>
+</blockquote></li>
+<li><p>Save your ArcGIS Pro project and close.</p></li>
+</ol>
+</section>
+<section id="create-and-save-a-notebook-in-arcgis-online" class="level2">
+<h2 class="anchored" data-anchor-id="create-and-save-a-notebook-in-arcgis-online">Create and save a Notebook in ArcGIS Online</h2>
+<ol type="1">
+<li>Go to our ArcGIS Online Organizational account <a href="https://uostandrews.maps.arcgis.com/" class="uri">https://uostandrews.maps.arcgis.com/</a> log in using your St Andrews email.</li>
+<li>Click Notebook to open a new ArcGIS Notebook.<img src="data:image/png;base64,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.png" class="img-fluid"></li>
+<li>Click the New Notebook button and you will see a drop-down list with three options: <strong>Standard</strong>, Advanced, and Advanced with GPU support.</li>
+<li>Click <strong>Standard</strong>.</li>
+<li>It is a best practice to name and save the notebook when you create it.</li>
+<li>Click the <strong>Save</strong> button in the upper right of the notebook and then click <strong>Save As.</strong></li>
+</ol>
+<p><img src="images/clipboard-1214827322.png" class="img-fluid"></p>
+<p><img src=".png" class="img-fluid">When prompted, give the notebook a title, such as My First Notebook followed by an underscore and your first and last initials; some tags, and a summary. Then click Save Notebook. This information will show up on the item page for your notebook in ArcGIS Online.</p>
+<p>When you are working in notebooks in ArcGIS Online it is a good idea to save your work regularly.</p>
+</section>
+<section id="work-with-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="work-with-a-notebook">Work with a notebook</h2>
+<p>Each new notebook starts with several markdown cells already populated and one code cell that calls the ArcGIS API for Python and connects you to ArcGIS Online. After that, you can add code and markdown cells to create your workflow.</p>
+<p><em>1.</em> Double-click the <strong>Welcome to your notebook</strong> cell to make it editable.</p>
+<p><img src="images/clipboard-1061139975.png" class="img-fluid"></p>
+<p><img src=".png" class="img-fluid">This is a markdown cell. Markdown is a lightweight, plain text formatting syntax that is widely used across the internet. After double-clicking the cell, the text appears in **blue** with two number signs (**##**) in front of it.</p>
+<p>Markdown tag welcoming you to your new notebook.</p>
+<p>2. While in the markdown cell, click <strong>Run</strong>.</p>
+<p>This runs the cell and turn it into a header. You can also run cells by pressing <em>Shift+Enter</em> on your keyboard. <em>Shift+Enter</em> is the keyboard shortcut for running cells in a notebook.</p>
+<p><img src="images/clipboard-1489554479.png" class="img-fluid"></p>
+<p>3. Click Open the command palette at the top of the notebook. This lists of all keyboard shortcuts.</p>
+<p><img src="images/clipboard-102943232.png" class="img-fluid"></p>
+<p>4. Double-click the Welcome to your notebook cell. Insert two more number (**##**) signs in the cell before Welcome to your notebook. There are now four number signs. The additional number signs change the size of the header. Run the cell. The header becomes smaller.</p>
+<p>5. Double-click the <strong>Welcome to your notebook</strong> cell again. Remove the two number signs from the header and press <strong>Enter</strong>. On the second line, type <strong>This is my first notebook</strong> and other <strong>other text that you may want to add</strong>. Then, click <strong>Run</strong>.</p>
+<p>The header returns to its initial size and there is now text below that cell.</p>
+<p>In any new notebook, the second cell will say <strong>Run this cell to connect to your GIS and get started</strong>. This is also a markdown cell. This cell directs you to run the code cell that follows it that connects you to <strong>ArcGIS Online</strong>.</p>
+<p><img src="images/clipboard-43665753.png" class="img-fluid"></p>
+<p>Run this cell at the beginning of every notebook that connects a user to ArcGIS Online.</p>
+<p>6. Double-click in the code cell and run it.</p>
+<p>While the cell runs, an asterisk is inside the brackets in the input area so it appears as In [*]. After the cell finishes running, the number 1 replaces the asterisk in the brackets so it appears as In [1]. The number in the brackets increases by one each time a code cell is run. You must run this cell. If you do not run this cell, the other code cells will not run.</p>
+</section>
+<section id="create-a-web-map." class="level2">
+<h2 class="anchored" data-anchor-id="create-a-web-map.">Create a web map.</h2>
+<p>Now that you are familiar with markdown and have run the existing code, you’ll write and run some of your own.</p>
+<p>1. On the ribbon click the plus (+) sign.</p>
+<p><img src="images/clipboard-265400495.png" class="img-fluid"></p>
+<p>This creates a new cell beneath the code cell that you just ran. The new cell will appear below the currently selected cell.</p>
+<p>2. Set that cell to be a markdown cell.</p>
+<p><img src="images/clipboard-2560364198.png" class="img-fluid"></p>
+<p>3. In the new markdown cell, type <strong>### My First Map.</strong></p>
+<p>4. In the same cell, on the second line, add some text below the header that describes the code that you will write. When you are done entering text, <strong>run the cell.</strong></p>
+<p>5. Next, you will create a map in the notebook. Start by creating a new code cell.</p>
+<p>6. In the new code cell, create a variable named <strong>my_first_map</strong> that represents the map and use the ArcGIS API for Python to set the variable to a web map that is centered over a specific location.</p>
+<p>7. Set the variable equal to a web map centered on St Andrews, UK:</p>
+<p><code>my_first_map = gis.map("St Andrews, UK")</code></p>
+<p>8. &nbsp;Run the cell.</p>
+<p>Now that you have named your variable, you will call it to create the map. Do this by creating a new code cell and then within that code cell, typing <strong>my_first_map</strong> and running that cell.</p>
+<p><img src="images/clipboard-3169024548.png" class="img-fluid"></p>
+<p>After that cell runs, your first map will appear in your notebook. You can change the location of the center of the map by going back to the previous cell, changing “St Andrews, UK” to a different location, and running the cell again, or you can pan and zoom around the current map.</p>
+<p><img src="images/clipboard-985360588.png" class="img-fluid"></p>
+</section>
+<section id="explore-content" class="level2">
+<h2 class="anchored" data-anchor-id="explore-content">Explore Content</h2>
+<p>In ArcGIS Notebooks, you can search for content and view item metadata. Next, you will search for a layer over Los Angeles and add it to the notebook.</p>
+<p>1. On the ribbon click the plus (+) sign. To add a new cell underneath the <strong>my_first_map</strong> cell</p>
+<p><img src="images/clipboard-265400495.png" class="img-fluid"></p>
+<p>2. Click the <strong>Add</strong> button.</p>
+<p><img src="images/clipboard-2123749352.png" class="img-fluid"></p>
+<p>The <strong>Add</strong> button opens the <strong>Add Content</strong> panel, which allows you to add an ArcGIS Online item as code directly to the notebook. If you have saved content in ArcGIS Online or ArcGIS Notebooks, that content is available from the <strong>Add Content</strong> panel to use in your notebook.</p>
+<p><img src="images/clipboard-3910474832.png" class="img-fluid"></p>
+<p>3. Click <strong>ArcGIS Online</strong> and type <strong>UK</strong> to search for all content related to the UK and available in ArcGIS Online. Add the UK SSP: Life Expectancy Layer to the notebook by clicking the <strong>add button (a plus sign).</strong></p>
+<p><img src="images/clipboard-1811674732.png" class="img-fluid"></p>
+<p>A new code cell containing a code snippet, is added to the notebook beneath your map. This cell calls the layer as the variable item and loads its metadata. The code cell looks like the following:</p>
+<p><img src="images/clipboard-1923747112.png" class="img-fluid"></p>
+<p>4. Run this code cell. The item metadata is added as an object to the notebook below the cell, but it is not yet added to the map.</p>
+<p>Next, you will learn some short cuts to write code and display relevant documentation.</p>
+<p>5. Create a code cell below the item and call your map variable. Type <strong>my_</strong> and press Tab.</p>
+<p>Pressing Tab while typing a variable name activates the notebook’s autocomplete functionality. The line completes and displays <strong>my_first_map.</strong></p>
+<p>6. After <strong>my_first_map</strong>, type <strong>.ad</strong> so it appears as my_first_map.ad and press Tab.</p>
+<p>The code is completed to be <strong>my_first_map.add_layer</strong></p>
+<p>7. <strong>Press Shift+Tab.</strong></p>
+<p><img src=".png" class="img-fluid">Pressing Shift+Tab opens the docstring. The docstring is a small piece of documentation for developers that describes what the method does.</p>
+<p>After investigating the docstring, close it.</p>
+<p>You can access the function’s help documentation by typing a question mark at the end of the function. For example, <strong>my_first_map.add_layer?</strong> will open the <strong>add_layer</strong> help documentation from the bottom of the notebook. Try this.</p>
+<p>After reading the help documentation, close it.</p>
+<p>8. In the same cell where you investigated the function signature of my_first_map, call the add_layer method and use it to add the Life expectancy item to the map. <strong>Run the cell</strong>. The cell code should appear as <strong>my_first_map.add_layer(item).</strong></p>
+<p><img src="images/clipboard-782279764.png" class="img-fluid"></p>
+<p>9. After the cell completes, scroll to the map in your notebook and verify that the new item with the new layer from Met Office has been added.</p>
+<p><img src=".png" class="img-fluid">You have created your first map and added a layer to it using ArcGIS Notebooks. The map includes zoom buttons, a compass, and the option to change from a map view to a globe view.</p>
+<p>Pan and zoom the map and use these buttons.</p>
+<p>This is a live web map with the same functionality as the maps you use in ArcGIS Online.</p>
+<p>With a few lines of code, you can <strong>save the map</strong> you created to ArcGIS Online. Web maps are defined by specific properties, such as the <strong>title, description (snippet), and tags</strong>. You can define the properties by creating a <em>dictionary</em> that contains them in Python code. Then, you can save the map as a web map.</p>
+<p>10. In a new code cell, define the web map properties using the following dictionary. You can modify or change the title, snippet, or tags. Run the cell.</p>
+<p><code>webmap_properties = {'title':'My First Map', 'snippet': 'My first map from my first notebook', 'tags':['ArcGIS Notebooks', 'UK']}</code></p>
+<p>11. Create another cell where you will save the webmap. Add the following line: <strong>my_first_map.save(webmap_properties)</strong>. Run the cell.</p>
+<p>Running this cell creates an active link that will take you to the webmap item in ArcGIS Online. Click the active link and verify that the webmap was created in ArcGIS Online.</p>
+<p><img src="images/clipboard-2583419911.png" class="img-fluid"></p>
+<p>12. Click the <strong>Save</strong> button in the upper right of the notebook.</p>
+<p><img src=".png" class="img-fluid">It is a <strong>good idea</strong> <strong>to save your work regularly</strong> when you work in notebooks hosted online. If there is no Python activity in the notebook for 20 minutes, the Python kernel will shut down, the notebook will stop working, and all variables in memory will be lost. Once you have restarted the kernel you will need to run all of the cells again, starting from the beginning, to restore the values.</p>
+<p>13. Go to your <strong>Content</strong>, and check that now you have two new items in your portal. The <strong>notebook</strong>, that you can open and edit it with new code. And the new <strong>WebMap</strong> that you created using Python and the ArcGIS API for Python.</p>
+<p><img src="images/clipboard-3716589003.png" class="img-fluid"></p>
+<p><img src="images/clipboard-3499115435.png" class="img-fluid"></p>
+<p>14. Click <strong>My First Map</strong> to open the details, and then click <strong>Open in Map Viewer</strong>. Then ArcGIS Online will launch a viewer to let you explore, edit and share the WebMap you have created.</p>
+<p><img src="images/clipboard-47824098.png" class="img-fluid"></p>
+</section>
+<section id="challenge-for-next-class" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-for-next-class"><strong>Challenge for next class</strong></h2>
+<p>Now that you have learned how to create a map, search for content, add layers, and save a webmap, use <strong>Python and ArcGIS Notebooks</strong> to create another web map that contains multiple layers that you are interested in. Save the webmap to ArcGIS Online.</p>
+<p><strong>Be ready to showcase this webmap during the next class</strong> showing what the map is about and the difficulties you had</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Lab_1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab No 1: Intro to Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Lab_2.html" class="pagination-link">
+        <span class="nav-page-text">Lab No 2: Python Basics - Part 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

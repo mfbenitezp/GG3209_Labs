@@ -1,0 +1,881 @@
+# Step 2. Introduction to GIT {.unnumbered}
+
+## What is Version Control?
+
+Version control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:
+
+-   Track every change made to your files
+-   Revert to previous versions when needed
+-   Collaborate with others without conflicts
+-   Understand who made what changes and when
+
+```{mermaid}
+%%| fig-cap: "Version Control Timeline"
+%%| fig-align: center 
+
+gitGraph
+    commit id: "Initial spatial analysis"
+    commit id: "Add coordinate system"
+    commit id: "Fix projection error"
+    branch develop
+    commit id: "Add buffer analysis"
+    commit id: "Final report"
+```
+
+**Estimated time to install:** [**40 minutes**.]{.underline}
+
+## Why Version Control Matters in Spatial Data Science
+
+In spatial data science, you're often working with:
+
+-   **Complex datasets**: Shapefiles, rasters, GPS data, satellite imagery
+-   **Multiple software tools**: R, Python, QGIS, ArcGIS
+-   **Iterative analysis**: Testing different spatial models and parameters
+-   **Collaborative projects**: Working with field teams, other researchers
+-   **Reproducible research**: Ensuring your spatial analysis can be replicated
+
+### Common scenario
+
+Imagine you're analyzing urban green spaces for any kind of project using R, and then you have something like:
+
+> ``` r
+> urban_greenspace_analysis.R
+> urban_greenspace_analysis_v2.R
+> urban_greenspace_analysis_v2_final.R
+> urban_greenspace_analysis_v2_final_ACTUALLY_FINAL.R
+> urban_greenspace_analysis_v2_final_ACTUALLY_FINAL_supervisors_comments.R
+> ```
+
+Sound familiar? This approach leads to:
+
+-   Confusion about which version is current
+
+-   Lost work when files get overwritten
+
+-   Difficulty tracking what changed between versions
+
+-   Problems when collaborating with others
+
+### What to do? –\> Git and GitHub
+
+Another important component we need in our environment is **git**, the tool that provides version control for any of our projects. While version control is a systematic approach to recording changes you make in a file or set of files over time.
+
+This is important, especially if you work with other collaborators, as you can track the history, see what changed and recall specific versions if needed. In this course, we will incorporate git to teach you how to create a branch, clone someone else’s repositories, and give you a brief introduction to this important workflow, but also how you can commit your progress in one of the most popular **git tools** currently available. GitHub.
+
+### Key Terminology
+
+-   **Repository (repo)**: A folder containing your project files and their complete history
+-   **Commit**: A snapshot of your project at a specific point in time
+-   **Remote**: A version of your repository stored on a server (like GitHub)
+-   **Clone**: Creating a local copy of a remote repository
+-   **Push**: Sending your local changes to the remote repository
+-   **Pull**: Retrieving changes from the remote repository to your local copy
+
+### The Git Workflow
+
+```{mermaid}
+%%| fig-cap: "Basic Git Workflow"
+%%| fig-align: center
+
+flowchart TD
+    A[Working Directory<br/>Your project files] --> B[git add]
+    B --> C[Staging Area<br/>Files ready to commit]
+    C --> D[git commit]
+    D --> E[Local Repository<br/>Your project history]
+    E --> F[git push]
+    F --> G[Remote Repository<br/>GitHub]
+    G --> H[git pull]
+    H --> A
+```
+
+# Step 0: Get familiar with the Command Prompt or Terminal.
+
+Before we continue with the installations and configurations, for the purpose of these labs, you need to get familiar with this interface and, more importantly, feel comfortable using them. In the following instructions, I will describe some steps to guide you in using the **Command prompt/Terminal.**
+
+| There are certain differences in the commands you will use in `windows` and `macOS`; make sure you test those commands and get the appropriate outcome.
+
+![](images/clipboard-1904846287.png)
+
+![](images/clipboard-3335833816.png)
+
+## Commands to move through drives and directories:
+
+`cd`—Short for “change directory”, to move through the directory structure (in the same drive), as in cd `C:\Users\fbenitez\Downloads`
+
+`cd..` —to move to the upper level in your directories, so if you need to move from `C:\Users\fbenitez\Downloads` to `C:\Users\fbenitez\`
+
+![](images/clipboard-2102793090.png)
+
+`X:` —To switch to a different drive, type the drive name followed by colon, as in D: to switch to drive D:\\
+
+`cls` (Windows) or clear (macOS) —To clean your terminal, it would help you to have a clean terminal and avoid mistakes.
+
+`dir`(windows)
+
+`ls` (macOs) —To list current directory contents.
+
+1.  Go to your [Documents]{.underline} folder in your computer. Create a folder call it **MyFirstRepo**
+2.  Open a **terminal/command prompt**, browse from the folder you are in to the new one, like the following illustrations.
+
+![](images/clipboard-1128320245.png)
+
+You can also use some commands to run programs in your system which I know sounds silly as we are used to finding the icon and tap/click to get it open, but that's what happens underneath every time you open a program, here are some examples:
+
+`python` —Starting the python command line interface, you can use the `exit()` command to get out of the python interface, and recover the terminal mode.
+
+3.  Try the example illustrated in the following image:
+
+    ![](images/clipboard-948571962.png)
+
+# Step 1: Creating a GitHub Account
+
+Now, let's create your own GitHub Account. **GitHub**[^git_github_guide-1] is a web-based platform that hosts Git repositories, providing developers with tools for version control and collaboration. It combines Git, a powerful version control system, with features that facilitate collaboration and project management.
+
+[^git_github_guide-1]: <https://www.geeksforgeeks.org/what-is-github-and-how-to-use-it/>
+
+## 1.1 Sign Up for GitHub
+
+1.  Go to [github.com](https://github.com)
+2.  Click "Sign up"
+3.  Choose a username
+4.  Use your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password.
+5.  Create a strong password
+6.  Verify your account
+
+## 1.2 Configure Your Profile
+
+::: {style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;"}
+There is a change you won't open GitHub to anything else than this course, but also there is another change where you will ended up working as spatial data scientist, or consultant into a collaborative and agile development team, in that case improving and configuring your GitHub account, as well as familiarizing yourself over how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well curated repositories that prove your skills in GitHub. So take some time to enhance your profile bu adding this little extra information.
+:::
+
+1.  Add a profile picture
+2.  Add a bio mentioning your interest in spatial data science
+3.  Include your university affiliation
+4.  Consider making your profile public for academic networking
+
+# Step 2: Installing and Configuring Git
+
+Git[^git_github_guide-2] is a **distributed version control system** used to track changes in source code during software development. It helps multiple developers collaborate on a project by managing changes to files and coordinating work on those files.
+
+[^git_github_guide-2]: <https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F>
+
+## 2.1 Installing Git
+
+### Windows
+
+1.  Download Git from [git-scm.com](https://git-scm.com)
+2.  Run the installer
+3.  Use default settings (recommended)
+4.  Choose "Git Bash" as your terminal
+
+### macOS
+
+1.  Install via Homebrew: `brew install git`
+2.  Or download from [git-scm.com](https://git-scm.com)
+
+### Linux
+
+``` bash
+# Ubuntu/Debian
+sudo apt-get install git
+
+# CentOS/RHEL
+sudo yum install git
+```
+
+## 2.2 Initial Git Configuration
+
+Open your terminal (Git Bash on Windows, Terminal on macOS/Linux) and run:
+
+``` bash
+# Set your name (use your real name)
+git config --global user.name "Your Name"
+
+# Set your email (use your GitHub email)
+git config --global user.email "your.email@st-andrews.ac.uk"
+
+# Verify configuration
+git config --list
+```
+
+# Step 3: Creating Your First Local Repository
+
+## 3.1 Setting Up a Project Structure
+
+Now, in order to practice and validate that Git has been properly installed, let's create a fictional spatial data science project for analyzing urban heat islands, but let's try to use the terminal or the command prompt windows to practice.
+
+1.  Open a Terminal or Command prompt and run the following commands.
+
+``` bash
+# Create project directory
+mkdir urban_heat_island_analysis
+cd urban_heat_island_analysis
+
+# Create typical spatial data science structure
+mkdir data
+mkdir data/raw
+mkdir data/processed
+mkdir scripts
+mkdir outputs
+mkdir docs
+```
+
+## 3.2 Initialize Git Repository
+
+``` bash
+# Initialize git repository
+git init
+```
+
+This creates a hidden `.git` folder that stores all version control information.
+
+## 3.3 Create Project Files
+
+We will generate several files within this pilot project, so you can see how the repo can evolve and changes over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.
+
+Create a README file:
+
+``` bash
+# Create README.md
+touch README.md
+```
+
+Open the `README.md` file and add content:
+
+``` markdown
+# Urban Heat Island Analysis
+
+## Project Overview
+This project analyzes urban heat island effects in [Your City] using satellite thermal data and land cover classifications.
+
+## Data Sources
+- Landsat 8 thermal infrared data
+- OpenStreetMap building footprints
+- Local weather station data
+
+## Methods
+- Temperature retrieval from satellite imagery
+- Spatial interpolation techniques
+- Statistical analysis of temperature patterns
+
+## Software Requirements
+- R (version 4.0+)
+- Required packages: sf, terra, ggplot2, dplyr
+
+## File Structure
+
+urban_heat_island_analysis/
+├── data/
+  │├── raw/ # Original data files
+  │└── processed/ # Cleaned and processed data 
+├── scripts/ # R scripts for analysis
+├── outputs/ # Maps, plots, and results
+└── docs/ # Documentation and reports
+
+## Contact
+[Your Name] - [Your Email]  
+```
+
+Create a .gitignore file:
+
+<div>
+
+::: {style="border-left: 4px solid #FF0000; padding: 10px; background-color: #ffe6e6;"}
+<strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with very large datasets, however cloud platforms –Github have uploads limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebook can weigh more than the storage limitation given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don't have any trouble when you push the files to the cloud.
+:::
+
+</div>
+
+``` bash
+touch .gitignore
+```
+
+Open the `.gitignore` file and add common files to ignore, you could add more later, or you can also add entire folders:
+
+``` bash
+# R files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Data files (large files)
+*.tif
+*.shp
+*.dbf
+*.prj
+*.shx
+*.zip
+
+# Temporary files
+*~
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+```
+
+## 3.4 Your First Commit
+
+``` bash
+# Check status
+git status
+
+# Add files to staging area
+git add README.md
+git add .gitignore
+
+# Or add all files
+git add .
+
+# Commit with descriptive message
+git commit -m "Initial commit: Add project structure and README"
+```
+
+# Step 4: Connecting Local Repository to GitHub
+
+## 4.1 Create GitHub Repository
+
+1.  Log in to [github.com](https://github.com)
+2.  Click the "+" icon in the top right
+3.  Select "New repository"
+4.  Repository name: `urban_heat_island_analysis`
+5.  Description: "GG3209 pilot project to analyzing urban heat island effects"
+6.  Keep it public (for academic sharing)
+7.  **Don't** initialize with README (we already have one)
+8.  Click "Create repository"
+
+## 4.2 Connect Local Repository to GitHub
+
+GitHub will show you commands to run. Copy and paste these **into your terminal:**
+
+``` bash
+# Add GitHub as remote origin
+git remote add origin https://github.com/yourusername/urban_heat_island_analysis.git #Replace this URL with YOUR URL.
+
+# Verify remote connection
+git remote -v
+
+# Push your local repository to GitHub
+git push -u origin main
+```
+
+## 4.3 Verify Connection
+
+1.  Refresh your GitHub repository page
+2.  You should see your README.md and .gitignore files
+3.  Your commit message should be visible
+
+# Step 5: Essential Git Commands for Daily Use
+
+## 5.1 The Basic Workflow
+
+```{mermaid}
+%%| fig-cap: "Daily Git Workflow"
+%%| fig-align: center
+
+flowchart LR
+    A[Edit Files] --> B[git add]
+    B --> C[git commit]
+    C --> D[git push]
+    D --> E[Continue Working]
+    E --> A
+```
+
+## 5.2 Checking Status and History
+
+``` bash
+# Check what files have changed
+git status
+
+# View commit history
+git log
+
+# View commit history (compact)
+git log --oneline
+
+# View changes in files
+git diff
+```
+
+## 5.3 Adding and Committing Changes
+
+Let's add a spatial analysis script:
+
+``` bash
+# Create new R script
+touch scripts/temperature_analysis.R
+```
+
+Add some content to `scripts/temperature_analysis.R`:
+
+``` r
+# Urban Heat Island Analysis
+# GG3209 - Spatial Data Science
+# Author: [Your Name]
+# Date: [Current Date]
+
+# Load required packages
+library(sf)
+library(terra)
+library(ggplot2)
+library(dplyr)
+
+# Read temperature data
+# temp_data <- rast("data/raw/landsat_thermal.tif")
+
+# Read city boundary
+# city_boundary <- st_read("data/raw/city_boundary.shp")
+
+# TODO: Add temperature extraction analysis
+# TODO: Add spatial interpolation
+# TODO: Create temperature maps
+```
+
+Now commit these changes:
+
+``` bash
+# Add the new script
+git add scripts/temperature_analysis.R
+
+# Commit with descriptive message
+git commit -m "Add initial temperature analysis script
+
+- Set up basic structure for thermal analysis
+- Added required package imports
+- Created placeholders for main analysis steps"
+
+# Push to GitHub
+git push origin main
+```
+
+## 5.4 Working with Multiple Files
+
+Add more project files:
+
+``` bash
+# Create data processing script
+touch scripts/data_preprocessing.R
+
+# Create visualization script
+touch scripts/create_maps.R
+
+# Add all new files
+git add scripts/
+
+# Commit all changes
+git commit -m "Add data preprocessing and mapping scripts"
+
+# Push to GitHub
+git push origin main
+```
+
+## 5.5 Viewing and Understanding Changes
+
+``` bash
+# See what changed in your last commit
+git show
+
+# Compare current files with last commit
+git diff HEAD~1
+
+# See changes in a specific file
+git diff scripts/temperature_analysis.R
+```
+
+# Step 6: Collaboration Workflow
+
+## 6.1 Cloning an Existing Repository
+
+When joining a collaborative project:
+
+``` bash
+# Clone a repository
+git clone https://github.com/username/repository-name.git
+
+# Navigate to the cloned directory
+cd repository-name
+```
+
+## 6.2 Keeping Your Local Repository Updated
+
+``` bash
+# Fetch latest changes from GitHub
+git pull origin main
+
+# This is equivalent to:
+git fetch origin main
+git merge origin/main
+```
+
+## 6.3 Best Practices for Collaboration
+
+1.  **Always pull before starting work**:
+
+``` bash
+git pull origin main
+```
+
+2.  **Make small, frequent commits**:
+
+``` bash
+git add specific_file.R
+git commit -m "Fix coordinate system transformation bug"
+```
+
+3.  **Write clear commit messages**:
+
+``` bash
+# Good commit messages
+git commit -m "Add buffer analysis for green spaces"
+git commit -m "Fix projection error in temperature raster"
+git commit -m "Update README with data sources"
+
+# Poor commit messages (avoid these)
+git commit -m "stuff"
+git commit -m "fixes"
+git commit -m "work"
+```
+
+# Step 7: Handling Common Scenarios In Spatial Data Science
+
+## 7.1 Working with Large Data Files
+
+Spatial data files can be very large. Use `.gitignore` to exclude them:
+
+``` bash
+# Add to .gitignore
+echo "*.tif" >> .gitignore
+echo "*.shp" >> .gitignore
+echo "*.nc" >> .gitignore
+echo "data/raw/*" >> .gitignore
+
+# Commit the updated .gitignore
+git add .gitignore
+git commit -m "Update gitignore for large spatial data files"
+```
+
+## 7.2 Documenting Data Sources
+
+Create a data documentation file:
+
+``` bash
+touch docs/data_sources.md
+```
+
+Add comprehensive data documentation:
+
+``` markdown
+# Data Sources
+
+## Landsat 8 Thermal Data
+- **Source**: USGS EarthExplorer
+- **Date**: 2023-07-15
+- **Scene ID**: LC08_L1TP_015033_20230715_20230725_02_T1
+- **Spatial Resolution**: 30m
+- **Bands Used**: Band 10 (Thermal Infrared)
+
+## City Boundary
+- **Source**: OpenStreetMap
+- **Downloaded**: 2023-08-01
+- **Format**: Shapefile
+- **Coordinate System**: WGS84 UTM Zone 33N
+
+## Weather Station Data
+- **Source**: Local Meteorological Service
+- **Period**: 2023-07-01 to 2023-07-31
+- **Variables**: Temperature, Humidity, Wind Speed
+- **Temporal Resolution**: Hourly
+```
+
+## 7.3 Version Control for Analysis Results
+
+Track your analysis outputs:
+
+``` bash
+# Create results summary
+touch outputs/analysis_summary.md
+
+# Add and commit
+git add outputs/analysis_summary.md
+git commit -m "Add initial analysis summary template"
+```
+
+# Step 8: Advanced Git Commands
+
+## 8.1 Viewing Detailed History
+
+``` bash
+# View detailed log with file changes
+git log --stat
+
+# View graphical representation
+git log --graph --oneline --all
+
+# View commits by specific author
+git log --author="Your Name"
+
+# View commits in date range
+git log --since="2023-08-01" --until="2023-08-31"
+```
+
+## 8.2 Comparing Versions
+
+``` bash
+# Compare two commits
+git diff commit1..commit2
+
+# Compare current version with specific commit
+git diff HEAD~3
+
+# Compare specific files between commits
+git diff HEAD~1 scripts/temperature_analysis.R
+```
+
+## 8.3 Reverting Changes
+
+``` bash
+# Undo changes in working directory
+git checkout -- filename.R
+
+# Undo last commit (keep changes)
+git reset --soft HEAD~1
+
+# Undo last commit (discard changes)
+git reset --hard HEAD~1
+```
+
+**Warning**: Be careful with `--hard` reset as it permanently deletes changes!
+
+# Step 9: GitHub Features Common for Academic Work
+
+## 9.1 Using Issues for Project Management
+
+1.  Go to your GitHub repository
+2.  Click "Issues" tab
+3.  Click "New issue"
+4.  Create issues for different analysis tasks:
+    -   "Download and process Landsat data"
+    -   "Implement temperature calculation algorithm"
+    -   "Create heat island visualization"
+
+## 9.2 Using GitHub for Documentation
+
+Create comprehensive documentation:
+
+``` bash
+# Create documentation files
+mkdir docs
+touch docs/methodology.md
+touch docs/results.md
+touch docs/conclusions.md
+```
+
+## 9.3 Making Your Repository Citation-Ready
+
+Add citation information:
+
+``` bash
+touch CITATION.cff
+```
+
+Add citation content:
+
+``` yaml
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Your Last Name"
+    given-names: "Your First Name"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "Urban Heat Island Analysis"
+version: 1.0.0
+date-released: 2023-12-01
+url: "https://github.com/yourusername/urban_heat_island_analysis"
+```
+
+# Step 10: Reproducibility Best Practices
+
+## 10.1 Creating a Complete Reproducible Environment
+
+Document your R environment:
+
+``` bash
+touch scripts/setup_environment.R
+```
+
+Add environment setup code:
+
+``` r
+# Setup Environment for Urban Heat Island Analysis
+# GG3209 - Spatial Data Science
+
+# Install required packages
+required_packages <- c(
+  "sf",           # Spatial data handling
+  "terra",        # Raster data processing
+  "ggplot2",      # Plotting
+  "dplyr",        # Data manipulation
+  "leaflet",      # Interactive maps
+  "RColorBrewer", # Color palettes
+  "rmarkdown"     # Report generation
+)
+
+# Install missing packages
+new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) install.packages(new_packages)
+
+# Load all packages
+lapply(required_packages, library, character.only = TRUE)
+
+# Print session info for reproducibility
+sessionInfo()
+```
+
+## 10.2 Creating Analysis Workflows
+
+Document your complete workflow:
+
+``` bash
+touch scripts/main_analysis.R
+```
+
+Add workflow documentation:
+
+``` r
+# Main Analysis Workflow
+# Run this script to reproduce the complete analysis
+
+# Step 1: Setup environment
+source("scripts/setup_environment.R")
+
+# Step 2: Data preprocessing
+source("scripts/data_preprocessing.R")
+
+# Step 3: Temperature analysis
+source("scripts/temperature_analysis.R")
+
+# Step 4: Create visualizations
+source("scripts/create_maps.R")
+
+# Step 5: Generate report
+# rmarkdown::render("docs/final_report.Rmd")
+
+cat("Analysis complete! Check the outputs/ folder for results.\n")
+```
+
+## 10.3 Version Control for Reproducibility
+
+``` bash
+# Commit your reproducible workflow
+git add scripts/setup_environment.R
+git add scripts/main_analysis.R
+git commit -m "Add reproducible analysis workflow
+
+- Created environment setup script
+- Added main analysis workflow
+- Documented all required packages
+- Added session info for reproducibility"
+
+git push origin main
+```
+
+# Common Git Commands Reference
+
+## Essential Commands
+
+| Command      | Purpose              | Example                   |
+|--------------|----------------------|---------------------------|
+| `git status` | Check current status | `git status`              |
+| `git add`    | Stage changes        | `git add filename.R`      |
+| `git commit` | Save changes         | `git commit -m "message"` |
+| `git push`   | Upload to GitHub     | `git push origin main`    |
+| `git pull`   | Download from GitHub | `git pull origin main`    |
+| `git log`    | View history         | `git log --oneline`       |
+| `git diff`   | View changes         | `git diff filename.R`     |
+
+## Configuration Commands
+
+| Command | Purpose | Example |
+|------------------------|------------------------|------------------------|
+| `git config --global user.name` | Set name | `git config --global user.name "John Doe"` |
+| `git config --global user.email` | Set email | `git config --global user.email "john@example.com"` |
+| `git remote add origin` | Add remote | `git remote add origin https://github.com/user/repo.git` |
+
+# Troubleshooting Common Issues
+
+## Issue 1: "Permission denied" when pushing
+
+**Solution**: Check your GitHub authentication
+
+``` bash
+# For HTTPS (recommended)
+git remote set-url origin https://github.com/username/repository.git
+
+# Enter your GitHub username and personal access token when prompted
+```
+
+## Issue 2: "Your branch is behind" message
+
+**Solution**: Pull the latest changes first
+
+``` bash
+git pull origin main
+# Then push your changes
+git push origin main
+```
+
+## Issue 3: Accidentally committed large files
+
+**Solution**: Remove from tracking
+
+``` bash
+# Remove file from git but keep local copy
+git rm --cached large_file.tif
+
+# Add to .gitignore
+echo "large_file.tif" >> .gitignore
+
+# Commit the changes
+git add .gitignore
+git commit -m "Remove large file from tracking"
+```
+
+## Issue 4: Want to undo the last commit
+
+**Solution**: Use reset
+
+``` bash
+# Keep changes but undo commit
+git reset --soft HEAD~1
+
+# Discard changes and undo commit (be careful!)
+git reset --hard HEAD~1
+```
+
+# Additional Resources
+
+## Official Documentation
+
+-   [Git Documentation](https://git-scm.com/doc)
+-   [GitHub Guides](https://guides.github.com/)
+
+## Spatial Data Science with Git
+
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+-   [Version Control for Scientific Research](https://swcarpentry.github.io/git-novice/)
+
+## Academic Resources
+
+-   [Software Carpentry Git Lesson](https://swcarpentry.github.io/git-novice/)
+-   [Pro Git Book](https://git-scm.com/book) (free online)
+
+------------------------------------------------------------------------
+
+*This guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025*

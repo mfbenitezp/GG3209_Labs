@@ -27,12 +27,4 @@ This part of the module and this lab workbook are meant to be an introduction to
 
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
-
-<iframe src="pdfs/Lab_1.pdf" width="100%" height="600px">
-
-</iframe>
-
-------------------------------------------------------------------------
-
 © SGSD \| University of St Andrews \| GG3209 Spatial Analysis - Introduction to Python
