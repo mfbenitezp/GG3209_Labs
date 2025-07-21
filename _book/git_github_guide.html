@@ -98,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="default">
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -371,20 +372,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Collaborate with others without conflicts</li>
 <li>Understand who made what changes and when</li>
 </ul>
-<div class="cell" data-layout-align="center">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <div>
-<pre class="mermaid mermaid-js">gitGraph
+<pre class="mermaid mermaid-js">%%| fig-cap: "Version Control Timeline"
+%%| fig-align: center
+%%| fig-responsive: false
+%%| fig-width: 10.2
+%%| fig-height: 10
+
+gitGraph
     commit id: "Initial spatial analysis"
     commit id: "Add coordinate system"
     commit id: "Fix projection error"
-    branch develop
     commit id: "Add buffer analysis"
     commit id: "Final report"
 </pre>
 </div>
-<p>Version Control Timeline</p>
 </div>
 </div>
 </div>
@@ -611,8 +616,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>urban_heat_island_analysis/</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>├── data/</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  │├── raw/ # Original data files</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  │└── processed/ # Cleaned and processed data </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>│├── raw/ # Original data files</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>│└── processed/ # Cleaned and processed data </span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>├── scripts/ # R scripts for analysis</span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>├── outputs/ # Maps, plots, and results</span>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>└── docs/ # Documentation and reports</span>

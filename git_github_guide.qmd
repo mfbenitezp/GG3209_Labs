@@ -10,14 +10,17 @@ Version control is a system that records changes to files over time so that you 
 -   Understand who made what changes and when
 
 ```{mermaid}
+
 %%| fig-cap: "Version Control Timeline"
-%%| fig-align: center 
+%%| fig-align: center
+%%| fig-responsive: false
+%%| fig-width: 10.2
+%%| fig-height: 10
 
 gitGraph
     commit id: "Initial spatial analysis"
     commit id: "Add coordinate system"
     commit id: "Fix projection error"
-    branch develop
     commit id: "Add buffer analysis"
     commit id: "Final report"
 ```
@@ -266,8 +269,8 @@ This project analyzes urban heat island effects in [Your City] using satellite t
 
 urban_heat_island_analysis/
 ├── data/
-  │├── raw/ # Original data files
-  │└── processed/ # Cleaned and processed data 
+│├── raw/ # Original data files
+│└── processed/ # Cleaned and processed data 
 ├── scripts/ # R scripts for analysis
 ├── outputs/ # Maps, plots, and results
 └── docs/ # Documentation and reports

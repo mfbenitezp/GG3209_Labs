@@ -34,8 +34,12 @@ book:
 bibliography: references.bib
 
 format:
+  gfm:
+      mermaid-format: png
   html:
     respect-user-color-scheme: true
+    mermaid:
+      theme: default
     theme:
       light: cosmo
       dark:

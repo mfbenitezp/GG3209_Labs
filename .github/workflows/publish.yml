@@ -30,6 +30,12 @@ jobs:
       - name: Install required R packages
         run: |
           Rscript -e 'install.packages(c("rmarkdown", "knitr"), repos="https://cloud.r-project.org")'
+      - name: Set up Chromium
+        uses: browser-actions/setup-chrome@v1
+        with:
+        chrome-version: latest
+      - name: Verify Chromium installation
+        run: chrome --version
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
