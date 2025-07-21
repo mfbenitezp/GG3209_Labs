@@ -9,7 +9,6 @@ Version control is a system that records changes to files over time so that you 
 -   Collaborate with others without conflicts
 -   Understand who made what changes and when
 
-
 ```{mermaid}
 
 %%| fig-cap: "Version Control Timeline"
@@ -17,10 +16,15 @@ Version control is a system that records changes to files over time so that you 
 %%| fig-responsive: false
 
 
-gitGraph
+gitGraph TB:
     commit id: "Initial spatial analysis"
     commit id: "Add coordinate system"
+    branch develop
     commit id: "Fix projection error"
+    commit id: "start documentation"
+    checkout main
+    commit id: "map analysis"
+    merge develop id: "Pull Request"
     commit id: "Add buffer analysis"
     commit id: "Final report"
 ```
@@ -59,7 +63,7 @@ Sound familiar? This approach leads to:
 
 -   Problems when collaborating with others
 
-### What to do? –\> Git and GitHub
+### Git and GitHub
 
 Another important component we need in our environment is **git**, the tool that provides version control for any of our projects. While version control is a systematic approach to recording changes you make in a file or set of files over time.
 
@@ -81,17 +85,17 @@ This is important, especially if you work with other collaborators, as you can t
 %%| fig-align: center
 
 flowchart TD
-    A[Working Directory<br/>Your project files] --> B[git add]
+    A[Working Directory<br/>Your project files] --> |Initial command| B[git add]
     B --> C[Staging Area<br/>Files ready to commit]
-    C --> D[git commit]
+    C --> |next command| D[git commit]
     D --> E[Local Repository<br/>Your project history]
-    E --> F[git push]
+    E --> |final command| F[git push]
     F --> G[Remote Repository<br/>GitHub]
-    G --> H[git pull]
+    G --> |Do this before start Working| H[git pull]
     H --> A
 ```
 
-# Step 0: Get familiar with the Command Prompt or Terminal.
+# Get familiar with the Command Prompt or Terminal.
 
 Before we continue with the installations and configurations, for the purpose of these labs, you need to get familiar with this interface and, more importantly, feel comfortable using them. In the following instructions, I will describe some steps to guide you in using the **Command prompt/Terminal.**
 
@@ -140,15 +144,15 @@ Now, let's create your own GitHub Account. **GitHub**[^git_github_guide-1] is a 
 
 1.  Go to [github.com](https://github.com)
 2.  Click "Sign up"
-3.  Choose a username
-4.  Use your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password.
+3.  Choose a username (take a note of this as you will use it later in this Lab)
+4.  Use your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password. (take a note of this as you will use it later in this Lab)
 5.  Create a strong password
 6.  Verify your account
 
 ## 1.2 Configure Your Profile
 
 ::: {style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;"}
-There is a change you won't open GitHub to anything else than this course, but also there is another change where you will ended up working as spatial data scientist, or consultant into a collaborative and agile development team, in that case improving and configuring your GitHub account, as well as familiarizing yourself over how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well curated repositories that prove your skills in GitHub. So take some time to enhance your profile bu adding this little extra information.
+There is a chance you won't open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.
 :::
 
 1.  Add a profile picture
@@ -284,7 +288,7 @@ Create a .gitignore file:
 <div>
 
 ::: {style="border-left: 4px solid #FF0000; padding: 10px; background-color: #ffe6e6;"}
-<strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with very large datasets, however cloud platforms –Github have uploads limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebook can weigh more than the storage limitation given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don't have any trouble when you push the files to the cloud.
+<strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don't have any trouble when you `push` the files to the cloud.
 :::
 
 </div>
@@ -383,12 +387,40 @@ git push -u origin main
 %%| fig-cap: "Daily Git Workflow"
 %%| fig-align: center
 
-flowchart LR
-    A[Edit Files] --> B[git add]
-    B --> C[git commit]
-    C --> D[git push]
-    D --> E[Continue Working]
-    E --> A
+flowchart TD
+    A[Edit Files] --> B[git pull]
+    B --> C[git status]
+    C --> D[git add]
+    D --> E[git commit]
+    E --> F[git push]
+    F --> G[Continue Working]
+    G --> A
+```
+
+::: {style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;"}
+It is a bit complicated to understand what is underneath all this commands, so the following sequence-diagram represents how information, in particular how the modifications of your files moves around the version control system, thus it is easier for you to understand why do we need to run several commands when we use **git**.
+
+Initially you have three folders. One is called **Your Folder** (this is where all your project are located, eg. Lab No 1, GG3209, etc), then you have a **Local repo** (a hidden folder that include all the components of version control or git) and finally the **Cloud Repo**, which is a folder located in the Cloud (e.g GitHub). The goal is to make sure we have all our editions sync and safe in the Cloud, so if eventually our computers breaks, we have a safe and updated copy of our project stored in the Cloud.
+:::
+
+This is how a traditional workflow looks like when you work with Git and GitHub, study the steps and make sure you understand what the role of each command is. I expect you to work using these commands during the labs of this module.
+
+```{mermaid}
+sequenceDiagram
+    loop 
+    autonumber
+    Your Folder->>+Local Repo: git status
+    Note right of Your Folder: Report All Changes
+    Your Folder->>+Local Repo: git add
+    Note right of Your Folder: Add all changes<br/>to the staging area
+    Your Folder->>+Local Repo: git commit
+    Note right of Your Folder: Include all the files<br/>to the local repo    
+    Local Repo->>+Cloud Repo: git push
+    Note right of Local Repo: upload all changes <br/>to the Cloud repo
+    Local Repo->>+Cloud Repo: git pull
+    Cloud Repo-->>-Local Repo: pull changes<br/>included in the cloud
+    Note over Cloud Repo,Your Folder: Fetch lastest changes
+    end
 ```
 
 ## 5.2 Checking Status and History
