@@ -416,11 +416,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#why-version-control-matters-in-spatial-data-science" id="toc-why-version-control-matters-in-spatial-data-science" class="nav-link" data-scroll-target="#why-version-control-matters-in-spatial-data-science">Why Version Control Matters in Spatial Data Science</a>
   <ul class="collapse">
   <li><a href="#common-scenario" id="toc-common-scenario" class="nav-link" data-scroll-target="#common-scenario">Common scenario</a></li>
-  <li><a href="#what-to-do-git-and-github" id="toc-what-to-do-git-and-github" class="nav-link" data-scroll-target="#what-to-do-git-and-github">What to do? –&gt; Git and GitHub</a></li>
+  <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github">Git and GitHub</a></li>
   <li><a href="#key-terminology" id="toc-key-terminology" class="nav-link" data-scroll-target="#key-terminology">Key Terminology</a></li>
   <li><a href="#the-git-workflow" id="toc-the-git-workflow" class="nav-link" data-scroll-target="#the-git-workflow">The Git Workflow</a></li>
   </ul></li>
-  <li><a href="#step-0-get-familiar-with-the-command-prompt-or-terminal." id="toc-step-0-get-familiar-with-the-command-prompt-or-terminal." class="nav-link" data-scroll-target="#step-0-get-familiar-with-the-command-prompt-or-terminal.">Step 0: Get familiar with the Command Prompt or Terminal.</a>
+  <li><a href="#get-familiar-with-the-command-prompt-or-terminal." id="toc-get-familiar-with-the-command-prompt-or-terminal." class="nav-link" data-scroll-target="#get-familiar-with-the-command-prompt-or-terminal.">Get familiar with the Command Prompt or Terminal.</a>
   <ul class="collapse">
   <li><a href="#commands-to-move-through-drives-and-directories" id="toc-commands-to-move-through-drives-and-directories" class="nav-link" data-scroll-target="#commands-to-move-through-drives-and-directories">Commands to move through drives and directories:</a></li>
   </ul></li>
@@ -553,10 +553,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 %%| fig-responsive: false
 
 
-gitGraph
+gitGraph TB:
     commit id: "Initial spatial analysis"
     commit id: "Add coordinate system"
+    branch develop
     commit id: "Fix projection error"
+    commit id: "start documentation"
+    checkout main
+    commit id: "map analysis"
+    merge develop id: "Pull Request"
     commit id: "Add buffer analysis"
     commit id: "Final report"
 </pre>
@@ -595,8 +600,8 @@ gitGraph
 <li><p>Problems when collaborating with others</p></li>
 </ul>
 </section>
-<section id="what-to-do-git-and-github" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-do-git-and-github">What to do? –&gt; Git and GitHub</h3>
+<section id="git-and-github" class="level3">
+<h3 class="anchored" data-anchor-id="git-and-github">Git and GitHub</h3>
 <p>Another important component we need in our environment is <strong>git</strong>, the tool that provides version control for any of our projects. While version control is a systematic approach to recording changes you make in a file or set of files over time.</p>
 <p>This is important, especially if you work with other collaborators, as you can track the history, see what changed and recall specific versions if needed. In this course, we will incorporate git to teach you how to create a branch, clone someone else’s repositories, and give you a brief introduction to this important workflow, but also how you can commit your progress in one of the most popular <strong>git tools</strong> currently available. GitHub.</p>
 </section>
@@ -619,13 +624,13 @@ gitGraph
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
-    A[Working Directory&lt;br/&gt;Your project files] --&gt; B[git add]
+    A[Working Directory&lt;br/&gt;Your project files] --&gt; |Initial command| B[git add]
     B --&gt; C[Staging Area&lt;br/&gt;Files ready to commit]
-    C --&gt; D[git commit]
+    C --&gt; |next command| D[git commit]
     D --&gt; E[Local Repository&lt;br/&gt;Your project history]
-    E --&gt; F[git push]
+    E --&gt; |final command| F[git push]
     F --&gt; G[Remote Repository&lt;br/&gt;GitHub]
-    G --&gt; H[git pull]
+    G --&gt; |Do this before start Working| H[git pull]
     H --&gt; A
 </pre>
 </div>
@@ -635,8 +640,8 @@ gitGraph
 </div>
 </section>
 </section>
-<section id="step-0-get-familiar-with-the-command-prompt-or-terminal." class="level1">
-<h1>Step 0: Get familiar with the Command Prompt or Terminal.</h1>
+<section id="get-familiar-with-the-command-prompt-or-terminal." class="level1">
+<h1>Get familiar with the Command Prompt or Terminal.</h1>
 <p>Before we continue with the installations and configurations, for the purpose of these labs, you need to get familiar with this interface and, more importantly, feel comfortable using them. In the following instructions, I will describe some steps to guide you in using the <strong>Command prompt/Terminal.</strong></p>
 <div class="line-block">There are certain differences in the commands you will use in <code>windows</code> and <code>macOS</code>; make sure you test those commands and get the appropriate outcome.</div>
 <p><img src="images/clipboard-1904846287.png" class="img-fluid"></p>
@@ -671,8 +676,8 @@ gitGraph
 <ol type="1">
 <li>Go to <a href="https://github.com">github.com</a></li>
 <li>Click “Sign up”</li>
-<li>Choose a username</li>
-<li>Use your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password.</li>
+<li>Choose a username (take a note of this as you will use it later in this Lab)</li>
+<li>Use your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password. (take a note of this as you will use it later in this Lab)</li>
 <li>Create a strong password</li>
 <li>Verify your account</li>
 </ol>
@@ -680,7 +685,7 @@ gitGraph
 <section id="configure-your-profile" class="level2">
 <h2 class="anchored" data-anchor-id="configure-your-profile">1.2 Configure Your Profile</h2>
 <div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
-<p>There is a change you won’t open GitHub to anything else than this course, but also there is another change where you will ended up working as spatial data scientist, or consultant into a collaborative and agile development team, in that case improving and configuring your GitHub account, as well as familiarizing yourself over how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well curated repositories that prove your skills in GitHub. So take some time to enhance your profile bu adding this little extra information.</p>
+<p>There is a chance you won’t open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.</p>
 </div>
 <ol type="1">
 <li>Add a profile picture</li>
@@ -800,7 +805,7 @@ gitGraph
 <p>Create a .gitignore file:</p>
 <div>
 <div style="border-left: 4px solid #FF0000; padding: 10px; background-color: #ffe6e6;">
-<p><strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with very large datasets, however cloud platforms –Github have uploads limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebook can weigh more than the storage limitation given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you push the files to the cloud.</p>
+<p><strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you <code>push</code> the files to the cloud.</p>
 </div>
 </div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -893,15 +898,48 @@ gitGraph
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[Edit Files] --&gt; B[git add]
-    B --&gt; C[git commit]
-    C --&gt; D[git push]
-    D --&gt; E[Continue Working]
-    E --&gt; A
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Edit Files] --&gt; B[git pull]
+    B --&gt; C[git status]
+    C --&gt; D[git add]
+    D --&gt; E[git commit]
+    E --&gt; F[git push]
+    F --&gt; G[Continue Working]
+    G --&gt; A
 </pre>
 </div>
 <p></p><figcaption> Daily Git Workflow</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<p>It is a bit complicated to understand what is underneath all this commands, so the following sequence-diagram represents how information, in particular how the modifications of your files moves around the version control system, thus it is easier for you to understand why do we need to run several commands when we use <strong>git</strong>.</p>
+<p>Initially you have three folders. One is called <strong>Your Folder</strong> (this is where all your project are located, eg. Lab No 1, GG3209, etc), then you have a <strong>Local repo</strong> (a hidden folder that include all the components of version control or git) and finally the <strong>Cloud Repo</strong>, which is a folder located in the Cloud (e.g GitHub). The goal is to make sure we have all our editions sync and safe in the Cloud, so if eventually our computers breaks, we have a safe and updated copy of our project stored in the Cloud.</p>
+</div>
+<p>This is how a traditional workflow looks like when you work with Git and GitHub, study the steps and make sure you understand what the role of each command is. I expect you to work using these commands during the labs of this module.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    loop 
+    autonumber
+    Your Folder-&gt;&gt;+Local Repo: git status
+    Note right of Your Folder: Report All Changes
+    Your Folder-&gt;&gt;+Local Repo: git add
+    Note right of Your Folder: Add all changes&lt;br/&gt;to the staging area
+    Your Folder-&gt;&gt;+Local Repo: git commit
+    Note right of Your Folder: Include all the files&lt;br/&gt;to the local repo    
+    Local Repo-&gt;&gt;+Cloud Repo: git push
+    Note right of Local Repo: upload all changes &lt;br/&gt;to the Cloud repo
+    Local Repo-&gt;&gt;+Cloud Repo: git pull
+    Cloud Repo--&gt;&gt;-Local Repo: pull changes&lt;br/&gt;included in the cloud
+    Note over Cloud Repo,Your Folder: Fetch lastest changes
+    end
+</pre>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
