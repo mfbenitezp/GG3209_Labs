@@ -410,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#setting-up-the-arcgis-pro-project" id="toc-setting-up-the-arcgis-pro-project" class="nav-link active" data-scroll-target="#setting-up-the-arcgis-pro-project">Setting up the ArcGIS Pro Project</a></li>
-  <li><a href="#accessing-the-catalog-pane" id="toc-accessing-the-catalog-pane" class="nav-link" data-scroll-target="#accessing-the-catalog-pane">Accessing the Catalog Pane</a></li>
+  <li><a href="#accessing-the-catalogue-pane" id="toc-accessing-the-catalogue-pane" class="nav-link" data-scroll-target="#accessing-the-catalogue-pane">Accessing the Catalogue Pane</a></li>
   <li><a href="#creating-a-python-notebook" id="toc-creating-a-python-notebook" class="nav-link" data-scroll-target="#creating-a-python-notebook">Creating a Python Notebook</a></li>
   <li><a href="#running-your-first-python-code" id="toc-running-your-first-python-code" class="nav-link" data-scroll-target="#running-your-first-python-code">Running Your First Python Code</a></li>
   <li><a href="#working-with-variables" id="toc-working-with-variables" class="nav-link" data-scroll-target="#working-with-variables">Working with Variables</a></li>
@@ -491,11 +491,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The project loads a map called <strong>PY4SA_Starting_with_Python</strong> showing the <strong>Edinburgh Wards</strong> and <strong>trees</strong> from Open Street Map, you can see more and more details when you zoom in to the map, take a sort time to familiarise yourself with the data and the map. You will add other <strong>feature classes</strong> (the ArcGIS version of a Shapefile) to this map.</p></li>
 </ol>
 </section>
-<section id="accessing-the-catalog-pane" class="level3">
-<h3 class="anchored" data-anchor-id="accessing-the-catalog-pane">Accessing the Catalog Pane</h3>
+<section id="accessing-the-catalogue-pane" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-catalogue-pane">Accessing the Catalogue Pane</h3>
 <ol start="6" type="1">
 <li><p>If the <strong>Catalog</strong> pane is not already visible, click the <strong>View</strong> tab and click <strong>Catalog Pane</strong>.</p></li>
-<li><p>Dock the <strong>Catalog</strong> pane to the right of the map.</p></li>
+<li><p>Dock the <strong>Catalogue</strong> pane to the right of the map.</p></li>
 <li><p>Expand <strong>Databases</strong> folder and then <strong>py4sa.gdb</strong> geodatabase.</p>
 <blockquote class="blockquote">
 <p><img src="images/clipboard-181253901.png" class="img-fluid"></p>
@@ -510,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><img src="images/clipboard-1718290818.png" class="img-fluid"></p>
 <p>Clicking the <strong>Python</strong> button also opens a new notebook, but the drop-down menu allows you to see that you have a choice between <strong>Python Notebook</strong> and <strong>Python Window</strong>. The <strong>Python Window</strong> is another way to run Python code in ArcGIS Pro.</p>
-<p>It may take a moment for the new notebook to appear, and you may see the message <strong>Initializing Kernel</strong> on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software running in the background that will run the Python code you enter in the notebook. <strong>Do not panic!</strong></p>
+<p>It may take a moment for the new notebook to appear, and you may see the message <strong>Initialising Kernel</strong> on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software that runs in the background to execute the Python code you enter in the notebook. <strong>Do not panic!</strong></p>
 <p>Once the notebook opens, it appears as a new tab in the main window of ArcGIS Pro.</p>
 <p>The new notebook is stored as an <strong>.ipnyb</strong> file in your project home folder. The new notebook also appears under the <strong>Notebooks</strong> folder in the <strong>Catalog</strong> pane.</p>
 </blockquote></li>
@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello Notebook!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><img src="images/clipboard-2350592089.png" class="img-fluid"></p>
-<p>This code calls the print function on a single input parameter within the parentheses. This parameter is a string, because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.</p>
+<p>This code calls the print function on a single input parameter within the parentheses. This parameter is a string because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.</p>
 </blockquote></li>
 <li><p>On the toolbar above the cell, click the <strong>Run</strong> button.</p>
 <blockquote class="blockquote">
@@ -623,7 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="manage-code-in-cells" class="level2">
 <h2 class="anchored" data-anchor-id="manage-code-in-cells">Manage code in cells</h2>
-<p>The code in Notebooks is run in cells. The order in which cells have been run is indicated by the numbers beside the cells after they are run. Notebooks have tools to manage cells. Now you’ll explore these aspects of working with Python in a notebook.</p>
+<p>The code in Notebooks is run in cells. The order in which cells are run is indicated by the numbers beside the cells after they are executed. Notebooks have tools to manage cells. Now you’ll explore these aspects of working with Python in a notebook.</p>
 <section id="working-with-lists" class="level3">
 <h3 class="anchored" data-anchor-id="working-with-lists">Working with Lists</h3>
 <ol type="1">
@@ -640,8 +640,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>What happened?</p>
 <p><img src="images/clipboard-2548513616.png" class="img-fluid"></p>
-<p>Elements in a list are indexed, starting with index number zero. You can obtain specific elements in a list by using their index number. Index number -1 means the first elements starting from the end of the list—in other words, the last element. This returns the number <strong>5</strong>.</p>
-<p>As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you run a previously run cell again. The numbers help you keep track of the order in which the cells were run.</p>
+<p>Elements in a list are indexed, starting with index number zero. You can retrieve specific elements in a list by using their corresponding index numbers. Index number -1 means the first element starting from the end of the list—in other words, the last element. This returns the number <strong>5</strong>.</p>
+<p>As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you rerun a previously executed cell. The numbers help you keep track of the order in which the cells were run.</p>
 </blockquote></li>
 </ol>
 </section>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now the value in the last position of the list is <strong>8</strong>.</p>
 <p><img src="images/clipboard-861679733.png" class="img-fluid"></p>
 <p>An alternative to running individual cells is to select multiple cells and run them together, or to run all the cells in a notebook by clicking the <strong>Cell</strong> menu and clicking <strong>Run All</strong>.</p>
-<p>It is a good practice to organize lines of code that belong together in the same cell. For example, it would make sense for the two previous cells to be combined into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.</p>
+<p>It is a good practice to organise lines of code that belong together in the same cell. For example, it would make sense to combine the two previous cells into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.</p>
 </blockquote></li>
 </ol>
 </section>
@@ -739,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/clipboard-1786130242.png" class="img-fluid"></p>
 <p>A new cell is inserted below the selected cell. If the cell had been green, you would add the letter b to the code in the cell.</p>
 <p>These shortcuts are not case sensitive, so b and B are the same.</p>
-<p>There is no need to memorize these commands, but experienced coders memorize and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.</p>
+<p>There is no need to memorise these commands, but experienced coders memorise and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.</p>
 <p>If you are looking for the command for a specific task, you can search for it by using the search bar at the top of the <strong>Command Palette</strong>.</p>
 </blockquote></li>
 <li><p>Open the <strong>Command Palette</strong> and type run in the <strong>Search</strong> box.</p>
@@ -770,7 +770,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/clipboard-3046128174.png" class="img-fluid"></p></li>
 <li><p>Type <code>geoprocessing_demo</code> and press Enter.</p>
 <blockquote class="blockquote">
-<p>The new notebook is renamed. In the <strong>Catalog</strong> pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says <strong>geoprocessing_demo</strong>.</p>
+<p>The new notebook is renamed. In the <strong>Catalogue</strong> pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says <strong>geoprocessing_demo</strong>.</p>
 <p>For the next steps, it is useful to see the map and the notebook side by side.</p>
 </blockquote></li>
 <li><p>Drag the <strong>geoprocessing_demo</strong> notebook tab to the docking target that appears below.</p>
@@ -798,7 +798,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><img src="images/clipboard-3879939768.png" class="img-fluid"></p>
 <p>GetCount is a function of ArcPy that runs the <strong>Get Count</strong> geoprocessing tool located in the <strong>Data Management Tools</strong> toolbox.</p>
-<p>The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialog box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialog box. Any tool that you run in a notebook also appears in the <strong>History</strong> panel.</p>
+<p>The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialogue box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialogue box. Any tool that you run in a notebook also appears in the <strong>History</strong> panel.</p>
 </blockquote></li>
 <li><p>Click the <strong>Analysis</strong> tab and click <strong>History</strong>.</p>
 <blockquote class="blockquote">
@@ -813,7 +813,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="11" type="1">
 <li><p>Edit the <code>arcpy.GetCount</code> code line to the following:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>arcpy.GetCount_management(<span class="st">"EDI_gis_osm_building"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Run the cell. Are you getting any error?</p>
+<li><p>Run the cell. Are you getting any errors?</p>
 <blockquote class="blockquote">
 <p>In case this code fails with an error message. At the end of the message, the following information appears:</p>
 <p>ExecuteError: Failed to execute. Parameters are not valid.</p>
@@ -821,8 +821,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Failed to execute (GetCount)</p>
 <p>Why do you think the code failed, when the code to get the count of natural features worked?</p>
 <p>The <strong>EDI_gis_osm_natural</strong> feature class is a layer on the active map. In a notebook, you can refer to a dataset by the name of the layer in the active map, like you can when you run a geoprocessing tool interactively using its graphical user interface.</p>
-<p>The <strong>EDI_gis_osm_building</strong> feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or default geodatabase by specifying the full path to it.</p>
-<p>Next, you’ll look up the path to the <strong>EDI_gis_osm_buildings (this layer does exist)</strong> feature class. The path where the data is located is a key aspect in python so now let’s explore how you can know where the data is stored and then use the correct path in your scripts.</p>
+<p>The <strong>EDI_gis_osm_building</strong> feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or the default geodatabase by specifying its full path.</p>
+<p>Next, you’ll look up the path to the <strong>EDI_gis_osm_buildings (this layer does exist)</strong> feature class. The path where the data is located is a key aspect in Python, so now let’s explore how you can know where the data is stored and then use the correct path in your scripts.</p>
 </blockquote></li>
 <li><p>In the <strong>Catalog</strong> pane, expand the <strong>Databases</strong> section and expand <strong>PY4SA.gdb</strong>.</p></li>
 <li><p>Right-click <strong>EDI_gis_osm_buildings</strong> and click <strong>Properties</strong>.</p>
@@ -968,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You may need to zoom to the layer to see the remaining smaller areas.</p>
 <blockquote class="blockquote">
 <p>The resulting areas are potentially the most compromised in terms of clinic service. You were able to obtain this updated result by running the multiple lines of code as a single cell in the notebook. If you had used the tools from their graphical user interfaces, you would have needed to run both the <strong>Buffer</strong> tool and the <strong>Pairwise Erase</strong> tool again to obtain the updated result.</p>
-<p>The time savings with only two tools is minor, but many workflow’s consist of longer sequences of tools. In addition, the ability to run a tool, or multiple tools, within a loop makes Python useful when you need to run the same process on multiple inputs.</p>
+<p>The time savings with only two tools is minor, but many workflows consist of more extended sequences of tools. Additionally, the ability to run a tool or multiple tools within a loop makes Python useful when you need to run the same process on various inputs.</p>
 </blockquote></li>
 <li><p>Save your ArcGIS Pro project and close.</p></li>
 </ol>
@@ -976,7 +976,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-and-save-a-notebook-in-arcgis-online" class="level2">
 <h2 class="anchored" data-anchor-id="create-and-save-a-notebook-in-arcgis-online">Create and save a Notebook in ArcGIS Online</h2>
 <ol type="1">
-<li>Go to our ArcGIS Online Organizational account <a href="https://uostandrews.maps.arcgis.com/" class="uri">https://uostandrews.maps.arcgis.com/</a> log in using your St Andrews email.</li>
+<li>Go to our ArcGIS Online Organisational account <a href="https://uostandrews.maps.arcgis.com/" class="uri">https://uostandrews.maps.arcgis.com/</a>&gt; and log in using your St Andrews email.</li>
 <li>Click Notebook to open a new ArcGIS Notebook.</li>
 <li>Click the New Notebook button and you will see a drop-down list with three options: <strong>Standard</strong>, Advanced, and Advanced with GPU support.</li>
 <li>Click <strong>Standard</strong>.</li>
