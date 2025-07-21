@@ -34,7 +34,7 @@ jobs:
       - name: Set up Chromium
         uses: browser-actions/setup-chrome@v1
         with:
-        chrome-version: latest
+          chrome-version: latest
 
       - name: Verify Chromium installation
         run: chrome --version
