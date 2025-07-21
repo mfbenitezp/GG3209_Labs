@@ -3,13 +3,15 @@ project:
 
 book:
   title: "GG3209 - Spatial Analysis with GIS"
-  subtitle: "Technical Practices using Python"
+  subtitle: "Second Part - Introduction to Python"
   author: "Fernando Benitez-Paez"
-  date: "7/3/2025"
+  date: last-modified
   favicon: "images/StA.png"
   downloads: [pdf]
   sidebar:
     style: "floating"
+    date-format: iso
+    title: "{{< meta date >}}"
   navbar:
     background: light
     search: true
@@ -44,6 +46,6 @@ format:
 
 
 editor: visual
-
+date: last-modified
 execute:
   freeze: auto
