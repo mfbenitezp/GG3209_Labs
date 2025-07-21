@@ -9,13 +9,13 @@ Version control is a system that records changes to files over time so that you 
 -   Collaborate with others without conflicts
 -   Understand who made what changes and when
 
+
 ```{mermaid}
 
 %%| fig-cap: "Version Control Timeline"
 %%| fig-align: center
 %%| fig-responsive: false
-%%| fig-width: 10.2
-%%| fig-height: 10
+
 
 gitGraph
     commit id: "Initial spatial analysis"

@@ -29,13 +29,8 @@ book:
     - Lab_3.qmd
     - DataSources.qmd
     - troubleshooting.qmd
-    - references.qmd
-
-bibliography: references.bib
 
 format:
-  gfm:
-      mermaid-format: png
   html:
     respect-user-color-scheme: true
     mermaid:
@@ -46,6 +41,7 @@ format:
         - theme-dark.scss
   pdf:
     documentclass: scrreprt
+
 
 editor: visual
 
