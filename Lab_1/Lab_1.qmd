@@ -20,11 +20,11 @@ Perhaps one of the fastest and easiest way to start with python as spatial data 
 
 5.  The project loads a map called **PY4SA_Starting_with_Python** showing the **Edinburgh Wards** and **trees** from Open Street Map, you can see more and more details when you zoom in to the map, take a sort time to familiarise yourself with the data and the map. You will add other **feature classes** (the ArcGIS version of a Shapefile) to this map.
 
-### Accessing the Catalog Pane
+### Accessing the Catalogue Pane
 
 6.  If the **Catalog** pane is not already visible, click the **View** tab and click **Catalog Pane**.
 
-7.  Dock the **Catalog** pane to the right of the map.
+7.  Dock the **Catalogue** pane to the right of the map.
 
 8.  Expand **Databases** folder and then **py4sa.gdb** geodatabase.
 
@@ -40,7 +40,7 @@ Perhaps one of the fastest and easiest way to start with python as spatial data 
     >
     > Clicking the **Python** button also opens a new notebook, but the drop-down menu allows you to see that you have a choice between **Python Notebook** and **Python Window**. The **Python Window** is another way to run Python code in ArcGIS Pro.
     >
-    > It may take a moment for the new notebook to appear, and you may see the message **Initializing Kernel** on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software running in the background that will run the Python code you enter in the notebook. **Do not panic!**
+    > It may take a moment for the new notebook to appear, and you may see the message **Initialising Kernel** on the screen while you wait. This means ArcGIS Pro is getting ready to run code in the notebook. The kernel is software that runs in the background to execute the Python code you enter in the notebook. **Do not panic!**
     >
     > Once the notebook opens, it appears as a new tab in the main window of ArcGIS Pro.
     >
@@ -62,7 +62,7 @@ Perhaps one of the fastest and easiest way to start with python as spatial data 
 
     > ![](images/clipboard-2350592089.png)
     >
-    > This code calls the print function on a single input parameter within the parentheses. This parameter is a string, because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.
+    > This code calls the print function on a single input parameter within the parentheses. This parameter is a string because it is enclosed in quotation marks. Strings are an important and useful type of data that you can work with in Python.
 
 12. On the toolbar above the cell, click the **Run** button.
 
@@ -182,7 +182,7 @@ Perhaps one of the fastest and easiest way to start with python as spatial data 
 
 ## Manage code in cells
 
-The code in Notebooks is run in cells. The order in which cells have been run is indicated by the numbers beside the cells after they are run. Notebooks have tools to manage cells. Now you'll explore these aspects of working with Python in a notebook.
+The code in Notebooks is run in cells. The order in which cells are run is indicated by the numbers beside the cells after they are executed. Notebooks have tools to manage cells. Now you'll explore these aspects of working with Python in a notebook.
 
 ### Working with Lists
 
@@ -210,9 +210,9 @@ The code in Notebooks is run in cells. The order in which cells have been run is
     >
     > ![](images/clipboard-2548513616.png)
     >
-    > Elements in a list are indexed, starting with index number zero. You can obtain specific elements in a list by using their index number. Index number -1 means the first elements starting from the end of the list—in other words, the last element. This returns the number **5**.
+    > Elements in a list are indexed, starting with index number zero. You can retrieve specific elements in a list by using their corresponding index numbers. Index number -1 means the first element starting from the end of the list—in other words, the last element. This returns the number **5**.
     >
-    > As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you run a previously run cell again. The numbers help you keep track of the order in which the cells were run.
+    > As you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you rerun a previously executed cell. The numbers help you keep track of the order in which the cells were run.
 
 ### Understanding Cell Execution Order
 
@@ -246,7 +246,7 @@ The code in Notebooks is run in cells. The order in which cells have been run is
     >
     > An alternative to running individual cells is to select multiple cells and run them together, or to run all the cells in a notebook by clicking the **Cell** menu and clicking **Run All**.
     >
-    > It is a good practice to organize lines of code that belong together in the same cell. For example, it would make sense for the two previous cells to be combined into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.
+    > It is a good practice to organise lines of code that belong together in the same cell. For example, it would make sense to combine the two previous cells into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.
 
 ### Merging Cells
 
@@ -325,7 +325,7 @@ The code in Notebooks is run in cells. The order in which cells have been run is
     >
     > These shortcuts are not case sensitive, so b and B are the same.
     >
-    > There is no need to memorize these commands, but experienced coders memorize and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.
+    > There is no need to memorise these commands, but experienced coders memorise and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.
     >
     > If you are looking for the command for a specific task, you can search for it by using the search bar at the top of the **Command Palette**.
 
@@ -363,7 +363,7 @@ Now that you've had some practice entering code in a notebook, it is time to use
 
 4.  Type `geoprocessing_demo` and press Enter.
 
-    > The new notebook is renamed. In the **Catalog** pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says **geoprocessing_demo**.
+    > The new notebook is renamed. In the **Catalogue** pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says **geoprocessing_demo**.
     >
     > For the next steps, it is useful to see the map and the notebook side by side.
 
@@ -399,7 +399,7 @@ Now that you've had some practice entering code in a notebook, it is time to use
     >
     > GetCount is a function of ArcPy that runs the **Get Count** geoprocessing tool located in the **Data Management Tools** toolbox.
     >
-    > The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialog box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialog box. Any tool that you run in a notebook also appears in the **History** panel.
+    > The result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialogue box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialogue box. Any tool that you run in a notebook also appears in the **History** panel.
 
 9.  Click the **Analysis** tab and click **History**.
 
@@ -417,7 +417,7 @@ Now that you've had some practice entering code in a notebook, it is time to use
     arcpy.GetCount_management("EDI_gis_osm_building")
     ```
 
-12. Run the cell. Are you getting any error?
+12. Run the cell. Are you getting any errors?
 
     > In case this code fails with an error message. At the end of the message, the following information appears:
     >
@@ -431,9 +431,9 @@ Now that you've had some practice entering code in a notebook, it is time to use
     >
     > The **EDI_gis_osm_natural** feature class is a layer on the active map. In a notebook, you can refer to a dataset by the name of the layer in the active map, like you can when you run a geoprocessing tool interactively using its graphical user interface.
     >
-    > The **EDI_gis_osm_building** feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or default geodatabase by specifying the full path to it.
+    > The **EDI_gis_osm_building** feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or the default geodatabase by specifying its full path.
     >
-    > Next, you'll look up the path to the **EDI_gis_osm_buildings (this layer does exist)** feature class. The path where the data is located is a key aspect in python so now let's explore how you can know where the data is stored and then use the correct path in your scripts.
+    > Next, you'll look up the path to the **EDI_gis_osm_buildings (this layer does exist)** feature class. The path where the data is located is a key aspect in Python, so now let's explore how you can know where the data is stored and then use the correct path in your scripts.
 
 13. In the **Catalog** pane, expand the **Databases** section and expand **PY4SA.gdb**.
 
@@ -656,13 +656,13 @@ The areas outside of these buffers are further away from the clinics, which may 
 
     > The resulting areas are potentially the most compromised in terms of clinic service. You were able to obtain this updated result by running the multiple lines of code as a single cell in the notebook. If you had used the tools from their graphical user interfaces, you would have needed to run both the **Buffer** tool and the **Pairwise Erase** tool again to obtain the updated result.
     >
-    > The time savings with only two tools is minor, but many workflow's consist of longer sequences of tools. In addition, the ability to run a tool, or multiple tools, within a loop makes Python useful when you need to run the same process on multiple inputs.
+    > The time savings with only two tools is minor, but many workflows consist of more extended sequences of tools. Additionally, the ability to run a tool or multiple tools within a loop makes Python useful when you need to run the same process on various inputs.
 
 21. Save your ArcGIS Pro project and close.
 
 ## Create and save a Notebook in ArcGIS Online
 
-1.  Go to our ArcGIS Online Organizational account <https://uostandrews.maps.arcgis.com/> log in using your St Andrews email.
+1.  Go to our ArcGIS Online Organisational account <https://uostandrews.maps.arcgis.com/>\> and log in using your St Andrews email.
 2.  Click Notebook to open a new ArcGIS Notebook.
 3.  Click the New Notebook button and you will see a drop-down list with three options: **Standard**, Advanced, and Advanced with GPU support.
 4.  Click **Standard**.

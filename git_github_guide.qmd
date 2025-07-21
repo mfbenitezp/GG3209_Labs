@@ -326,6 +326,16 @@ Thumbs.db
 
 # Log files
 *.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+__pycache__/
+*.py[codz]
+*$py.class
 ```
 
 ## 3.4 Your First Commit
