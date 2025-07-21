@@ -24,122 +24,584 @@
   {
     "objectID": "gg3209_install_guide.html",
     "href": "gg3209_install_guide.html",
-    "title": "Python Environment Installation",
+    "title": "Step 1. Python Environment Installation",
     "section": "",
-    "text": "Table of Contents\nThis guide provides step-by-step instructions for setting up the Python environment for second part of the module GG3209 on Windows and macOS. The environment includes all necessary libraries for data handling, clustering, visualization, large datasets, and hotspot analysis.\nEstimated time to install: 20 to 30 minutes.\nMake sure you you have an stable internet connection. If you are using eduroam at the university, you might experience delay or issues when the internet connection isn’t stable, if that is the case make sure you have a stable connection at home to complete this process properly. In case the problem persist please a case and request and appointment with our IT office at gsditsupport@st-andrews.ac.uk",
+    "text": "Prerequisites\nThis guide provides step-by-step instructions for setting up the Python environment for second part of the module GG3209 on Windows and macOS. The environment includes all necessary libraries for data handling, clustering, visualization, large datasets, and hotspot analysis.\nEstimated time to install: 20 to 30 minutes.\nBefore starting, ensure you have:",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
-    ]
-  },
-  {
-    "objectID": "gg3209_install_guide.html#table-of-contents",
-    "href": "gg3209_install_guide.html#table-of-contents",
-    "title": "Python Environment Installation",
-    "section": "",
-    "text": "Prerequisites\nInstalling Anaconda/Miniconda\nCreating the Environment\nVerifying Installation\nRunning Jupyter Lab\nCommon Issues and Solutions\nEnvironment Management\nAdditional Resources",
-    "crumbs": [
-      "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
     "objectID": "gg3209_install_guide.html#prerequisites",
     "href": "gg3209_install_guide.html#prerequisites",
-    "title": "Python Environment Installation",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nBefore starting, ensure you have:\n\nA stable internet connection (large downloads required)\nAt least 5GB of free disk space\nAdministrator privileges on your computer\nBasic familiarity with command line interface (we will have a show demo about this during the lectures)\n\nIf you don’t know how to validate this, please make an appointment with out IT service who can support you with this gsditsupport@st-andrews.ac.uk",
+    "title": "Step 1. Python Environment Installation",
+    "section": "",
+    "text": "A stable internet connection (large downloads required)\nAt least 5GB of free disk space\nAdministrator privileges on your computer\nBasic familiarity with command line interface (we will have a show demo about this during the lectures)\n\n\nIf you don’t know how to validate this, please make an appointment with out IT service who can support you with this gsditsupport@st-andrews.ac.uk",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
-    "objectID": "gg3209_install_guide.html#installing-miniconda-required-for-all-students",
-    "href": "gg3209_install_guide.html#installing-miniconda-required-for-all-students",
-    "title": "Python Environment Installation",
-    "section": "Installing Miniconda (Required for All Students)",
-    "text": "Installing Miniconda (Required for All Students)\nWhy Miniconda? Miniconda provides a clean, minimal Python installation with only essential packages. This ensures all students start with identical environments and reduces potential conflicts. It’s lightweight, fast, and gives us complete control over installed packages.\n\nWindows Installation\n\nDownload Miniconda:\n\nVisit https://docs.conda.io/en/latest/miniconda.html\nDownload “Miniconda3 Windows 64-bit” (approximately 50MB)\nImportant: Download the Python 3.10 version specifically\n\nInstall Miniconda:\n\nDouble-click the downloaded .exe file\nClick “Next” through the installation wizard\nCRITICAL: When asked about PATH, select “Add Miniconda3 to my PATH environment variable”\nAccept all other default settings\nComplete installation (takes 2-3 minutes)\n\nVerify Installation:\n\nOpen Command Prompt (Press Win + R, type cmd, press Enter)\nType conda --version and press Enter\nYou should see: conda 23.x.x (or similar version number)\nType python --version and press Enter\nYou should see: Python 3.10.x\n\n\n\n\nmacOS Installation\n\nDownload Miniconda:\n\nVisit https://docs.conda.io/en/latest/miniconda.html\nFor Apple Silicon Macs (M1/M2): Download “Miniconda3 macOS Apple M1 64-bit pkg”\nFor Intel Macs: Download “Miniconda3 macOS Intel x86 64-bit pkg”\nImportant: Download the Python 3.10 version specifically\n\nInstall Miniconda:\n\nDouble-click the downloaded .pkg file\nFollow the installation wizard\nAccept all default settings\nComplete installation\n\nVerify Installation:\n\nOpen Terminal (Press Cmd + Space, type “Terminal”, press Enter)\nType conda --version and press Enter\nYou should see: conda 23.x.x (or similar version number)\nType python --version and press Enter\nYou should see: Python 3.10.x\n\n\n\n\nPost-Installation Setup (All Students)\nAfter successful installation, run these commands to ensure consistency:\n# Update conda to latest version\nconda update -n base -c defaults conda\n\n# Configure conda for optimal performance\nconda config --set auto_activate_base false\nconda config --add channels conda-forge\nconda config --set channel_priority strict\n\n# Verify configuration\nconda info\nExpected Output: You should see conda-forge listed as a channel with highest priority.",
+    "objectID": "gg3209_install_guide.html#installing-miniconda",
+    "href": "gg3209_install_guide.html#installing-miniconda",
+    "title": "Step 1. Python Environment Installation",
+    "section": "1. Installing Miniconda",
+    "text": "1. Installing Miniconda\nMiniconda provides a clean, minimal Python installation with only essential packages. This ensures all students start with identical environments and reduces potential conflicts. It’s lightweight, fast, and gives us complete control over installed packages. The installation of this program relies on the operating system you have, thus use the instructions based on that:\n\nWindows Installation\n\nDownload Miniconda:\n\nVisit https://docs.conda.io/en/latest/miniconda.html\nDownload “Miniconda3 Windows 64-bit” (approximately 50MB)\nImportant: Download the Python 3.10 version specifically\n\nInstall Miniconda:\n\nDouble-click the downloaded .exe file\nClick “Next” through the installation wizard\nCRITICAL: When asked about PATH, select “Add Miniconda3 to my PATH environment variable”\nAccept all other default settings\nComplete installation (takes 2-3 minutes)\n\nVerify Installation:\n\nOpen Command Prompt (Press Win + R, type cmd, press Enter)\nType conda --version and press Enter\nYou should see: conda 23.x.x (or similar version number)\nType python --version and press Enter\nYou should see: Python 3.10.x\n\n\n\n\nmacOS Installation\n\nDownload Miniconda:\n\nVisit https://docs.conda.io/en/latest/miniconda.html\nFor Apple Silicon Macs (M1/M2): Download “Miniconda3 macOS Apple M1 64-bit pkg”\nFor Intel Macs: Download “Miniconda3 macOS Intel x86 64-bit pkg”\nImportant: Download the Python 3.10 version specifically\n\nInstall Miniconda:\n\nDouble-click the downloaded .pkg file\nFollow the installation wizard\nAccept all default settings\nComplete installation\n\nVerify Installation:\n\nOpen Terminal (Press Cmd + Space, type “Terminal”, press Enter)\nType conda --version and press Enter\nYou should see: conda 23.x.x (or similar version number)\nType python --version and press Enter\nYou should see: Python 3.10.x\n\n\n\n\nPost-Installation Setup (All Students)\nAfter successful installation, run these commands to ensure consistency:\n# Update conda to latest version\nconda update -n base -c defaults conda\n\n# Configure conda for optimal performance\nconda config --set auto_activate_base false\nconda config --add channels conda-forge\nconda config --set channel_priority strict\n\n# Verify configuration\nconda info\nExpected Output: You should see conda-forge listed as a channel with highest priority.",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
     "objectID": "gg3209_install_guide.html#creating-the-environment",
     "href": "gg3209_install_guide.html#creating-the-environment",
-    "title": "Python Environment Installation",
-    "section": "Creating the Environment",
-    "text": "Creating the Environment\n\nStep 1: Download the Environment File\nSave the environment configuration as environment.yml in a folder of your choice (e.g., Documents/gg3209/).\n\n\nStep 2: Open Command Line Interface\nAll students must use the correct command line interface to ensure consistency.\n\nWindows Students\n\nPress Win + R, type cmd, press Enter\nAlternative: Search for “Command Prompt” in Start Menu\nImportant: Use Command Prompt, NOT PowerShell or other terminals\n\n\n\nmacOS Students\n\nPress Cmd + Space, type “Terminal”, press Enter\nAlternative: Go to Applications &gt; Utilities &gt; Terminal\nImportant: Use Terminal, NOT other command line apps\n\n\n\n\nStep 3: Navigate to Your Project Directory\nAll students should create the same folder structure:\n# Windows students\nmkdir C:\\gg3209 #sds stands for spatial dtata science \ncd C:\\gg3209\n\n# macOS students\nmkdir ~/gg3209\ncd ~/gg3209\n\n\nStep 4: Download and Verify Environment File\nBefore creating the environment, ensure you have the correct file:\n\nSave the environment.yml file in your project directory. This file is located in Moodle, go there and download it and place it in the project directory you created earlier.\nVerify the file exists:\n\n# All students run this command\ndir environment.yml    # Windows\nls environment.yml     # macOS\nYou should see the file listed. If not, ensure you saved it correctly.\n\n\nStep 5: Create the Environment (Critical Step)\nThis is where consistency matters most. All students run the exact same commands:\n# Create environment from file\nconda env create -f environment.yml\n\n# This will take 15-30 minutes\n# You will see many packages being downloaded and installed\n# Wait for \"done\" message before proceeding\nExpected Output:\nCollecting package metadata (repodata.json): done\nSolving environment: done\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate spatial-data-science\n#\n# To deactivate an active environment, use\n#\n#     $ conda deactivate\n\n\nStep 6: Activate the Environment\nAll students must activate the environment before using it – THIS IS VERY IMPORTANT:\n# Activate the environment\nconda activate gg3209\nSuccess Indicator: Your command prompt should now show (gg3209) at the beginning:\n# Windows example\n(gg3209) C:\\gg3209&gt;\n\n# macOS example\n(gg3209) username@computer:~/gg3209$\n\n\nStep 7: Final Verification\nAll students run the same verification script:\nOnce you have created your python environment, now it is important you test that everything is properly installed. Using the same terminal or command prompt window run the following command.\n# Make sure your environment is activated\nconda activate gg3209\n\n# Run the test\npython test_installation.py\n\n------\n# Windows example\n(gg3209) C:\\gg3209\\&gt; python verification_script.py\n\n# macOS example\n(gg3209) username@computer:~/gg3209/$ python verification_script.py\nExpected Output for All Students:\nPython version: 3.10.x\nPython location: [path to conda environment]\n✓ All required libraries imported successfully!\n✓ Environment setup is complete and consistent!\n✓ GeoPandas version: 1.1.1\n✓ Pandas version: 2.3.1\n✓ NumPy version: 1.26.4\nIf successful, you should see version numbers and check-marks.",
+    "title": "Step 1. Python Environment Installation",
+    "section": "2. Creating the Environment",
+    "text": "2. Creating the Environment\n\nStep 1: Download the Environment File\nSave the environment configuration as environment.yml in a folder of your choice (e.g., Documents/gg3209/).\n\n\nStep 2: Open Command Line Interface\n\nWindows Students\n\nPress Win + R, type cmd, press Enter\nAlternative: Search for “Command Prompt” in Start Menu\n\nImportant: Use Command Prompt, NOT PowerShell or other terminals\n\n\n\n\nmacOS Students\n\nPress Cmd + Space, type “Terminal”, press Enter\nAlternative: Go to Applications &gt; Utilities &gt; Terminal\n\nImportant: Use Terminal, NOT other command line apps\n\n\n\n\n\nStep 3: Navigate to Your Project Directory\nAll students should create the same folder structure:\n# Windows students\nmkdir C:\\gg3209 #sds stands for spatial dtata science \ncd C:\\gg3209\n\n# macOS students\nmkdir ~/gg3209\ncd ~/gg3209\n\n\nStep 4: Download and Verify Environment File\nBefore creating the environment, ensure you have the correct file:\n\nSave the environment.yml file in your project directory. This file is located in Moodle, go there and download it and place it in the project directory you created earlier.\nVerify the file exists:\n\n# All students run this command\ndir environment.yml    # Windows\nls environment.yml     # macOS\nYou should see the file listed. If not, ensure you saved it correctly.\n\n\nStep 5: Create the Environment (Critical Step)\nThis is where consistency matters most:\n# Create environment from file\nconda env create -f environment.yml\n\n# This will take 15-30 minutes\n# You will see many packages being downloaded and installed\n# Wait for \"done\" message before proceeding\nExpected Output:\nCollecting package metadata (repodata.json): done\nSolving environment: done\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate spatial-data-science\n#\n# To deactivate an active environment, use\n#\n#     $ conda deactivate\n\n\nStep 6: Activate the Environment\nAll students must activate the environment before using it – THIS IS VERY IMPORTANT:\n# Activate the environment\nconda activate gg3209\nSuccess Indicator: Your command prompt should now show (gg3209) at the beginning:\n# Windows example\n(gg3209) C:\\gg3209&gt;\n\n# macOS example\n(gg3209) username@computer:~/gg3209$\n\n\nStep 7: Final Verification\nAll students run the same verification script:\nOnce you have created your python environment, now it is important you test that everything is properly installed. Using the same terminal or command prompt window run the following command.\n# Make sure environment is activated (optional if you know you have activated it)\nconda activate gg3209\n\n# Run the test\npython test_installation.py\n\n------\n# Windows example\n(gg3209) C:\\gg3209\\&gt; python verification_script.py\n\n# macOS example\n(gg3209) username@computer:~/gg3209/$ python verification_script.py\nExpected Output for All Students:\nPython version: 3.10.x\nPython location: [path to conda environment]\n✓ All required libraries imported successfully!\n✓ Environment setup is complete and consistent!\n✓ GeoPandas version: 1.1.1\n✓ Pandas version: 2.3.1\n✓ NumPy version: 1.26.4\nIf successful, you should see version numbers and check-marks.",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
     "objectID": "gg3209_install_guide.html#running-jupyter-lab",
     "href": "gg3209_install_guide.html#running-jupyter-lab",
-    "title": "Python Environment Installation",
-    "section": "Running Jupyter Lab",
-    "text": "Running Jupyter Lab\n\nStarting Jupyter Lab\n# Make sure environment is activated (optional if you know you have activated it)\nconda activate gg3209\n\n# Make sure you are in your project directory e.g. GG3209\n\ncd GG3209\n\n# Launch Jupyter Lab\njupyter lab\nThis will:\n- Start the Jupyter server\n- Open your default web browser\n- Display the Jupyter Lab interface\n\n\nCreating Your First Notebook\n\nClick “Python 3 (ipykernel)” under “Notebook”\nTest with a simple spatial analysis:\n\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport geodatasets\n\n# Create a simple test\nworld = gpd.read_file(geodatasets.get_path(\"naturalearth.land\"))\nworld.plot(figsize=(10, 6))\nplt.title('World Map Test')\nplt.show()\n\n\nStopping Jupyter Lab\n\nIn your browser: File &gt; Shut Down\nIn command line: Press Ctrl + C (Windows) or Cmd + C (Mac)",
+    "title": "Step 1. Python Environment Installation",
+    "section": "3. Running Jupyter Lab",
+    "text": "3. Running Jupyter Lab\n\nStarting Jupyter Lab\n# Make sure environment is activated (optional if you know you have activated it)\nconda activate gg3209\n\n# Make sure you are in your project directory e.g. GG3209\ncd GG3209\n\n# Launch Jupyter Lab\njupyter lab\nThis will:\n- Start the Jupyter server\n- Open your default web browser\n- Display the Jupyter Lab interface\n\n\nCreating Your First Notebook\n\nClick “Python 3 (ipykernel)” under “Notebook”\nTest with a simple spatial analysis:\n\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport geodatasets\n\n# Create a simple test\nworld = gpd.read_file(geodatasets.get_path(\"naturalearth.land\"))\nworld.plot(figsize=(10, 6))\nplt.title('World Map Test')\nplt.show()\n\n\nStopping Jupyter Lab\n\nIn your browser: File &gt; Shut Down\nIn command line: Press Ctrl + C (Windows) or Cmd + C (Mac)",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
     "objectID": "gg3209_install_guide.html#gg3209-specific-setup-instructions",
     "href": "gg3209_install_guide.html#gg3209-specific-setup-instructions",
-    "title": "Python Environment Installation",
-    "section": "GG3209-Specific Setup Instructions",
-    "text": "GG3209-Specific Setup Instructions\n\nFirst Day of Class Checklist\nAll students must complete before first lab:\n\nInstall Miniconda (Python 3.10)\nCreate spatial-data-science environment\nActivate environment successfully\nRun verification script (must pass)\nStart Jupyter Lab (must open in browser)\nCreate test notebook with basic spatial analysis\n\n\n\nWeekly Environment Check\nRun this command weekly to ensure consistency:\npython -c \"\nimport geopandas as gpd\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport folium\nfrom esda.getisord import G_Local\nfrom sklearn.cluster import DBSCAN\nprint('✓ Environment is working correctly')\nprint(f'✓ GeoPandas version: {gpd.__version__}')\nprint(f'✓ Pandas version: {pd.__version__}')\n\"\n\n\nSubmission Requirements\nFor all assignments, include this environment information:\n# Add this cell at the top of every notebook\nimport sys\nimport geopandas as gpd\nimport pandas as pd\n\nprint(f\"Python version: {sys.version}\")\nprint(f\"GeoPandas version: {gpd.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")\nprint(f\"Environment: gg3209\")\nThis ensures all students are working with identical software versions and helps instructors debug issues consistently.",
+    "title": "Step 1. Python Environment Installation",
+    "section": "4. GG3209-Specific Setup Instructions",
+    "text": "4. GG3209-Specific Setup Instructions\n\nFirst Day of Class Checklist\nAll students must complete before first lab:\n\nInstall Miniconda (Python 3.10)\nCreate spatial-data-science environment\nActivate environment successfully\nRun verification script (must pass)\nStart Jupyter Lab (must open in browser)\nCreate test notebook with basic spatial analysis\n\n\n\nWeekly Environment Check\nRun this command weekly to ensure consistency:\npython -c \"\nimport geopandas as gpd\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport folium\nfrom esda.getisord import G_Local\nfrom sklearn.cluster import DBSCAN\nprint('✓ Environment is working correctly')\nprint(f'✓ GeoPandas version: {gpd.__version__}')\nprint(f'✓ Pandas version: {pd.__version__}')\n\"\n\n\nSubmission Requirements\nFor all assignments, include this environment information:\n# Add this cell at the top of every notebook\nimport sys\nimport geopandas as gpd\nimport pandas as pd\n\nprint(f\"Python version: {sys.version}\")\nprint(f\"GeoPandas version: {gpd.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")\nprint(f\"Environment: gg3209\")",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
     "objectID": "gg3209_install_guide.html#next-steps",
     "href": "gg3209_install_guide.html#next-steps",
-    "title": "Python Environment Installation",
-    "section": "Next Steps",
-    "text": "Next Steps\nOnce your environment is set up:\n\nComplete the verification tests\nTry the sample notebook\nExplore the example datasets\nBegin your spatial analysis project\n\nYour spatial data science environment for the course GG3209 is now ready for the first Labs, this part as complicated as it seems now will allow you to create and practice all your python skills.",
+    "title": "Step 1. Python Environment Installation",
+    "section": "5. Next Steps",
+    "text": "5. Next Steps\nOnce your environment is set up:\n\nComplete the verification tests\nTry the sample notebook\nExplore the example datasets (Data Sources section)\nBegin the Guideline Introduction to GIT\nNow you are all set to start with Lab No 1, Lab No 2…and so on\nMake sure you push your changes, updates and work regularly to your Repo in GitHub.\n\n\nYour python environment for the course GG3209 is now ready this part as complicated as it seems now will allow you to create and practice all your python skills., there are some steps you need to recall while you work on this course’s labs. But with practice you will recall all of them with more and more practice.",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
-    "objectID": "gg3209_install_guide.html#common-issues-and-solutions",
-    "href": "gg3209_install_guide.html#common-issues-and-solutions",
-    "title": "Python Environment Installation",
-    "section": "Troubleshooting Guide",
-    "text": "Troubleshooting Guide\nWith Python and in particular with many new ways to use your computer, create folder and scripts things can get messy and very confusing, this is very normal and it is part of the process. The first thing is do not get frustrated or trying all sort of things without understanding what is the root of the issue. S you need to think systematically and then find out the solution. Here I have listed a few potential and common issues you might find. So first take all of this before escalating your issue to the lecturer or the IT support team.\n\nBefore Seeking Help\nAll students should complete this checklist:\n\nMiniconda is installed and conda --version works\nEnvironment was created without errors\nEnvironment shows (gg3209) when activated\nVerification script runs successfully\nJupyter Lab starts without errors\n\n\n\nClass Support Protocol\n\nFirst: Check this troubleshooting guide\nSecond: Ask a classmate (compare outputs)\nThird: Post your issue in the MS Teams channel of this course:\n\nYour operating system (Windows/macOS)\nExact error message\nCommands you ran\nOutput from verification script\n\n\n\n\nStandardized Error Reporting\nWhen reporting problems, always include:\n# Run these commands and include output\nconda info\nconda list geopandas\npython --version\njupyter --version\n\n\n\nIssue 1: “conda: command not found”\nThis is the most common issue for beginners.\nWindows Solution:\n# Option 1: Use the correct command prompt\n# Search for \"Anaconda Prompt\" in Start Menu if available\n# Or reinstall Miniconda ensuring PATH is added\n\n# Option 2: Manually add to PATH\nset PATH=%PATH%;C:\\Users\\%USERNAME%\\miniconda3\\Scripts\nset PATH=%PATH%;C:\\Users\\%USERNAME%\\miniconda3\nmacOS Solution:\n# Add to PATH temporarily\nexport PATH=\"$HOME/miniconda3/bin:$PATH\"\n\n# Add to PATH permanently\necho 'export PATH=\"$HOME/miniconda3/bin:$PATH\"' &gt;&gt; ~/.bash_profile\nsource ~/.bash_profile\n\n# For zsh users (macOS Catalina and later)\necho 'export PATH=\"$HOME/miniconda3/bin:$PATH\"' &gt;&gt; ~/.zshrc\nsource ~/.zshrc\n\n\nIssue 2: Environment Creation Fails\nCommon causes and solutions:\n# Solution 1: Clean conda cache\nconda clean --all\n\n# Solution 2: Update conda first\nconda update conda\n\n# Solution 3: Try creating environment with explicit solver\nconda env create -f environment.yml --solver=classic\n\n# Solution 4: Check internet connection and try again\n# Large downloads may timeout on slow connections\n\n\nIssue 3: Different Python Versions\nAll students must have Python 3.10 for consistency.\n# Check your Python version\npython --version\n\n# If incorrect, remove environment and recreate\nconda env remove --name gg3209\nconda env create -f environment.yml\n\n\nIssue 4: Package Conflicts During Installation\nThis indicates environment file issues:\n# Solution: Use mamba for faster, more reliable solving\nconda install mamba -n base -c conda-forge\nmamba env create -f environment.yml\n\n\nIssue 5: Jupyter Lab Won’t Start\nConsistency check:\n# Ensure environment is activated\nconda activate gg3209\n\n# Verify Jupyter installation\njupyter --version\n\n# If missing, reinstall\nconda install jupyter jupyterlab -c conda-forge\n\n# Start Jupyter Lab\njupyter lab\n\n\nIssue 6: Import Errors Despite Successful Installation\nEnvironment activation problem:\n# Always activate environment first\nconda activate gg3209\n\n# Check which Python you're using\nwhich python     # macOS/Linux\nwhere python     # Windows\n\n# Should show path to conda environment, not system Python\n\n\nIssue 7: PDF Generation Not Working\nLaTeX installation issues:\n# Verify LaTeX installation\npdflatex --version\n\n# If missing, install manually:\n# Windows: Download MiKTeX from https://miktex.org/\n# macOS: Install MacTeX from https://tug.org/mactex/\n\n# Test PDF conversion\njupyter nbconvert --to pdf test_notebook.ipynb\n\n\nEmergency Reinstallation\nIf all else fails, complete clean installation:\n# Remove environment\nconda env remove --name gg3209\n\n# Clean all caches\nconda clean --all\n\n# Recreate environment\nconda env create -f environment.yml",
+    "objectID": "gg3209_install_guide.html#useful-resources",
+    "href": "gg3209_install_guide.html#useful-resources",
+    "title": "Step 1. Python Environment Installation",
+    "section": "Useful resources",
+    "text": "Useful resources\n\nLearning Materials\n\nGeopandas Documentation: https://geopandas.org/\nPySAL Documentation: https://pysal.org/\nSpatial Data Science Book: https://geographicdata.science/book/\n\n\n\nData Sources\n\nNatural Earth: https://www.naturalearthdata.com/\nOpenStreetMap: https://www.openstreetmap.org/\nCensus Data: https://www.census.gov/\n\n\n\nCommunity Support\n\nStack Overflow: Use tags geopandas, spatial-analysis, python\nGitHub Issues: For specific library problems\nReddit: r/gis and r/Python communities\n\n\nThis guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 1. Python Environment Installation"
     ]
   },
   {
-    "objectID": "gg3209_install_guide.html#pdf-generation",
-    "href": "gg3209_install_guide.html#pdf-generation",
-    "title": "Python Environment Installation",
-    "section": "PDF Generation",
-    "text": "PDF Generation\nYou are required to submit your work as report to MMS in a PDF format, and most of the outcomes created in this modules are Jupyter Notebooks, so you will need to export them as PDF. This environment includes comprehensive PDF generation capabilities for creating professional scientific documents from Jupyter notebooks. This includes:\n\nLaTeX-based PDF generation for high-quality academic formatting\nWeb-based PDF conversion for quick exports\nScientific document formatting with proper citations and references\nProfessional layout templates for reports and dissertations\n\n\nTesting PDF Generation\nAfter setting up your environment, test the PDF generation capabilities:\n\nOpen a terminal or command prompt windows and lunch python.\nlocate a folder where you can create a python script.\nCreate the\n\nimport nbformat\nfrom nbconvert import PDFExporter\nimport os\n\nprint(\"Testing PDF generation capabilities...\")\n\n# Test LaTeX availability\ntry:\n    import subprocess\n    result = subprocess.run(['pdflatex', '--version'], \n                          capture_output=True, text=True)\n    if result.returncode == 0:\n        print(\"✓ LaTeX/PDFLaTeX is available\")\n    else:\n        print(\"✗ LaTeX not found\")\nexcept:\n    print(\"✗ LaTeX not available\")\n\n# Test nbconvert PDF export\ntry:\n    exporter = PDFExporter()\n    print(\"✓ nbconvert PDF exporter is available\")\nexcept Exception as e:\n    print(f\"✗ nbconvert PDF exporter error: {e}\")\n\n# Test WeasyPrint (alternative PDF generator)\ntry:\n    import weasyprint\n    print(\"✓ WeasyPrint is available\")\nexcept Exception as e:\n    print(f\"✗ WeasyPrint error: {e}\")\n\n# Test ReportLab (programmatic PDF creation)\ntry:\n    from reportlab.pdfgen import canvas\n    print(\"✓ ReportLab is available\")\nexcept Exception as e:\n    print(f\"✗ ReportLab error: {e}\")\n\nprint(\"PDF generation test complete!\")\n\n\nConverting Notebooks to PDF\n\nMethod 1: Command Line (Recommended)\n# Activate environment\nconda activate gg3209\n\n# Convert notebook to PDF via LaTeX\njupyter nbconvert --to pdf your_notebook.ipynb\n\n# Convert with custom template, optional\njupyter nbconvert --to pdf --template classic your_notebook.ipynb\n\n# Convert with bibliography support, optional.\njupyter nbconvert --to pdf --template article your_notebook.ipynb\n\n\nMethod 2: Jupyter Lab Interface\n\nOpen your notebook in Jupyter Lab\nGo to File &gt; Export Notebook As &gt; PDF\nChoose export options\nSave the generated PDF\n\n\n\nMethod 3: Programmatic Conversion (optional)\nimport nbformat\nfrom nbconvert import PDFExporter\n\n# Read notebook\nwith open('your_notebook.ipynb', 'r') as f:\n    nb = nbformat.read(f, as_version=4)\n\n# Convert to PDF\npdf_exporter = PDFExporter()\npdf_exporter.template_name = 'classic'\n(body, resources) = pdf_exporter.from_notebook_node(nb)\n\n# Save PDF\nwith open('output.pdf', 'wb') as f:\n    f.write(body)\n\n\n\nProfessional PDF Features\n\n\nCreating Professional Reports\n\nTemplate Structure\nTo create a template notebook with:\n# Report template structure\n\"\"\"\n# Title: Professional Spatial Data Science Report\n## Author: Your Name\n## Date: Current Date\n## Abstract\nBrief description of the analysis...\n\n## 1. Introduction\nResearch question and objectives...\n\n## 2. Methodology\n### 2.1 Data Sources\n### 2.2 Analytical Methods\n### 2.3 Software and Tools\n\n## 3. Results\n### 3.1 Descriptive Statistics\n### 3.2 Spatial Analysis\n### 3.3 Hotspot Analysis\n\n## 4. Discussion\nInterpretation of results...\n\n## 5. Conclusions\nSummary and recommendations...\n\n## References\nAcademic citations...\n\n## Appendices\nAdditional materials...\n\"\"\"\n\n\nProfessional Visualization for PDF\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Configure matplotlib for high-quality PDF output\nplt.rcParams['figure.dpi'] = 300\nplt.rcParams['savefig.dpi'] = 300\nplt.rcParams['font.size'] = 12\nplt.rcParams['axes.titlesize'] = 14\nplt.rcParams['axes.labelsize'] = 12\nplt.rcParams['xtick.labelsize'] = 10\nplt.rcParams['ytick.labelsize'] = 10\nplt.rcParams['legend.fontsize'] = 11\nplt.rcParams['figure.titlesize'] = 16\n\n# Use professional color palette\nsns.set_palette(\"husl\")\n\n# Create publication-ready figures\nfig, ax = plt.subplots(figsize=(8, 6))\n# Your plotting code here\nplt.tight_layout()\nplt.savefig('figure.png', dpi=300, bbox_inches='tight')\nplt.show()\n\n\n\nTroubleshooting PDF Generation\n\nCommon Issues and Solutions\nIssue: LaTeX not found\n# Solution: Install LaTeX distribution\n# Windows: Download MiKTeX or TeX Live\n# macOS: Install MacTeX\nconda install texlive-core texlive-latex-extra\nIssue: PDF conversion fails\n# Solution: Use alternative method\njupyter nbconvert --to html your_notebook.ipynb\n# Then use browser to print to PDF\nIssue: Figures not appearing in PDF\n# Solution: Ensure figures are saved inline\n%matplotlib inline\nimport matplotlib.pyplot as plt\nplt.rcParams['savefig.format'] = 'png'\nplt.rcParams['savefig.bbox'] = 'tight'\nIssue: Long code cells breaking across pages\n# Solution: Use page breaks and cell splitting\nfrom IPython.display import display, HTML\ndisplay(HTML('&lt;div style=\"page-break-before: always;\"&gt;&lt;/div&gt;'))\n\n\n\nBest Practices for PDF Generation\n\nUse consistent formatting throughout your notebook\nInclude descriptive markdown for each analysis step\nAdd figure captions and table descriptions. One of the most common issue when you create a PDF.\nUse appropriate figure sizes for print media\nTest PDF generation regularly during development\nInclude proper citations and references\nUse professional fonts and color schemes\nOptimize images for print quality (optional)",
+    "objectID": "git_github_guide.html",
+    "href": "git_github_guide.html",
+    "title": "Step 2. Introduction to GIT",
+    "section": "",
+    "text": "What is Version Control?\nVersion control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:\n%%| fig-cap: \"Version Control Timeline\"\n%%| fig-align: center\n%%| fig-responsive: false\n\n\ngitGraph\n    commit id: \"Initial spatial analysis\"\n    commit id: \"Add coordinate system\"\n    commit id: \"Fix projection error\"\n    commit id: \"Add buffer analysis\"\n    commit id: \"Final report\"\nEstimated time to install: 40 minutes.",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 2. Introduction to GIT"
     ]
   },
   {
-    "objectID": "gg3209_install_guide.html#and-more-resources",
-    "href": "gg3209_install_guide.html#and-more-resources",
-    "title": "Python Environment Installation",
-    "section": "And more resources",
-    "text": "And more resources\n\nLearning Materials\n\nGeopandas Documentation: https://geopandas.org/\nPySAL Documentation: https://pysal.org/\nSpatial Data Science Book: https://geographicdata.science/book/\n\n\n\nData Sources\n\nNatural Earth: https://www.naturalearthdata.com/\nOpenStreetMap: https://www.openstreetmap.org/\nCensus Data: https://www.census.gov/\n\n\n\nCommunity Support\n\nStack Overflow: Use tags geopandas, spatial-analysis, python\nGitHub Issues: For specific library problems\nReddit: r/gis and r/Python communities\n\n\nLast updated: July 2025, For questions or issues, please refer to the troubleshooting guide",
+    "objectID": "git_github_guide.html#what-is-version-control",
+    "href": "git_github_guide.html#what-is-version-control",
+    "title": "Step 2. Introduction to GIT",
+    "section": "",
+    "text": "Track every change made to your files\nRevert to previous versions when needed\nCollaborate with others without conflicts\nUnderstand who made what changes and when",
     "crumbs": [
       "Home",
-      "Python Environment Installation"
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#why-version-control-matters-in-spatial-data-science",
+    "href": "git_github_guide.html#why-version-control-matters-in-spatial-data-science",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Why Version Control Matters in Spatial Data Science",
+    "text": "Why Version Control Matters in Spatial Data Science\nIn spatial data science, you’re often working with:\n\nComplex datasets: Shapefiles, rasters, GPS data, satellite imagery\nMultiple software tools: R, Python, QGIS, ArcGIS\nIterative analysis: Testing different spatial models and parameters\nCollaborative projects: Working with field teams, other researchers\nReproducible research: Ensuring your spatial analysis can be replicated\n\n\nCommon scenario\nImagine you’re analyzing urban green spaces for any kind of project using R, and then you have something like:\n\nurban_greenspace_analysis.R\nurban_greenspace_analysis_v2.R\nurban_greenspace_analysis_v2_final.R\nurban_greenspace_analysis_v2_final_ACTUALLY_FINAL.R\nurban_greenspace_analysis_v2_final_ACTUALLY_FINAL_supervisors_comments.R\n\nSound familiar? This approach leads to:\n\nConfusion about which version is current\nLost work when files get overwritten\nDifficulty tracking what changed between versions\nProblems when collaborating with others\n\n\n\nWhat to do? –&gt; Git and GitHub\nAnother important component we need in our environment is git, the tool that provides version control for any of our projects. While version control is a systematic approach to recording changes you make in a file or set of files over time.\nThis is important, especially if you work with other collaborators, as you can track the history, see what changed and recall specific versions if needed. In this course, we will incorporate git to teach you how to create a branch, clone someone else’s repositories, and give you a brief introduction to this important workflow, but also how you can commit your progress in one of the most popular git tools currently available. GitHub.\n\n\nKey Terminology\n\nRepository (repo): A folder containing your project files and their complete history\nCommit: A snapshot of your project at a specific point in time\nRemote: A version of your repository stored on a server (like GitHub)\nClone: Creating a local copy of a remote repository\nPush: Sending your local changes to the remote repository\nPull: Retrieving changes from the remote repository to your local copy\n\n\n\nThe Git Workflow\n\n\n\n\n\nflowchart TD\n    A[Working Directory&lt;br/&gt;Your project files] --&gt; B[git add]\n    B --&gt; C[Staging Area&lt;br/&gt;Files ready to commit]\n    C --&gt; D[git commit]\n    D --&gt; E[Local Repository&lt;br/&gt;Your project history]\n    E --&gt; F[git push]\n    F --&gt; G[Remote Repository&lt;br/&gt;GitHub]\n    G --&gt; H[git pull]\n    H --&gt; A\n\n\n Basic Git Workflow",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#commands-to-move-through-drives-and-directories",
+    "href": "git_github_guide.html#commands-to-move-through-drives-and-directories",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Commands to move through drives and directories:",
+    "text": "Commands to move through drives and directories:\ncd—Short for “change directory”, to move through the directory structure (in the same drive), as in cd C:\\Users\\fbenitez\\Downloads\ncd.. —to move to the upper level in your directories, so if you need to move from C:\\Users\\fbenitez\\Downloads to C:\\Users\\fbenitez\\\n\nX: —To switch to a different drive, type the drive name followed by colon, as in D: to switch to drive D:\\\ncls (Windows) or clear (macOS) —To clean your terminal, it would help you to have a clean terminal and avoid mistakes.\ndir(windows)\nls (macOs) —To list current directory contents.\n\nGo to your Documents folder in your computer. Create a folder call it MyFirstRepo\nOpen a terminal/command prompt, browse from the folder you are in to the new one, like the following illustrations.\n\n\nYou can also use some commands to run programs in your system which I know sounds silly as we are used to finding the icon and tap/click to get it open, but that’s what happens underneath every time you open a program, here are some examples:\npython —Starting the python command line interface, you can use the exit() command to get out of the python interface, and recover the terminal mode.\n\nTry the example illustrated in the following image:",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#sign-up-for-github",
+    "href": "git_github_guide.html#sign-up-for-github",
+    "title": "Step 2. Introduction to GIT",
+    "section": "1.1 Sign Up for GitHub",
+    "text": "1.1 Sign Up for GitHub\n\nGo to github.com\nClick “Sign up”\nChoose a username\nUse your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password.\nCreate a strong password\nVerify your account",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#configure-your-profile",
+    "href": "git_github_guide.html#configure-your-profile",
+    "title": "Step 2. Introduction to GIT",
+    "section": "1.2 Configure Your Profile",
+    "text": "1.2 Configure Your Profile\n\nThere is a change you won’t open GitHub to anything else than this course, but also there is another change where you will ended up working as spatial data scientist, or consultant into a collaborative and agile development team, in that case improving and configuring your GitHub account, as well as familiarizing yourself over how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well curated repositories that prove your skills in GitHub. So take some time to enhance your profile bu adding this little extra information.\n\n\nAdd a profile picture\nAdd a bio mentioning your interest in spatial data science\nInclude your university affiliation\nConsider making your profile public for academic networking",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#installing-git",
+    "href": "git_github_guide.html#installing-git",
+    "title": "Step 2. Introduction to GIT",
+    "section": "2.1 Installing Git",
+    "text": "2.1 Installing Git\n\nWindows\n\nDownload Git from git-scm.com\nRun the installer\nUse default settings (recommended)\nChoose “Git Bash” as your terminal\n\n\n\nmacOS\n\nInstall via Homebrew: brew install git\nOr download from git-scm.com\n\n\n\nLinux\n# Ubuntu/Debian\nsudo apt-get install git\n\n# CentOS/RHEL\nsudo yum install git",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#initial-git-configuration",
+    "href": "git_github_guide.html#initial-git-configuration",
+    "title": "Step 2. Introduction to GIT",
+    "section": "2.2 Initial Git Configuration",
+    "text": "2.2 Initial Git Configuration\nOpen your terminal (Git Bash on Windows, Terminal on macOS/Linux) and run:\n# Set your name (use your real name)\ngit config --global user.name \"Your Name\"\n\n# Set your email (use your GitHub email)\ngit config --global user.email \"your.email@st-andrews.ac.uk\"\n\n# Verify configuration\ngit config --list",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#setting-up-a-project-structure",
+    "href": "git_github_guide.html#setting-up-a-project-structure",
+    "title": "Step 2. Introduction to GIT",
+    "section": "3.1 Setting Up a Project Structure",
+    "text": "3.1 Setting Up a Project Structure\nNow, in order to practice and validate that Git has been properly installed, let’s create a fictional spatial data science project for analyzing urban heat islands, but let’s try to use the terminal or the command prompt windows to practice.\n\nOpen a Terminal or Command prompt and run the following commands.\n\n# Create project directory\nmkdir urban_heat_island_analysis\ncd urban_heat_island_analysis\n\n# Create typical spatial data science structure\nmkdir data\nmkdir data/raw\nmkdir data/processed\nmkdir scripts\nmkdir outputs\nmkdir docs",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#initialize-git-repository",
+    "href": "git_github_guide.html#initialize-git-repository",
+    "title": "Step 2. Introduction to GIT",
+    "section": "3.2 Initialize Git Repository",
+    "text": "3.2 Initialize Git Repository\n# Initialize git repository\ngit init\nThis creates a hidden .git folder that stores all version control information.",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#create-project-files",
+    "href": "git_github_guide.html#create-project-files",
+    "title": "Step 2. Introduction to GIT",
+    "section": "3.3 Create Project Files",
+    "text": "3.3 Create Project Files\nWe will generate several files within this pilot project, so you can see how the repo can evolve and changes over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.\nCreate a README file:\n# Create README.md\ntouch README.md\nOpen the README.md file and add content:\n# Urban Heat Island Analysis\n\n## Project Overview\nThis project analyzes urban heat island effects in [Your City] using satellite thermal data and land cover classifications.\n\n## Data Sources\n- Landsat 8 thermal infrared data\n- OpenStreetMap building footprints\n- Local weather station data\n\n## Methods\n- Temperature retrieval from satellite imagery\n- Spatial interpolation techniques\n- Statistical analysis of temperature patterns\n\n## Software Requirements\n- R (version 4.0+)\n- Required packages: sf, terra, ggplot2, dplyr\n\n## File Structure\n\nurban_heat_island_analysis/\n├── data/\n│├── raw/ # Original data files\n│└── processed/ # Cleaned and processed data \n├── scripts/ # R scripts for analysis\n├── outputs/ # Maps, plots, and results\n└── docs/ # Documentation and reports\n\n## Contact\n[Your Name] - [Your Email]  \nCreate a .gitignore file:\n\n\nWarning: This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with very large datasets, however cloud platforms –Github have uploads limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebook can weigh more than the storage limitation given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you push the files to the cloud.\n\n\ntouch .gitignore\nOpen the .gitignore file and add common files to ignore, you could add more later, or you can also add entire folders:\n# R files\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n*.Rproj\n\n# Data files (large files)\n*.tif\n*.shp\n*.dbf\n*.prj\n*.shx\n*.zip\n\n# Temporary files\n*~\n*.tmp\n*.temp\n\n# OS files\n.DS_Store\nThumbs.db\n\n# Log files\n*.log",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#your-first-commit",
+    "href": "git_github_guide.html#your-first-commit",
+    "title": "Step 2. Introduction to GIT",
+    "section": "3.4 Your First Commit",
+    "text": "3.4 Your First Commit\n# Check status\ngit status\n\n# Add files to staging area\ngit add README.md\ngit add .gitignore\n\n# Or add all files\ngit add .\n\n# Commit with descriptive message\ngit commit -m \"Initial commit: Add project structure and README\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#create-github-repository",
+    "href": "git_github_guide.html#create-github-repository",
+    "title": "Step 2. Introduction to GIT",
+    "section": "4.1 Create GitHub Repository",
+    "text": "4.1 Create GitHub Repository\n\nLog in to github.com\nClick the “+” icon in the top right\nSelect “New repository”\nRepository name: urban_heat_island_analysis\nDescription: “GG3209 pilot project to analyzing urban heat island effects”\nKeep it public (for academic sharing)\nDon’t initialize with README (we already have one)\nClick “Create repository”",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#connect-local-repository-to-github",
+    "href": "git_github_guide.html#connect-local-repository-to-github",
+    "title": "Step 2. Introduction to GIT",
+    "section": "4.2 Connect Local Repository to GitHub",
+    "text": "4.2 Connect Local Repository to GitHub\nGitHub will show you commands to run. Copy and paste these into your terminal:\n# Add GitHub as remote origin\ngit remote add origin https://github.com/yourusername/urban_heat_island_analysis.git #Replace this URL with YOUR URL.\n\n# Verify remote connection\ngit remote -v\n\n# Push your local repository to GitHub\ngit push -u origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#verify-connection",
+    "href": "git_github_guide.html#verify-connection",
+    "title": "Step 2. Introduction to GIT",
+    "section": "4.3 Verify Connection",
+    "text": "4.3 Verify Connection\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#the-basic-workflow",
+    "href": "git_github_guide.html#the-basic-workflow",
+    "title": "Step 2. Introduction to GIT",
+    "section": "5.1 The Basic Workflow",
+    "text": "5.1 The Basic Workflow\n\n\n\n\n\nflowchart LR\n    A[Edit Files] --&gt; B[git add]\n    B --&gt; C[git commit]\n    C --&gt; D[git push]\n    D --&gt; E[Continue Working]\n    E --&gt; A\n\n\n Daily Git Workflow",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#checking-status-and-history",
+    "href": "git_github_guide.html#checking-status-and-history",
+    "title": "Step 2. Introduction to GIT",
+    "section": "5.2 Checking Status and History",
+    "text": "5.2 Checking Status and History\n# Check what files have changed\ngit status\n\n# View commit history\ngit log\n\n# View commit history (compact)\ngit log --oneline\n\n# View changes in files\ngit diff",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#adding-and-committing-changes",
+    "href": "git_github_guide.html#adding-and-committing-changes",
+    "title": "Step 2. Introduction to GIT",
+    "section": "5.3 Adding and Committing Changes",
+    "text": "5.3 Adding and Committing Changes\nLet’s add a spatial analysis script:\n# Create new R script\ntouch scripts/temperature_analysis.R\nAdd some content to scripts/temperature_analysis.R:\n# Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n# Author: [Your Name]\n# Date: [Current Date]\n\n# Load required packages\nlibrary(sf)\nlibrary(terra)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Read temperature data\n# temp_data &lt;- rast(\"data/raw/landsat_thermal.tif\")\n\n# Read city boundary\n# city_boundary &lt;- st_read(\"data/raw/city_boundary.shp\")\n\n# TODO: Add temperature extraction analysis\n# TODO: Add spatial interpolation\n# TODO: Create temperature maps\nNow commit these changes:\n# Add the new script\ngit add scripts/temperature_analysis.R\n\n# Commit with descriptive message\ngit commit -m \"Add initial temperature analysis script\n\n- Set up basic structure for thermal analysis\n- Added required package imports\n- Created placeholders for main analysis steps\"\n\n# Push to GitHub\ngit push origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#working-with-multiple-files",
+    "href": "git_github_guide.html#working-with-multiple-files",
+    "title": "Step 2. Introduction to GIT",
+    "section": "5.4 Working with Multiple Files",
+    "text": "5.4 Working with Multiple Files\nAdd more project files:\n# Create data processing script\ntouch scripts/data_preprocessing.R\n\n# Create visualization script\ntouch scripts/create_maps.R\n\n# Add all new files\ngit add scripts/\n\n# Commit all changes\ngit commit -m \"Add data preprocessing and mapping scripts\"\n\n# Push to GitHub\ngit push origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#viewing-and-understanding-changes",
+    "href": "git_github_guide.html#viewing-and-understanding-changes",
+    "title": "Step 2. Introduction to GIT",
+    "section": "5.5 Viewing and Understanding Changes",
+    "text": "5.5 Viewing and Understanding Changes\n# See what changed in your last commit\ngit show\n\n# Compare current files with last commit\ngit diff HEAD~1\n\n# See changes in a specific file\ngit diff scripts/temperature_analysis.R",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#cloning-an-existing-repository",
+    "href": "git_github_guide.html#cloning-an-existing-repository",
+    "title": "Step 2. Introduction to GIT",
+    "section": "6.1 Cloning an Existing Repository",
+    "text": "6.1 Cloning an Existing Repository\nWhen joining a collaborative project:\n# Clone a repository\ngit clone https://github.com/username/repository-name.git\n\n# Navigate to the cloned directory\ncd repository-name",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#keeping-your-local-repository-updated",
+    "href": "git_github_guide.html#keeping-your-local-repository-updated",
+    "title": "Step 2. Introduction to GIT",
+    "section": "6.2 Keeping Your Local Repository Updated",
+    "text": "6.2 Keeping Your Local Repository Updated\n# Fetch latest changes from GitHub\ngit pull origin main\n\n# This is equivalent to:\ngit fetch origin main\ngit merge origin/main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#best-practices-for-collaboration",
+    "href": "git_github_guide.html#best-practices-for-collaboration",
+    "title": "Step 2. Introduction to GIT",
+    "section": "6.3 Best Practices for Collaboration",
+    "text": "6.3 Best Practices for Collaboration\n\nAlways pull before starting work:\n\ngit pull origin main\n\nMake small, frequent commits:\n\ngit add specific_file.R\ngit commit -m \"Fix coordinate system transformation bug\"\n\nWrite clear commit messages:\n\n# Good commit messages\ngit commit -m \"Add buffer analysis for green spaces\"\ngit commit -m \"Fix projection error in temperature raster\"\ngit commit -m \"Update README with data sources\"\n\n# Poor commit messages (avoid these)\ngit commit -m \"stuff\"\ngit commit -m \"fixes\"\ngit commit -m \"work\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#working-with-large-data-files",
+    "href": "git_github_guide.html#working-with-large-data-files",
+    "title": "Step 2. Introduction to GIT",
+    "section": "7.1 Working with Large Data Files",
+    "text": "7.1 Working with Large Data Files\nSpatial data files can be very large. Use .gitignore to exclude them:\n# Add to .gitignore\necho \"*.tif\" &gt;&gt; .gitignore\necho \"*.shp\" &gt;&gt; .gitignore\necho \"*.nc\" &gt;&gt; .gitignore\necho \"data/raw/*\" &gt;&gt; .gitignore\n\n# Commit the updated .gitignore\ngit add .gitignore\ngit commit -m \"Update gitignore for large spatial data files\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#documenting-data-sources",
+    "href": "git_github_guide.html#documenting-data-sources",
+    "title": "Step 2. Introduction to GIT",
+    "section": "7.2 Documenting Data Sources",
+    "text": "7.2 Documenting Data Sources\nCreate a data documentation file:\ntouch docs/data_sources.md\nAdd comprehensive data documentation:\n# Data Sources\n\n## Landsat 8 Thermal Data\n- **Source**: USGS EarthExplorer\n- **Date**: 2023-07-15\n- **Scene ID**: LC08_L1TP_015033_20230715_20230725_02_T1\n- **Spatial Resolution**: 30m\n- **Bands Used**: Band 10 (Thermal Infrared)\n\n## City Boundary\n- **Source**: OpenStreetMap\n- **Downloaded**: 2023-08-01\n- **Format**: Shapefile\n- **Coordinate System**: WGS84 UTM Zone 33N\n\n## Weather Station Data\n- **Source**: Local Meteorological Service\n- **Period**: 2023-07-01 to 2023-07-31\n- **Variables**: Temperature, Humidity, Wind Speed\n- **Temporal Resolution**: Hourly",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#version-control-for-analysis-results",
+    "href": "git_github_guide.html#version-control-for-analysis-results",
+    "title": "Step 2. Introduction to GIT",
+    "section": "7.3 Version Control for Analysis Results",
+    "text": "7.3 Version Control for Analysis Results\nTrack your analysis outputs:\n# Create results summary\ntouch outputs/analysis_summary.md\n\n# Add and commit\ngit add outputs/analysis_summary.md\ngit commit -m \"Add initial analysis summary template\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#viewing-detailed-history",
+    "href": "git_github_guide.html#viewing-detailed-history",
+    "title": "Step 2. Introduction to GIT",
+    "section": "8.1 Viewing Detailed History",
+    "text": "8.1 Viewing Detailed History\n# View detailed log with file changes\ngit log --stat\n\n# View graphical representation\ngit log --graph --oneline --all\n\n# View commits by specific author\ngit log --author=\"Your Name\"\n\n# View commits in date range\ngit log --since=\"2023-08-01\" --until=\"2023-08-31\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#comparing-versions",
+    "href": "git_github_guide.html#comparing-versions",
+    "title": "Step 2. Introduction to GIT",
+    "section": "8.2 Comparing Versions",
+    "text": "8.2 Comparing Versions\n# Compare two commits\ngit diff commit1..commit2\n\n# Compare current version with specific commit\ngit diff HEAD~3\n\n# Compare specific files between commits\ngit diff HEAD~1 scripts/temperature_analysis.R",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#reverting-changes",
+    "href": "git_github_guide.html#reverting-changes",
+    "title": "Step 2. Introduction to GIT",
+    "section": "8.3 Reverting Changes",
+    "text": "8.3 Reverting Changes\n# Undo changes in working directory\ngit checkout -- filename.R\n\n# Undo last commit (keep changes)\ngit reset --soft HEAD~1\n\n# Undo last commit (discard changes)\ngit reset --hard HEAD~1\nWarning: Be careful with --hard reset as it permanently deletes changes!",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#using-issues-for-project-management",
+    "href": "git_github_guide.html#using-issues-for-project-management",
+    "title": "Step 2. Introduction to GIT",
+    "section": "9.1 Using Issues for Project Management",
+    "text": "9.1 Using Issues for Project Management\n\nGo to your GitHub repository\nClick “Issues” tab\nClick “New issue”\nCreate issues for different analysis tasks:\n\n“Download and process Landsat data”\n“Implement temperature calculation algorithm”\n“Create heat island visualization”",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#using-github-for-documentation",
+    "href": "git_github_guide.html#using-github-for-documentation",
+    "title": "Step 2. Introduction to GIT",
+    "section": "9.2 Using GitHub for Documentation",
+    "text": "9.2 Using GitHub for Documentation\nCreate comprehensive documentation:\n# Create documentation files\nmkdir docs\ntouch docs/methodology.md\ntouch docs/results.md\ntouch docs/conclusions.md",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#making-your-repository-citation-ready",
+    "href": "git_github_guide.html#making-your-repository-citation-ready",
+    "title": "Step 2. Introduction to GIT",
+    "section": "9.3 Making Your Repository Citation-Ready",
+    "text": "9.3 Making Your Repository Citation-Ready\nAdd citation information:\ntouch CITATION.cff\nAdd citation content:\ncff-version: 1.2.0\nmessage: \"If you use this software, please cite it as below.\"\nauthors:\n  - family-names: \"Your Last Name\"\n    given-names: \"Your First Name\"\n    orcid: \"https://orcid.org/0000-0000-0000-0000\"\ntitle: \"Urban Heat Island Analysis\"\nversion: 1.0.0\ndate-released: 2023-12-01\nurl: \"https://github.com/yourusername/urban_heat_island_analysis\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#creating-a-complete-reproducible-environment",
+    "href": "git_github_guide.html#creating-a-complete-reproducible-environment",
+    "title": "Step 2. Introduction to GIT",
+    "section": "10.1 Creating a Complete Reproducible Environment",
+    "text": "10.1 Creating a Complete Reproducible Environment\nDocument your R environment:\ntouch scripts/setup_environment.R\nAdd environment setup code:\n# Setup Environment for Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Install required packages\nrequired_packages &lt;- c(\n  \"sf\",           # Spatial data handling\n  \"terra\",        # Raster data processing\n  \"ggplot2\",      # Plotting\n  \"dplyr\",        # Data manipulation\n  \"leaflet\",      # Interactive maps\n  \"RColorBrewer\", # Color palettes\n  \"rmarkdown\"     # Report generation\n)\n\n# Install missing packages\nnew_packages &lt;- required_packages[!(required_packages %in% installed.packages()[,\"Package\"])]\nif(length(new_packages)) install.packages(new_packages)\n\n# Load all packages\nlapply(required_packages, library, character.only = TRUE)\n\n# Print session info for reproducibility\nsessionInfo()",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#creating-analysis-workflows",
+    "href": "git_github_guide.html#creating-analysis-workflows",
+    "title": "Step 2. Introduction to GIT",
+    "section": "10.2 Creating Analysis Workflows",
+    "text": "10.2 Creating Analysis Workflows\nDocument your complete workflow:\ntouch scripts/main_analysis.R\nAdd workflow documentation:\n# Main Analysis Workflow\n# Run this script to reproduce the complete analysis\n\n# Step 1: Setup environment\nsource(\"scripts/setup_environment.R\")\n\n# Step 2: Data preprocessing\nsource(\"scripts/data_preprocessing.R\")\n\n# Step 3: Temperature analysis\nsource(\"scripts/temperature_analysis.R\")\n\n# Step 4: Create visualizations\nsource(\"scripts/create_maps.R\")\n\n# Step 5: Generate report\n# rmarkdown::render(\"docs/final_report.Rmd\")\n\ncat(\"Analysis complete! Check the outputs/ folder for results.\\n\")",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#version-control-for-reproducibility",
+    "href": "git_github_guide.html#version-control-for-reproducibility",
+    "title": "Step 2. Introduction to GIT",
+    "section": "10.3 Version Control for Reproducibility",
+    "text": "10.3 Version Control for Reproducibility\n# Commit your reproducible workflow\ngit add scripts/setup_environment.R\ngit add scripts/main_analysis.R\ngit commit -m \"Add reproducible analysis workflow\n\n- Created environment setup script\n- Added main analysis workflow\n- Documented all required packages\n- Added session info for reproducibility\"\n\ngit push origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#essential-commands",
+    "href": "git_github_guide.html#essential-commands",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Essential Commands",
+    "text": "Essential Commands\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit status\nCheck current status\ngit status\n\n\ngit add\nStage changes\ngit add filename.R\n\n\ngit commit\nSave changes\ngit commit -m \"message\"\n\n\ngit push\nUpload to GitHub\ngit push origin main\n\n\ngit pull\nDownload from GitHub\ngit pull origin main\n\n\ngit log\nView history\ngit log --oneline\n\n\ngit diff\nView changes\ngit diff filename.R",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#configuration-commands",
+    "href": "git_github_guide.html#configuration-commands",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Configuration Commands",
+    "text": "Configuration Commands\n\n\n\n\n\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit config --global user.name\nSet name\ngit config --global user.name \"John Doe\"\n\n\ngit config --global user.email\nSet email\ngit config --global user.email \"john@example.com\"\n\n\ngit remote add origin\nAdd remote\ngit remote add origin https://github.com/user/repo.git",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#issue-1-permission-denied-when-pushing",
+    "href": "git_github_guide.html#issue-1-permission-denied-when-pushing",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Issue 1: “Permission denied” when pushing",
+    "text": "Issue 1: “Permission denied” when pushing\nSolution: Check your GitHub authentication\n# For HTTPS (recommended)\ngit remote set-url origin https://github.com/username/repository.git\n\n# Enter your GitHub username and personal access token when prompted",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#issue-2-your-branch-is-behind-message",
+    "href": "git_github_guide.html#issue-2-your-branch-is-behind-message",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Issue 2: “Your branch is behind” message",
+    "text": "Issue 2: “Your branch is behind” message\nSolution: Pull the latest changes first\ngit pull origin main\n# Then push your changes\ngit push origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#issue-3-accidentally-committed-large-files",
+    "href": "git_github_guide.html#issue-3-accidentally-committed-large-files",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Issue 3: Accidentally committed large files",
+    "text": "Issue 3: Accidentally committed large files\nSolution: Remove from tracking\n# Remove file from git but keep local copy\ngit rm --cached large_file.tif\n\n# Add to .gitignore\necho \"large_file.tif\" &gt;&gt; .gitignore\n\n# Commit the changes\ngit add .gitignore\ngit commit -m \"Remove large file from tracking\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#issue-4-want-to-undo-the-last-commit",
+    "href": "git_github_guide.html#issue-4-want-to-undo-the-last-commit",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Issue 4: Want to undo the last commit",
+    "text": "Issue 4: Want to undo the last commit\nSolution: Use reset\n# Keep changes but undo commit\ngit reset --soft HEAD~1\n\n# Discard changes and undo commit (be careful!)\ngit reset --hard HEAD~1",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#official-documentation",
+    "href": "git_github_guide.html#official-documentation",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Official Documentation",
+    "text": "Official Documentation\n\nGit Documentation\nGitHub Guides",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#spatial-data-science-with-git",
+    "href": "git_github_guide.html#spatial-data-science-with-git",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Spatial Data Science with Git",
+    "text": "Spatial Data Science with Git\n\nHappy Git and GitHub for the useR\nVersion Control for Scientific Research",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#academic-resources",
+    "href": "git_github_guide.html#academic-resources",
+    "title": "Step 2. Introduction to GIT",
+    "section": "Academic Resources",
+    "text": "Academic Resources\n\nSoftware Carpentry Git Lesson\nPro Git Book (free online)\n\n\nThis guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#footnotes",
+    "href": "git_github_guide.html#footnotes",
+    "title": "Step 2. Introduction to GIT",
+    "section": "",
+    "text": "https://www.geeksforgeeks.org/what-is-github-and-how-to-use-it/↩︎\nhttps://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F↩︎",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to GIT"
     ]
   },
   {
@@ -169,10 +631,131 @@
     "href": "Lab_1.html#learning-outcomes",
     "title": "Lab No 1: Intro to Python",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\n\nRun Python scripts using ArcGIS Pro and ArcGIS Online\nConducted xgeoprocessing tasks (e.g., buffering, proximity analysis)\nCreated and saved notebooks and web maps\nPracticed using both ArcPy and ArcGIS Python API\n\n\n\n\n\n\n© SGSD | University of St Andrews | GG3209 Spatial Analysis - Introduction to Python",
+    "text": "Learning Outcomes\n\nRun Python scripts using ArcGIS Pro and ArcGIS Online\nConducted xgeoprocessing tasks (e.g., buffering, proximity analysis)\nCreated and saved notebooks and web maps\nPracticed using both ArcPy and ArcGIS Python API\n\n\n© SGSD | University of St Andrews | GG3209 Spatial Analysis - Introduction to Python",
     "crumbs": [
       "Home",
       "Lab No 1: Intro to Python"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html",
+    "href": "Lab_1/Lab_1.html",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "",
+    "text": "Setting up the ArcGIS Pro Project\nPerhaps one of the fastest and easiest way to start with python as spatial data scientists for you is to create a notebook in ArcGIS Pro and use it to run some Python code. In here you don’t need to install any python environment as everything comes as part of the installation of ArcGIS Pro. We will work this way, so you are familiar with python and then we will move to more advance instructions later.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#manage-code-in-cells",
+    "href": "Lab_1/Lab_1.html#manage-code-in-cells",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Manage code in cells",
+    "text": "Manage code in cells\nThe code in Notebooks is run in cells. The order in which cells have been run is indicated by the numbers beside the cells after they are run. Notebooks have tools to manage cells. Now you’ll explore these aspects of working with Python in a notebook.\n\nWorking with Lists\n\nIn the next empty cell (add a new one if you need to), type the following line of code and run the cell.\nmylist = [1, 2, 3, 4, 5]\n\nWhat happened?\nThis code defined a new variable and set its value, but did not print anything.\n\nThe variable mylist is a list, as indicated by the square brackets. Lists are an important data type in Python that consist of a sequence of elements. In this case, those elements are numbers, but lists can also contain other types of data. Elements in a list are separated by commas.\n\nIn the next empty cell, type the following code and run the cell.\nmylist[-1]\n\nWhat happened?\n\nElements in a list are indexed, starting with index number zero. You can obtain specific elements in a list by using their index number. Index number -1 means the first elements starting from the end of the list—in other words, the last element. This returns the number 5.\nAs you have seen, the cell input and output prompts show a number after the cell has been run. This number starts at 1 and increases for additional cells. The number increases every time you run a cell, including when you run a previously run cell again. The numbers help you keep track of the order in which the cells were run.\n\n\n\n\nUnderstanding Cell Execution Order\n\nChange the code in the cell defining the mylist variable to the following by adding more elements, but don’t run the cell.\nmylist = [1, 2, 3, 4, 5, 6, 7, 8]\n\nClick the cell below this one, with the code mylist[-1] and click the Run button.\n\nDoes what happened match what you expected?\n\nThe result is the number 5. Why isn’t it the number 8?\nCode in a notebook is entered cell by cell and any previously used variables are stored in memory.\nUntil you run the cell with the code that redefines the mylist variable, the value of mylist is still the value stored in memory, [1, 2, 3, 4, 5], and the value at position -1 in that list is still 5.\n\nClick the cell with mylist = [1, 2, 3, 4, 5, 6, 7, 8] and run it.\nClick the cell with mylist[-1] and run it.\n\nNow the value in the last position of the list is 8.\n\nAn alternative to running individual cells is to select multiple cells and run them together, or to run all the cells in a notebook by clicking the Cell menu and clicking Run All.\nIt is a good practice to organize lines of code that belong together in the same cell. For example, it would make sense for the two previous cells to be combined into a single cell. You can manually copy and paste code from one cell to another, but you can also combine cells.\n\n\n\n\nMerging Cells\n\nClick the cell that defines the mylist variable.\n\nThat cell has mylist = [1, 2, 3, 4, 5, 6, 7, 8] in it.\n\nClick the Edit menu and click Merge Cell Below.\n\n\nThe result is a single cell with the combined lines of code. The results below the cells have been removed. An empty line is added between the lines of code from the two merged cells, but you can edit the cell to remove it if you want.\n\nRun the merged cell.\n\n\nThe Edit menu provides many other useful ways to manipulate the cells in your notebook. You can copy and paste cells, delete them, split and merge them, and move a selected cell up or down relative to the other cells.\nAdditional tools are available under the View, Insert, and Cell menu options.\nSome of the most widely used tools are also available as buttons on the notebook toolbar.\nThese include the following:\n\n\nInsert cell below\nCut selected cells\nCopy selected cells\nPaste cells below\nMove selected cells up\nMove selected cells down\n\n\nMore tools can be found on the Command Palette.\n\n\n\n\nUsing the Command Palette\n\nClick the Command Palette button.\n\n\nA list of commands appears.\nYou can run a command by clicking it. The command is applied to the selected cells in the notebook, or to all cells, depending on the command.\n\nIn the Command Palette, click clear all cells output.\n\n\nAll code remains the same, but all outputs have been removed. The input and output prompts are blank, since none of the cells have been run. When you run a cell, the prompts start again at 1.\nThe Command Palette also show shortcuts for many of the tasks.\n\n\n\n\nKeyboard Shortcuts\n\nClick the Command Palette button and scroll down to insert cell below.\n\n\nThe keyboard shortcut for this command is listed to the right of it. The shortcut is the letter B when the notebook cell is in command mode.\n\nHide the Command Palette by clicking outside of the palette but inside the notebook.\nClick the space to the left of the second cell, so it turns blue.\n\n\nBe sure not to click inside the code section, which will turn the cell green.\nThe cell border is blue to indicate that it is in command mode.\n\nPress the B key on your keyboard.\n\n\nA new cell is inserted below the selected cell. If the cell had been green, you would add the letter b to the code in the cell.\nThese shortcuts are not case sensitive, so b and B are the same.\nThere is no need to memorize these commands, but experienced coders memorize and use some of them to speed up their work. For most basic tasks, the buttons and menu options in the notebook work well.\nIf you are looking for the command for a specific task, you can search for it by using the search bar at the top of the Command Palette.\n\nOpen the Command Palette and type run in the Search box.\n\n\nThis filters the list to the tools with run in their name. Some commands have a shortcut. For example, the shortcut for run selected cells is Ctrl +Enter.\n\nHide the Command Palette by clicking outside of the palette but inside the notebook.\nClose the notebook.\n\n\nYou’ve seen how to enter and edit Python code in notebook cells, and how to interact with the notebook to run and manage the code. Next, you’ll use a notebook to run geoprocessing tools in ArcGIS Pro.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#run-geoprocessing-tools-in-a-notebook",
+    "href": "Lab_1/Lab_1.html#run-geoprocessing-tools-in-a-notebook",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Run geoprocessing tools in a notebook",
+    "text": "Run geoprocessing tools in a notebook\nNow that you’ve had some practice entering code in a notebook, it is time to use some geoprocessing tools. You will start with a new notebook.\n\nCreating a New Notebook for Geoprocessing\n\nClick the Analysis tab, and in the Geoprocessing group, click Python.\n\n\nThe new notebook opens.\n\nIn the Catalog panel, expand the Notebooks section.\nRight-click the new notebook, New Notebook (1).ipynb, and click Rename.\n\nType geoprocessing_demo and press Enter.\n\nThe new notebook is renamed. In the Catalog pane, you can see that the .ipynb file extension was automatically added to the name. The notebook tab now says geoprocessing_demo.\nFor the next steps, it is useful to see the map and the notebook side by side.\n\nDrag the geoprocessing_demo notebook tab to the docking target that appears below.\n\n\nThe notebook is docked below the map. Now you’ll be able to see the results of your code as you use Python in the notebook to work with feature classes on the map.\n\n\n\n\nImporting ArcPy and Running Geoprocessing Tools\n\nIn the empty cell, type the following line of code and run the cell:\nimport arcpy\n\nThis line of code imports the ArcPy package. ArcPy is a Python package that makes much of the functionality of ArcGIS Pro available from within Python, including geoprocessing.\nSince you are using this notebook in ArcGIS Pro, code that uses geoprocessing tools will not produce an error if you have not imported ArcPy. However, it is good practice to always include import arcpy at the top of your geoprocessing code so it will also work when run outside of ArcGIS Pro.\n\nIn the same cell, add a new line and type the following code:\narcpy.GetCount_management(\"EDI_gis_osm_natural\")\n\nThis code uses ArcPy to run the Get Count tool to determine the number of features in the EDI_gis_osm_natural feature class.\n\nRun the cell.\n\n\nGetCount is a function of ArcPy that runs the Get Count geoprocessing tool located in the Data Management Tools toolbox.\nThe result appears below the code cell. There are 86771 rows (features) in the feature class. These results are very similar to the messages you see after running a tool using the tool dialog box in ArcGIS Pro. Notebooks are integrated in the geoprocessing framework of ArcGIS Pro. This means that running a tool in a notebook is like running a tool using the tool dialog box. Any tool that you run in a notebook also appears in the History panel.\n\nClick the Analysis tab and click History.\n\nThe tool appears in the geoprocessing history.\n\n\nClose the History panel\n\n\n\nUnderstanding File Paths and Workspace\n\nEdit the arcpy.GetCount code line to the following:\narcpy.GetCount_management(\"EDI_gis_osm_building\")\nRun the cell. Are you getting any error?\n\nIn case this code fails with an error message. At the end of the message, the following information appears:\nExecuteError: Failed to execute. Parameters are not valid.\nERROR 000732: Input Rows: Dataset EDI_gis_osm_building does not exist or is not supported\nFailed to execute (GetCount)\nWhy do you think the code failed, when the code to get the count of natural features worked?\nThe EDI_gis_osm_natural feature class is a layer on the active map. In a notebook, you can refer to a dataset by the name of the layer in the active map, like you can when you run a geoprocessing tool interactively using its graphical user interface.\nThe EDI_gis_osm_building feature class is not present as a layer in the active map, and it is also not a feature class in the default geodatabase for the project. You can refer to a feature class that is not in the active map or default geodatabase by specifying the full path to it.\nNext, you’ll look up the path to the EDI_gis_osm_buildings (this layer does exist) feature class. The path where the data is located is a key aspect in python so now let’s explore how you can know where the data is stored and then use the correct path in your scripts.\n\nIn the Catalog pane, expand the Databases section and expand PY4SA.gdb.\nRight-click EDI_gis_osm_buildings and click Properties.\n\nClick the column next to Database and select the full path to the geodatabase.\n\nRight-click the selected path and click Copy, and then close the Properties dialog box.\n\nThe path in this example is as follows:\nC:\\Users\\benit\\Documents\\ArcGIS\\Projects\\PY4SA\\PY4SA.gdb\nThe path on your computer will be different, depending on where and how you unzipped the .zip file with the data. You may not have put the data in a folder on your drive C, or inside a folder named Lessons, for example. You should use the path on your computer in the next step.\n\nClick in the notebook cell and update the path that you copied. But make sure you add a backslash \\ between the path you copy and the name of the feature class.\narcpy.GetCount_management(\"C:\\Users\\benit\\Documents\\ArcGIS\\Projects\\PY4SA\\PY4SA.gdb\\EDI_gis_osm_buildings\")\nClick immediately after the open parenthesis and before the first quotation mark, and type the letter r.\narcpy.GetCount_management(r\"C:\\Users\\benit\\Documents\\ArcGIS\\Projects\\PY4SA\\PY4SA.gdb\\EDI_gis_osm_buildings\")\n\nYou need to add the letter r to tell Python that this path is a raw string. Windows computers use the backslash character as a path separator. In Python, the backslash character is an escape character that, when next to some other characters in a string, encodes tab, new line, or other special characters. This means that where \\N occurs beside \\NotebookStart in the path, Python reads the string as having a new line character. Placing the r before the string tells Python to ignore the escape characters.\n\nRun the cell.\n\nThe Get Count tool runs and returns a message that there are 158029 features in the feature class.\n\nYou can also use a forward slash (/) character as a path separator in Python code, or you can double the backslash characters.\nThe following are all valid ways of writing this path in Python:\nr\"C:\\Lessons\\NotebookStart\\Toronto.gdb\\ambulances\"\n\"C:/Lessons/NotebookStart/Toronto.gdb/ambulances\"\n\"C:\\\\Lessons\\\\NotebookStart\\\\Toronto.gdb\\\\ambulances\"\nIf you use a forward slash (/) or double backslash (\\) as your path separator, you do not add the r before the path string.\nFor someone who is used to Windows paths delimited by backslashes, this can look a little strange at first, but it is important to remember.\nOne way to avoid having to specify full paths for tools is to set the workspace.\n\n\n\n\nSetting the Workspace\n\nEdit the code to add a new line between the two lines beginning with import arcpy and arcpy.GetCount. Add the following line:\narcpy.env.workspace = \n\nThis line is setting a property of the environment class, arcpy.env, to be equal to some value. Next, you’ll cut the path to PY4SA.gdb and paste it after this code to set the path.\n\nAdd the path to the PY4SA geodatabase. For example:\narcpy.env.workspace = r\"C:\\Lessons\\NotebookStart\\PY4SA.gdb\"\nRun the cell.\nTo validate the workspace has been properly defined add a new cell and run the following line:\narcpy.env.workspace\n\nYou should get the path you defined as your workspace in this python environment.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#run-an-analysis-using-a-notebook",
+    "href": "Lab_1/Lab_1.html#run-an-analysis-using-a-notebook",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Run an analysis using a notebook",
+    "text": "Run an analysis using a notebook\nNext, you will do some GIS analysis work using the notebook. Suppose you are interested in finding out what areas within the Edinburgh_Wards are farthest from clinics in Edinburgh. You can use geoprocessing tools in a notebook to identify these areas.\n\nUsing Tab Completion and Tool Signatures\n\nAdd a new cell below the current one.\nPlace the cursor inside the cell and start typing the following:\narcpy.\nPress the Tab key.\n\n\nA list of all of the available ArcPy options appears.\nYou can scroll down and click an item to select it from this list, or you can continue typing.\n\nType an uppercase B.\n\nClick Buffer_Analysis.\n\nThe cell now says arcpy.Buffer_analysis.\nThis process of beginning to type some code and then pressing the Tab key to see and choose from matching options is called tab completion, and it can help you find and more quickly access the commands you need.\n\nWith your cursor still at the end of the line of code, press Shift+Tab.\n\n\nA window with the syntax hints for the Buffer_analysis tool appears. You can click the arrow button to expand it to read the whole topic.\n\nClick the close button to close the Signature window.\nType an open parenthesis.\n\n\nA close parenthesis is also added, and the cursor is placed between them. This is where you can add parameters for the Buffer_analysis tool.\n\nType a quotation mark.\n\n\nA second quotation mark is added. Python needs strings to be enclosed in quotation marks, so it adds a matching quotation mark, with the cursor between them.\nThe three parameters that the Buffer_analysis tool requires are the input feature class, the output feature class, and the buffer distance. There are other optional parameters, but these are the only ones that are required.\nYou’ll buffer the EDI_gis_osm_clinics feature class, name the output feature class clinic_buffer, and make the tool buffer the fire stations by a distance of 1000 meters.\n\nComplete the line of code as follows:\n\narcpy.Buffer_analysis(\"EDI_gis_osm_clinics\",\"clinic_buffer \",\"1000 METERS\")\nThe three parameters of the tool are strings. The tool is able to locate the EDI_gis_osm_clinics feature class using only its name because it is a layer on the map. The tool is able to write an output feature class using only the name “clinic_buffer” because the workspace is set. The tool has logic built in to detect the buffer distance value and the units of measure in the string “1000 METERS”.\n\nRun the tool.\n\nThe output features are added to the map.\nThe results show which areas fall within 1000 meters, or 1 kilometre, of a clinic and which areas do not. Having both the notebook and the map open at the same time makes it easy to see the results of different choices.\nYou probably need to hide the EDI_gis_osm_natural layer and add the EDI_gis_osm_clinics to the map, so you can see the buffer areas created around each clinic in Edinburgh.\nNow, change the buffer distance to 1750 meters and run the cell again.\narcpy.Buffer_analysis(\"EDI_gis_osm_clinics\",\"clinic_buffer\",\"1750 METERS\")\n\n\n\nNote: If you get an error message, “ExecuteError: Failed to execute. Parameters are not valid”, that mentions that clinic_buffer already exists, then your ArcGIS Pro environment settings, geoprocessing options are not set to allow existing feature classes to be overwritten. To fix this issue, insert a new line in the cell before the arcpy.Buffer_analysis line. On the new line, add the following code:\narcpy.env.overwriteOutput = True\nThis will allow the Buffer tool to overwrite the previous output. The cell should now contain:\narcpy.env.overwriteOutput = True\narcpy.Buffer_analysis(\"EDI_gis_osm_clinics\",\"clinic_buffer\",\"1750 METERS\")\nRun the cell.\n\nThe areas outside of these buffers are further away from the clinics, which may increase the time it takes for an ambulance to respond to a call. To find the areas that are affected, rather than the parts that are not, you will use the erase tool to remove the areas within the buffers from the Edinburgh Wards feature class.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#using-the-pairwise-erase-tool",
+    "href": "Lab_1/Lab_1.html#using-the-pairwise-erase-tool",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Using the Pairwise Erase Tool",
+    "text": "Using the Pairwise Erase Tool\n\nAdd another cell and enter the following code:\narcpy.PairwiseErase_analysis(\"Edinburgh_Wards\", \"clinic_buffer\", \"no_service\")\nThis calls the PairwiseErase_analysis tool on the Edinburgh_Wards feature class, erasing the areas within the clinic_buffer feature class from it, and writing the results to a new feature class named “no_service”.\nRun the cell.\nIn the Contents pane, uncheck the all layers, except clinics and no_service.\nRight-click the no_service layer and click Zoom To Layer.\n\nThe no_service layer shows places that are farther from clinics in Edinburgh.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#merging-cells-for-workflow-efficiency",
+    "href": "Lab_1/Lab_1.html#merging-cells-for-workflow-efficiency",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Merging Cells for Workflow Efficiency",
+    "text": "Merging Cells for Workflow Efficiency\n\nClick the arcpy.PairwiseErase_analysis cell, and in the Notebook pane, click the Edit menu and click Merge Cell Above.\n\nThe cells are merged.\n\nA benefit of Notebooks, and Python code in general, is that you can quickly run a sequence of tools. In this case, the sequence only consists of two tools, but it illustrates the concept.\nChange the distance value from 1750 to 2500 and run the cell.\n\nTurn off the new clinic_buffer layer to see the new no_service layer.\nYou may need to zoom to the layer to see the remaining smaller areas.\n\nThe resulting areas are potentially the most compromised in terms of clinic service. You were able to obtain this updated result by running the multiple lines of code as a single cell in the notebook. If you had used the tools from their graphical user interfaces, you would have needed to run both the Buffer tool and the Pairwise Erase tool again to obtain the updated result.\nThe time savings with only two tools is minor, but many workflow’s consist of longer sequences of tools. In addition, the ability to run a tool, or multiple tools, within a loop makes Python useful when you need to run the same process on multiple inputs.\n\nSave your ArcGIS Pro project and close.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#create-and-save-a-notebook-in-arcgis-online",
+    "href": "Lab_1/Lab_1.html#create-and-save-a-notebook-in-arcgis-online",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Create and save a Notebook in ArcGIS Online",
+    "text": "Create and save a Notebook in ArcGIS Online\n\nGo to our ArcGIS Online Organizational account https://uostandrews.maps.arcgis.com/ log in using your St Andrews email.\nClick Notebook to open a new ArcGIS Notebook.\nClick the New Notebook button and you will see a drop-down list with three options: Standard, Advanced, and Advanced with GPU support.\nClick Standard.\nIt is a best practice to name and save the notebook when you create it.\nClick the Save button in the upper right of the notebook and then click Save As.\n\n\nWhen prompted, give the notebook a title, such as My First Notebook followed by an underscore and your first and last initials; some tags, and a summary. Then click Save Notebook. This information will show up on the item page for your notebook in ArcGIS Online.\nWhen you are working in notebooks in ArcGIS Online it is a good idea to save your work regularly.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#work-with-a-notebook",
+    "href": "Lab_1/Lab_1.html#work-with-a-notebook",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Work with a notebook",
+    "text": "Work with a notebook\nEach new notebook starts with several markdown cells already populated and one code cell that calls the ArcGIS API for Python and connects you to ArcGIS Online. After that, you can add code and markdown cells to create your workflow.\n1. Double-click the Welcome to your notebook cell to make it editable.\n\nThis is a markdown cell. Markdown is a lightweight, plain text formatting syntax that is widely used across the internet. After double-clicking the cell, the text appears in **blue** with two number signs (**##**) in front of it.\nMarkdown tag welcoming you to your new notebook.\n2. While in the markdown cell, click Run.\nThis runs the cell and turn it into a header. You can also run cells by pressing Shift+Enter on your keyboard. Shift+Enter is the keyboard shortcut for running cells in a notebook.\n\n3. Click Open the command palette at the top of the notebook. This lists of all keyboard shortcuts.\n\n4. Double-click the Welcome to your notebook cell. Insert two more number (**##**) signs in the cell before Welcome to your notebook. There are now four number signs. The additional number signs change the size of the header. Run the cell. The header becomes smaller.\n5. Double-click the Welcome to your notebook cell again. Remove the two number signs from the header and press Enter. On the second line, type This is my first notebook and other other text that you may want to add. Then, click Run.\nThe header returns to its initial size and there is now text below that cell.\nIn any new notebook, the second cell will say Run this cell to connect to your GIS and get started. This is also a markdown cell. This cell directs you to run the code cell that follows it that connects you to ArcGIS Online.\n\nRun this cell at the beginning of every notebook that connects a user to ArcGIS Online.\n6. Double-click in the code cell and run it.\nWhile the cell runs, an asterisk is inside the brackets in the input area so it appears as In [*]. After the cell finishes running, the number 1 replaces the asterisk in the brackets so it appears as In [1]. The number in the brackets increases by one each time a code cell is run. You must run this cell. If you do not run this cell, the other code cells will not run.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#create-a-web-map.",
+    "href": "Lab_1/Lab_1.html#create-a-web-map.",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Create a web map.",
+    "text": "Create a web map.\nNow that you are familiar with markdown and have run the existing code, you’ll write and run some of your own.\n1. On the ribbon click the plus (+) sign.\n\nThis creates a new cell beneath the code cell that you just ran. The new cell will appear below the currently selected cell.\n2. Set that cell to be a markdown cell.\n\n3. In the new markdown cell, type ### My First Map.\n4. In the same cell, on the second line, add some text below the header that describes the code that you will write. When you are done entering text, run the cell.\n5. Next, you will create a map in the notebook. Start by creating a new code cell.\n6. In the new code cell, create a variable named my_first_map that represents the map and use the ArcGIS API for Python to set the variable to a web map that is centered over a specific location.\n7. Set the variable equal to a web map centered on St Andrews, UK:\nmy_first_map = gis.map(\"St Andrews, UK\")\n8. Run the cell.\nNow that you have named your variable, you will call it to create the map. Do this by creating a new code cell and then within that code cell, typing my_first_map and running that cell.\n\nAfter that cell runs, your first map will appear in your notebook. You can change the location of the center of the map by going back to the previous cell, changing “St Andrews, UK” to a different location, and running the cell again, or you can pan and zoom around the current map.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#explore-content",
+    "href": "Lab_1/Lab_1.html#explore-content",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Explore Content",
+    "text": "Explore Content\nIn ArcGIS Notebooks, you can search for content and view item metadata. Next, you will search for a layer over Los Angeles and add it to the notebook.\n1. On the ribbon click the plus (+) sign. To add a new cell underneath the my_first_map cell\n\n2. Click the Add button.\n\nThe Add button opens the Add Content panel, which allows you to add an ArcGIS Online item as code directly to the notebook. If you have saved content in ArcGIS Online or ArcGIS Notebooks, that content is available from the Add Content panel to use in your notebook.\n\n3. Click ArcGIS Online and type UK to search for all content related to the UK and available in ArcGIS Online. Add the UK SSP: Life Expectancy Layer to the notebook by clicking the add button (a plus sign).\n\nA new code cell containing a code snippet, is added to the notebook beneath your map. This cell calls the layer as the variable item and loads its metadata. The code cell looks like the following:\n\n4. Run this code cell. The item metadata is added as an object to the notebook below the cell, but it is not yet added to the map.\nNext, you will learn some short cuts to write code and display relevant documentation.\n5. Create a code cell below the item and call your map variable. Type my_ and press Tab.\nPressing Tab while typing a variable name activates the notebook’s autocomplete functionality. The line completes and displays my_first_map.\n6. After my_first_map, type .ad so it appears as my_first_map.ad and press Tab.\nThe code is completed to be my_first_map.add_layer\n7. Press Shift+Tab.\nPressing Shift+Tab opens the docstring. The docstring is a small piece of documentation for developers that describes what the method does.\nAfter investigating the docstring, close it.\nYou can access the function’s help documentation by typing a question mark at the end of the function. For example, my_first_map.add_layer? will open the add_layer help documentation from the bottom of the notebook. Try this.\nAfter reading the help documentation, close it.\n8. In the same cell where you investigated the function signature of my_first_map, call the add_layer method and use it to add the Life expectancy item to the map. Run the cell. The cell code should appear as my_first_map.add_layer(item).\n\n9. After the cell completes, scroll to the map in your notebook and verify that the new item with the new layer from Met Office has been added.\nYou have created your first map and added a layer to it using ArcGIS Notebooks. The map includes zoom buttons, a compass, and the option to change from a map view to a globe view.\nPan and zoom the map and use these buttons.\nThis is a live web map with the same functionality as the maps you use in ArcGIS Online.\nWith a few lines of code, you can save the map you created to ArcGIS Online. Web maps are defined by specific properties, such as the title, description (snippet), and tags. You can define the properties by creating a dictionary that contains them in Python code. Then, you can save the map as a web map.\n10. In a new code cell, define the web map properties using the following dictionary. You can modify or change the title, snippet, or tags. Run the cell.\nwebmap_properties = {'title':'My First Map', 'snippet': 'My first map from my first notebook', 'tags':['ArcGIS Notebooks', 'UK']}\n11. Create another cell where you will save the webmap. Add the following line: my_first_map.save(webmap_properties). Run the cell.\nRunning this cell creates an active link that will take you to the webmap item in ArcGIS Online. Click the active link and verify that the webmap was created in ArcGIS Online.\n\n12. Click the Save button in the upper right of the notebook.\nIt is a good idea to save your work regularly when you work in notebooks hosted online. If there is no Python activity in the notebook for 20 minutes, the Python kernel will shut down, the notebook will stop working, and all variables in memory will be lost. Once you have restarted the kernel you will need to run all of the cells again, starting from the beginning, to restore the values.\n13. Go to your Content, and check that now you have two new items in your portal. The notebook, that you can open and edit it with new code. And the new WebMap that you created using Python and the ArcGIS API for Python.\n\n\n14. Click My First Map to open the details, and then click Open in Map Viewer. Then ArcGIS Online will launch a viewer to let you explore, edit and share the WebMap you have created.",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
+    ]
+  },
+  {
+    "objectID": "Lab_1/Lab_1.html#challenge-for-next-class",
+    "href": "Lab_1/Lab_1.html#challenge-for-next-class",
+    "title": "Lab No 1: Introduction to Python using ArcGIS Online",
+    "section": "Challenge for next class",
+    "text": "Challenge for next class\nNow that you have learned how to create a map, search for content, add layers, and save a webmap, use Python and ArcGIS Notebooks to create another web map that contains multiple layers that you are interested in. Save the webmap to ArcGIS Online.\nBe ready to showcase this webmap during the next class showing what the map is about and the difficulties you had",
+    "crumbs": [
+      "Home",
+      "Lab No 1: Introduction to Python using ArcGIS Online"
     ]
   },
   {
@@ -525,6 +1108,28 @@
     "crumbs": [
       "Home",
       "Data Sources"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html",
+    "href": "troubleshooting.html",
+    "title": "Troubleshooting Guide",
+    "section": "",
+    "text": "Before Seeking Help\nYou should complete this checklist:",
+    "crumbs": [
+      "Home",
+      "Troubleshooting Guide"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#pdf-generation",
+    "href": "troubleshooting.html#pdf-generation",
+    "title": "Troubleshooting Guide",
+    "section": "PDF Generation",
+    "text": "PDF Generation\nYou are required to submit your work as report to MMS in a PDF format, and most of the outcomes created in this modules are Jupyter Notebooks, so you will need to export them as PDF. This environment includes comprehensive PDF generation capabilities for creating professional scientific documents from Jupyter notebooks. This includes:\n\nLaTeX-based PDF generation for high-quality academic formatting\nWeb-based PDF conversion for quick exports\nScientific document formatting with proper citations and references\nProfessional layout templates for reports and dissertations\n\n\nTesting PDF Generation\nAfter setting up your environment, test the PDF generation capabilities:\n\nOpen a terminal or command prompt windows.\nRun python TestingPDFCapabilities.py.\n\n\n\nConverting Notebooks to PDF\n\nMethod 1: Command Line (Recommended)\n# Activate environment\nconda activate gg3209\n\n# Convert notebook to PDF via LaTeX\njupyter nbconvert --to pdf your_notebook.ipynb\n\n#If the last one failed, try\njupyter nbconvert --to webpdf --allow-chromium-download your_notebook.ipynb\n\n#If both fail, check the options provided in the troubleshooting section for PDFs\n\n# Convert with custom template, optional\njupyter nbconvert --to pdf --template classic your_notebook.ipynb\n\n# Convert with bibliography support, optional.\njupyter nbconvert --to pdf --template article your_notebook.ipynb\n\n\nMethod 2: Jupyter Lab Interface (also recommended)\n\nOpen your notebook in Jupyter Lab\nGo to File &gt; Export Notebook As &gt; WebPDF\nChoose export options\nSave the generated PDF\n\n\n\nMethod 3: Programmatic Conversion (for advanced users)\nimport nbformat\nfrom nbconvert import PDFExporter\n\n# Read notebook\nwith open('your_notebook.ipynb', 'r') as f:\n    nb = nbformat.read(f, as_version=4)\n\n# Convert to PDF\npdf_exporter = PDFExporter()\npdf_exporter.template_name = 'classic'\n(body, resources) = pdf_exporter.from_notebook_node(nb)\n\n# Save PDF\nwith open('output.pdf', 'wb') as f:\n    f.write(body)\n\n\n\nProfessional PDF Features\n\n\nCreating Professional Reports\n\nTemplate Structure\nTo create a template notebook with:\n# Report template structure\n\"\"\"\n# Title: Professional Spatial Data Science Report\n## Author: Your Name\n## Date: Current Date\n## Abstract\nBrief description of the analysis...\n\n## 1. Introduction\nResearch question and objectives...\n\n## 2. Methodology\n### 2.1 Data Sources\n### 2.2 Analytical Methods\n### 2.3 Software and Tools\n\n## 3. Results\n### 3.1 Descriptive Statistics\n### 3.2 Spatial Analysis\n### 3.3 Hotspot Analysis\n\n## 4. Discussion\nInterpretation of results...\n\n## 5. Conclusions\nSummary and recommendations...\n\n## References\nAcademic citations...\n\n## Appendices\nAdditional materials...\n\"\"\"\n\n\nProfessional Visualization for PDF\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Configure matplotlib for high-quality PDF output\nplt.rcParams['figure.dpi'] = 300\nplt.rcParams['savefig.dpi'] = 300\nplt.rcParams['font.size'] = 12\nplt.rcParams['axes.titlesize'] = 14\nplt.rcParams['axes.labelsize'] = 12\nplt.rcParams['xtick.labelsize'] = 10\nplt.rcParams['ytick.labelsize'] = 10\nplt.rcParams['legend.fontsize'] = 11\nplt.rcParams['figure.titlesize'] = 16\n\n# Use professional color palette\nsns.set_palette(\"husl\")\n\n# Create publication-ready figures\nfig, ax = plt.subplots(figsize=(8, 6))\n# Your plotting code here\nplt.tight_layout()\nplt.savefig('figure.png', dpi=300, bbox_inches='tight')\nplt.show()\n\n\n\nTroubleshooting to PDF Generation\n\nCommon Issues and Solutions\nIssue: LaTeX not found\n# Solution: Install LaTeX distribution\n# Windows: Download MiKTeX or TeX Live\n# macOS: Install MacTeX\nconda install texlive-core texlive-latex-extra\nIssue: 500 : Internal Server Error\nIssue when you try to use Export as PDF and you get errors relates to nbconvert failed:\n{bash}\npip install 'nbconvert[webpdf]'\n\njupyter nbconvert --to webpdf --allow-chromium-download YouJupyterNotebook.ipynb\n#This will create a PDF in the same folder of your Jupyter Notebook., Or use the optiopn included in Jupyter Lab. Save And Export Notebook as &gt; Webpdf\nIssue: PDF conversion fails\n# Solution: Use alternative method\njupyter nbconvert --to html your_notebook.ipynb\n# Then use browser to print to PDF\nIssue: Figures not appearing in PDF\n# Solution: Ensure figures are saved inline\n%matplotlib inline\nimport matplotlib.pyplot as plt\nplt.rcParams['savefig.format'] = 'png'\nplt.rcParams['savefig.bbox'] = 'tight'\nIssue: Long code cells breaking across pages\n# Solution: Use page breaks and cell splitting\nfrom IPython.display import display, HTML\ndisplay(HTML('&lt;div style=\"page-break-before: always;\"&gt;&lt;/div&gt;'))\n\n\n\nBest Practices for PDF Generation\n\nUse consistent formatting throughout your notebook\nInclude descriptive markdown for each analysis step\nAdd figure captions and table descriptions. One of the most common issue when you create a PDF.\nTest PDF generation regularly during development\nInclude proper citations and references\nOptimize images for print quality (optional)\n\n\nThis guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025",
+    "crumbs": [
+      "Home",
+      "Troubleshooting Guide"
     ]
   }
 ]
