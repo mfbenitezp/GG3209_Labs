@@ -1,5 +1,7 @@
 # Step 2. Introduction to Git {.unnumbered}
 
+**Estimated time to install:** \[**40 minutes**.\]
+
 ## What is Version Control?
 
 Version control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:
@@ -28,8 +30,6 @@ gitGraph TB:
     commit id: "Add buffer analysis"
     commit id: "Final report"
 ```
-
-**Estimated time to install:** [**40 minutes**.]{.underline}
 
 ## Why Version Control Matters in Spatial Data Science
 
@@ -425,7 +425,7 @@ GitHub will show you commands to run. Copy and paste these **into your terminal:
 ``` bash
 # Add GitHub as remote origin
 git remote add origin https://github.com/yourusername/urban_heat_island_analysis.git 
-#Replace this URL with YOUR URL.
+#Replace this URL with YOUR URL
 
 # Verify remote connection
 git remote -v
@@ -437,7 +437,7 @@ git push -u origin main
 ## 4.3 Verify changes in the Cloud Repo
 
 1.  Refresh your GitHub repository page
-2.  You should see your README.md and .gitignore files
+2.  You should see your `README.md` and `.gitignore` files
 3.  Your commit message should be visible
 
 # Step 5: Fetch changes from GitHub to your Local Repo.

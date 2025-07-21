@@ -8,8 +8,6 @@ about:
       href: https://www.linkedin.com/in/mfbenitezp/
     - icon: pin-map
       href: https://www.st-andrews.ac.uk/geography-sustainable-development/people/mfbp1
-    - icon: chat
-      href: https://outlook.office.com/bookwithme/user/e262feec059843de90978627176048a4@st-andrews.ac.uk?anonymous&ismsaljsauthenabled&ep=plink
 ---
 
 # About this site {.unnumbered}

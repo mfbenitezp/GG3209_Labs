@@ -114,7 +114,7 @@
     "href": "git_github_guide.html",
     "title": "Step 2. Introduction to Git",
     "section": "",
-    "text": "What is Version Control?\nVersion control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:\n%%| fig-cap: \"Version Control Timeline\"\n%%| fig-align: center\n%%| fig-responsive: false\n\n\ngitGraph TB:\n    commit id: \"Initial spatial analysis\"\n    commit id: \"Add coordinate system\"\n    branch develop\n    commit id: \"Fix projection error\"\n    commit id: \"start documentation\"\n    checkout main\n    commit id: \"map analysis\"\n    merge develop id: \"Pull Request\"\n    commit id: \"Add buffer analysis\"\n    commit id: \"Final report\"\nEstimated time to install: 40 minutes.",
+    "text": "What is Version Control?\nEstimated time to install: [40 minutes.]\nVersion control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:\n%%| fig-cap: \"Version Control Timeline\"\n%%| fig-align: center\n%%| fig-responsive: false\n\n\ngitGraph TB:\n    commit id: \"Initial spatial analysis\"\n    commit id: \"Add coordinate system\"\n    branch develop\n    commit id: \"Fix projection error\"\n    commit id: \"start documentation\"\n    checkout main\n    commit id: \"map analysis\"\n    merge develop id: \"Pull Request\"\n    commit id: \"Add buffer analysis\"\n    commit id: \"Final report\"",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"
@@ -279,7 +279,7 @@
     "href": "git_github_guide.html#connect-local-repository-to-github",
     "title": "Step 2. Introduction to Git",
     "section": "4.2 Connect Local Repository to GitHub",
-    "text": "4.2 Connect Local Repository to GitHub\nGitHub will show you commands to run. Copy and paste these into your terminal:\n# Add GitHub as remote origin\ngit remote add origin https://github.com/yourusername/urban_heat_island_analysis.git \n#Replace this URL with YOUR URL.\n\n# Verify remote connection\ngit remote -v\n\n# Push your local repository to GitHub\ngit push -u origin main",
+    "text": "4.2 Connect Local Repository to GitHub\nGitHub will show you commands to run. Copy and paste these into your terminal:\n# Add GitHub as remote origin\ngit remote add origin https://github.com/yourusername/urban_heat_island_analysis.git \n#Replace this URL with YOUR URL\n\n# Verify remote connection\ngit remote -v\n\n# Push your local repository to GitHub\ngit push -u origin main",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"
