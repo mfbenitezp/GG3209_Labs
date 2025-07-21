@@ -231,6 +231,28 @@
     ]
   },
   {
+    "objectID": "git_github_guide.html#windows-users",
+    "href": "git_github_guide.html#windows-users",
+    "title": "Step 2. Introduction to Git",
+    "section": "Windows Users",
+    "text": "Windows Users\n\nMethod 1: Using File Explorer (Recommended)\n\nOpen File Explorer\n\nPress Windows + E on your keyboard, or\nClick the folder icon in your taskbar\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nAccess View Options\n\nClick on the View tab in the ribbon at the top\nLook for the “Show/hide” section\n\nShow Hidden Files\n\nCheck the box next to Hidden items\nYour .gitignore file should now be visible (it may appear slightly faded)\n\n\n\n\nMethod 2: Using Folder Options (Alternative)\n\nOpen File Explorer and navigate to your project folder\nAccess Folder Options\n\nClick View in the ribbon\nClick Options (or Folder Options)\n\nModify View Settings\n\nIn the popup window, click the View tab\nUnder “Advanced settings,” find Hidden files and folders\nSelect Show hidden files, folders, and drives\nClick OK",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#macos-users",
+    "href": "git_github_guide.html#macos-users",
+    "title": "Step 2. Introduction to Git",
+    "section": "macOS Users",
+    "text": "macOS Users\n\nUsing Finder (Recommended)\n\nOpen Finder\n\nClick the Finder icon in your dock, or\nPress Command + Space and type “Finder”\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nShow Hidden Files\n\nPress Command + Shift + . (period)\nHidden files will now appear with a dimmed/transparent look\nYour .gitignore file should be visible\n\nTo Hide Files Again (Optional)\n\nPress Command + Shift + . again to toggle back\n\nOpen the .gitignore File to edit it\n\nWindows: Right-click → “Open with” → Choose a text editor (Notepad, RStudio, etc.)\nmacOS: Right-click → “Open with” → Choose a text editor (TextEdit, RStudio, etc.)\n\nInclude the following lines and save the changes.\n\n# R files\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n*.Rproj\n\n# Data files (large files)\n*.tif\n*.shp\n*.dbf\n*.prj\n*.shx\n*.zip\n\n# Temporary files\n*~\n*.tmp\n*.temp\n\n# OS files\n.DS_Store\nThumbs.db\n\n# Log files\n*.log\n\n# Jupyter Notebook\n.ipynb_checkpoints\n\n# IPython\nprofile_default/\nipython_config.py\n__pycache__/\n*.py[codz]\n*$py.class",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
     "objectID": "git_github_guide.html#your-first-commit",
     "href": "git_github_guide.html#your-first-commit",
     "title": "Step 2. Introduction to Git",
@@ -264,14 +286,14 @@
     ]
   },
   {
-    "objectID": "git_github_guide.html#verify-connection",
-    "href": "git_github_guide.html#verify-connection",
-    "title": "Step 2. Introduction to GIT",
-    "section": "4.3 Verify Connection",
-    "text": "4.3 Verify Connection\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
+    "objectID": "git_github_guide.html#verify-changes-in-the-cloud-repo",
+    "href": "git_github_guide.html#verify-changes-in-the-cloud-repo",
+    "title": "Step 2. Introduction to Git",
+    "section": "4.3 Verify changes in the Cloud Repo",
+    "text": "4.3 Verify changes in the Cloud Repo\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
@@ -324,6 +346,28 @@
     "title": "Step 2. Introduction to Git",
     "section": "6.5 Viewing and Understanding Changes",
     "text": "6.5 Viewing and Understanding Changes\n# See what changed in your last commit\ngit show\n\n# Compare current files with last commit\ngit diff HEAD~1\n\n# See changes in a specific file\ngit diff scripts/temperature_analysis.R\n\nWell done, now you have experience how Git and Version control work using a fictional project in R., now the rest of this guideline is optional, but there are several sections you could use it during this module. Keep an eye on the following sections where you will find useful information and key steps of working with reproducible research.",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#essential-commands",
+    "href": "git_github_guide.html#essential-commands",
+    "title": "Step 2. Introduction to Git",
+    "section": "Essential Commands",
+    "text": "Essential Commands\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit status\nCheck current status\ngit status\n\n\ngit add\nStage changes\ngit add filename.R\n\n\ngit commit\nSave changes\ngit commit -m \"message\"\n\n\ngit push\nUpload to GitHub\ngit push origin main\n\n\ngit pull\nDownload from GitHub\ngit pull origin main\n\n\ngit log\nView history\ngit log --oneline\n\n\ngit diff\nView changes\ngit diff filename.R",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_github_guide.html#configuration-commands",
+    "href": "git_github_guide.html#configuration-commands",
+    "title": "Step 2. Introduction to Git",
+    "section": "Configuration Commands",
+    "text": "Configuration Commands\n\n\n\n\n\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit config --global user.name\nSet name\ngit config --global user.name \"John Doe\"\n\n\ngit config --global user.email\nSet email\ngit config --global user.email \"john@example.com\"\n\n\ngit remote add origin\nAdd remote\ngit remote add origin https://github.com/user/repo.git",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"
@@ -478,39 +522,6 @@
     "title": "Step 2. Introduction to Git",
     "section": "Creating Analysis Workflows",
     "text": "Creating Analysis Workflows\nDocument your complete workflow:\ntouch scripts/main_analysis.R\nAdd workflow documentation:\n# Main Analysis Workflow\n# Run this script to reproduce the complete analysis\n\n# Step 1: Setup environment\nsource(\"scripts/setup_environment.R\")\n\n# Step 2: Data preprocessing\nsource(\"scripts/data_preprocessing.R\")\n\n# Step 3: Temperature analysis\nsource(\"scripts/temperature_analysis.R\")\n\n# Step 4: Create visualizations\nsource(\"scripts/create_maps.R\")\n\n# Step 5: Generate report\n# rmarkdown::render(\"docs/final_report.Rmd\")\n\ncat(\"Analysis complete! Check the outputs/ folder for results.\\n\")\n\n\n## Version Control for Reproducibility\n\n``` bash\n# Commit your reproducible workflow\ngit add scripts/setup_environment.R\ngit add scripts/main_analysis.R\ngit commit -m \"Add reproducible analysis workflow\n\n- Created environment setup script\n- Added main analysis workflow\n- Documented all required packages\n- Added session info for reproducibility\"\n\ngit push origin main",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to Git"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#version-control-for-reproducibility",
-    "href": "git_github_guide.html#version-control-for-reproducibility",
-    "title": "Step 2. Introduction to GIT",
-    "section": "10.3 Version Control for Reproducibility",
-    "text": "10.3 Version Control for Reproducibility\n# Commit your reproducible workflow\ngit add scripts/setup_environment.R\ngit add scripts/main_analysis.R\ngit commit -m \"Add reproducible analysis workflow\n\n- Created environment setup script\n- Added main analysis workflow\n- Documented all required packages\n- Added session info for reproducibility\"\n\ngit push origin main",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#essential-commands",
-    "href": "git_github_guide.html#essential-commands",
-    "title": "Step 2. Introduction to Git",
-    "section": "Essential Commands",
-    "text": "Essential Commands\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit status\nCheck current status\ngit status\n\n\ngit add\nStage changes\ngit add filename.R\n\n\ngit commit\nSave changes\ngit commit -m \"message\"\n\n\ngit push\nUpload to GitHub\ngit push origin main\n\n\ngit pull\nDownload from GitHub\ngit pull origin main\n\n\ngit log\nView history\ngit log --oneline\n\n\ngit diff\nView changes\ngit diff filename.R",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to Git"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#configuration-commands",
-    "href": "git_github_guide.html#configuration-commands",
-    "title": "Step 2. Introduction to Git",
-    "section": "Configuration Commands",
-    "text": "Configuration Commands\n\n\n\n\n\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit config --global user.name\nSet name\ngit config --global user.name \"John Doe\"\n\n\ngit config --global user.email\nSet email\ngit config --global user.email \"john@example.com\"\n\n\ngit remote add origin\nAdd remote\ngit remote add origin https://github.com/user/repo.git",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"
@@ -1130,39 +1141,6 @@
     "crumbs": [
       "Home",
       "Troubleshooting Guide"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#verify-changes-in-the-cloud-repo",
-    "href": "git_github_guide.html#verify-changes-in-the-cloud-repo",
-    "title": "Step 2. Introduction to Git",
-    "section": "4.3 Verify changes in the Cloud Repo",
-    "text": "4.3 Verify changes in the Cloud Repo\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to Git"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#windows-users",
-    "href": "git_github_guide.html#windows-users",
-    "title": "Step 2. Introduction to Git",
-    "section": "Windows Users",
-    "text": "Windows Users\n\nMethod 1: Using File Explorer (Recommended)\n\nOpen File Explorer\n\nPress Windows + E on your keyboard, or\nClick the folder icon in your taskbar\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nAccess View Options\n\nClick on the View tab in the ribbon at the top\nLook for the “Show/hide” section\n\nShow Hidden Files\n\nCheck the box next to Hidden items\nYour .gitignore file should now be visible (it may appear slightly faded)\n\n\n\n\nMethod 2: Using Folder Options (Alternative)\n\nOpen File Explorer and navigate to your project folder\nAccess Folder Options\n\nClick View in the ribbon\nClick Options (or Folder Options)\n\nModify View Settings\n\nIn the popup window, click the View tab\nUnder “Advanced settings,” find Hidden files and folders\nSelect Show hidden files, folders, and drives\nClick OK",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to Git"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#macos-users",
-    "href": "git_github_guide.html#macos-users",
-    "title": "Step 2. Introduction to Git",
-    "section": "macOS Users",
-    "text": "macOS Users\n\nUsing Finder (Recommended)\n\nOpen Finder\n\nClick the Finder icon in your dock, or\nPress Command + Space and type “Finder”\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nShow Hidden Files\n\nPress Command + Shift + . (period)\nHidden files will now appear with a dimmed/transparent look\nYour .gitignore file should be visible\n\nTo Hide Files Again (Optional)\n\nPress Command + Shift + . again to toggle back\n\nOpen the .gitignore File to edit it\n\nWindows: Right-click → “Open with” → Choose a text editor (Notepad, RStudio, etc.)\nmacOS: Right-click → “Open with” → Choose a text editor (TextEdit, RStudio, etc.)\n\nInclude the following lines and save the changes.\n\n# R files\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n*.Rproj\n\n# Data files (large files)\n*.tif\n*.shp\n*.dbf\n*.prj\n*.shx\n*.zip\n\n# Temporary files\n*~\n*.tmp\n*.temp\n\n# OS files\n.DS_Store\nThumbs.db\n\n# Log files\n*.log\n\n# Jupyter Notebook\n.ipynb_checkpoints\n\n# IPython\nprofile_default/\nipython_config.py\n__pycache__/\n*.py[codz]\n*$py.class",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to Git"
     ]
   }
 ]
