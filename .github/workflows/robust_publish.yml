@@ -1,0 +1,121 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish (Robust)
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45  # Increased for TinyTeX installation
+    permissions:
+      contents: write
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Clear Quarto cache
+        run: |
+          rm -rf _freeze/
+          rm -rf .quarto/
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.2.0'
+
+      # Use system TinyTeX instead of R TinyTeX (more reliable)
+      - name: Install system TeX Live (faster alternative)
+        run: |
+          echo "Installing system TeX Live..."
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex
+
+      # Fallback: Install TinyTeX with multiple retry attempts
+      - name: Install TinyTeX (with retries)
+        if: failure()  # Only if system tex installation failed
+        run: |
+          echo "System TeX failed, trying TinyTeX..."
+          for i in {1..3}; do
+            echo "Attempt $i/3"
+            if timeout 600 Rscript -e 'install.packages("tinytex", repos="https://cloud.r-project.org")'; then
+              echo "TinyTeX package installed successfully"
+              break
+            else
+              echo "Attempt $i failed, retrying..."
+              sleep 30
+            fi
+          done
+
+          for i in {1..3}; do
+            echo "Installing TinyTeX binary - Attempt $i/3"
+            if timeout 900 Rscript -e 'tinytex::install_tinytex()'; then
+              echo "TinyTeX binary installed successfully"
+              break
+            else
+              echo "TinyTeX install attempt $i failed, retrying..."
+              sleep 30
+            fi
+          done
+
+      - name: Install required R packages
+        run: |
+          echo "Installing R packages..."
+          Rscript -e 'install.packages(c("rmarkdown", "knitr"), repos="https://cloud.r-project.org")'
+
+      - name: Set up Chrome/Chromium for mermaid
+        run: |
+          echo "Setting up Chrome for mermaid diagrams..."
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Verify installations
+        run: |
+          echo "=== Quarto version ==="
+          quarto --version
+          echo "=== R version ==="
+          R --version | head -3
+          echo "=== Chrome version ==="
+          google-chrome --version
+          echo "=== LaTeX version ==="
+          pdflatex --version | head -3 || echo "pdflatex not found"
+          xelatex --version | head -3 || echo "xelatex not found"
+
+      # Test render with timeout and better error reporting
+      - name: Test HTML render first
+        run: |
+          echo "Testing HTML render..."
+          timeout 600 quarto render --to html || (echo "HTML render failed" && exit 1)
+          echo "HTML render completed successfully"
+
+      - name: Test PDF render
+        run: |
+          echo "Testing PDF render..."
+          timeout 1200 quarto render --to pdf || (echo "PDF render failed" && exit 1)
+          echo "PDF render completed successfully"
+
+      - name: Render all formats
+        run: |
+          echo "Rendering all formats..."
+          timeout 1800 quarto render
+          echo "All formats rendered successfully"
+
+      - name: List generated files
+        run: |
+          echo "Generated files:"
+          find _book -type f -name "*.html" | head -5
+          find _book -type f -name "*.pdf" | head -5
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
