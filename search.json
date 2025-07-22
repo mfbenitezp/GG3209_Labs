@@ -110,498 +110,509 @@
     ]
   },
   {
-    "objectID": "git_github_guide.html",
-    "href": "git_github_guide.html",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html",
+    "href": "git_guide.html",
+    "title": "Step 2. Introduction to Git",
     "section": "",
-    "text": "What is Version Control?\nVersion control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:\n%%| fig-cap: \"Version Control Timeline\"\n%%| fig-align: center\n%%| fig-responsive: false\n\n\ngitGraph TB:\n    commit id: \"Initial spatial analysis\"\n    commit id: \"Add coordinate system\"\n    branch develop\n    commit id: \"Fix projection error\"\n    commit id: \"start documentation\"\n    checkout main\n    commit id: \"map analysis\"\n    merge develop id: \"Pull Request\"\n    commit id: \"Add buffer analysis\"\n    commit id: \"Final report\"\nEstimated time to install: 40 minutes.",
+    "text": "What is Version Control?\nEstimated time to install: 40 minutes\nVersion control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:\n%%| fig-cap: \"Version Control Timeline\"\n%%| fig-align: center\n%%| fig-responsive: false\n\ngitGraph TB:\n    commit id: \"Initial spatial analysis\"\n    commit id: \"Add coordinate system\"\n    branch develop\n    commit id: \"Fix projection error\"\n    commit id: \"start documentation\"\n    checkout main\n    commit id: \"map analysis\"\n    merge develop id: \"Pull Request\"\n    commit id: \"Add buffer analysis\"\n    commit id: \"Final report\"",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#what-is-version-control",
-    "href": "git_github_guide.html#what-is-version-control",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#what-is-version-control",
+    "href": "git_guide.html#what-is-version-control",
+    "title": "Step 2. Introduction to Git",
     "section": "",
     "text": "Track every change made to your files\nRevert to previous versions when needed\nCollaborate with others without conflicts\nUnderstand who made what changes and when",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#why-version-control-matters-in-spatial-data-science",
-    "href": "git_github_guide.html#why-version-control-matters-in-spatial-data-science",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#why-version-control-matters-in-spatial-data-science",
+    "href": "git_guide.html#why-version-control-matters-in-spatial-data-science",
+    "title": "Step 2. Introduction to Git",
     "section": "Why Version Control Matters in Spatial Data Science",
     "text": "Why Version Control Matters in Spatial Data Science\nIn spatial data science, you’re often working with:\n\nComplex datasets: Shapefiles, rasters, GPS data, satellite imagery\nMultiple software tools: R, Python, QGIS, ArcGIS\nIterative analysis: Testing different spatial models and parameters\nCollaborative projects: Working with field teams, other researchers\nReproducible research: Ensuring your spatial analysis can be replicated\n\n\nCommon scenario\nImagine you’re analyzing urban green spaces for any kind of project using R, and then you have something like:\n\nurban_greenspace_analysis.R\nurban_greenspace_analysis_v2.R\nurban_greenspace_analysis_v2_final.R\nurban_greenspace_analysis_v2_final_ACTUALLY_FINAL.R\nurban_greenspace_analysis_v2_final_ACTUALLY_FINAL_supervisors_comments.R\n\nSound familiar? This approach leads to:\n\nConfusion about which version is current\nLost work when files get overwritten\nDifficulty tracking what changed between versions\nProblems when collaborating with others\n\n\n\nGit and GitHub\nAnother important component we need in our environment is git, the tool that provides version control for any of our projects. While version control is a systematic approach to recording changes you make in a file or set of files over time.\nThis is important, especially if you work with other collaborators, as you can track the history, see what changed and recall specific versions if needed. In this course, we will incorporate git to teach you how to create a branch, clone someone else’s repositories, and give you a brief introduction to this important workflow, but also how you can commit your progress in one of the most popular git tools currently available. GitHub.\n\n\nKey Terminology\n\nRepository (repo): A folder containing your project files and their complete history\nCommit: A snapshot of your project at a specific point in time\nRemote: A version of your repository stored on a server (like GitHub)\nClone: Creating a local copy of a remote repository\nPush: Sending your local changes to the remote repository\nPull: Retrieving changes from the remote repository to your local copy\n\n\n\nThe Git Workflow\n\n\n\n\n\nflowchart TD\n    A[Working Directory&lt;br/&gt;Your project files] --&gt; |Initial command| B[git add]\n    B --&gt; C[Staging Area&lt;br/&gt;Files ready to commit]\n    C --&gt; |next command| D[git commit]\n    D --&gt; E[Local Repository&lt;br/&gt;Your project history]\n    E --&gt; |final command| F[git push]\n    F --&gt; G[Remote Repository&lt;br/&gt;GitHub]\n    G --&gt; |Do this before start Working| H[git pull]\n    H --&gt; A\n\n\n Basic Git Workflow",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#commands-to-move-through-drives-and-directories",
-    "href": "git_github_guide.html#commands-to-move-through-drives-and-directories",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#commands-to-move-through-drives-and-directories",
+    "href": "git_guide.html#commands-to-move-through-drives-and-directories",
+    "title": "Step 2. Introduction to Git",
     "section": "Commands to move through drives and directories:",
     "text": "Commands to move through drives and directories:\ncd—Short for “change directory”, to move through the directory structure (in the same drive), as in cd C:\\Users\\fbenitez\\Downloads\ncd.. —to move to the upper level in your directories, so if you need to move from C:\\Users\\fbenitez\\Downloads to C:\\Users\\fbenitez\\\n\nX: —To switch to a different drive, type the drive name followed by colon, as in D: to switch to drive D:\\\ncls (Windows) or clear (macOS) —To clean your terminal, it would help you to have a clean terminal and avoid mistakes.\ndir(windows)\nls (macOs) —To list current directory contents.\n\nGo to your Documents folder in your computer. Create a folder call it MyFirstRepo\nOpen a terminal/command prompt, browse from the folder you are in to the new one, like the following illustrations.\n\n\nYou can also use some commands to run programs in your system which I know sounds silly as we are used to finding the icon and tap/click to get it open, but that’s what happens underneath every time you open a program, here are some examples:\npython —Starting the python command line interface, you can use the exit() command to get out of the python interface, and recover the terminal mode.\n\nTry the example illustrated in the following image:",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#sign-up-for-github",
-    "href": "git_github_guide.html#sign-up-for-github",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#sign-up-for-github",
+    "href": "git_guide.html#sign-up-for-github",
+    "title": "Step 2. Introduction to Git",
     "section": "1.1 Sign Up for GitHub",
     "text": "1.1 Sign Up for GitHub\n\nGo to github.com\nClick “Sign up”\nChoose a username (take a note of this as you will use it later in this Lab)\nUse your university email address ideally., but you can opt to use another email, just recall it when you need to recover your password. (take a note of this as you will use it later in this Lab)\nCreate a strong password\nVerify your account",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#configure-your-profile",
-    "href": "git_github_guide.html#configure-your-profile",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#configure-your-profile",
+    "href": "git_guide.html#configure-your-profile",
+    "title": "Step 2. Introduction to Git",
     "section": "1.2 Configure Your Profile",
-    "text": "1.2 Configure Your Profile\n\nThere is a chance you won’t open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.\n\n\nAdd a profile picture\nAdd a bio mentioning your interest in spatial data science\nInclude your university affiliation\nConsider making your profile public for academic networking",
+    "text": "1.2 Configure Your Profile\n\n\n\n\n\n\nNote\n\n\n\nThere is a chance you won’t open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.\n\n\n\nAdd a profile picture\nAdd a bio mentioning your interest in spatial data science\nInclude your university affiliation\nConsider making your profile public for academic networking",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#installing-git",
-    "href": "git_github_guide.html#installing-git",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#installing-git",
+    "href": "git_guide.html#installing-git",
+    "title": "Step 2. Introduction to Git",
     "section": "2.1 Installing Git",
     "text": "2.1 Installing Git\n\nWindows\n\nDownload Git from git-scm.com\nRun the installer\nUse default settings (recommended)\nChoose “Git Bash” as your terminal\n\n\n\nmacOS\n\nInstall via Homebrew: brew install git\nOr download from git-scm.com\n\n\n\nLinux\n# Ubuntu/Debian\nsudo apt-get install git\n\n# CentOS/RHEL\nsudo yum install git",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#initial-git-configuration",
-    "href": "git_github_guide.html#initial-git-configuration",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#initial-git-configuration",
+    "href": "git_guide.html#initial-git-configuration",
+    "title": "Step 2. Introduction to Git",
     "section": "2.2 Initial Git Configuration",
     "text": "2.2 Initial Git Configuration\nOpen your terminal (Git Bash on Windows, Terminal on macOS/Linux) and run:\n# Set your name (use your real name)\ngit config --global user.name \"Your Name\"\n\n# Set your email (use your GitHub email)\ngit config --global user.email \"your.email@st-andrews.ac.uk\"\n\n# Verify configuration\ngit config --list",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#setting-up-a-project-structure",
-    "href": "git_github_guide.html#setting-up-a-project-structure",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#setting-up-a-project-structure",
+    "href": "git_guide.html#setting-up-a-project-structure",
+    "title": "Step 2. Introduction to Git",
     "section": "3.1 Setting Up a Project Structure",
     "text": "3.1 Setting Up a Project Structure\nNow, in order to practice and validate that Git has been properly installed, let’s create a fictional spatial data science project for analyzing urban heat islands, but let’s try to use the terminal or the command prompt windows to practice.\n\nOpen a Terminal or Command prompt and run the following commands.\n\n# Create project directory\nmkdir urban_heat_island_analysis\ncd urban_heat_island_analysis\n\n# Create typical spatial data science structure\nmkdir data\nmkdir data/raw\nmkdir data/processed\nmkdir scripts\nmkdir outputs\nmkdir docs",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#initialize-git-repository",
-    "href": "git_github_guide.html#initialize-git-repository",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#initialize-git-repository",
+    "href": "git_guide.html#initialize-git-repository",
+    "title": "Step 2. Introduction to Git",
     "section": "3.2 Initialize Git Repository",
     "text": "3.2 Initialize Git Repository\n# Initialize git repository\ngit init\nThis creates a hidden .git folder that stores all version control information.",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#create-project-files",
-    "href": "git_github_guide.html#create-project-files",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#create-project-files",
+    "href": "git_guide.html#create-project-files",
+    "title": "Step 2. Introduction to Git",
     "section": "3.3 Create Project Files",
-    "text": "3.3 Create Project Files\nWe will generate several files within this pilot project, so you can see how the repo can evolve and changes over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.\nCreate a README file:\n# Create README.md\ntouch README.md\nOpen the README.md file and add content:\n# Urban Heat Island Analysis\n\n## Project Overview\nThis project analyzes urban heat island effects in [Your City] using satellite thermal data and land cover classifications.\n\n## Data Sources\n- Landsat 8 thermal infrared data\n- OpenStreetMap building footprints\n- Local weather station data\n\n## Methods\n- Temperature retrieval from satellite imagery\n- Spatial interpolation techniques\n- Statistical analysis of temperature patterns\n\n## Software Requirements\n- R (version 4.0+)\n- Required packages: sf, terra, ggplot2, dplyr\n\n## File Structure\n\nurban_heat_island_analysis/\n├── data/\n│├── raw/ # Original data files\n│└── processed/ # Cleaned and processed data \n├── scripts/ # R scripts for analysis\n├── outputs/ # Maps, plots, and results\n└── docs/ # Documentation and reports\n\n## Contact\n[Your Name] - [Your Email]  \nCreate a .gitignore file:\n\n\nWarning: This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you push the files to the cloud.\n\n\ntouch .gitignore\nOpen the .gitignore file and add common files to ignore, you could add more later, or you can also add entire folders:\n# R files\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n*.Rproj\n\n# Data files (large files)\n*.tif\n*.shp\n*.dbf\n*.prj\n*.shx\n*.zip\n\n# Temporary files\n*~\n*.tmp\n*.temp\n\n# OS files\n.DS_Store\nThumbs.db\n\n# Log files\n*.log\n\n# Jupyter Notebook\n.ipynb_checkpoints\n\n# IPython\nprofile_default/\nipython_config.py\n__pycache__/\n*.py[codz]\n*$py.class",
+    "text": "3.3 Create Project Files\nWe will generate several files within this pilot project, so you can see how the repo can evolve and changes over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.\n\nCreate a README file:\n# Create README.md\ntouch README.md\nOpen the README.md file and add content:\n# Urban Heat Island Analysis\n\n## Project Overview\nThis project analyzes urban heat island effects in [Your City] using satellite thermal data and land cover classifications.\n\n## Data Sources\n- Landsat 8 thermal infrared data\n- OpenStreetMap building footprints\n- Local weather station data\n\n## Methods\n- Temperature retrieval from satellite imagery\n- Spatial interpolation techniques\n- Statistical analysis of temperature patterns\n\n## Software Requirements\n- R (version 4.0+)\n- Required packages: sf, terra, ggplot2, dplyr\n\n## File Structure\n\nurban_heat_island_analysis/\n├── data/\n│├── raw/ # Original data files\n│└── processed/ # Cleaned and processed data \n├── scripts/ # R scripts for analysis\n├── outputs/ # Maps, plots, and results\n└── docs/ # Documentation and reports\n\n## Contact\n[Your Name] - [Your Email]  \n\n\nCreate a .gitignore file:\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you push the files to the cloud.\n\n\n\ntouch .gitignore\nOpen the .gitignore file and add common files to ignore, you could add more data extensions later, or you could also add entire folders.\n\n\n\n\n\n\nTip\n\n\n\nIf you are trying to open the .gitignore file and you can’t find it in the created folder. This is because by default, operating systems hide files that start with a dot (.) to prevent accidental modification of system files. But how to make these files visible?",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#your-first-commit",
-    "href": "git_github_guide.html#your-first-commit",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#windows-users",
+    "href": "git_guide.html#windows-users",
+    "title": "Step 2. Introduction to Git",
+    "section": "Windows Users",
+    "text": "Windows Users\n\nMethod 1: Using File Explorer (Recommended)\n\nOpen File Explorer\n\nPress Windows + E on your keyboard, or\nClick the folder icon in your taskbar\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nAccess View Options\n\nClick on the View tab in the ribbon at the top\nLook for the “Show/hide” section\n\nShow Hidden Files\n\nCheck the box next to Hidden items\nYour .gitignore file should now be visible (it may appear slightly faded)\n\n\n\n\nMethod 2: Using Folder Options (Alternative)\n\nOpen File Explorer and navigate to your project folder\nAccess Folder Options\n\nClick View in the ribbon\nClick Options (or Folder Options)\n\nModify View Settings\n\nIn the popup window, click the View tab\nUnder “Advanced settings,” find Hidden files and folders\nSelect Show hidden files, folders, and drives\nClick OK",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#macos-users",
+    "href": "git_guide.html#macos-users",
+    "title": "Step 2. Introduction to Git",
+    "section": "macOS Users",
+    "text": "macOS Users\n\nUsing Finder (Recommended)\n\nOpen Finder\n\nClick the Finder icon in your dock, or\nPress Command + Space and type “Finder”\n\nNavigate to Your Project Folder\n\nGo to the folder containing your Git repository\n\nShow Hidden Files\n\nPress Command + Shift + . (period)\nHidden files will now appear with a dimmed/transparent look\nYour .gitignore file should be visible\n\nTo Hide Files Again (Optional)\n\nPress Command + Shift + . again to toggle back\n\nOpen the .gitignore File to edit it\n\nWindows: Right-click → “Open with” → Choose a text editor (Notepad, RStudio, etc.)\nmacOS: Right-click → “Open with” → Choose a text editor (TextEdit, RStudio, etc.)\n\nInclude the following lines and save the changes.\n\n# R files\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n*.Rproj\n\n# Data files (large files)\n*.tif\n*.shp\n*.dbf\n*.prj\n*.shx\n*.zip\n\n# Temporary files\n*~\n*.tmp\n*.temp\n\n# OS files\n.DS_Store\nThumbs.db\n\n# Log files\n*.log\n\n# Jupyter Notebook\n.ipynb_checkpoints\n\n# IPython\nprofile_default/\nipython_config.py\n__pycache__/\n*.py[codz]\n*$py.class",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#your-first-commit",
+    "href": "git_guide.html#your-first-commit",
+    "title": "Step 2. Introduction to Git",
     "section": "3.4 Your First Commit",
-    "text": "3.4 Your First Commit\n# Check status\ngit status\n\n# Add files to staging area\ngit add README.md\ngit add .gitignore\n\n# Or add all files\ngit add .\n\n# Commit with descriptive message\ngit commit -m \"Initial commit: Add project structure and README\"",
+    "text": "3.4 Your First Commit\n# Check status\ngit status\n\n# Add files to staging area\ngit add .\n\n# Commit with descriptive message\ngit commit -m \"Initial commit: Add project structure and README\"",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#create-github-repository",
-    "href": "git_github_guide.html#create-github-repository",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#create-github-repository",
+    "href": "git_guide.html#create-github-repository",
+    "title": "Step 2. Introduction to Git",
     "section": "4.1 Create GitHub Repository",
     "text": "4.1 Create GitHub Repository\n\nLog in to github.com\nClick the “+” icon in the top right\nSelect “New repository”\nRepository name: urban_heat_island_analysis\nDescription: “GG3209 pilot project to analyzing urban heat island effects”\nKeep it public (for academic sharing)\nDon’t initialize with README (we already have one)\nClick “Create repository”",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#connect-local-repository-to-github",
-    "href": "git_github_guide.html#connect-local-repository-to-github",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#connect-local-repository-to-github",
+    "href": "git_guide.html#connect-local-repository-to-github",
+    "title": "Step 2. Introduction to Git",
     "section": "4.2 Connect Local Repository to GitHub",
-    "text": "4.2 Connect Local Repository to GitHub\nGitHub will show you commands to run. Copy and paste these into your terminal:\n# Add GitHub as remote origin\ngit remote add origin https://github.com/yourusername/urban_heat_island_analysis.git #Replace this URL with YOUR URL.\n\n# Verify remote connection\ngit remote -v\n\n# Push your local repository to GitHub\ngit push -u origin main",
+    "text": "4.2 Connect Local Repository to GitHub\nGitHub will show you commands to run. Copy and paste these into your terminal:\n# Add GitHub as remote origin\ngit remote add origin https://github.com/yourusername/urban_heat_island_analysis.git \n#Replace this URL with YOUR URL\n\n# Verify remote connection\ngit remote -v\n\n# Push your local repository to GitHub\ngit push -u origin main",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#verify-connection",
-    "href": "git_github_guide.html#verify-connection",
-    "title": "Step 2. Introduction to GIT",
-    "section": "4.3 Verify Connection",
-    "text": "4.3 Verify Connection\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
+    "objectID": "git_guide.html#verify-changes-in-the-cloud-repo",
+    "href": "git_guide.html#verify-changes-in-the-cloud-repo",
+    "title": "Step 2. Introduction to Git",
+    "section": "4.3 Verify changes in the Cloud Repo",
+    "text": "4.3 Verify changes in the Cloud Repo\n\nRefresh your GitHub repository page\nYou should see your README.md and .gitignore files\nYour commit message should be visible",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#the-basic-workflow",
-    "href": "git_github_guide.html#the-basic-workflow",
-    "title": "Step 2. Introduction to GIT",
-    "section": "5.1 The Basic Workflow",
-    "text": "5.1 The Basic Workflow\n\n\n\n\n\nflowchart TD\n    A[Edit Files] --&gt; B[git pull]\n    B --&gt; C[git status]\n    C --&gt; D[git add]\n    D --&gt; E[git commit]\n    E --&gt; F[git push]\n    F --&gt; G[Continue Working]\n    G --&gt; A\n\n\n Daily Git Workflow \n\n\n\n\nIt is a bit complicated to understand what is underneath all this commands, so the following sequence-diagram represents how information, in particular how the modifications of your files moves around the version control system, thus it is easier for you to understand why do we need to run several commands when we use git.\nInitially you have three folders. One is called Your Folder (this is where all your project are located, eg. Lab No 1, GG3209, etc), then you have a Local repo (a hidden folder that include all the components of version control or git) and finally the Cloud Repo, which is a folder located in the Cloud (e.g GitHub). The goal is to make sure we have all our editions sync and safe in the Cloud, so if eventually our computers breaks, we have a safe and updated copy of our project stored in the Cloud.\n\nThis is how a traditional workflow looks like when you work with Git and GitHub, study the steps and make sure you understand what the role of each command is. I expect you to work using these commands during the labs of this module.\n\n\n\n\n\nsequenceDiagram\n    loop \n    autonumber\n    Your Folder-&gt;&gt;+Local Repo: git status\n    Note right of Your Folder: Report All Changes\n    Your Folder-&gt;&gt;+Local Repo: git add\n    Note right of Your Folder: Add all changes&lt;br/&gt;to the staging area\n    Your Folder-&gt;&gt;+Local Repo: git commit\n    Note right of Your Folder: Include all the files&lt;br/&gt;to the local repo    \n    Local Repo-&gt;&gt;+Cloud Repo: git push\n    Note right of Local Repo: upload all changes &lt;br/&gt;to the Cloud repo\n    Local Repo-&gt;&gt;+Cloud Repo: git pull\n    Cloud Repo--&gt;&gt;-Local Repo: pull changes&lt;br/&gt;included in the cloud\n    Note over Cloud Repo,Your Folder: Fetch lastest changes\n    end",
+    "objectID": "git_guide.html#the-basic-workflow",
+    "href": "git_guide.html#the-basic-workflow",
+    "title": "Step 2. Introduction to Git",
+    "section": "6.1 The Basic Workflow",
+    "text": "6.1 The Basic Workflow\n\n\n\n\n\nflowchart TD\n    A[Edit Files] --&gt; B[git pull]\n    B --&gt; C[git status]\n    C --&gt; D[git add]\n    D --&gt; E[git commit]\n    E --&gt; F[git push]\n    F --&gt; G[Continue Working]\n    G --&gt; A\n\n\n Daily Git Workflow \n\n\n\n\n\n\n\n\n\nCaution\n\n\n\nIt is a bit complicated to understand what is underneath all this commands, so the following sequence-diagram represents how information, in particular how the modifications of your files moves around the version control system, thus it is easier for you to understand why do we need to run several commands when we use git.\nInitially you have three folders. One is called Your Folder (this is where all your project are located, eg. Lab No 1, GG3209, etc), then you have a Local repo (a hidden folder that include all the components of version control or git) and finally the Cloud Repo, which is a folder located in the Cloud (e.g GitHub). The goal is to make sure we have all our editions sync and safe in the Cloud, so if eventually our computers breaks, we have a safe and updated copy of our project stored in the Cloud.\n\n\nThis is how a traditional workflow looks like when you work with Git and GitHub, study the steps and make sure you understand what the role of each command is. I expect you to work using these commands during the labs of this module.\n\n\n\n\n\nsequenceDiagram\n    loop \n    autonumber\n    Your Folder-&gt;&gt;+Local Repo: git status\n    Note right of Your Folder: Report All Changes\n    Your Folder-&gt;&gt;+Local Repo: git add\n    Note right of Your Folder: Add all changes&lt;br/&gt;to the staging area\n    Your Folder-&gt;&gt;+Local Repo: git commit\n    Note right of Your Folder: Include all the files&lt;br/&gt;to the local repo    \n    Local Repo-&gt;&gt;+Cloud Repo: git push\n    Note right of Local Repo: upload all changes &lt;br/&gt;to the Cloud repo\n    Local Repo-&gt;&gt;+Cloud Repo: git pull\n    Cloud Repo--&gt;&gt;-Local Repo: pull changes&lt;br/&gt;included in the cloud\n    Note over Cloud Repo,Your Folder: Fetch lastest changes\n    end",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#checking-status-and-history",
-    "href": "git_github_guide.html#checking-status-and-history",
-    "title": "Step 2. Introduction to GIT",
-    "section": "5.2 Checking Status and History",
-    "text": "5.2 Checking Status and History\n# Check what files have changed\ngit status\n\n# View commit history\ngit log\n\n# View commit history (compact)\ngit log --oneline\n\n# View changes in files\ngit diff",
+    "objectID": "git_guide.html#checking-status-and-history",
+    "href": "git_guide.html#checking-status-and-history",
+    "title": "Step 2. Introduction to Git",
+    "section": "6.2 Checking Status and History",
+    "text": "6.2 Checking Status and History\n# Check what files have changed\ngit status\n\n# View commit history\ngit log\n\n# View commit history (compact)\ngit log --oneline\n\n# View changes in files\ngit diff",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#adding-and-committing-changes",
-    "href": "git_github_guide.html#adding-and-committing-changes",
-    "title": "Step 2. Introduction to GIT",
-    "section": "5.3 Adding and Committing Changes",
-    "text": "5.3 Adding and Committing Changes\nLet’s add a spatial analysis script:\n# Create new R script\ntouch scripts/temperature_analysis.R\nAdd some content to scripts/temperature_analysis.R:\n# Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n# Author: [Your Name]\n# Date: [Current Date]\n\n# Load required packages\nlibrary(sf)\nlibrary(terra)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Read temperature data\n# temp_data &lt;- rast(\"data/raw/landsat_thermal.tif\")\n\n# Read city boundary\n# city_boundary &lt;- st_read(\"data/raw/city_boundary.shp\")\n\n# TODO: Add temperature extraction analysis\n# TODO: Add spatial interpolation\n# TODO: Create temperature maps\nNow commit these changes:\n# Add the new script\ngit add scripts/temperature_analysis.R\n\n# Commit with descriptive message\ngit commit -m \"Add initial temperature analysis script\n\n- Set up basic structure for thermal analysis\n- Added required package imports\n- Created placeholders for main analysis steps\"\n\n# Push to GitHub\ngit push origin main",
+    "objectID": "git_guide.html#adding-and-committing-changes",
+    "href": "git_guide.html#adding-and-committing-changes",
+    "title": "Step 2. Introduction to Git",
+    "section": "6.3 Adding and Committing Changes",
+    "text": "6.3 Adding and Committing Changes\nLet’s add a spatial analysis script:\n# Create new R script\ntouch scripts/soil_analysis.R\nAdd some content to scripts/soil_analysis.R:\n# Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Load required packages\nlibrary(sf)\nlibrary(terra)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Read soil data\n# soil_data &lt;- rast(\"data/raw/landsat_land_use.tif\")\n\n# Read city boundary\n# city_boundary &lt;- st_read(\"data/raw/city_boundary.shp\")\n\n# TODO: Add soil extraction analysis\n# TODO: Add spatial interpolation\n# TODO: Create soil maps\nNow commit these changes:\n# Add the new script\ngit add scripts/temperature_analysis.R\n\n# Commit with descriptive message\ngit commit -m \"Add initial soil analysis script\n\n- Set up basic structure for soil analysis\n- Added required package imports\n- Created placeholders for main analysis steps\"\n\n# Push to GitHub\ngit push origin main",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#working-with-multiple-files",
-    "href": "git_github_guide.html#working-with-multiple-files",
-    "title": "Step 2. Introduction to GIT",
-    "section": "5.4 Working with Multiple Files",
-    "text": "5.4 Working with Multiple Files\nAdd more project files:\n# Create data processing script\ntouch scripts/data_preprocessing.R\n\n# Create visualization script\ntouch scripts/create_maps.R\n\n# Add all new files\ngit add scripts/\n\n# Commit all changes\ngit commit -m \"Add data preprocessing and mapping scripts\"\n\n# Push to GitHub\ngit push origin main",
+    "objectID": "git_guide.html#working-with-multiple-files",
+    "href": "git_guide.html#working-with-multiple-files",
+    "title": "Step 2. Introduction to Git",
+    "section": "6.4 Working with Multiple Files",
+    "text": "6.4 Working with Multiple Files\nAdd more project files:\n# Create data processing script\ntouch scripts/data_preprocessing.R\n\n# Create visualization script\ntouch scripts/create_maps.R\n\n# Add all new files\ngit add scripts/\n\n# Commit all changes\ngit commit -m \"Add data preprocessing and mapping scripts\"\n\n# Push to GitHub\ngit push origin main",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#viewing-and-understanding-changes",
-    "href": "git_github_guide.html#viewing-and-understanding-changes",
-    "title": "Step 2. Introduction to GIT",
-    "section": "5.5 Viewing and Understanding Changes",
-    "text": "5.5 Viewing and Understanding Changes\n# See what changed in your last commit\ngit show\n\n# Compare current files with last commit\ngit diff HEAD~1\n\n# See changes in a specific file\ngit diff scripts/temperature_analysis.R",
+    "objectID": "git_guide.html#viewing-and-understanding-changes",
+    "href": "git_guide.html#viewing-and-understanding-changes",
+    "title": "Step 2. Introduction to Git",
+    "section": "6.5 Viewing and Understanding Changes",
+    "text": "6.5 Viewing and Understanding Changes\n# See what changed in your last commit\ngit show\n\n# Compare current files with last commit\ngit diff HEAD~1\n\n# See changes in a specific file\ngit diff scripts/temperature_analysis.R\n\n\n\n\n\n\nNote\n\n\n\nWell done, now you have experience how Git and Version control work using a fictional project in R., now the rest of this guideline is optional, but there are several sections you could use it during this module. Keep an eye on the following sections where you will find useful information and key steps of working with reproducible research.",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#cloning-an-existing-repository",
-    "href": "git_github_guide.html#cloning-an-existing-repository",
-    "title": "Step 2. Introduction to GIT",
-    "section": "6.1 Cloning an Existing Repository",
-    "text": "6.1 Cloning an Existing Repository\nWhen joining a collaborative project:\n# Clone a repository\ngit clone https://github.com/username/repository-name.git\n\n# Navigate to the cloned directory\ncd repository-name",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#keeping-your-local-repository-updated",
-    "href": "git_github_guide.html#keeping-your-local-repository-updated",
-    "title": "Step 2. Introduction to GIT",
-    "section": "6.2 Keeping Your Local Repository Updated",
-    "text": "6.2 Keeping Your Local Repository Updated\n# Fetch latest changes from GitHub\ngit pull origin main\n\n# This is equivalent to:\ngit fetch origin main\ngit merge origin/main",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#best-practices-for-collaboration",
-    "href": "git_github_guide.html#best-practices-for-collaboration",
-    "title": "Step 2. Introduction to GIT",
-    "section": "6.3 Best Practices for Collaboration",
-    "text": "6.3 Best Practices for Collaboration\n\nAlways pull before starting work:\n\ngit pull origin main\n\nMake small, frequent commits:\n\ngit add specific_file.R\ngit commit -m \"Fix coordinate system transformation bug\"\n\nWrite clear commit messages:\n\n# Good commit messages\ngit commit -m \"Add buffer analysis for green spaces\"\ngit commit -m \"Fix projection error in temperature raster\"\ngit commit -m \"Update README with data sources\"\n\n# Poor commit messages (avoid these)\ngit commit -m \"stuff\"\ngit commit -m \"fixes\"\ngit commit -m \"work\"",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#working-with-large-data-files",
-    "href": "git_github_guide.html#working-with-large-data-files",
-    "title": "Step 2. Introduction to GIT",
-    "section": "7.1 Working with Large Data Files",
-    "text": "7.1 Working with Large Data Files\nSpatial data files can be very large. Use .gitignore to exclude them:\n# Add to .gitignore\necho \"*.tif\" &gt;&gt; .gitignore\necho \"*.shp\" &gt;&gt; .gitignore\necho \"*.nc\" &gt;&gt; .gitignore\necho \"data/raw/*\" &gt;&gt; .gitignore\n\n# Commit the updated .gitignore\ngit add .gitignore\ngit commit -m \"Update gitignore for large spatial data files\"",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#documenting-data-sources",
-    "href": "git_github_guide.html#documenting-data-sources",
-    "title": "Step 2. Introduction to GIT",
-    "section": "7.2 Documenting Data Sources",
-    "text": "7.2 Documenting Data Sources\nCreate a data documentation file:\ntouch docs/data_sources.md\nAdd comprehensive data documentation:\n# Data Sources\n\n## Landsat 8 Thermal Data\n- **Source**: USGS EarthExplorer\n- **Date**: 2023-07-15\n- **Scene ID**: LC08_L1TP_015033_20230715_20230725_02_T1\n- **Spatial Resolution**: 30m\n- **Bands Used**: Band 10 (Thermal Infrared)\n\n## City Boundary\n- **Source**: OpenStreetMap\n- **Downloaded**: 2023-08-01\n- **Format**: Shapefile\n- **Coordinate System**: WGS84 UTM Zone 33N\n\n## Weather Station Data\n- **Source**: Local Meteorological Service\n- **Period**: 2023-07-01 to 2023-07-31\n- **Variables**: Temperature, Humidity, Wind Speed\n- **Temporal Resolution**: Hourly",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#version-control-for-analysis-results",
-    "href": "git_github_guide.html#version-control-for-analysis-results",
-    "title": "Step 2. Introduction to GIT",
-    "section": "7.3 Version Control for Analysis Results",
-    "text": "7.3 Version Control for Analysis Results\nTrack your analysis outputs:\n# Create results summary\ntouch outputs/analysis_summary.md\n\n# Add and commit\ngit add outputs/analysis_summary.md\ngit commit -m \"Add initial analysis summary template\"",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#viewing-detailed-history",
-    "href": "git_github_guide.html#viewing-detailed-history",
-    "title": "Step 2. Introduction to GIT",
-    "section": "8.1 Viewing Detailed History",
-    "text": "8.1 Viewing Detailed History\n# View detailed log with file changes\ngit log --stat\n\n# View graphical representation\ngit log --graph --oneline --all\n\n# View commits by specific author\ngit log --author=\"Your Name\"\n\n# View commits in date range\ngit log --since=\"2023-08-01\" --until=\"2023-08-31\"",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#comparing-versions",
-    "href": "git_github_guide.html#comparing-versions",
-    "title": "Step 2. Introduction to GIT",
-    "section": "8.2 Comparing Versions",
-    "text": "8.2 Comparing Versions\n# Compare two commits\ngit diff commit1..commit2\n\n# Compare current version with specific commit\ngit diff HEAD~3\n\n# Compare specific files between commits\ngit diff HEAD~1 scripts/temperature_analysis.R",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#reverting-changes",
-    "href": "git_github_guide.html#reverting-changes",
-    "title": "Step 2. Introduction to GIT",
-    "section": "8.3 Reverting Changes",
-    "text": "8.3 Reverting Changes\n# Undo changes in working directory\ngit checkout -- filename.R\n\n# Undo last commit (keep changes)\ngit reset --soft HEAD~1\n\n# Undo last commit (discard changes)\ngit reset --hard HEAD~1\nWarning: Be careful with --hard reset as it permanently deletes changes!",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#using-issues-for-project-management",
-    "href": "git_github_guide.html#using-issues-for-project-management",
-    "title": "Step 2. Introduction to GIT",
-    "section": "9.1 Using Issues for Project Management",
-    "text": "9.1 Using Issues for Project Management\n\nGo to your GitHub repository\nClick “Issues” tab\nClick “New issue”\nCreate issues for different analysis tasks:\n\n“Download and process Landsat data”\n“Implement temperature calculation algorithm”\n“Create heat island visualization”",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#using-github-for-documentation",
-    "href": "git_github_guide.html#using-github-for-documentation",
-    "title": "Step 2. Introduction to GIT",
-    "section": "9.2 Using GitHub for Documentation",
-    "text": "9.2 Using GitHub for Documentation\nCreate comprehensive documentation:\n# Create documentation files\nmkdir docs\ntouch docs/methodology.md\ntouch docs/results.md\ntouch docs/conclusions.md",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#making-your-repository-citation-ready",
-    "href": "git_github_guide.html#making-your-repository-citation-ready",
-    "title": "Step 2. Introduction to GIT",
-    "section": "9.3 Making Your Repository Citation-Ready",
-    "text": "9.3 Making Your Repository Citation-Ready\nAdd citation information:\ntouch CITATION.cff\nAdd citation content:\ncff-version: 1.2.0\nmessage: \"If you use this software, please cite it as below.\"\nauthors:\n  - family-names: \"Your Last Name\"\n    given-names: \"Your First Name\"\n    orcid: \"https://orcid.org/0000-0000-0000-0000\"\ntitle: \"Urban Heat Island Analysis\"\nversion: 1.0.0\ndate-released: 2023-12-01\nurl: \"https://github.com/yourusername/urban_heat_island_analysis\"",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#creating-a-complete-reproducible-environment",
-    "href": "git_github_guide.html#creating-a-complete-reproducible-environment",
-    "title": "Step 2. Introduction to GIT",
-    "section": "10.1 Creating a Complete Reproducible Environment",
-    "text": "10.1 Creating a Complete Reproducible Environment\nDocument your R environment:\ntouch scripts/setup_environment.R\nAdd environment setup code:\n# Setup Environment for Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Install required packages\nrequired_packages &lt;- c(\n  \"sf\",           # Spatial data handling\n  \"terra\",        # Raster data processing\n  \"ggplot2\",      # Plotting\n  \"dplyr\",        # Data manipulation\n  \"leaflet\",      # Interactive maps\n  \"RColorBrewer\", # Color palettes\n  \"rmarkdown\"     # Report generation\n)\n\n# Install missing packages\nnew_packages &lt;- required_packages[!(required_packages %in% installed.packages()[,\"Package\"])]\nif(length(new_packages)) install.packages(new_packages)\n\n# Load all packages\nlapply(required_packages, library, character.only = TRUE)\n\n# Print session info for reproducibility\nsessionInfo()",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#creating-analysis-workflows",
-    "href": "git_github_guide.html#creating-analysis-workflows",
-    "title": "Step 2. Introduction to GIT",
-    "section": "10.2 Creating Analysis Workflows",
-    "text": "10.2 Creating Analysis Workflows\nDocument your complete workflow:\ntouch scripts/main_analysis.R\nAdd workflow documentation:\n# Main Analysis Workflow\n# Run this script to reproduce the complete analysis\n\n# Step 1: Setup environment\nsource(\"scripts/setup_environment.R\")\n\n# Step 2: Data preprocessing\nsource(\"scripts/data_preprocessing.R\")\n\n# Step 3: Temperature analysis\nsource(\"scripts/temperature_analysis.R\")\n\n# Step 4: Create visualizations\nsource(\"scripts/create_maps.R\")\n\n# Step 5: Generate report\n# rmarkdown::render(\"docs/final_report.Rmd\")\n\ncat(\"Analysis complete! Check the outputs/ folder for results.\\n\")",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#version-control-for-reproducibility",
-    "href": "git_github_guide.html#version-control-for-reproducibility",
-    "title": "Step 2. Introduction to GIT",
-    "section": "10.3 Version Control for Reproducibility",
-    "text": "10.3 Version Control for Reproducibility\n# Commit your reproducible workflow\ngit add scripts/setup_environment.R\ngit add scripts/main_analysis.R\ngit commit -m \"Add reproducible analysis workflow\n\n- Created environment setup script\n- Added main analysis workflow\n- Documented all required packages\n- Added session info for reproducibility\"\n\ngit push origin main",
-    "crumbs": [
-      "Home",
-      "Step 2. Introduction to GIT"
-    ]
-  },
-  {
-    "objectID": "git_github_guide.html#essential-commands",
-    "href": "git_github_guide.html#essential-commands",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#essential-commands",
+    "href": "git_guide.html#essential-commands",
+    "title": "Step 2. Introduction to Git",
     "section": "Essential Commands",
     "text": "Essential Commands\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit status\nCheck current status\ngit status\n\n\ngit add\nStage changes\ngit add filename.R\n\n\ngit commit\nSave changes\ngit commit -m \"message\"\n\n\ngit push\nUpload to GitHub\ngit push origin main\n\n\ngit pull\nDownload from GitHub\ngit pull origin main\n\n\ngit log\nView history\ngit log --oneline\n\n\ngit diff\nView changes\ngit diff filename.R",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#configuration-commands",
-    "href": "git_github_guide.html#configuration-commands",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#configuration-commands",
+    "href": "git_guide.html#configuration-commands",
+    "title": "Step 2. Introduction to Git",
     "section": "Configuration Commands",
     "text": "Configuration Commands\n\n\n\n\n\n\n\n\nCommand\nPurpose\nExample\n\n\n\n\ngit config --global user.name\nSet name\ngit config --global user.name \"John Doe\"\n\n\ngit config --global user.email\nSet email\ngit config --global user.email \"john@example.com\"\n\n\ngit remote add origin\nAdd remote\ngit remote add origin https://github.com/user/repo.git",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#issue-1-permission-denied-when-pushing",
-    "href": "git_github_guide.html#issue-1-permission-denied-when-pushing",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#cloning-an-existing-repository",
+    "href": "git_guide.html#cloning-an-existing-repository",
+    "title": "Step 2. Introduction to Git",
+    "section": "Cloning an Existing Repository",
+    "text": "Cloning an Existing Repository\nGitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their work, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.\n# Clone a repository you need to replicate locally\ngit clone https://github.com/username/repository-name.git\n\n# Navigate to the cloned directory\ncd repository-name",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#keeping-your-local-repository-updated",
+    "href": "git_guide.html#keeping-your-local-repository-updated",
+    "title": "Step 2. Introduction to Git",
+    "section": "Keeping Your Local Repository Updated",
+    "text": "Keeping Your Local Repository Updated\n# Fetch latest changes from GitHub\ngit pull origin main\n\n# This is equivalent to:\ngit fetch origin main\ngit merge origin/main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#best-practices-for-collaboration",
+    "href": "git_guide.html#best-practices-for-collaboration",
+    "title": "Step 2. Introduction to Git",
+    "section": "Best Practices for Collaboration",
+    "text": "Best Practices for Collaboration\n\nAlways pull before starting work:\n\ngit pull origin main\n\nMake small, frequent commits:\n\ngit add specific_file.R\ngit commit -m \"Fix coordinate system transformation bug\"\n\nWrite clear commit messages:\n\n# Good commit messages\ngit commit -m \"Add buffer analysis for green spaces\"\ngit commit -m \"Fix projection error in temperature raster\"\ngit commit -m \"Update README with data sources\"\n\n# Poor commit messages (avoid these)\ngit commit -m \"stuff\"\ngit commit -m \"fixes\"\ngit commit -m \"work\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#working-with-large-data-files",
+    "href": "git_guide.html#working-with-large-data-files",
+    "title": "Step 2. Introduction to Git",
+    "section": "Working with Large Data Files",
+    "text": "Working with Large Data Files\nSpatial data files can be very large. Use .gitignore to exclude them:\n# Add to .gitignore\necho \"*.tif\" &gt;&gt; .gitignore\necho \"*.shp\" &gt;&gt; .gitignore\necho \"*.nc\" &gt;&gt; .gitignore\necho \"data/raw/*\" &gt;&gt; .gitignore\n\n# Commit the updated .gitignore\ngit add .gitignore\ngit commit -m \"Update gitignore for large spatial data files\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#documenting-data-sources",
+    "href": "git_guide.html#documenting-data-sources",
+    "title": "Step 2. Introduction to Git",
+    "section": "Documenting Data Sources",
+    "text": "Documenting Data Sources\nCreate a data documentation file:\ntouch docs/data_sources.md\nAdd comprehensive data documentation:\n# Data Sources\n\n## Landsat 8 Thermal Data\n- **Source**: USGS EarthExplorer\n- **Date**: 2023-07-15\n- **Scene ID**: LC08_L1TP_015033_20230715_20230725_02_T1\n- **Spatial Resolution**: 30m\n- **Bands Used**: Band 10 (Thermal Infrared)\n\n## City Boundary\n- **Source**: OpenStreetMap\n- **Downloaded**: 2023-08-01\n- **Format**: Shapefile\n- **Coordinate System**: WGS84 UTM Zone 33N\n\n## Weather Station Data\n- **Source**: Local Meteorological Service\n- **Period**: 2023-07-01 to 2023-07-31\n- **Variables**: Temperature, Humidity, Wind Speed\n- **Temporal Resolution**: Hourly",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#version-control-for-analysis-results",
+    "href": "git_guide.html#version-control-for-analysis-results",
+    "title": "Step 2. Introduction to Git",
+    "section": "Version Control for Analysis Results",
+    "text": "Version Control for Analysis Results\nTrack your analysis outputs:\n# Create results summary\ntouch outputs/analysis_summary.md\n\n# Add and commit\ngit add outputs/analysis_summary.md\ngit commit -m \"Add initial analysis summary template\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#viewing-detailed-history",
+    "href": "git_guide.html#viewing-detailed-history",
+    "title": "Step 2. Introduction to Git",
+    "section": "Viewing Detailed History",
+    "text": "Viewing Detailed History\n# View detailed log with file changes\ngit log --stat\n\n# View graphical representation\ngit log --graph --oneline --all\n\n# View commits by specific author\ngit log --author=\"Your Name\"\n\n# View commits in date range\ngit log --since=\"2023-08-01\" --until=\"2023-08-31\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#comparing-versions",
+    "href": "git_guide.html#comparing-versions",
+    "title": "Step 2. Introduction to Git",
+    "section": "Comparing Versions",
+    "text": "Comparing Versions\n# Compare two commits\ngit diff commit1..commit2\n\n# Compare current version with specific commit\ngit diff HEAD~3\n\n# Compare specific files between commits\ngit diff HEAD~1 scripts/temperature_analysis.R",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#reverting-changes",
+    "href": "git_guide.html#reverting-changes",
+    "title": "Step 2. Introduction to Git",
+    "section": "Reverting Changes",
+    "text": "Reverting Changes\n# Undo changes in working directory\ngit checkout -- filename.R\n\n# Undo last commit (keep changes)\ngit reset --soft HEAD~1\n\n# Undo last commit (discard changes)\ngit reset --hard HEAD~1\nWarning: Be careful with --hard reset as it permanently deletes changes!",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#using-issues-for-project-management",
+    "href": "git_guide.html#using-issues-for-project-management",
+    "title": "Step 2. Introduction to Git",
+    "section": "Using Issues for Project Management",
+    "text": "Using Issues for Project Management\n\nGo to your GitHub repository\nClick “Issues” tab\nClick “New issue”\nCreate issues for different analysis tasks:\n\n“Download and process Landsat data”\n“Implement temperature calculation algorithm”\n“Create heat island visualization”",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#using-github-for-documentation",
+    "href": "git_guide.html#using-github-for-documentation",
+    "title": "Step 2. Introduction to Git",
+    "section": "Using GitHub for Documentation",
+    "text": "Using GitHub for Documentation\nCreate comprehensive documentation:\n# Create documentation files\nmkdir docs\ntouch docs/methodology.md\ntouch docs/results.md\ntouch docs/conclusions.md",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#making-your-repository-citation-ready",
+    "href": "git_guide.html#making-your-repository-citation-ready",
+    "title": "Step 2. Introduction to Git",
+    "section": "Making Your Repository Citation-Ready",
+    "text": "Making Your Repository Citation-Ready\nAdd citation information:\ntouch CITATION.cff\nAdd citation content:\ncff-version: 1.2.0\nmessage: \"If you use this software, please cite it as below.\"\nauthors:\n  - family-names: \"Your Last Name\"\n    given-names: \"Your First Name\"\n    orcid: \"https://orcid.org/0000-0000-0000-0000\"\ntitle: \"Urban Heat Island Analysis\"\nversion: 1.0.0\ndate-released: 2023-12-01\nurl: \"https://github.com/yourusername/urban_heat_island_analysis\"",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#creating-a-complete-reproducible-environment",
+    "href": "git_guide.html#creating-a-complete-reproducible-environment",
+    "title": "Step 2. Introduction to Git",
+    "section": "Creating a Complete Reproducible Environment",
+    "text": "Creating a Complete Reproducible Environment\nDocument your R environment:\ntouch scripts/setup_environment.R\nAdd environment setup code:\n# Setup Environment for Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Install required packages\nrequired_packages &lt;- c(\n  \"sf\",           # Spatial data handling\n  \"terra\",        # Raster data processing\n  \"ggplot2\",      # Plotting\n  \"dplyr\",        # Data manipulation\n  \"leaflet\",      # Interactive maps\n  \"RColorBrewer\", # Color palettes\n  \"rmarkdown\"     # Report generation\n)\n\n# Install missing packages\nnew_packages &lt;- required_packages[!(required_packages %in% installed.packages()[,\"Package\"])]\nif(length(new_packages)) install.packages(new_packages)\n\n# Load all packages\nlapply(required_packages, library, character.only = TRUE)\n\n# Print session info for reproducibility\nsessionInfo()",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#creating-analysis-workflows",
+    "href": "git_guide.html#creating-analysis-workflows",
+    "title": "Step 2. Introduction to Git",
+    "section": "Creating Analysis Workflows",
+    "text": "Creating Analysis Workflows\nDocument your complete workflow:\ntouch scripts/main_analysis.R\nAdd workflow documentation:\n# Main Analysis Workflow\n# Run this script to reproduce the complete analysis\n\n# Step 1: Setup environment\nsource(\"scripts/setup_environment.R\")\n\n# Step 2: Data preprocessing\nsource(\"scripts/data_preprocessing.R\")\n\n# Step 3: Temperature analysis\nsource(\"scripts/temperature_analysis.R\")\n\n# Step 4: Create visualizations\nsource(\"scripts/create_maps.R\")\n\n# Step 5: Generate report\n# rmarkdown::render(\"docs/final_report.Rmd\")\n\ncat(\"Analysis complete! Check the outputs/ folder for results.\\n\")\n\n\n## Version Control for Reproducibility\n\n``` bash\n# Commit your reproducible workflow\ngit add scripts/setup_environment.R\ngit add scripts/main_analysis.R\ngit commit -m \"Add reproducible analysis workflow\n\n- Created environment setup script\n- Added main analysis workflow\n- Documented all required packages\n- Added session info for reproducibility\"\n\ngit push origin main",
+    "crumbs": [
+      "Home",
+      "Step 2. Introduction to Git"
+    ]
+  },
+  {
+    "objectID": "git_guide.html#issue-1-permission-denied-when-pushing",
+    "href": "git_guide.html#issue-1-permission-denied-when-pushing",
+    "title": "Step 2. Introduction to Git",
     "section": "Issue 1: “Permission denied” when pushing",
     "text": "Issue 1: “Permission denied” when pushing\nSolution: Check your GitHub authentication\n# For HTTPS (recommended)\ngit remote set-url origin https://github.com/username/repository.git\n\n# Enter your GitHub username and personal access token when prompted",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#issue-2-your-branch-is-behind-message",
-    "href": "git_github_guide.html#issue-2-your-branch-is-behind-message",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#issue-2-your-branch-is-behind-message",
+    "href": "git_guide.html#issue-2-your-branch-is-behind-message",
+    "title": "Step 2. Introduction to Git",
     "section": "Issue 2: “Your branch is behind” message",
     "text": "Issue 2: “Your branch is behind” message\nSolution: Pull the latest changes first\ngit pull origin main\n# Then push your changes\ngit push origin main",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#issue-3-accidentally-committed-large-files",
-    "href": "git_github_guide.html#issue-3-accidentally-committed-large-files",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#issue-3-accidentally-committed-large-files",
+    "href": "git_guide.html#issue-3-accidentally-committed-large-files",
+    "title": "Step 2. Introduction to Git",
     "section": "Issue 3: Accidentally committed large files",
     "text": "Issue 3: Accidentally committed large files\nSolution: Remove from tracking\n# Remove file from git but keep local copy\ngit rm --cached large_file.tif\n\n# Add to .gitignore\necho \"large_file.tif\" &gt;&gt; .gitignore\n\n# Commit the changes\ngit add .gitignore\ngit commit -m \"Remove large file from tracking\"",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#issue-4-want-to-undo-the-last-commit",
-    "href": "git_github_guide.html#issue-4-want-to-undo-the-last-commit",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#issue-4-want-to-undo-the-last-commit",
+    "href": "git_guide.html#issue-4-want-to-undo-the-last-commit",
+    "title": "Step 2. Introduction to Git",
     "section": "Issue 4: Want to undo the last commit",
     "text": "Issue 4: Want to undo the last commit\nSolution: Use reset\n# Keep changes but undo commit\ngit reset --soft HEAD~1\n\n# Discard changes and undo commit (be careful!)\ngit reset --hard HEAD~1",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#official-documentation",
-    "href": "git_github_guide.html#official-documentation",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#official-documentation",
+    "href": "git_guide.html#official-documentation",
+    "title": "Step 2. Introduction to Git",
     "section": "Official Documentation",
     "text": "Official Documentation\n\nGit Documentation\nGitHub Guides",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#spatial-data-science-with-git",
-    "href": "git_github_guide.html#spatial-data-science-with-git",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#spatial-data-science-with-git",
+    "href": "git_guide.html#spatial-data-science-with-git",
+    "title": "Step 2. Introduction to Git",
     "section": "Spatial Data Science with Git",
     "text": "Spatial Data Science with Git\n\nHappy Git and GitHub for the useR\nVersion Control for Scientific Research",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#academic-resources",
-    "href": "git_github_guide.html#academic-resources",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#academic-resources",
+    "href": "git_guide.html#academic-resources",
+    "title": "Step 2. Introduction to Git",
     "section": "Academic Resources",
     "text": "Academic Resources\n\nSoftware Carpentry Git Lesson\nPro Git Book (free online)\n\n\nThis guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
-    "objectID": "git_github_guide.html#footnotes",
-    "href": "git_github_guide.html#footnotes",
-    "title": "Step 2. Introduction to GIT",
+    "objectID": "git_guide.html#footnotes",
+    "href": "git_guide.html#footnotes",
+    "title": "Step 2. Introduction to Git",
     "section": "",
     "text": "https://www.geeksforgeeks.org/what-is-github-and-how-to-use-it/↩︎\nhttps://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F↩︎",
     "crumbs": [
       "Home",
-      "Step 2. Introduction to GIT"
+      "Step 2. Introduction to Git"
     ]
   },
   {
