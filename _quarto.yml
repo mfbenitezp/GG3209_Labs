@@ -24,7 +24,7 @@ book:
     - index.qmd
     - intro.qmd
     - gg3209_install_guide.qmd
-    - git_guide.qmd
+    - git_github_guide.qmd
     - Lab_1.qmd
     - Lab_1/Lab_1.qmd
     - Lab_2.qmd
