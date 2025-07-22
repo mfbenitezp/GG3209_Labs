@@ -378,7 +378,7 @@
     "href": "git_guide.html#cloning-an-existing-repository",
     "title": "Step 2. Introduction to Git",
     "section": "Cloning an Existing Repository",
-    "text": "Cloning an Existing Repository\nGitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their works, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.\n# Clone a repository you need to replicate locally\ngit clone https://github.com/username/repository-name.git\n\n# Navigate to the cloned directory\ncd repository-name",
+    "text": "Cloning an Existing Repository\nGitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their work, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.\n# Clone a repository you need to replicate locally\ngit clone https://github.com/username/repository-name.git\n\n# Navigate to the cloned directory\ncd repository-name",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"

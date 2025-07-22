@@ -453,7 +453,7 @@ Remember the idea of this exercise is that you practice how to keep both local a
 
 3.  Click in the green button **Commit Changes**
 
-    Now your Cloud Repo is ahead of your Local Repo, therefore you need to sync it with your Local Repo so both versions are the same again.
+Now your **Cloud Repo** is ahead of your **Local Repo**, therefore you need to sync it with your Local Repo so both versions are the same again.
 
 4.  In the same terminal/command Prompt window where you did the last `push` now run `git pull`
 
@@ -637,7 +637,7 @@ Move to **Lab No 1.**
 ## Configuration Commands
 
 | Command | Purpose | Example |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `git config --global user.name` | Set name | `git config --global user.name "John Doe"` |
 | `git config --global user.email` | Set email | `git config --global user.email "john@example.com"` |
 | `git remote add origin` | Add remote | `git remote add origin https://github.com/user/repo.git` |
@@ -646,7 +646,7 @@ Move to **Lab No 1.**
 
 ## Cloning an Existing Repository
 
-GitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their works, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.
+GitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their work, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.
 
 ``` bash
 # Clone a repository you need to replicate locally
