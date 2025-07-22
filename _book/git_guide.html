@@ -844,19 +844,31 @@ Warning
 </div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open the <code>.gitignore</code> file and add common files to ignore, you could add more data extensions later, or you could also add entire folders.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>If you are trying to open the <code>.gitignore</code> file and you can’t find it in the created folder. This is because by default, operating systems hide files that start with <code>a dot (.)</code> to prevent accidental modification of system files. But how to make these files visible?</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to make them visible?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <section id="windows-users" class="level4">
 <h4 class="anchored" data-anchor-id="windows-users">Windows Users</h4>
 <section id="method-1-using-file-explorer-recommended" class="level5">
@@ -931,8 +943,13 @@ Tip
 <li><strong>Windows</strong>: Right-click → “Open with” → Choose a text editor (Notepad, RStudio, etc.)</li>
 <li><strong>macOS</strong>: Right-click → “Open with” → Choose a text editor (TextEdit, RStudio, etc.)</li>
 </ul></li>
-<li>Include the following lines and save the changes.</li>
 </ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+<p>Include the following lines and save the changes.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R files</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.Rproj.user</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">.Rhistory</span></span>
@@ -969,8 +986,6 @@ Tip
 <span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="ex">__pycache__/</span></span>
 <span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="ex">*.py[codz]</span></span>
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span><span class="va">$py</span><span class="ex">.class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
 </section>
 </section>
 <section id="your-first-commit" class="level2">
@@ -1046,7 +1061,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Note</strong>: Have you noticed, why all the folders you have created initially in the Local Repo are not included in the Cloud Repo? Can you describe why that is happening?</p>
+<p>Have you noticed, why all the folders you have created initially in the Local Repo are not included in the Cloud Repo? Can you describe why that is happening?</p>
 </div>
 </div>
 </section>
@@ -1195,23 +1210,6 @@ Caution
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See changes in a specific file</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff scripts/temperature_analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Well done, now you have experience how <strong>Git</strong> and <strong>Version control</strong> work using a fictional project in R., now the rest of this guideline is optional, but there are several sections you could use it during this module. <u>Keep an eye on the following sections where you will find useful information and key steps of working with reproducible research.</u></p>
-</div>
-</div>
-</section>
-</section>
-<section id="step-7-next-steps" class="level1">
-<h1>Step 7: Next Steps</h1>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1222,8 +1220,25 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At this point you should have a python environment installed (<code>gg3209</code>), git installed, a github account created, and a pilot repository (locally and in the cloud) where you have practiced the most common commands in <strong>Git</strong>. Now <strong>you are ready to start practicing some Python</strong>, Jupyter notebook and explore the most famous Python libraries for Spatial Data Science.</p>
-<p>Move to <strong>Lab No 1.</strong></p>
+<p>Well done, now you have experience how <strong>Git</strong> and <strong>Version control</strong> work using a fictional project in R., now the rest of this guideline is optional, but there are several sections you could use it during this module. <u>Keep an eye on the following sections where you will find useful information and key steps of working with reproducible research.</u></p>
+</div>
+</div>
+</section>
+</section>
+<section id="step-7-next-steps" class="level1">
+<h1>Step 7: Next Steps</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At this point you should have a <strong>python environment</strong> installed (<code>gg3209</code>), <strong>git</strong> installed, a <strong>github account</strong> created, and a <strong>pilot repository</strong> (locally and in the cloud) where you have practiced the most common commands in <strong>Git</strong>. Now <u>you are ready to start practicing some Python</u>, Jupyter notebook and explore the most famous Python libraries for Spatial Data Science.</p>
+<p>Start now with the <strong>Lab No 1.</strong></p>
 </div>
 </div>
 <hr>
