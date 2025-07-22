@@ -42,7 +42,7 @@ format:
       dark:
         - theme-dark.scss
   pdf:
-    documentclass: scrreprt
+    documentclass: scrbook
 
 
 editor: visual

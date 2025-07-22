@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-07-21">
+<meta name="dcterms.date" content="2025-07-22">
 
 <title>Step 2. Introduction to Git – GG3209 - Spatial Analysis with GIS</title>
 <style>
@@ -543,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 21, 2025</p>
+      <p class="date">July 22, 2025</p>
     </div>
   </div>
   
@@ -555,7 +555,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Estimated time to install:</strong> [<strong>40 minutes</strong>]</p>
+<p><strong>Estimated time to install: 40 minutes</strong></p>
 <section id="what-is-version-control" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-version-control">What is Version Control?</h2>
 <p>Version control is a system that records changes to files over time so that you can recall specific versions later. Think of it as a detailed history of your project that allows you to:</p>
@@ -704,8 +704,18 @@ gitGraph TB:
 </section>
 <section id="configure-your-profile" class="level2">
 <h2 class="anchored" data-anchor-id="configure-your-profile">1.2 Configure Your Profile</h2>
-<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>There is a chance you won’t open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.</p>
+</div>
 </div>
 <ol type="1">
 <li>Add a profile picture</li>
@@ -827,13 +837,35 @@ gitGraph TB:
 <section id="create-a-.gitignore-file" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-.gitignore-file">Create a .gitignore file:</h3>
 <div>
-<div style="border-left: 4px solid #FF0000; padding: 10px; background-color: #ffe6e6;">
-<p><strong>Warning:</strong> This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you <code>push</code> the files to the cloud.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you <code>push</code> the files to the cloud.</p>
+</div>
 </div>
 </div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open the <code>.gitignore</code> file and add common files to ignore, you could add more data extensions later, or you could also add entire folders.</p>
-<p>If you are trying to open the <code>.gitignore</code> file and you can’t find it in the created folder. This is because by default, operating systems hide files that start with a dot (.) to prevent accidental modification of system files. But how to make these files visible?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are trying to open the <code>.gitignore</code> file and you can’t find it in the created folder. This is because by default, operating systems hide files that start with <code>a dot (.)</code> to prevent accidental modification of system files. But how to make these files visible?</p>
+</div>
+</div>
 </section>
 </section>
 <section id="windows-users" class="level2">
@@ -1011,8 +1043,18 @@ gitGraph TB:
 <li><p>In the same terminal/command Prompt window where you did the last <code>push</code> now run <code>git pull</code></p></li>
 <li><p>You will see how the Local Repo fetch all the changes from the Cloud Repo and now you have a new file in your Folder <code>urban_heat_island_analysis</code></p></li>
 </ol>
-<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Note</strong>: Have you noticed, why all the folders you have created initially in the Local Repo are not included in the Cloud Repo? Can you describe why that is happening?</p>
+</div>
 </div>
 </section>
 <section id="step-6-essential-git-commands-for-daily-use" class="level1">
@@ -1038,9 +1080,19 @@ gitGraph TB:
 </div>
 </div>
 </div>
-<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>It is a bit complicated to understand what is underneath all this commands, so the following sequence-diagram represents how information, in particular how the modifications of your files moves around the version control system, thus it is easier for you to understand why do we need to run several commands when we use <strong>git</strong>.</p>
 <p>Initially you have three folders. One is called <strong>Your Folder</strong> (this is where all your project are located, eg. Lab No 1, GG3209, etc), then you have a <strong>Local repo</strong> (a hidden folder that include all the components of version control or git) and finally the <strong>Cloud Repo</strong>, which is a folder located in the Cloud (e.g GitHub). The goal is to make sure we have all our editions sync and safe in the Cloud, so if eventually our computers breaks, we have a safe and updated copy of our project stored in the Cloud.</p>
+</div>
 </div>
 <p>This is how a traditional workflow looks like when you work with Git and GitHub, study the steps and make sure you understand what the role of each command is. I expect you to work using these commands during the labs of this module.</p>
 <div class="cell" data-layout-align="default">
@@ -1150,16 +1202,36 @@ gitGraph TB:
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See changes in a specific file</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff scripts/temperature_analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Well done, now you have experience how <strong>Git</strong> and <strong>Version control</strong> work using a fictional project in R., now the rest of this guideline is optional, but there are several sections you could use it during this module. <u>Keep an eye on the following sections where you will find useful information and key steps of working with reproducible research.</u></p>
+</div>
 </div>
 </section>
 </section>
 <section id="step-7-next-steps" class="level1">
 <h1>Step 7: Next Steps</h1>
-<div style="border-left: 4px solid #007BFF; padding: 10px; background-color: #f0f8ff;">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>At this point you should have a python environment installed (<code>gg3209</code>), git installed, a github account created, and a pilot repository (locally and in the cloud) where you have practiced the most common commands in <strong>Git</strong>. Now <strong>you are ready to start practicing some Python</strong>, Jupyter notebook and explore the most famous Python libraries for Spatial Data Science.</p>
 <p>Move to <strong>Lab No 1.</strong></p>
+</div>
 </div>
 <hr>
 </section>
