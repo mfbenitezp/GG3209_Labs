@@ -302,9 +302,9 @@ Open the `.gitignore` file and add common files to ignore, you could add more da
 If you are trying to open the `.gitignore` file and you can't find it in the created folder. This is because by default, operating systems hide files that start with `a dot (.)` to prevent accidental modification of system files. But how to make these files visible?
 :::
 
-## Windows Users
+#### Windows Users
 
-### Method 1: Using File Explorer (Recommended)
+##### Method 1: Using File Explorer (Recommended)
 
 1.  **Open File Explorer**
     -   Press `Windows + E` on your keyboard, or
@@ -318,7 +318,7 @@ If you are trying to open the `.gitignore` file and you can't find it in the cre
     -   Check the box next to **Hidden items**
     -   Your `.gitignore` file should now be visible (it may appear slightly faded)
 
-### Method 2: Using Folder Options (Alternative)
+##### Method 2: Using Folder Options (Alternative)
 
 1.  **Open File Explorer** and navigate to your project folder
 
@@ -334,9 +334,9 @@ If you are trying to open the `.gitignore` file and you can't find it in the cre
     -   Select **Show hidden files, folders, and drives**
     -   Click **OK**
 
-## macOS Users
+#### macOS Users
 
-### Using Finder (Recommended)
+##### Using Finder (Recommended)
 
 1.  **Open Finder**
     -   Click the Finder icon in your dock, or
@@ -539,10 +539,10 @@ Add some content to `scripts/soil_analysis.R`:
 # GG3209 - Spatial Data Science
 
 # Load required packages
-library(sf)
-library(terra)
-library(ggplot2)
-library(dplyr)
+# library(sf)
+# library(terra)
+# library(ggplot2)
+# library(dplyr)
 
 # Read soil data
 # soil_data <- rast("data/raw/landsat_land_use.tif")

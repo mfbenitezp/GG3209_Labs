@@ -11,8 +11,14 @@ jobs:
     permissions:
       contents: write
     steps:
+
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Clear Quarto cache
+        run: |
+            rm -rf _freeze/
+            rm -rf .quarto/
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
