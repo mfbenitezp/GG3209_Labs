@@ -301,7 +301,7 @@
     "href": "git_guide.html#adding-and-committing-changes",
     "title": "Step 2. Introduction to Git",
     "section": "6.3 Adding and Committing Changes",
-    "text": "6.3 Adding and Committing Changes\nLet’s add a spatial analysis script:\n# Create new R script\ntouch scripts/soil_analysis.R\nAdd some content to scripts/soil_analysis.R:\n# Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Load required packages\n# library(sf)\n# library(terra)\n# library(ggplot2)\n# library(dplyr)\n\n# Read soil data\n# soil_data &lt;- rast(\"data/raw/landsat_land_use.tif\")\n\n# Read city boundary\n# city_boundary &lt;- st_read(\"data/raw/city_boundary.shp\")\n\n# TODO: Add soil extraction analysis\n# TODO: Add spatial interpolation\n# TODO: Create soil maps\nNow commit these changes:\n# Add the new script\ngit add scripts/temperature_analysis.R\n\n# Commit with descriptive message\ngit commit -m \"Add initial soil analysis script\n\n- Set up basic structure for soil analysis\n- Added required package imports\n- Created placeholders for main analysis steps\"\n\n# Push to GitHub\ngit push origin main",
+    "text": "6.3 Adding and Committing Changes\nLet’s add a spatial analysis script:\n# Create new R script\ntouch scripts/soil_analysis.R\nAdd some content to scripts/soil_analysis.R:\n# Urban Heat Island Analysis\n# GG3209 - Spatial Data Science\n\n# Load required packages\n# library(sf)\n# library(terra)\n# library(ggplot2)\n# library(dplyr)\n\n# Read soil data\n# soil_data &lt;- rast(\"data/raw/landsat_land_use.tif\")\n\n# Read city boundary\n# city_boundary &lt;- st_read(\"data/raw/city_boundary.shp\")\n\n# TODO: Add soil extraction analysis\n# TODO: Add spatial interpolation\n# TODO: Create soil maps\nNow commit these changes:\n# Add the new script\ngit add scripts/soil_analysis.R\n\n# Commit with descriptive message\ngit commit -m \"Add initial soil analysis script\n\n- Set up basic structure for soil analysis\n- Added required package imports\n- Created placeholders for main analysis steps\"\n\n# Push to GitHub\ngit push origin main",
     "crumbs": [
       "Home",
       "Step 2. Introduction to Git"
@@ -932,6 +932,102 @@
     "crumbs": [
       "Home",
       "Lab No 3: Python Basics - Part 2"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html",
+    "href": "assignments/lab_1_installation.html",
+    "title": "Lab 1: Installation Assignment",
+    "section": "",
+    "text": "Step 1: Check Your Installation\nThis is your first lab assignment and it correspond to the Lab No 1 in this part of the course. The idea is that we check that everything was installed correctly and you can create your first Jupyter notebook. There are several key steps so read carefully and follow the instructions.\nThis Lab Assignment will include a GitHub Classroom where you will automatically assigned a repository where you need to upload the outcomes of this assignment. This is an individual assignment and each student will have to generate their repository, and then push the requested files. The assignment will be automatically graded and I will review those grades to provide tufter feedback in Moodle.\nEstimated time: 30-45 minutes",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#step-1-check-your-installation",
+    "href": "assignments/lab_1_installation.html#step-1-check-your-installation",
+    "title": "Lab 1: Installation Assignment",
+    "section": "",
+    "text": "1.1 Open Your Terminal/Command Prompt\n\nWindows: Search for “Anaconda Prompt” or “Command Prompt”\nMac: Open “Terminal”\nLinux: Open your terminal application\n\n\n\n1.2 Test These Commands\nType all these commands one after another, then take ONE screenshot of all the results:\n# Check that conda is installed\nconda --version\n\n# To see your environments (you should see gg3209 in the list)\nconda env list\n\n# Activate your environment\nconda activate gg3209\n\n# Check Python is working\npython --version\nScreenshot 1: Take a full screen screenshot showing: - Your desktop/taskbar with date and time visible - The terminal window with all command results - Save this as screenshot_1_installation_check.png\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you name this screenshot exactly as is described. There are automatic tests then will use this name.\n\n\n💡 Tip: Make sure your computer’s date/time is visible in the screenshot (usually in the taskbar/menu bar)",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#step-2-create-your-first-jupyter-notebook",
+    "href": "assignments/lab_1_installation.html#step-2-create-your-first-jupyter-notebook",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Step 2: Create Your First Jupyter Notebook",
+    "text": "Step 2: Create Your First Jupyter Notebook\n\n2.1 Start Jupyter\nIn your terminal (with gg3209 environment activated), type:\njupyter lab\nThis should open a web browser with Jupyter. Take a full screen screenshot showing the Jupyter homepage with your desktop/taskbar (including date/time) visible.\nScreenshot 2: Save this as screenshot_2_jupyter_home.png\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you name this screenshot exactly as is described. There are automatic tests then will use this name.\n\n\n\n\n2.2 Create a New Notebook\n\nClick “New” → “Python 3” to create a new notebook\nSave it as my_first_notebook.ipynb (File → Save As)\n\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you name this notebook exactly as is described. There are automatic tests then will use this name.\n\n\n\n\n2.3 Add Content to Your Notebook\nCell 1 - Add the first Cell and change it to “Markdown” (dropdown menu), then type:\n# My First GG3209 Notebook\n\n**StudentCode:** [Write your Student Code]  \n**Date:** [date when you are working on this]  \n**Course:** GG3209 - Part 2\nCell 2 - Add a new cell (click + button), keep it as “Code”, and type:\nimport datetime\nimport platform\nimport os\n\nprint(\"=\" * 50)\nprint(\"INSTALLATION VERIFICATION\")\nprint(\"=\" * 50)\nprint(f\"Date and Time: {datetime.datetime.now()}\")\nprint(f\"Student working on: {platform.system()} {platform.release()}\")\nprint(f\"Computer name: {platform.node()}\")\nprint(f\"Python location: {os.path.dirname(os.__file__)}\")\nprint(\"=\" * 50)\n\nprint(\"Hello, Spatial Data Science!\")\nprint(\"Testing my Python installation...\")\n\nimport pandas as pd\nimport numpy as np\n\nprint(f\"✅ Pandas version: {pd.__version__}\")\nprint(f\"✅ NumPy version: {np.__version__}\")\nprint(\"✅ Basic libraries are working!\")\nCell 3 - Add another code cell:\nimport matplotlib.pyplot as plt\n\n# Create a simple plot\nx = [1, 2, 3, 4, 5]\ny = [2, 4, 1, 5, 3]\n\nplt.figure(figsize=(8, 5))\nplt.plot(x, y, 'bo-', linewidth=2, markersize=8)\nplt.title(\"My First Plot!\", fontsize=16)\nplt.xlabel(\"X values\")\nplt.ylabel(\"Y values\")\nplt.grid(True, alpha=0.3)\nplt.show()\n\nprint(\"✅ Plotting is working!\")\nCell 4 - Add another code cell:\ntry:\n    import geopandas as gpd\n    print(f\"✅ GeoPandas version: {gpd.__version__}\")\n    print(\"✅ Spatial data tools are ready!\")\nexcept ImportError:\n    print(\"❌ GeoPandas not found - please check your installation\")\n\ntry:\n    import folium\n    print(f\"✅ Folium version: {folium.__version__}\")\n    print(\"✅ Interactive maps are ready!\")\nexcept ImportError:\n    print(\"❌ Folium not found - please check your installation\")\n\n\n2.4 Run Your Notebook\n\nClick on each cell and press Shift + Enter to run it\nMake sure all cells run without errors\nTake a full screen screenshot of your completed notebook showing your desktop/taskbar with date and time Screenshot 3: Save this as screenshot_3_notebook_complete.png",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#step-3-export-as-pdf-important",
+    "href": "assignments/lab_1_installation.html#step-3-export-as-pdf-important",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Step 3: Export as PDF (Important!)",
+    "text": "Step 3: Export as PDF (Important!)\nThis is a crucial step - It is important you can export your work as PDF.\n\nWith the Jupyter Lab open and your my_first_notebook.ipynb already complete.\nGo to File → Save and Export Notebook As → Webpdf\nIf that doesn’t work, try File → Save and Export Notebook As → PDF\nSave and Export Notebook As → HTML and then using your browser’s print function to create a PDF file.\n\n🚨 Important: You MUST submit a PDF version.\n\nClose Jupyter Lab. In the terminal press Control-C twice to stop it.",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#step-4-get-your-github-repository",
+    "href": "assignments/lab_1_installation.html#step-4-get-your-github-repository",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Step 4: Get Your GitHub Repository",
+    "text": "Step 4: Get Your GitHub Repository\n\n4.1 Accept the Assignment (Using GitHub Classroom)\n\nClick on the assignment link: [Assignment Link]\nThis will automatically create a repository for you named lab-1-installation-student_GH_account\nGitHub will create your personal copy - wait for it to finish setting up\n\n\n\n\n4.2 Clone and Work with Your Repository\n\nClick the green “Code” button and copy the repository URL.\nIf you have windows machine make sure you copy the HTTPS link,\n\nbut if you have MacOS machine, copy the SSH link.\n\nOpen terminal/command prompt and navigate to where you want to save your work (e.g Documents)\nRun this command including the link you have just copied: git clone [paste-your-repository-url]\nIt ill take some seconds to clone locally the repository. Navigate into your repository using cd and the folder that has been created. (e.g cd lab-1-installation-mfbenitezp )\n\n\n\n4.3 Add Your Files\nCopy all the screenshots you have generated, your jupyter notebook (the file with extension .ipynb) and the PDF file into your repository folder:\n- my_first_notebook.ipynb\n- my_first_notebook.pdf\n- All your screenshots",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#step-5-submit-your-work",
+    "href": "assignments/lab_1_installation.html#step-5-submit-your-work",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Step 5: Submit Your Work",
+    "text": "Step 5: Submit Your Work\n\nWhat to Check Before Submitting\nYour Local repository should have:\n- [ ] my_first_notebook.ipynb your Jupyter notebook\n- [ ] my_first_notebook.pdf a PDF version of your notebook\n- [ ] 3 screenshots showing your work (all full screen with date/time visible)\nIn the same terminal where you have launched Jupyter or in a new terminal (but make sure you are in the folder of the repository you have cloned).\nRun the following commands to submit your work for this part of the Lab No1 and the requirements of this assignment.\n# Add all files\ngit add .\n\n# Commit with a message\ngit commit -m \"Ready to Grade\"\n\n# Push to GitHub\ngit push\nAutomatic Validation: Once you push, GitHub will automatically check:\n\nAll required files are present\nNotebook runs without errors (it will make sure your Notebook execute correctly and in your machine)\nPDF export was successful\nScreenshots show proper installation\n\nYou’ll see a green checkmark ✅ or red X ❌ next to your commit showing if validation passed!",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#getting-help",
+    "href": "assignments/lab_1_installation.html#getting-help",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Getting Help",
+    "text": "Getting Help\n\nIf Something Doesn’t Work:\n\nDon’t panic! This is normal when learning new tools\nTake a screenshot of any error messages\nAsk for help in the course Teams Channel or make an appointment during my office hours.\nInclude the error screenshot in your repository\n\n\n\nCommon Issues:\n\nConda not found: Make sure you installed Miniconda correctly\nEnvironment not found: Double-check the environment name is gg3209\nPDF export fails: Try the browser print method, or just submit screenshots\nLibraries missing: Make sure you’re in the right environment (conda activate gg3209)",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
+    ]
+  },
+  {
+    "objectID": "assignments/lab_1_installation.html#well-done",
+    "href": "assignments/lab_1_installation.html#well-done",
+    "title": "Lab 1: Installation Assignment",
+    "section": "Well Done",
+    "text": "Well Done\nYou’ve completed your first part of the lab 1, now move to the next assignment. For now you can:\n- Use conda environments\n- Create and run Jupyter notebooks\n- Export notebooks as PDF\n- Upload files to GitHub\n\nThis guide was created for the GG3209 Spatial Analysis with GIS students at SGSD University of St Andrews. For questions or suggestions, please create an issue in this book repository. 2025",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "Lab 1: Installation Assignment"
     ]
   },
   {
