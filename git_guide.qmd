@@ -564,7 +564,7 @@ Now commit these changes:
 
 ``` bash
 # Add the new script
-git add scripts/temperature_analysis.R
+git add scripts/soil_analysis.R
 
 # Commit with descriptive message
 git commit -m "Add initial soil analysis script

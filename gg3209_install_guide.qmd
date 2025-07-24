@@ -4,7 +4,7 @@ This guide provides step-by-step instructions for setting up the Python environm
 
 **Estimated time to install:** [**20 to 30 minutes**.]{.underline}
 
-::: {.callout-warning}
+::: callout-warning
 Make sure you have an stable internet connection. If you are using **eduroam** at the university, you might experience delays or issues when the internet connection isn't stable, if that is the case make sure you have a stable connection at home to complete this process properly.
 :::
 
@@ -103,7 +103,7 @@ Save the environment configuration as `environment.yml` in a folder of your choi
 
 -   **Alternative**: Search for "Command Prompt" in Start Menu
 
--   ::: {.callout-important}
+-   ::: callout-important
     Use Command Prompt, NOT PowerShell or other terminals
     :::
 
@@ -113,7 +113,7 @@ Save the environment configuration as `environment.yml` in a folder of your choi
 
 -   **Alternative**: Go to Applications \> Utilities \> Terminal
 
--   ::: {.callout-important}
+-   ::: callout-important
     Use Terminal, NOT other command line apps
     :::
 
@@ -346,7 +346,7 @@ Once your environment is set up:
 5.  **Now you are all set to start with Lab No 1, Lab No 2...and so on**
 6.  **Make sure you push your changes, updates and work regularly to your Repo in GitHub.**
 
-::: {.callout-note}
+::: callout-note
 Your python environment for this course `GG3209` is now ready. Now you need to install GIT and create a GitHub account to have everything you need to practice all your Python skills., there are some steps you need to recall while you work on this course, but with practice you will eventually memorise most of the critial steps.
 
 Move to Step No 2.
