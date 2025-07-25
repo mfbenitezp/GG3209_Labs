@@ -36,7 +36,13 @@ conda activate gg3209
 python --version
 ```
 
-**Screenshot 1**: Take a **full screen screenshot** showing: - Your desktop/taskbar with **date and time visible** - The terminal window with all command results - Save this as `screenshot_1_installation_check.png`
+**Screenshot 1**: Take a **full screen screenshot** showing:
+
+-   Your desktop/taskbar with **date and time visible**
+
+-   The terminal window with all command results
+
+-   Save this as `screenshot_1_installation_check.png`
 
 ::: callout-important
 Make sure you name this screenshot exactly as is described. There are automatic tests then will use this name.
@@ -80,7 +86,7 @@ Make sure you name this notebook exactly as is described. There are automatic te
 ``` markdown
 # My First GG3209 Notebook
 
-**StudentCode:** [Write your Student Code]  
+**StudentCode:** [Write your Student Code]
 **Date:** [date when you are working on this]  
 **Course:** GG3209 - Part 2
 ```
@@ -101,15 +107,15 @@ print(f"Computer name: {platform.node()}")
 print(f"Python location: {os.path.dirname(os.__file__)}")
 print("=" * 50)
 
-print("Hello, Spatial Data Science!")
+print("Hello, GG3209!")
 print("Testing my Python installation...")
 
 import pandas as pd
 import numpy as np
 
-print(f"✅ Pandas version: {pd.__version__}")
-print(f"✅ NumPy version: {np.__version__}")
-print("✅ Basic libraries are working!")
+print(f" Pandas version: {pd.__version__}")
+print(f" NumPy version: {np.__version__}")
+print("[✓] Basic libraries are working!")
 ```
 
 **Cell 3** - Add another **code** cell:
@@ -129,7 +135,7 @@ plt.ylabel("Y values")
 plt.grid(True, alpha=0.3)
 plt.show()
 
-print("✅ Plotting is working!")
+print("[✓] Plotting is working!")
 ```
 
 **Cell 4** - Add another **code** cell:
@@ -137,17 +143,17 @@ print("✅ Plotting is working!")
 ``` python
 try:
     import geopandas as gpd
-    print(f"✅ GeoPandas version: {gpd.__version__}")
-    print("✅ Spatial data tools are ready!")
+    print(f"[✓]GeoPandas version: {gpd.__version__}")
+    print("[✓]Spatial data tools are ready!")
 except ImportError:
-    print("❌ GeoPandas not found - please check your installation")
+    print("[✕] GeoPandas not found - please check your installation")
 
 try:
     import folium
-    print(f"✅ Folium version: {folium.__version__}")
-    print("✅ Interactive maps are ready!")
+    print(f" [✓]Folium version: {folium.__version__}")
+    print(" [✓]Interactive maps are ready!")
 except ImportError:
-    print("❌ Folium not found - please check your installation")
+    print(" [✕] Folium not found - please check your installation")
 ```
 
 ### 2.4 Run Your Notebook
@@ -224,7 +230,7 @@ Your Local repository should have:
 \- \[ \] `my_first_notebook.pdf` a PDF version of your notebook\
 - \[ \] **3 screenshots** showing your work (all full screen with date/time visible)
 
-In the same terminal where you have launched Jupyter or in a new terminal (but make sure you are in the folder of the repository you have cloned).
+In the same terminal where you have launched Jupyter or in a new terminal (but make sure you are located in the folder of the repository you have cloned).
 
 Run the following commands to submit your work for this part of the Lab No1 and the requirements of this assignment.
 
@@ -257,9 +263,9 @@ You'll see a **green checkmark ✅** or **red X ❌** next to your commit showin
 
 ### If Something Doesn't Work:
 
-1.  **Don't panic!** This is normal when learning new tools
-2.  **Take a screenshot** of any error messages
-3.  **Ask for help** in the course Teams Channel or make an appointment during my office hours.
+1.  **Don't panic!** This is normal when learning Python or Git
+2.  **Take a screenshot** of any error messages.
+3.  **Ask for help** using the Teams Channel or make an appointment during my office hours.
 4.  **Include the error screenshot** in your repository
 
 ### Common Issues:
@@ -268,6 +274,7 @@ You'll see a **green checkmark ✅** or **red X ❌** next to your commit showin
 -   **Environment not found**: Double-check the environment name is `gg3209`
 -   **PDF export fails**: Try the browser print method, or just submit screenshots
 -   **Libraries missing**: Make sure you're in the right environment (`conda activate gg3209`)
+-   **Check and Review** the troubleshooting guideline.
 
 ## Well Done
 

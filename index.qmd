@@ -18,7 +18,7 @@ This part will establish a comprehensive introduction to **Python** (an easy-to-
 
 This module include Lecture+Lab sessions. Lectures will be delivered first, followed by lab practices included in this site. Students will be expected to work on these during the lab sessions but may also have to continue their own for the rest of the week, since the scheduled time may not be sufficient to finish everything.
 
-All students enrolled in GG3209 have access to the University's ArcGIS Online **Organisational Account** using their University credentials. We will use this platform in some of the Labs. If you havent experimenting and working with this platform before, to get started, please log in at: 👉 [https://uostandrews.maps.arcgis.com](https://uostandrews.maps.arcgis.com/)
+All students enrolled in **GG3209** have access to the University's ArcGIS Online **Organisational Account** using their University credentials. We will use this platform for some Labs. If you haven't experienced or worked with this platform, please log in at: 👉 [https://uostandrews.maps.arcgis.com](https://uostandrews.maps.arcgis.com/)
 
 ::: {.content-visible when-format="html"}
 ![Sign In to ArcGIS Online St Andrews](images/SigIn_AGOL_StAndrews.mp4)

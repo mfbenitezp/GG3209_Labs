@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-07-24">
+<meta name="dcterms.date" content="2025-07-25">
 
 <title>Step 2. Introduction to Git – GG3209 - Spatial Analysis with GIS</title>
 <style>
@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b26f1356e4a529654e33d9dea049c07d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-bdfc144f11e19f1fcd81d572686af4f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-b26f1356e4a529654e33d9dea049c07d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-465f4e8683e4264e51e6c989c7d31edf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7f9e0507c1234c3465e72dc2bdcae371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-465f4e8683e4264e51e6c989c7d31edf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -551,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 24, 2025</p>
+      <p class="date">July 25, 2025</p>
     </div>
   </div>
   
@@ -679,10 +679,10 @@ gitGraph TB:
 <p><code>cd</code>—Short for “change directory”, to move through the directory structure (in the same drive), as in cd <code>C:\Users\fbenitez\Downloads</code></p>
 <p><code>cd..</code> —to move to the upper level in your directories, so if you need to move from <code>C:\Users\fbenitez\Downloads</code> to <code>C:\Users\fbenitez\</code></p>
 <p><img src="images/clipboard-2102793090.png" class="img-fluid"></p>
-<p><code>X:</code> —To switch to a different drive, type the drive name followed by colon, as in D: to switch to drive D:\</p>
-<p><code>cls</code> (Windows) or clear (macOS) —To clean your terminal, it would help you to have a clean terminal and avoid mistakes.</p>
-<p><code>dir</code>(windows)</p>
-<p><code>ls</code> (macOs) —To list current directory contents.</p>
+<p><code>X:</code> ➙To switch to a different drive, type the drive name followed by colon, as in <code>D:</code> to switch to drive D:\</p>
+<p><code>cls</code> (Windows) or <code>clear</code> (macOS) ➙ To clean your terminal, it would help you to have a clean terminal and avoid mistakes.</p>
+<p><code>dir</code>➙(Windows)—To list current directory contents.</p>
+<p><code>ls</code> ➙ (macOs) —To list current directory contents.</p>
 <ol type="1">
 <li>Go to your <u>Documents</u> folder in your computer. Create a folder call it <strong>MyFirstRepo</strong></li>
 <li>Open a <strong>terminal/command prompt</strong>, browse from the folder you are in to the new one, like the following illustrations.</li>
@@ -722,7 +722,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is a chance you won’t open GitHub for anything else than this course, but also there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.</p>
+<p>There is a chance you won’t open GitHub for anything else than this course, but there is another chance where you will ended up working as spatial data scientist, or consultant into a collaborative development team. If that is your case, improving and configuring your GitHub account, as well as familiarizing about how it works would be definitively beneficial for you. For instance there are lot of companies or institutions who are asking or expecting you to have some well-curated repositories that prove your skills in Python and GitHub. Thus take some time to enhance your profile by adding this little extra information.</p>
 </div>
 </div>
 <ol type="1">
@@ -765,11 +765,11 @@ Note
 </section>
 <section id="initial-git-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="initial-git-configuration">2.2 Initial Git Configuration</h2>
-<p>Open your terminal (Git Bash on Windows, Terminal on macOS/Linux) and run:</p>
+<p>Open your terminal (<code>Git Bash</code> on Windows, <code>Terminal</code> on macOS/Linux) and run:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your name (use your real name)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your email (use your GitHub email)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your email (use your GitHub email!!)</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@st-andrews.ac.uk"</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify configuration</span></span>
@@ -804,12 +804,28 @@ Note
 </section>
 <section id="create-project-files" class="level2">
 <h2 class="anchored" data-anchor-id="create-project-files">3.3 Create Project Files</h2>
-<p>We will generate several files within this pilot project, so you can see how the repo can evolve and changes over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.</p>
+<p>We will generate several files within this pilot project, so you can see how the repo can evolve over time in the same way it happens when you work on a real project. The first file you need is the README which helps to describe what your project or repo is about.</p>
 <section id="create-a-readme-file" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-readme-file">Create a README file:</h3>
+<ol type="1">
+<li>In the same Terminal ( Command prompt) and run the following commands.</li>
+</ol>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create README.md</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open the <code>README.md</code> file and add content:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This type of file is called <strong>Markdown</strong> and we will work later on this, but essentially is an standard and programmatic way to create text documents that follow a structural and standard style. Use any Text editor (Not MS-Word!) to edit e.g R Studio.</p>
+</div>
+</div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Urban Heat Island Analysis</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Overview</span></span>
@@ -837,14 +853,10 @@ Note
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>│└── processed/ # Cleaned and processed data </span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>├── scripts/ # R scripts for analysis</span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>├── outputs/ # Maps, plots, and results</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>└── docs/ # Documentation and reports</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Your Name</span><span class="co">]</span> - <span class="co">[</span><span class="ot">Your Email</span><span class="co">]</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>└── docs/ # Documentation and reports</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="create-a-.gitignore-file" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-.gitignore-file">Create a .gitignore file:</h3>
-<div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -858,9 +870,13 @@ Warning
 <p>This is a very essential and relevant step when you work with repositories, in particular when working with spatial data science as we usually have to deal with large datasets, however cloud platforms –Github have storage limitations (e.g 50MB, 100MG). Sometimes also the jupyter notebooks can weight more than the storage limitations given by github. Therefore is super IMPORTANT that you create a file that tells your local repo to ignore those big files so you don’t have any trouble when you <code>push</code> the files to the cloud.</p>
 </div>
 </div>
-</div>
+<ol type="1">
+<li>In the same Terminal ( Command prompt) and run the following commands.</li>
+</ol>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Open the <code>.gitignore</code> file and add common files to ignore, you could add more data extensions later, or you could also add entire folders.</p>
+<ol start="2" type="1">
+<li>Open the <code>.gitignore</code> file and add common files to ignore, you could add more data extensions later, or you could also add entire folders.</li>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -875,7 +891,7 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -884,7 +900,7 @@ How to make them visible?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="windows-users" class="level4">
 <h4 class="anchored" data-anchor-id="windows-users">Windows Users</h4>
@@ -1007,6 +1023,7 @@ How to make them visible?
 </section>
 <section id="your-first-commit" class="level2">
 <h2 class="anchored" data-anchor-id="your-first-commit">3.4 Your First Commit</h2>
+<p>In the same Terminal ( Command prompt) and run the following commands.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check status</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1034,16 +1051,17 @@ How to make them visible?
 </section>
 <section id="connect-local-repository-to-github" class="level2">
 <h2 class="anchored" data-anchor-id="connect-local-repository-to-github">4.2 Connect Local Repository to GitHub</h2>
-<p>GitHub will show you commands to run. Copy and paste these <strong>into your terminal:</strong></p>
+<p>Copy and paste these(One by one) <strong>into your terminal, make sure you make the required edits–Read the comments:</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add GitHub as remote origin</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/yourusername/urban_heat_island_analysis.git </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Replace this URL with YOUR URL</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify remote connection</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Push your local repository to GitHub</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Replace this URL with YOUR URL=====</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ====If you are using a Windows Machine Copy&amp;Paste the HTTPS link, but if you are using a MacOS machine Copy&amp;Paste the SSH link.====== </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify remote connection</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Push your local repository to GitHub</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="verify-changes-in-the-cloud-repo" class="level2">
 <h2 class="anchored" data-anchor-id="verify-changes-in-the-cloud-repo">4.3 Verify changes in the Cloud Repo</h2>
@@ -1057,10 +1075,10 @@ How to make them visible?
 <section id="step-5-fetch-changes-from-github-to-your-local-repo." class="level1">
 <h1>Step 5: Fetch changes from GitHub to your Local Repo.</h1>
 <p>What you did earlier was one of the two ways to keep sync your Local and Cloud Repository. Now lets try an small exercise where you add a file to directly to your Cloud Repo in GitHub and then you fetch that to your Local Repo.</p>
-<p>Remember the idea of this exercise is that you practice how to keep both local and cloud copies of your Repo properly sync.</p>
+<p><u>Remember the idea of this exercise is that you practice how to keep both local and cloud copies of your Repo properly sync.</u></p>
 <ol type="1">
 <li><p>In GitHub, in the repository page, click <strong>Add File</strong>, and <strong>Upload Files</strong></p></li>
-<li><p>Upload the following file <code>temperature_analysis.R</code> available in Moodle separately.</p></li>
+<li><p>Upload the following file <code>temperature_analysis.R</code> Click to <a href="./temperature_analysis.R">here</a> download.</p></li>
 <li><p>Click in the green button <strong>Commit Changes</strong></p></li>
 </ol>
 <p>Now your <strong>Cloud Repo</strong> is ahead of your <strong>Local Repo</strong>, therefore you need to sync it with your Local Repo so both versions are the same again.</p>
@@ -1163,11 +1181,11 @@ Caution
 </section>
 <section id="adding-and-committing-changes" class="level2">
 <h2 class="anchored" data-anchor-id="adding-and-committing-changes">6.3 Adding and Committing Changes</h2>
-<p>Let’s add a spatial analysis script:</p>
+<p>Let’s add more files:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new R script</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> scripts/soil_analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Add some content to <code>scripts/soil_analysis.R</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Urban Heat Island Analysis</span></span>
+<p>Open the R file and add some content to <code>scripts/soil_analysis.R</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Soil Analysis</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># GG3209 - Spatial Data Science</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
@@ -1185,7 +1203,7 @@ Caution
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Add soil extraction analysis</span></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Add spatial interpolation</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Create soil maps</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now commit these changes:</p>
+<p>Now commit these changes, using the Terminal or Command Prompt :</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the new script</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/soil_analysis.R</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1227,6 +1245,7 @@ Caution
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See changes in a specific file</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff scripts/temperature_analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also validate Your Cloud Repo and check that contains the same files you have in your local repo. Now if safe in the cloud. You or others could eventually clone to get those files work and contribute in the same project you have created.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1350,8 +1369,8 @@ Note
 <h1>Collaboration Workflow</h1>
 <section id="cloning-an-existing-repository" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-an-existing-repository">Cloning an Existing Repository</h2>
-<p>GitHub is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their work, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone a repository you need to replicate locally</span></span>
+<p><strong>GitHub</strong> is a cloud platform full of resources that you will eventually find useful, and you can create a copy of those great projects and include them as part of your repositories, so you can also replicate their work, or when you are working on a collaborative project, you will need to clone someone else repository, taking all the files included in the Cloud to a Local Repository in your computer.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone a repository you need to replicate locally (HTTPS for Windows, SSH for MacOS)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/repository-name.git</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the cloned directory</span></span>
@@ -2100,6 +2119,26 @@ Note
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025, Fernando Benitez-Paez - SGSD - The University of St Andrews</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mfbenitezp">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

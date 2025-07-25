@@ -8,6 +8,12 @@ book:
   date: last-modified
   favicon: "images/StA.png"
   downloads: [pdf]
+  page-footer:
+    background: light
+    left: "2025, Fernando Benitez-Paez - SGSD - The University of St Andrews"
+    right:
+      - icon: github
+        href: https://github.com/mfbenitezp
   sidebar:
     style: "floating"
     date-format: iso

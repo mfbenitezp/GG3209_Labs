@@ -347,9 +347,9 @@ Once your environment is set up:
 6.  **Make sure you push your changes, updates and work regularly to your Repo in GitHub.**
 
 ::: callout-note
-Your python environment for this course `GG3209` is now ready. Now you need to install GIT and create a GitHub account to have everything you need to practice all your Python skills., there are some steps you need to recall while you work on this course, but with practice you will eventually memorise most of the critial steps.
+Your python environment for this course `GG3209` is now ready. Now you need to install GIT and create a GitHub account to have everything you need to practice all your Python skills., there are some steps you need to recall while you work on this course, but with practice you will eventually memorise most of the critical steps.
 
-Move to Step No 2.
+Move to **Step No 2.**
 :::
 
 ------------------------------------------------------------------------
