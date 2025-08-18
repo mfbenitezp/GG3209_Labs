@@ -18,6 +18,7 @@ book:
     style: "floating"
     date-format: iso
     title: "{{< meta date >}}"
+    collapse-level: 1  
   navbar:
     background: light
     search: true
@@ -26,15 +27,21 @@ book:
         href: index.qmd
       - intro.qmd
       - DataSources.qmd
+  # Binder option removed; only Thebe enabled for in-browser execution
   chapters:
     - index.qmd
     - intro.qmd
-    - gg3209_install_guide.qmd
-    - git_guide.qmd
-    - Lab_1.qmd
-    - Lab_1/Lab_1.qmd
-    - Lab_2.qmd
-    - Lab_3.qmd
+    - part: "Installation"
+      chapters:
+        - gg3209_install_guide.qmd
+        - git_guide.qmd
+    - part: "Lab No 1: Introduction to Python"
+      chapters:
+        - Lab_1/Lab_1.qmd
+    - part: "Lab No 2: Python Basics"
+      chapters:
+        - Lab_2/Lab_2_1.qmd
+        - Lab_2/Lab_2_2.qmd
     - part: "Assignments"
       chapters:
         - assignments/lab_1_installation.qmd
@@ -50,6 +57,8 @@ format:
       light: cosmo
       dark:
         - theme-dark.scss
+    #code-tools: true
+    thebe: true
   pdf:
     documentclass: scrbook
 

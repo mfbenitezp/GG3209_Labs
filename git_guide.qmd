@@ -648,7 +648,7 @@ Start now with the **Lab No 1.**
 ## Configuration Commands
 
 | Command | Purpose | Example |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `git config --global user.name` | Set name | `git config --global user.name "John Doe"` |
 | `git config --global user.email` | Set email | `git config --global user.email "john@example.com"` |
 | `git remote add origin` | Add remote | `git remote add origin https://github.com/user/repo.git` |

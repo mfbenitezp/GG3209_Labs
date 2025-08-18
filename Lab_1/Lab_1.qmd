@@ -1,14 +1,16 @@
-# Lab No 1: Introduction to Python using ArcGIS Online {.unnumbered}
+# Introduction to Python using ArcGIS Online {.unnumbered}
 
-Perhaps one of the fastest and easiest way to start with python as spatial data scientists for you is to create a notebook in ArcGIS Pro and use it to run some Python code. In here you don't need to install any python environment as everything comes as part of the installation of ArcGIS Pro. We will work this way, so you are familiar with python and then we will move to more advance instructions later.
+Perhaps one of the fastest and easiest way to start with python as spatial data scientists for you is to create a notebook in ArcGIS Pro and use it to run some Python code. For this part you wont use the Python Enviroment you have installed, and you can use the Computer Lab, where ArcGIS Desktop is installed. To help you getting started and get familiar with the python Environment, we will use ArcGIS Desktop.
 
 ### Setting up the ArcGIS Pro Project
 
-1.  In Moodle download the file **PY4SA_Week5.ppkx** in PY4SA Lab Week 5 to a location on your lab computer.
+Using the computer lab.
 
-    > The file contains an ArcGIS Pro package that includes, maps, a database combined.
-    >
-    > **In this lesson the data is shown at specific folder. You can use a different folder, but be sure to adjust the paths in the instructions that follow.**
+1.  In Moodle download the file **PY4SA_Week5.ppkx** in the Week 5 to a location on your lab computer.
+
+    ::: callout-note
+    The file contains an ArcGIS Pro package that includes, maps, a database combined. **In this lesson the data is shown at specific folder. You can use a different folder, but be sure to adjust the paths in the instructions that follow.**
+    :::
 
 2.  Find the **PY4SA_Week5.ppkx** file (likely in the Downloads folder), and double click to open it using ArcGIS Pro.
 
@@ -833,8 +835,10 @@ It is a **good idea** **to save your work regularly** when you work in notebooks
 
 ![](images/clipboard-47824098.png)
 
+::: callout-important
 ## **Challenge for next class**
 
 Now that you have learned how to create a map, search for content, add layers, and save a webmap, use **Python and ArcGIS Notebooks** to create another web map that contains multiple layers that you are interested in. Save the webmap to ArcGIS Online.
 
 **Be ready to showcase this webmap during the next class** showing what the map is about and the difficulties you had
+:::

@@ -1,6 +1,6 @@
 # Step 1. Python Environment Installation {.unnumbered}
 
-This guide provides step-by-step instructions for setting up the Python environment for second part of the **module GG3209** on Windows and macOS. The environment includes all necessary libraries for data handling, clustering, visualization, large datasets, and hotspot analysis.
+This guide provides step-by-step instructions for setting up the Python environment for second part of the **module GG3209** on your own computer whether is Windows or macOS. The environment includes all necessary libraries for data handling, clustering, visualization, large datasets, and hotspot analysis.
 
 **Estimated time to install:** [**20 to 30 minutes**.]{.underline}
 
@@ -18,7 +18,7 @@ Before starting, ensure you have:
 
 -   [ ] Administrator privileges on your computer
 
--   [ ] Basic familiarity with command line interface (we will have a show demo about this during the lectures)
+-   [ ] Basic familiarity with command line interface (we will have a demo about this during the lectures)
 
 ::: {.callout-caution collapse="true"}
 If you don't know how to validate this, please make an appointment with our IT service person who can support you with this at [gsditsupport\@st-andrews.ac.uk](gsditsupport@st-andrews.ac.uk)
@@ -68,7 +68,7 @@ Miniconda provides a clean, minimal Python installation with only essential pack
     -   Type `python --version` and press Enter
     -   You should see: `Python 3.10.x`
 
-### Post-Installation Setup (All Students)
+### Post-Installation Setup
 
 After successful installation, run these commands to ensure consistency:
 
@@ -93,7 +93,7 @@ conda info
 
 ### Step 1: Download the Environment File
 
-Save the environment configuration as `environment.yml` in a folder of your choice (e.g., `Documents/gg3209/`).
+Save the environment configuration file \[`environment.yml`\] in a folder of your choice (e.g., `Documents/gg3209/`). [Click here to download](env/environment.yml) or find it in Moodle.
 
 ### Step 2: Open Command Line Interface
 
@@ -122,9 +122,9 @@ Save the environment configuration as `environment.yml` in a folder of your choi
 **All students should create the same folder structure:**
 
 ``` bash
-# Windows students
-mkdir C:\gg3209 #sds stands for spatial dtata science 
-cd C:\gg3209
+# Windows students Example
+mkdir C:\Documents\gg3209 # mkdir is a command to create a folder.
+cd C:\Documents\gg3209
 
 # macOS students
 mkdir ~/gg3209
@@ -135,22 +135,17 @@ cd ~/gg3209
 
 **Before creating the environment, ensure you have the correct file:**
 
-1.  Save the `environment.yml` file in your project directory. This file is located in Moodle, go there and download it and place it in the project directory you created earlier.
-2.  Verify the file exists:
-
-``` bash
-# All students run this command
-dir environment.yml    # Windows
-ls environment.yml     # macOS
-```
-
-You should see the file listed. If not, ensure you saved it correctly.
+Save or Copy & Paste the `environment.yml` file into your `GG3209` folder directory.
 
 ### Step 5: Create the Environment (Critical Step)
 
 **This is where consistency matters most:**
 
+Now with the same terminal you have before run the following commands:
+
 ``` bash
+# Make sure you are located in the folder GG3209
+
 # Create environment from file
 conda env create -f environment.yml
 
@@ -179,7 +174,7 @@ Executing transaction: done
 
 ### Step 6: Activate the Environment
 
-**All students must activate the environment before using it – THIS IS VERY IMPORTANT:**
+**You must activate the environment before using it – THIS IS VERY IMPORTANT:**
 
 ``` bash
 # Activate the environment
@@ -198,9 +193,9 @@ conda activate gg3209
 
 ### Step 7: Final Verification
 
-**All students run the same verification script:**
+Once you have created your python environment, now it is important you test that everything is properly installed. [Download the verification script here](env/verification_script.py) or Moodle and locate it in the GG3209 folder you created earlier.
 
-Once you have created your python environment, now it is important you test that everything is properly installed. Using the same `terminal` or `command prompt` window run the following command.
+Using the same `terminal` or `command prompt` window run the following command.
 
 ``` bash
 # Make sure environment is activated (optional if you know you have activated it)
@@ -217,7 +212,7 @@ python test_installation.py
 (gg3209) username@computer:~/gg3209/$ python verification_script.py
 ```
 
-**Expected Output for All Students:**
+**Expected Output:**
 
 ```         
 Python version: 3.10.x
@@ -236,6 +231,8 @@ If successful, you should see version numbers and check-marks.
 ## 3. Running Jupyter Lab {#running-jupyter-lab}
 
 ### Starting Jupyter Lab
+
+Now lets check you Jupyter Lab is working. In the same terminal you have been working, run the following commands.
 
 ``` bash
 # Make sure environment is activated (optional if you know you have activated it)
@@ -276,11 +273,11 @@ plt.show()
 ### Stopping Jupyter Lab
 
 -   In your browser: File \> Shut Down
--   In command line: Press `Ctrl + C` (Windows) or `Cmd + C` (Mac)
+-   In command line or terminal: Press `Ctrl + C` (Windows) or `Cmd + C` (Mac)
 
 ------------------------------------------------------------------------
 
-## 4. GG3209-Specific Setup Instructions
+## GG3209-Specific Setup Instructions
 
 ### First Day of Class Checklist
 
@@ -335,26 +332,19 @@ print(f"Environment: gg3209")
 
 ------------------------------------------------------------------------
 
-## 5. Next Steps
+## 4. Next Steps
 
 Once your environment is set up:
 
-1.  **Complete the verification tests**
-2.  **Try the sample notebook**
-3.  **Explore the example datasets (Data Sources section)**
-4.  **Begin the Guideline Introduction to GIT**
-5.  **Now you are all set to start with Lab No 1, Lab No 2...and so on**
-6.  **Make sure you push your changes, updates and work regularly to your Repo in GitHub.**
-
 ::: callout-note
-Your python environment for this course `GG3209` is now ready. Now you need to install GIT and create a GitHub account to have everything you need to practice all your Python skills., there are some steps you need to recall while you work on this course, but with practice you will eventually memorise most of the critical steps.
+Your python environment for this course `GG3209` is now ready. Now you need to install **GIT** and **create a GitHub account** to have everything you need to practice all your Python skills., there are some steps you need to recall while you work on this course, but with practice you will eventually memorise most of the critical steps.
 
-Move to **Step No 2.**
+Move to **Step No 2 of this guideline.**
 :::
 
 ------------------------------------------------------------------------
 
-## Useful resources
+## Extra Useful resources
 
 ### Learning Materials
 

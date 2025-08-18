@@ -176,7 +176,7 @@ conda env create -f environment.yml
 
 ------------------------------------------------------------------------
 
-# Additional Resources 
+# Additional Resources
 
 Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, export your outcomes to PDF, and get extra learning resources.
 
